@@ -1,0 +1,79 @@
+Kudzu FAQ:
+----------
+
+1) So, what is kudzu?
+
+kudzu is the hardware autodetection & configuration tool, originally
+introduced in Red Hat Linux 6.1. It detects changes in the system's
+hardware configuration, and gives the option of configuring
+added or removed devices. It's set up by default to run at
+each boot.
+
+2) What type of devices does kudzu detect?
+
+Currently, kudzu detects:
+
+- PCI cards
+- SBUS cards
+- serial devices (PnP devices, mice, modems)
+- parallel port devices (printers)
+- SCSI devices (provided the appropriate SCSI modules are loaded)
+- IDE devices
+- PS/2 mice
+- Keyboards on SPARC
+
+More devices and types will be added in the future.
+
+3) What is kudzu doing when it says 'Configuring device X...'?
+
+Configuration:
+- Network:
+	- adds an 'ethX' alias, if necessary
+	- migrates old device config, or creates a new one.
+- SCSI:
+	- adds a 'scsi_hostadapter' alias
+- Video card:
+	- runs Xconfigurator
+- Sound card:
+	- runs sndconfig
+- Mouse
+	- makes /dev/mouse link
+	- runs mouseconfig
+- Modem
+	- makes /dev/modem link
+- CD-ROM
+        - makes /dev/cdrom link
+- Scanner
+	- makes /dev/scanner link
+- Keyboard
+	- runs kbdconfig
+	- for serial console makes sure /etc/inittab and /etc/securetty
+	  are ready for serial console operation
+
+Un-configuration:
+- Network:
+	- removes ethX alias
+- SCSI:
+	- removes scsi_hostadapterX alias
+- Mouse:
+	- removes /dev/mouse link
+- Modem:
+	- removes /dev/modem link
+- CD-ROM:
+	- removes /dev/cdrom link
+- Scanner:
+	- removes /dev/scanner link
+
+4) Where do I submit bug reports about kudzu?
+
+http://developer.redhat.com/bugzilla/
+
+5) Are there any known bugs in kudzu?
+
+The serial probe can confuse devices if they are
+currently in use. (modems, mice) The PS/2 probe
+also will cause the mouse to act strangely under X.
+
+Running the serial probe on a machine that is acting
+as a serial console can produce odd results.
+

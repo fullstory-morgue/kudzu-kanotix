@@ -1,0 +1,538 @@
+# Copyright (C) 2001 Red Hat, Inc.
+# Claudia Krug <ckrug@redhat.it>, 2001.
+# Bernd Groh <bgroh@redhat.com>, 2003.
+# Bernd Bartmann <Bernd.Bartmann@sohanet.de>, 2004.
+# Ronny Buchmann <ronny-vlug@vlugnet.org> 2005
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: de\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-03-03 18:15-0500\n"
+"PO-Revision-Date: 2005-03-23 22:58+0100\n"
+"Last-Translator: Ronny Buchmann <ronny-vlug@vlugnet.org>\n"
+"Language-Team: Deutsch <de@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0.2\n"
+
+# ../hwconf.c:283
+#: ../hwconf.c:128
+#, c-format
+msgid "linked %s to %s"
+msgstr "%s mit %s verknüpft"
+
+# ../hwconf.c:304
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "%s gelöst (war mit %s verknüpft)"
+
+# ../hwconf.c:306
+#: ../hwconf.c:151
+#, c-format
+msgid "unlinked %s"
+msgstr "%s ist nicht verknüpft"
+
+# ../hwconf.c:341
+#: ../hwconf.c:191
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "loadkeys %s wurde ausgeführt"
+
+# ../hwconf.c:817 ../hwconf.c:860 ../hwconf.c:881 ../hwconf.c:897
+# ../hwconf.c:928
+#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:766 ../hwconf.c:785
+#: ../hwconf.c:811 ../hwconf.c:837 ../hwconf.c:864
+#, c-format
+msgid "aliased %s as %s"
+msgstr "für %s wurde Alias %s gesetzt"
+
+# ../hwconf.c:953
+#: ../hwconf.c:875
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "mouseconfig wurde für %s ausgeführt"
+
+#: ../hwconf.c:898
+msgid "turned on bcm5820 service"
+msgstr "bcm5820 Dienst eingeschaltet"
+
+#: ../hwconf.c:909
+msgid "turned on aep1000 service"
+msgstr "aep1000 Dienst eingeschaltet"
+
+#: ../hwconf.c:1166
+msgid "network card"
+msgstr "Netzwerkkarte"
+
+#: ../hwconf.c:1168
+msgid "SCSI controller"
+msgstr "SCSI-Controller"
+
+#: ../hwconf.c:1170
+msgid "video adapter"
+msgstr "Grafikadapter"
+
+#: ../hwconf.c:1172
+msgid "sound card"
+msgstr "Soundkarte"
+
+#: ../hwconf.c:1174
+msgid "mouse"
+msgstr "Maus"
+
+#: ../hwconf.c:1176
+msgid "modem"
+msgstr "Modem"
+
+#: ../hwconf.c:1178
+msgid "CD-ROM drive"
+msgstr "CD-ROM-Laufwerk"
+
+#: ../hwconf.c:1180
+msgid "tape drive"
+msgstr "Band-Laufwerk"
+
+#: ../hwconf.c:1182
+msgid "floppy drive"
+msgstr "Disketten-Laufwerk"
+
+#: ../hwconf.c:1184
+msgid "scanner"
+msgstr "Scanner"
+
+#: ../hwconf.c:1186
+msgid "hard disk"
+msgstr "Festplatte"
+
+#: ../hwconf.c:1188
+msgid "RAID controller"
+msgstr "RAID-Controller"
+
+#: ../hwconf.c:1190
+msgid "IDE controller"
+msgstr "IDE-Controller"
+
+#: ../hwconf.c:1192
+msgid "printer"
+msgstr "Drucker"
+
+#: ../hwconf.c:1194
+msgid "video capture card"
+msgstr "Videokarte"
+
+#: ../hwconf.c:1196
+msgid "keyboard"
+msgstr "Tastatur"
+
+#: ../hwconf.c:1198
+msgid "monitor"
+msgstr "Monitor"
+
+#: ../hwconf.c:1200
+msgid "USB controller"
+msgstr "USB-Controller"
+
+#: ../hwconf.c:1202
+msgid "IEEE1394 controller"
+msgstr "IEEE1394 Controller"
+
+#: ../hwconf.c:1204
+msgid "PCMCIA/Cardbus controller"
+msgstr "PCMCIA/Cardbus-Controller"
+
+#: ../hwconf.c:1208
+#, c-format
+msgid "%s device"
+msgstr "%s Gerät"
+
+# ../hwconf.c:1350
+#: ../hwconf.c:1399
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr ""
+"sicheren Erkennungsmodus verwenden, der Hardware-Funktionen nicht "
+"beeinträchtigt"
+
+# ../hwconf.c:1354
+#: ../hwconf.c:1403
+msgid "set timeout in seconds"
+msgstr "Zeitüberschreitung in Sekunden festlegen"
+
+#: ../hwconf.c:1406
+msgid "probe only, print information to stdout"
+msgstr "nur suchen, gebe Informationen auf die Standardausgabe aus"
+
+#: ../hwconf.c:1410
+msgid "probe only the specified 'bus'"
+msgstr "nur angegebenen Bus durchsuchen"
+
+#: ../hwconf.c:1414
+msgid "probe only for the specified 'class'"
+msgstr "nur nach der angegebene 'Klasse' suchen"
+
+# ../hwconf.c:1357
+#: ../hwconf.c:1418
+msgid "read probed hardware from a file"
+msgstr "erkannte Hardware aus Datei lesen"
+
+# ../hwconf.c:1358
+#: ../hwconf.c:1419
+msgid "file to read hardware info from"
+msgstr "Datei für das Einlesen der Hardware-Informationen"
+
+#: ../hwconf.c:1422
+msgid "search for modules for a particular kernel version"
+msgstr "Nach Modulen für eine bestimmte Kernelversion suchen"
+
+#: ../hwconf.c:1423
+msgid "kernel version"
+msgstr "Kernelversion"
+
+# ../hwconf.c:1357
+#: ../hwconf.c:1426
+msgid "read probed hardware from a socket"
+msgstr "erkannte Hardware von einem Socket lesen"
+
+# ../hwconf.c:1346
+#: ../hwconf.c:1430
+msgid "do configuration that doesn't require user input"
+msgstr "Konfiguration ohne Benutzereingaben durchführen"
+
+#: ../hwconf.c:1452
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"Fehler - Sie müssen als Root angemeldet sein, um Kudzu zu starten.\n"
+
+# ../hwconf.c:59
+#~ msgid ""
+#~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
+#~ "screen"
+#~ msgstr ""
+#~ "<Tab>/<Alt+Tabulator> Zwischen Elementen wechseln |  <Leertaste> "
+#~ "Auswählen |<F12> Nächster Bildschirm"
+
+# ../hwconf.c:62
+#~ msgid ""
+#~ "Hardware Discovery Utility %s                     (C) 2003 Red Hat, Inc."
+#~ msgstr ""
+#~ "Tool zur Hardware-Erkennung %s                     (C) 2003 Red Hat, Inc."
+
+# ../hwconf.c:435
+#~ msgid "Update /etc/inittab"
+#~ msgstr "/etc/inittab aktualisieren"
+
+# ../hwconf.c:435 ../hwconf.c:568 ../hwconf.c:825
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+# ../hwconf.c:435 ../hwconf.c:568 ../hwconf.c:825
+#~ msgid "No"
+#~ msgstr "Nein"
+
+# ../hwconf.c:436
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for serial console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "Ihre Einstellung in /etc/inittab ist nicht für die Verwendung einer "
+#~ "seriellen Konsole geeignet. Möchten Sie eine Aktualisierung vornehmen?"
+
+# ../hwconf.c:438
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for video console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "Ihre Einstellung in /etc/inittab ist nicht für die Verwendung einer "
+#~ "Videokonsole geeignet. Möchten Sie eine Aktualisierung vornehmen?"
+
+# ../hwconf.c:568
+#~ msgid "Update /etc/securetty"
+#~ msgstr "/etc/securetty aktualisieren"
+
+# ../hwconf.c:569
+#~ msgid ""
+#~ "Your /etc/securetty does not contain `%s' device, which means root won't "
+#~ "be able to log in on console. Would you like to update it?"
+#~ msgstr ""
+#~ "In /etc/securetty ist kein `%s' Gerät enthalten. Dies bedeutet, dass sich "
+#~ "Root nicht an einer Konsole anmelden kann. Möchten Sie eine "
+#~ "Aktualisierung vornehmen?"
+
+# ../hwconf.c:787
+#~ msgid "Configuring %s"
+#~ msgstr "Konfigurieren von %s"
+
+# ../hwconf.c:788
+#~ msgid "Configuring"
+#~ msgstr "Konfigurieren"
+
+# ../hwconf.c:834
+#~ msgid "ran netconfig for %s (%s)"
+#~ msgstr "netconfig wurde für %s (%s) ausgeführt"
+
+# ../hwconf.c:834
+#~ msgid "ran system-config-keyboard for %s"
+#~ msgstr "system-config-keyboard wurde für %s ausgeführt"
+
+# ../hwconf.c:834
+#~ msgid "ran printconf for %s"
+#~ msgstr "printconf wurde für %s ausgeführt"
+
+# ../hwconf.c:1011
+#~ msgid "Unconfiguring %s"
+#~ msgstr "Konfiguration für %s wird gelöscht"
+
+# ../hwconf.c:1012
+#~ msgid "Removing Configuration"
+#~ msgstr "Konfiguration wird gelöscht"
+
+# ../hwconf.c:1121 ../hwconf.c:1124 ../hwconf.c:1158
+#~ msgid "Welcome to Kudzu"
+#~ msgstr "Willkommen bei Kudzu"
+
+# ../hwconf.c:1133
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue.\n"
+#~ "\n"
+#~ "         Normal bootup will continue in %d seconds."
+#~ msgstr ""
+#~ "Willkommen bei Kudzu, dem Red Hat Linux Hardware Erkennungs-/"
+#~ "Konfigurations-Programm.\n"
+#~ "\n"
+#~ "Mit Hilfe der folgenden Dialoge können Sie Ihre Computerkonfiguration "
+#~ "nach dem Hinzufügen oder Entfernen von Hardware-Komponenten "
+#~ "aktualisieren.\n"
+#~ "\n"
+#~ "Drücken Sie zum Fortfahren eine beliebige Taste.\n"
+#~ "\n"
+#~ "Der normale Boot-Vorgang wird in %d Sekunden fortgesetzt."
+
+# ../hwconf.c:1142
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue."
+#~ msgstr ""
+#~ "Willkommen bei Kudzu, dem Red Hat Linux Hardware Erkennungs/"
+#~ "Konfigurations Programm.\n"
+#~ "\n"
+#~ "Mit Hilfe der folgenden Dialoge können Sie Ihre Computerkonfiguration "
+#~ "nach dem Hinzufügen oder Entfernen von Hardware-Komponenten "
+#~ "aktualisieren.\n"
+#~ "\n"
+#~ "Drücken Sie zum Fortfahren eine beliebige Taste."
+
+# ../hwconf.c:1159
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Timeout exceeded."
+#~ msgstr ""
+#~ "Willkommen bei Kudzu, dem Red Hat Linux Hardware Erkennungs/"
+#~ "Konfigurations Programm.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                     Zeitüberschreitung ist erfolgt."
+
+#~ msgid ""
+#~ " <F2> Configure / Unconfigure All  |  <F3> Ignore / Keep All  |  <F4> "
+#~ "Cancel "
+#~ msgstr ""
+#~ " <F2> Konfigurieren / Alle Konfigurationen löschen   |  <F3> Ignorieren / "
+#~ "Alle beibehalten   |  <F4> Abbrechen "
+
+# ../hwconf.c:1258
+#~ msgid "Hardware Removed"
+#~ msgstr "Entfernte Hardware"
+
+# ../hwconf.c:1258
+#~ msgid "Remove Configuration"
+#~ msgstr "Konfiguration löschen"
+
+# ../hwconf.c:1259
+#~ msgid "Keep Configuration"
+#~ msgstr "Konfiguration beibehalten"
+
+# ../hwconf.c:1259 ../hwconf.c:1295
+#~ msgid "Do Nothing"
+#~ msgstr "Keine Aktion ausführen"
+
+# ../hwconf.c:1260
+#~ msgid ""
+#~ "The following %s has been removed from your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Remove any existing configuration for the device.\n"
+#~ "2) Keep the existing configuration. You will not be prompted again if the "
+#~ "device seems to be missing.\n"
+#~ "3) Do nothing. The configuration will not be removed, but if the device "
+#~ "is found missing on subsequent reboots, you will be prompted again."
+#~ msgstr ""
+#~ "Folgende %s wurden aus Ihrem System entfernt:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "Sie haben folgende Optionen:\n"
+#~ "\n"
+#~ "1) Die vorhandene Konfiguration für das Gerät löschen.\n"
+#~ "2) Die vorhandene Konfiguration beibehalten. Es erfolgt keine erneute "
+#~ "Meldung, wenn das Gerät zu fehlen scheint.\n"
+#~ "3) Keine Aktion ausführen. Die Konfiguration wird nicht gelöscht. Wenn zu "
+#~ "einem späteren Zeitpunkt beim Booten festgestellt wird, dass das Gerät "
+#~ "fehlt, wird jedoch erneut eine Meldung ausgegeben."
+
+# ../hwconf.c:1294
+#~ msgid "Hardware Added"
+#~ msgstr "Hinzugefügte Hardware"
+
+# ../hwconf.c:1294
+#~ msgid "Configure"
+#~ msgstr "Konfigurieren"
+
+# ../hwconf.c:1295
+#~ msgid "Ignore"
+#~ msgstr "Ignorieren"
+
+# ../hwconf.c:1296
+#~ msgid ""
+#~ "The following %s has been added to your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Configure the device.\n"
+#~ "2) Ignore the device. No configuration will be added, but you will not be "
+#~ "prompted if the device is detected on subsequent reboots.\n"
+#~ "3) Do nothing. No configuration will be added, and the device will show "
+#~ "up as new if it is detected on subsequent reboots."
+#~ msgstr ""
+#~ "Folgende %s wurden zu Ihrem System hinzugefügt:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "Sie haben folgende Optionen:\n"
+#~ "\n"
+#~ "1) Das Gerät konfigurieren.\n"
+#~ "2) Das Gerät ignorieren. Es wird keine Konfiguration hinzugefügt. Wenn "
+#~ "das Gerät zu einem späteren Zeitpunkt beim Booten erkannt wird, erfolgt "
+#~ "keine Ausgabe einer entsprechenden Meldung.\n"
+#~ "3) Keine Aktion ausführen. Es wird keine Konfiguration hinzugefügt. Wenn "
+#~ "das Gerät zu einem späteren Zeitpunkt beim Booten erkannt wird, erfolgt "
+#~ "erneut die Ausgabe einer entsprechenden Meldung."
+
+# ../hwconf.c:825
+#~ msgid "Existing Configuration Detected"
+#~ msgstr "Vorhandene Konfiguration wurde erkannt"
+
+# ../hwconf.c:826
+#~ msgid "Migrate existing network configuration?"
+#~ msgstr "Soll die bestehende Netzwerkkonfiguration übernommen werden?"
+
+# ../hwconf.c:968
+#~ msgid "ran kbdconfig for %s"
+#~ msgstr "kbdconfig wurde für %s ausgeführt"
+
+#~ msgid "disabling sleep bit on potentially buggy %s hardware"
+#~ msgstr "Sleep-Bit der potentiell fehlerhaften %s Hardware deaktivieren"
+
+# ../hwconf.c:984
+#~ msgid "Run printtool"
+#~ msgstr "printtool ausführen"
+
+# ../hwconf.c:116 ../hwconf.c:125 ../hwconf.c:140 ../hwconf.c:158
+# ../hwconf.c:175 ../hwconf.c:984
+#~ msgid "Ok"
+#~ msgstr "OK"
+
+# ../hwconf.c:985
+#~ msgid ""
+#~ "To properly configure your %s, you need to run the 'printtool' command "
+#~ "from the X window system"
+#~ msgstr ""
+#~ "Um Ihren %s ordnungsgemäß zu konfigurieren, müssen Sie den Befehl "
+#~ "'printtool' unter dem X Window System ausführen."
+
+# ../hwconf.c:109
+#~ msgid "RPM Required"
+#~ msgstr "RPM erforderlich"
+
+# ../hwconf.c:109
+#~ msgid "CD"
+#~ msgstr "CD"
+
+# ../hwconf.c:109
+#~ msgid "Filesystem"
+#~ msgstr "Dateisystem"
+
+# ../hwconf.c:109 ../hwconf.c:158
+#~ msgid "Cancel"
+#~ msgstr "Abbrechen"
+
+# ../hwconf.c:110
+#~ msgid ""
+#~ "The %s RPM is needed to use this graphics card. You can install it from "
+#~ "your Red Hat Linux CD-ROM, from another location on the filesystem, or "
+#~ "postpone it until later."
+#~ msgstr ""
+#~ "Das RPM-Paket %s ist für die Verwendung dieser Grafikkarte erforderlich. "
+#~ "Sie können dieses Paket von Ihrer Red Hat Linux CD-ROM oder von einem "
+#~ "anderen Speicherort in Ihrem Dateisystem installieren oder die "
+#~ "Installation auf einen späteren Zeitpunkt verschieben."
+
+# ../hwconf.c:116
+#~ msgid "Insert CD-ROM"
+#~ msgstr "CD-ROM einlegen"
+
+# ../hwconf.c:117
+#~ msgid "Please insert your Red Hat Linux CD-ROM (Disc 1)."
+#~ msgstr "Bitte legen Sie Ihre Red Hat Linux CD-ROM (Diskette 1) ein."
+
+# ../hwconf.c:125
+#~ msgid "Mount failed"
+#~ msgstr "Fehler beim Mounten"
+
+# ../hwconf.c:126
+#~ msgid "Could not mount CD-ROM."
+#~ msgstr "CD-ROM konnte nicht gemountet werden."
+
+# ../hwconf.c:140 ../hwconf.c:175
+#~ msgid "RPM Install Failed"
+#~ msgstr "Fehler bei Installation des RPMs"
+
+# ../hwconf.c:141 ../hwconf.c:176
+#~ msgid "RPM install of %s failed."
+#~ msgstr "Fehler bei RPM-Installation von %s."
+
+# ../hwconf.c:150
+#~ msgid "Path:"
+#~ msgstr "Pfad:"
+
+# ../hwconf.c:155
+#~ msgid "Please enter the path where the %s RPM can be found:"
+#~ msgstr ""
+#~ "Bitte geben Sie den Pfad ein, unter dem das RPM-Paket für %s gefunden "
+#~ "werden kann:"
+
+# ../hwconf.c:156
+#~ msgid "Enter path to RPM"
+#~ msgstr "Pfad zu RPM eingeben"

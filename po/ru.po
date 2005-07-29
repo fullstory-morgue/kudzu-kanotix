@@ -1,0 +1,463 @@
+# translation of ru.po to Russian
+# Leonid Kanter <leon@geon.donetsk.ua>, 2003.
+# Leonid Kanter <leon@asplinux.ru>, 2004.
+# Andrew Martynov <andrewm@inventa.ru>, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: ru\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"PO-Revision-Date: 2005-02-26 11:55+0300\n"
+"Last-Translator: Andrew Martynov <andrewm@inventa.ru>\n"
+"Language-Team: Russian <fedora-trans-ru@redhat.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../hwconf.c:128
+#, c-format
+msgid "linked %s to %s"
+msgstr "создана ссылка %s на %s"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "ссылка %s удалена (ссылалась на %s)"
+
+#: ../hwconf.c:151
+#, c-format
+msgid "unlinked %s"
+msgstr "удалено %s"
+
+#: ../hwconf.c:191
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "выполнено loadkeys %s"
+
+#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
+#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#, c-format
+msgid "aliased %s as %s"
+msgstr "%s как псевдоним %s"
+
+#: ../hwconf.c:885
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "выполнен mouseconfig для %s"
+
+#: ../hwconf.c:908
+msgid "turned on bcm5820 service"
+msgstr "включена служба bcm5820"
+
+#: ../hwconf.c:919
+msgid "turned on aep1000 service"
+msgstr "настроена служба aep1000"
+
+#: ../hwconf.c:1184
+msgid "network card"
+msgstr "сетевая плата"
+
+#: ../hwconf.c:1186
+msgid "SCSI controller"
+msgstr "контроллер SCSI"
+
+#: ../hwconf.c:1188
+msgid "video adapter"
+msgstr "видео адаптер"
+
+#: ../hwconf.c:1190
+msgid "sound card"
+msgstr "звуковая плата"
+
+#: ../hwconf.c:1192
+msgid "mouse"
+msgstr "мышь"
+
+#: ../hwconf.c:1194
+msgid "modem"
+msgstr "модем"
+
+#: ../hwconf.c:1196
+msgid "CD-ROM drive"
+msgstr "привод CD-ROM"
+
+#: ../hwconf.c:1198
+msgid "tape drive"
+msgstr "стример"
+
+#: ../hwconf.c:1200
+msgid "floppy drive"
+msgstr "дисковод гибких дисков"
+
+#: ../hwconf.c:1202
+msgid "scanner"
+msgstr "сканер"
+
+#: ../hwconf.c:1204
+msgid "hard disk"
+msgstr "жесткий диск"
+
+#: ../hwconf.c:1206
+msgid "RAID controller"
+msgstr "контроллер RAID"
+
+#: ../hwconf.c:1208
+msgid "IDE controller"
+msgstr "контроллер IDE"
+
+#: ../hwconf.c:1210
+msgid "printer"
+msgstr "принтер"
+
+#: ../hwconf.c:1212
+msgid "video capture card"
+msgstr "устройство видеозахвата"
+
+#: ../hwconf.c:1214
+msgid "keyboard"
+msgstr "клавиатура"
+
+#: ../hwconf.c:1216
+msgid "monitor"
+msgstr "монитор"
+
+#: ../hwconf.c:1218
+msgid "USB controller"
+msgstr "контроллер USB"
+
+#: ../hwconf.c:1220
+msgid "IEEE1394 controller"
+msgstr "контроллер IEEE1394"
+
+#: ../hwconf.c:1222
+msgid "PCMCIA/Cardbus controller"
+msgstr "контроллер PCMCIA/Cardbus"
+
+#: ../hwconf.c:1226
+#, c-format
+msgid "%s device"
+msgstr "устройство %s"
+
+#: ../hwconf.c:1417
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr "использовать только 'безопасные' проверки, не затрагивающие аппаратуру"
+
+#: ../hwconf.c:1421
+msgid "set timeout in seconds"
+msgstr "установить задержку в секундах"
+
+#: ../hwconf.c:1424
+msgid "probe only, print information to stdout"
+msgstr "только поиск, вывести информацию на стандартный вывод"
+
+#: ../hwconf.c:1428
+msgid "probe only the specified 'bus'"
+msgstr "искать устройства только на указанной шине ('bus')"
+
+#: ../hwconf.c:1432
+msgid "probe only for the specified 'class'"
+msgstr "искать только устройства, для которых указан 'class'"
+
+#: ../hwconf.c:1436
+msgid "read probed hardware from a file"
+msgstr "читать информацию о устройствах из файла"
+
+#: ../hwconf.c:1437
+msgid "file to read hardware info from"
+msgstr "файл для чтении информации о устройствах"
+
+#: ../hwconf.c:1440
+msgid "search for modules for a particular kernel version"
+msgstr "поиск модулей для конкретной версии ядра"
+
+#: ../hwconf.c:1441
+msgid "kernel version"
+msgstr "версия ядра"
+
+#: ../hwconf.c:1444
+msgid "read probed hardware from a socket"
+msgstr "читать информацию о устройствах через сокет"
+
+#: ../hwconf.c:1466
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"ОШИБКА: для выполнения kudzu необходимо иметь права root.\n"
+
+#~ msgid ""
+#~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
+#~ "screen"
+#~ msgstr ""
+#~ " <Tab>/<Alt-Tab> между элементами  | <Space> выбор  |  <F12> следующий "
+#~ "экран"
+
+#~ msgid ""
+#~ "Hardware Discovery Utility %s                     (C) 2003 Red Hat, Inc."
+#~ msgstr ""
+#~ "Утилита обнаружения оборудования %s                  (C) 2003 Red Hat, "
+#~ "Inc."
+
+#~ msgid "Update /etc/inittab"
+#~ msgstr "Обновление /etc/inittab"
+
+#~ msgid "Yes"
+#~ msgstr "Да"
+
+#~ msgid "No"
+#~ msgstr "Нет"
+
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for serial console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "Ваш /etc/inittab непригоден для использования последовательной консоли. "
+#~ "Хотите обновить его ?"
+
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for video console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "Ваш /etc/inittab непригоден для использования видеоконсоли. Хотите "
+#~ "обновить его ?"
+
+#~ msgid "Update /etc/securetty"
+#~ msgstr "Обновление /etc/securetty"
+
+#~ msgid ""
+#~ "Your /etc/securetty does not contain `%s' device, which means root won't "
+#~ "be able to log in on console. Would you like to update it?"
+#~ msgstr ""
+#~ "Ваш /etc/securetty не содержит устройство `%s'. Это означает, что root не "
+#~ "сможет зайти в систему через это устройство. Хотите обновить его ?"
+
+#~ msgid "Configuring %s"
+#~ msgstr "Настраивается %s"
+
+#~ msgid "Configuring"
+#~ msgstr "Настраивается"
+
+#~ msgid "ran netconfig for %s (%s)"
+#~ msgstr "выполнен netconfig для %s (%s)"
+
+#~ msgid "ran system-config-keyboard for %s"
+#~ msgstr "выполнен system-config-keyboard для %s"
+
+#~ msgid "ran printconf for %s"
+#~ msgstr "выполнен printconf для %s"
+
+#~ msgid "Unconfiguring %s"
+#~ msgstr "Удаляются настройки для %s"
+
+#~ msgid "Removing Configuration"
+#~ msgstr "Удаление настроек"
+
+#~ msgid "Welcome to Kudzu"
+#~ msgstr "Добро пожаловать в Kudzu"
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue.\n"
+#~ "\n"
+#~ "         Normal bootup will continue in %d seconds."
+#~ msgstr ""
+#~ "Добро пожаловать в Kudzu, утилиту обнаружения и настройки устройств Red "
+#~ "Hat Linux.\n"
+#~ "\n"
+#~ "При помощи последующих диалогов вы сможете настроить любое новое или "
+#~ "удаленное устройство в вашем компьютере.\n"
+#~ "\n"
+#~ "             Нажмите любую клавишу для продолжения.\n"
+#~ "\n"
+#~ "         Нормальная загрузка продолжится через %d секунд."
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue."
+#~ msgstr ""
+#~ "Добро пожаловать в Kudzu, утилиту определения и настройки устройств Red "
+#~ "Hat Linux.\n"
+#~ "\n"
+#~ "При помощи последующих диалогов вы сможете настроить любое новое или "
+#~ "удаленное устройство в вашем компьютере.\n"
+#~ "\n"
+#~ "          Нажмите любую клавишу для продолжения."
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Timeout exceeded."
+#~ msgstr ""
+#~ "Добро пожаловать в Kudzu, утилиту обнаружения и настройки устройств Red "
+#~ "Hat Linux.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Время истекло."
+
+#~ msgid ""
+#~ " <F2> Configure / Unconfigure All  |  <F3> Ignore / Keep All  |  <F4> "
+#~ "Cancel "
+#~ msgstr ""
+#~ "<F2> Настроить/Удалить настр. все | <F3> Игнор. / Сохр. все  |  <F4> "
+#~ "Отмена "
+
+#~ msgid "Hardware Removed"
+#~ msgstr "Устройство удалено"
+
+#~ msgid "Remove Configuration"
+#~ msgstr "Удалить настройки"
+
+#~ msgid "Keep Configuration"
+#~ msgstr "Сохранить настройки"
+
+#~ msgid "Do Nothing"
+#~ msgstr "Ничего не делать"
+
+#~ msgid ""
+#~ "The following %s has been removed from your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Remove any existing configuration for the device.\n"
+#~ "2) Keep the existing configuration. You will not be prompted again if the "
+#~ "device seems to be missing.\n"
+#~ "3) Do nothing. The configuration will not be removed, but if the device "
+#~ "is found missing on subsequent reboots, you will be prompted again."
+#~ msgstr ""
+#~ "Указанное ниже устройство %s удалено из вашей системы:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "Вы можете:\n"
+#~ "\n"
+#~ "1) Удалить существующие настройки для этого устройства.\n"
+#~ "2) Сохранить существующие настройки. Этот вопрос не повторится, если "
+#~ "устройство будет отсутствовать при последующих перезапусках.\n"
+#~ "3) Ничего не делать. Настройки не будут удалятся, но если устройство не "
+#~ "будет обнаружено при последующих перезапусках, этот вопрос повторится."
+
+#~ msgid "Hardware Added"
+#~ msgstr "Найдено устройство"
+
+#~ msgid "Configure"
+#~ msgstr "Настроить"
+
+#~ msgid "Ignore"
+#~ msgstr "Игнорировать"
+
+#~ msgid ""
+#~ "The following %s has been added to your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Configure the device.\n"
+#~ "2) Ignore the device. No configuration will be added, but you will not be "
+#~ "prompted if the device is detected on subsequent reboots.\n"
+#~ "3) Do nothing. No configuration will be added, and the device will show "
+#~ "up as new if it is detected on subsequent reboots."
+#~ msgstr ""
+#~ "В вашей системе обнаружено устройство типа %s:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "Вы можете:\n"
+#~ "\n"
+#~ "1) Настроить устройство.\n"
+#~ "2) Игнорировать устройство. Настройки не будут произведены, но этот "
+#~ "вопрос не будет появляться при последующих перезапусках. \n"
+#~ "3) Ничего не делать. Настройка не будет произведена и устройство будет "
+#~ "отображено как новое при последующих перезапусках."
+
+#~ msgid "do configuration that doesn't require user input"
+#~ msgstr "настраивать то, что не требует ввода пользователя"
+
+#~ msgid "Existing Configuration Detected"
+#~ msgstr "Обнаружена существующая настройка"
+
+#~ msgid "Migrate existing network configuration?"
+#~ msgstr "Использовать существующую настройку сети ?"
+
+#~ msgid "ran kbdconfig for %s"
+#~ msgstr "выполнен kbdconfig для %s"
+
+#~ msgid "RPM Required"
+#~ msgstr "Требуется RPM"
+
+#~ msgid "CD"
+#~ msgstr "CD"
+
+#~ msgid "Filesystem"
+#~ msgstr "Файловая система"
+
+#~ msgid "Cancel"
+#~ msgstr "Отмена"
+
+#~ msgid ""
+#~ "The %s RPM is needed to use this graphics card. You can install it from "
+#~ "your Red Hat Linux CD-ROM, from another location on the filesystem, or "
+#~ "postpone it until later."
+#~ msgstr ""
+#~ "Для использования вашей видеокарты необходим RPM-пакет %s. Вы можете "
+#~ "установить этот пакет с вашего Red Hat Linux CD-ROM, из другого каталога "
+#~ "файловой системы, или отложить установку пакета."
+
+#~ msgid "Insert CD-ROM"
+#~ msgstr "Вставьте CD-ROM"
+
+#~ msgid "Ok"
+#~ msgstr "Ok"
+
+#~ msgid "Please insert your Red Hat Linux CD-ROM (Disc 1)."
+#~ msgstr "Вставьте пожалуйста Red Hat Linux CD-ROM (Диск 1)."
+
+#~ msgid "Mount failed"
+#~ msgstr "Ошибка монтирования"
+
+#~ msgid "Could not mount CD-ROM."
+#~ msgstr "Невозможно смонтировать CD-ROM."
+
+#~ msgid "RPM Install Failed"
+#~ msgstr "Ошибка установки пакета RPM"
+
+#~ msgid "RPM install of %s failed."
+#~ msgstr "Ошибка установки пакета %s."
+
+#~ msgid "Path:"
+#~ msgstr "Путь:"
+
+#~ msgid "Please enter the path where the %s RPM can be found:"
+#~ msgstr "Введите путь к RPM-пакету %s:"
+
+#~ msgid "Enter path to RPM"
+#~ msgstr "Введите путь к RPM-пакету"
+
+#~ msgid "disabling sleep bit on potentially buggy %s hardware"
+#~ msgstr ""
+#~ "запрещается бит спящего режима на потенциально опасном устройстве %s"
+
+#~ msgid "Run printtool"
+#~ msgstr "Запуск printtool"
+
+#~ msgid ""
+#~ "To properly configure your %s, you need to run the 'printtool' command "
+#~ "from the X window system"
+#~ msgstr ""
+#~ "Для корректной настройки %s вам необходимо запустить команду 'printtool' "
+#~ "из системы X Window"

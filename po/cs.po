@@ -1,0 +1,188 @@
+# Copyright (C) 2002, 2003, 2004, 2005 kudzu'S COPYRIGHT HOLDER
+# Copyright (C) 2004, 2005 Miloslav Trmac <mitr@volny.cz>
+#
+# Miloslav Trmac <mitr@volny.cz>, 2002, 2003, 2004, 2005.
+msgid ""
+msgstr ""
+"Project-Id-Version: kudzu VERSION\n"
+"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"PO-Revision-Date: 2005-02-19 01:46+0100\n"
+"Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
+"Language-Team: Czech <cs@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8-bit\n"
+"Report-Msgid-Bugs-To: \n"
+
+#: ../hwconf.c:128
+#, c-format
+msgid "linked %s to %s"
+msgstr "symbolický odkaz %s na %s"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "odstraněn %s (byl odkaz na %s)"
+
+#: ../hwconf.c:151
+#, c-format
+msgid "unlinked %s"
+msgstr "odstraněn %s"
+
+#: ../hwconf.c:191
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "spuštěno loadkeys %s"
+
+#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
+#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#, c-format
+msgid "aliased %s as %s"
+msgstr "alias %s jako %s"
+
+#: ../hwconf.c:885
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "spuštěn mouseconfig pro %s"
+
+#: ../hwconf.c:908
+msgid "turned on bcm5820 service"
+msgstr "zapnuta služba bcm5820"
+
+#: ../hwconf.c:919
+msgid "turned on aep1000 service"
+msgstr "zapnuta služba aep1000"
+
+#: ../hwconf.c:1184
+msgid "network card"
+msgstr "síťová karta"
+
+#: ../hwconf.c:1186
+msgid "SCSI controller"
+msgstr "řadič SCSI"
+
+#: ../hwconf.c:1188
+msgid "video adapter"
+msgstr "videokarta"
+
+#: ../hwconf.c:1190
+msgid "sound card"
+msgstr "zvuková karta"
+
+#: ../hwconf.c:1192
+msgid "mouse"
+msgstr "myš"
+
+#: ../hwconf.c:1194
+msgid "modem"
+msgstr "modem"
+
+#: ../hwconf.c:1196
+msgid "CD-ROM drive"
+msgstr "mechanika CD-ROM"
+
+#: ../hwconf.c:1198
+msgid "tape drive"
+msgstr "pásková jednotka"
+
+#: ../hwconf.c:1200
+msgid "floppy drive"
+msgstr "disketová jednotka"
+
+#: ../hwconf.c:1202
+msgid "scanner"
+msgstr "scanner"
+
+#: ../hwconf.c:1204
+msgid "hard disk"
+msgstr "pevný disk"
+
+#: ../hwconf.c:1206
+msgid "RAID controller"
+msgstr "řadič RAID"
+
+#: ../hwconf.c:1208
+msgid "IDE controller"
+msgstr "řadič IDE"
+
+#: ../hwconf.c:1210
+msgid "printer"
+msgstr "tiskárna"
+
+#: ../hwconf.c:1212
+msgid "video capture card"
+msgstr "karta pro zachytávání videa"
+
+#: ../hwconf.c:1214
+msgid "keyboard"
+msgstr "klávesnice"
+
+#: ../hwconf.c:1216
+msgid "monitor"
+msgstr "monitor"
+
+#: ../hwconf.c:1218
+msgid "USB controller"
+msgstr "řadič USB"
+
+#: ../hwconf.c:1220
+msgid "IEEE1394 controller"
+msgstr "řadič IEEE1394"
+
+#: ../hwconf.c:1222
+msgid "PCMCIA/Cardbus controller"
+msgstr "řadič PCMCIA/Cardbus"
+
+#: ../hwconf.c:1226
+#, c-format
+msgid "%s device"
+msgstr "%s zařízení"
+
+#: ../hwconf.c:1417
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr "provést jen 'bezpečné' detekce, které neruší hardware"
+
+#: ../hwconf.c:1421
+msgid "set timeout in seconds"
+msgstr "nastavit časový limit ve vteřinách"
+
+#: ../hwconf.c:1424
+msgid "probe only, print information to stdout"
+msgstr "jen detekovat a vytisknout informace na std. výstup"
+
+#: ../hwconf.c:1428
+msgid "probe only the specified 'bus'"
+msgstr "detekovat jen na specifikované 'sběrnici'"
+
+#: ../hwconf.c:1432
+msgid "probe only for the specified 'class'"
+msgstr "detekovat jen pro specifikovanou 'třídu'"
+
+#: ../hwconf.c:1436
+msgid "read probed hardware from a file"
+msgstr "číst detekovaný hardware ze souboru"
+
+#: ../hwconf.c:1437
+msgid "file to read hardware info from"
+msgstr "soubor s informacemi o hardware"
+
+#: ../hwconf.c:1440
+msgid "search for modules for a particular kernel version"
+msgstr "hledat moduly pro konkrétní verzi jádra"
+
+#: ../hwconf.c:1441
+msgid "kernel version"
+msgstr "verze jádra"
+
+#: ../hwconf.c:1444
+msgid "read probed hardware from a socket"
+msgstr "číst detekovaný hardware ze socketu"
+
+#: ../hwconf.c:1466
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"CHYBA - Kudzu může spustit jen root.\n"

@@ -1,0 +1,183 @@
+# Laotian translations for PACKAGE package.
+# Copyright (C) 2004 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2004.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kudzu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"PO-Revision-Date: 2004-08-27 16:01-0400\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../hwconf.c:126
+#, c-format
+msgid "linked %s to %s"
+msgstr ""
+
+#: ../hwconf.c:147
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr ""
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s"
+msgstr ""
+
+#: ../hwconf.c:189
+#, c-format
+msgid "ran loadkeys %s"
+msgstr ""
+
+#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
+#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#, c-format
+msgid "aliased %s as %s"
+msgstr ""
+
+#: ../hwconf.c:883
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr ""
+
+#: ../hwconf.c:906
+msgid "turned on bcm5820 service"
+msgstr ""
+
+#: ../hwconf.c:917
+msgid "turned on aep1000 service"
+msgstr ""
+
+#: ../hwconf.c:1182
+msgid "network card"
+msgstr ""
+
+#: ../hwconf.c:1184
+msgid "SCSI controller"
+msgstr ""
+
+#: ../hwconf.c:1186
+msgid "video adapter"
+msgstr ""
+
+#: ../hwconf.c:1188
+msgid "sound card"
+msgstr ""
+
+#: ../hwconf.c:1190
+msgid "mouse"
+msgstr ""
+
+#: ../hwconf.c:1192
+msgid "modem"
+msgstr ""
+
+#: ../hwconf.c:1194
+msgid "CD-ROM drive"
+msgstr ""
+
+#: ../hwconf.c:1196
+msgid "tape drive"
+msgstr ""
+
+#: ../hwconf.c:1198
+msgid "floppy drive"
+msgstr ""
+
+#: ../hwconf.c:1200
+msgid "scanner"
+msgstr ""
+
+#: ../hwconf.c:1202
+msgid "hard disk"
+msgstr ""
+
+#: ../hwconf.c:1204
+msgid "RAID controller"
+msgstr ""
+
+#: ../hwconf.c:1206
+msgid "IDE controller"
+msgstr ""
+
+#: ../hwconf.c:1208
+msgid "printer"
+msgstr ""
+
+#: ../hwconf.c:1210
+msgid "video capture card"
+msgstr ""
+
+#: ../hwconf.c:1212
+msgid "keyboard"
+msgstr ""
+
+#: ../hwconf.c:1214
+msgid "monitor"
+msgstr ""
+
+#: ../hwconf.c:1216
+msgid "USB controller"
+msgstr ""
+
+#: ../hwconf.c:1218
+msgid "IEEE1394 controller"
+msgstr ""
+
+#: ../hwconf.c:1220
+msgid "PCMCIA/Cardbus controller"
+msgstr ""
+
+#: ../hwconf.c:1224
+#, c-format
+msgid "%s device"
+msgstr ""
+
+#: ../hwconf.c:1397
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr ""
+
+#: ../hwconf.c:1401
+msgid "set timeout in seconds"
+msgstr ""
+
+#: ../hwconf.c:1404
+msgid "probe only, print information to stdout"
+msgstr ""
+
+#: ../hwconf.c:1408
+msgid "probe only the specified 'bus'"
+msgstr ""
+
+#: ../hwconf.c:1412
+msgid "probe only for the specified 'class'"
+msgstr ""
+
+#: ../hwconf.c:1416
+msgid "read probed hardware from a file"
+msgstr ""
+
+#: ../hwconf.c:1417
+msgid "file to read hardware info from"
+msgstr ""
+
+#: ../hwconf.c:1420
+msgid "search for modules for a particular kernel version"
+msgstr ""
+
+#: ../hwconf.c:1421
+msgid "kernel version"
+msgstr ""
+
+#: ../hwconf.c:1442
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""

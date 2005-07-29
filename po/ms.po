@@ -1,0 +1,385 @@
+# kudzu Bahasa Melayu (Malay) (ms).
+# This file is distributed under the same license as the kudzu package.
+# Copyright (C) 2004 Red Hat Inc.
+# Sharuzzaman Ahmat Raslan <sharuzzaman@myrealbox.com>, 2004
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kudzu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"PO-Revision-Date: 2004-04-14 11:58+0800\n"
+"Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@myrealbox.com>\n"
+"Language-Team: Malay <translation-team-ms@lists.sourceforge.net>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.0\n"
+
+#: ../hwconf.c:126
+#, c-format
+msgid "linked %s to %s"
+msgstr "paut %s ke %s"
+
+#: ../hwconf.c:147
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "nyahpaut %s (dahulu dipaut ke %s)"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s"
+msgstr "nyahpaut %s"
+
+#: ../hwconf.c:189
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "laksanakan loadkeys %s"
+
+#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
+#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#, c-format
+msgid "aliased %s as %s"
+msgstr "dialiaskan %s sebagai %s"
+
+#: ../hwconf.c:883
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "laksana mouseconfig bagi %s"
+
+#: ../hwconf.c:906
+msgid "turned on bcm5820 service"
+msgstr "menghidupkan servis bcm5820"
+
+#: ../hwconf.c:917
+msgid "turned on aep1000 service"
+msgstr "menghidupkan servis aep1000"
+
+#: ../hwconf.c:1182
+msgid "network card"
+msgstr "kad rangkaian"
+
+#: ../hwconf.c:1184
+msgid "SCSI controller"
+msgstr "Pengawal SCSI"
+
+#: ../hwconf.c:1186
+msgid "video adapter"
+msgstr "adapter video"
+
+#: ../hwconf.c:1188
+msgid "sound card"
+msgstr "kad bunyi"
+
+#: ../hwconf.c:1190
+msgid "mouse"
+msgstr "tetikus"
+
+#: ../hwconf.c:1192
+msgid "modem"
+msgstr "modem"
+
+#: ../hwconf.c:1194
+msgid "CD-ROM drive"
+msgstr "pemacu CD-ROM"
+
+#: ../hwconf.c:1196
+msgid "tape drive"
+msgstr "pemacu pita"
+
+#: ../hwconf.c:1198
+msgid "floppy drive"
+msgstr "pemacu liut"
+
+#: ../hwconf.c:1200
+msgid "scanner"
+msgstr "pengimbas"
+
+#: ../hwconf.c:1202
+msgid "hard disk"
+msgstr "cakera keras"
+
+#: ../hwconf.c:1204
+msgid "RAID controller"
+msgstr "Pengawal RAID"
+
+#: ../hwconf.c:1206
+msgid "IDE controller"
+msgstr "Pengawal IDE"
+
+#: ../hwconf.c:1208
+msgid "printer"
+msgstr "pencetak"
+
+#: ../hwconf.c:1210
+msgid "video capture card"
+msgstr "kad cekupan video"
+
+#: ../hwconf.c:1212
+msgid "keyboard"
+msgstr "papan kekunci"
+
+#: ../hwconf.c:1214
+msgid "monitor"
+msgstr "monitor"
+
+#: ../hwconf.c:1216
+msgid "USB controller"
+msgstr "Pengawal USB"
+
+#: ../hwconf.c:1218
+msgid "IEEE1394 controller"
+msgstr "pengawal IEEE 1394"
+
+#: ../hwconf.c:1220
+msgid "PCMCIA/Cardbus controller"
+msgstr "Pengawal PCMCIA/Cardbus"
+
+#: ../hwconf.c:1224
+#, c-format
+msgid "%s device"
+msgstr "peranti %s"
+
+#: ../hwconf.c:1397
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr "lakukan hanya pengesanan 'selamat' yang tidak mengusik perkakasan"
+
+#: ../hwconf.c:1401
+msgid "set timeout in seconds"
+msgstr "tetap masatamat dalam saat"
+
+#: ../hwconf.c:1404
+msgid "probe only, print information to stdout"
+msgstr "siasat sahaja, cetak maklumat ke stdout"
+
+#: ../hwconf.c:1408
+msgid "probe only the specified 'bus'"
+msgstr "siasat sahaja 'bas' dinyatakan"
+
+#: ../hwconf.c:1412
+msgid "probe only for the specified 'class'"
+msgstr "kesan hanya untuk 'kelas' dinyatakan"
+
+#: ../hwconf.c:1416
+msgid "read probed hardware from a file"
+msgstr "baca perkakasan dikesan daripada fail"
+
+#: ../hwconf.c:1417
+msgid "file to read hardware info from"
+msgstr "fail untuk maklumat perkakasan dibaca"
+
+#: ../hwconf.c:1420
+msgid "search for modules for a particular kernel version"
+msgstr "cari untuk modul bagi versi kernel tertentu"
+
+#: ../hwconf.c:1421
+msgid "kernel version"
+msgstr "versi kernel"
+
+#: ../hwconf.c:1442
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"RALAT - Anda mesti menjadi root untuk melaksanakan kudzu.\n"
+
+#~ msgid ""
+#~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
+#~ "screen"
+#~ msgstr ""
+#~ " <Tab>/<Alt-Tab> antara unsur   |   <Space> pilih  |   <F12> skrin "
+#~ "berikutnya"
+
+#~ msgid ""
+#~ "Hardware Discovery Utility %s                     (C) 2003 Red Hat, Inc."
+#~ msgstr ""
+#~ "Peralatan Mencari Perkakasan %s                   (C) 2003 Red Hat, Inc."
+
+#~ msgid "Update /etc/inittab"
+#~ msgstr "Kemaskini /etc/inittab"
+
+#~ msgid "Yes"
+#~ msgstr "Ya"
+
+#~ msgid "No"
+#~ msgstr "Tidak"
+
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for serial console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "/etc/inittab anda tidak sesuai untuk operasi konsol bersiri. Adakah anda "
+#~ "hendak mengemaskinikannya?"
+
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for video console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "/etc/inittab anda tidak sesuai untuk operasi konsol video. Adakah anda "
+#~ "hendak mengemaskinikannya?"
+
+#~ msgid "Update /etc/securetty"
+#~ msgstr "Kemaskini /etc/securetty"
+
+#~ msgid ""
+#~ "Your /etc/securetty does not contain `%s' device, which means root won't "
+#~ "be able to log in on console. Would you like to update it?"
+#~ msgstr ""
+#~ "/etc/securetty anda tidak mengandungi peranti `%s', dimana root tidak "
+#~ "boleh log masuk ke dalam konsol. Adakah anda hendak mengemaskinikannya?"
+
+#~ msgid "Configuring %s"
+#~ msgstr "Mengkonfigurasi %s"
+
+#~ msgid "Configuring"
+#~ msgstr "Mengkonfigurasi"
+
+#~ msgid "ran netconfig for %s (%s)"
+#~ msgstr "laksana netconfig bagi %s (%s)"
+
+#~ msgid "ran system-config-keyboard for %s"
+#~ msgstr "laksana system-config-keyboard bagi %s"
+
+#~ msgid "ran printconf for %s"
+#~ msgstr "laksana printconf bagi %s"
+
+#~ msgid "Unconfiguring %s"
+#~ msgstr "Nyahtetap %s"
+
+#~ msgid "Removing Configuration"
+#~ msgstr "Membuang Konfigurasi"
+
+#~ msgid "Welcome to Kudzu"
+#~ msgstr "Selamat datang ke Kudzu"
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue.\n"
+#~ "\n"
+#~ "         Normal bootup will continue in %d seconds."
+#~ msgstr ""
+#~ "Selamat datang ke Kudzu, alatan pengesanan perkakasan dan konfigurasi Red "
+#~ "Hat Linux.\n"
+#~ "\n"
+#~ "Pada skrin berikut anda boleh menetapkan sebarang perkakasan baru atau "
+#~ "yang telah dibuang untuk komputer anda.\n"
+#~ "\n"
+#~ "                Tekan sebarang kekunci untuk meneruskan.\n"
+#~ "\n"
+#~ "          Bootmula normal akan diteruskan dalam %d saat."
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue."
+#~ msgstr ""
+#~ "Selamat datang ke Kudzu, alatan pengesanan perkakasan dan konfigurasi Red "
+#~ "Hat Linux.\n"
+#~ "\n"
+#~ "Pada skrin berikut anda boleh menetapkan sebarang perkakasan baru atau "
+#~ "yang telah dibuang untuk komputer anda.\n"
+#~ "\n"
+#~ "                Tekan sebarang kekunci untuk meneruskan."
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Timeout exceeded."
+#~ msgstr ""
+#~ "Selamat datang ke Kudzu, alatan pengesanan perkakasan dan konfigurasi Red "
+#~ "Hat Linux.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Hadmasa tamat."
+
+#~ msgid ""
+#~ " <F2> Configure / Unconfigure All  |  <F3> Ignore / Keep All  |  <F4> "
+#~ "Cancel "
+#~ msgstr ""
+#~ " <F2> Tentutetap / Nyahtentutetap Semua |   <F3> Abai / Kekal Semua  |  "
+#~ "<F4> Batal "
+
+#~ msgid "Hardware Removed"
+#~ msgstr "Perkakasan Dibuang"
+
+#~ msgid "Remove Configuration"
+#~ msgstr "Buang Konfigurasi"
+
+#~ msgid "Keep Configuration"
+#~ msgstr "Kekalkan Konfigurasi"
+
+#~ msgid "Do Nothing"
+#~ msgstr "Berdiam diri"
+
+#~ msgid ""
+#~ "The following %s has been removed from your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Remove any existing configuration for the device.\n"
+#~ "2) Keep the existing configuration. You will not be prompted again if the "
+#~ "device seems to be missing.\n"
+#~ "3) Do nothing. The configuration will not be removed, but if the device "
+#~ "is found missing on subsequent reboots, you will be prompted again."
+#~ msgstr ""
+#~ "%s telah dibuang dari dari sistem anda:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "Anda boleh memilih untuk:\n"
+#~ "\n"
+#~ "1) Buang sebarang konfigurasi yang wujud untuk peranti.\n"
+#~ "2) Simpan konfigurasi yang wujud. Anda tidak akan ditanya lagi jika "
+#~ "peranti kelihatan hilang.\n"
+#~ "3) Jangan buat apa-apa. Konfigurasi tidak akan dibuang, tetapi jika "
+#~ "peranti didapati hilang pada boot seterusnya, anda akan ditanya lagi."
+
+#~ msgid "Hardware Added"
+#~ msgstr "Perkakasan Ditambah"
+
+#~ msgid "Configure"
+#~ msgstr "Tetapkan"
+
+#~ msgid "Ignore"
+#~ msgstr "Abai"
+
+#~ msgid ""
+#~ "The following %s has been added to your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Configure the device.\n"
+#~ "2) Ignore the device. No configuration will be added, but you will not be "
+#~ "prompted if the device is detected on subsequent reboots.\n"
+#~ "3) Do nothing. No configuration will be added, and the device will show "
+#~ "up as new if it is detected on subsequent reboots."
+#~ msgstr ""
+#~ "%s berikut telah ditambah kepada sistem anda:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "Anda boleh memilih untuk:\n"
+#~ "\n"
+#~ "1) Tentutetap peranti\n"
+#~ "2) Abaikan peranti. Tiada konfigurasi akan ditambah, tetapi anda tidak "
+#~ "akan ditanya jika peranti dikesan pada boot seterusnya.\n"
+#~ "3) Jangan buat apa-apa. Konfigurasi tidak akan ditambah, dan peranti akan "
+#~ "dikelihatan seperti baru jika dikesan pada boot seterusnya."
+
+#~ msgid "do configuration that doesn't require user input"
+#~ msgstr "lakukan konfigurasi yang tidak memerlukan masukan pengguna"

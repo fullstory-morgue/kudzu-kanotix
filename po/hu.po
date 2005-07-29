@@ -1,0 +1,382 @@
+# Arpad Biro <biro_arpad@yahoo.com>, 2004.
+msgid ""
+msgstr ""
+"Project-Id-Version: kudzu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"PO-Revision-Date: 2004-07-17 12:22+0200\n"
+"Last-Translator: Arpad Biro <biro_arpad@yahoo.com>\n"
+"Language-Team: Hungarian\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.3\n"
+
+#: ../hwconf.c:126
+#, c-format
+msgid "linked %s to %s"
+msgstr "%s linkelése ehhez: %s"
+
+#: ../hwconf.c:147
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "%s linkelés megszüntetve (eddig ehhez volt: %s)"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s"
+msgstr "%s linkelés megszüntetve"
+
+#: ../hwconf.c:189
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "loadkeys %s lefuttatva"
+
+#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
+#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#, c-format
+msgid "aliased %s as %s"
+msgstr "%s alias neve: %s"
+
+#: ../hwconf.c:883
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "a mouseconfig program elindítva %s részére"
+
+#: ../hwconf.c:906
+msgid "turned on bcm5820 service"
+msgstr "a bcm5820 szolgáltatás bekapcsolva"
+
+#: ../hwconf.c:917
+msgid "turned on aep1000 service"
+msgstr "az aep1000 szolgáltatás bekapcsolva"
+
+#: ../hwconf.c:1182
+msgid "network card"
+msgstr "hálózati kártya"
+
+#: ../hwconf.c:1184
+msgid "SCSI controller"
+msgstr "SCSI-vezérlő"
+
+#: ../hwconf.c:1186
+msgid "video adapter"
+msgstr "videokártya"
+
+#: ../hwconf.c:1188
+msgid "sound card"
+msgstr "hangkártya"
+
+#: ../hwconf.c:1190
+msgid "mouse"
+msgstr "egér"
+
+#: ../hwconf.c:1192
+msgid "modem"
+msgstr "modem"
+
+#: ../hwconf.c:1194
+msgid "CD-ROM drive"
+msgstr "CD-ROM-meghajtó"
+
+#: ../hwconf.c:1196
+msgid "tape drive"
+msgstr "szalagos meghajtó"
+
+#: ../hwconf.c:1198
+msgid "floppy drive"
+msgstr "floppymeghajtó"
+
+#: ../hwconf.c:1200
+msgid "scanner"
+msgstr "lapolvasó"
+
+#: ../hwconf.c:1202
+msgid "hard disk"
+msgstr "merevlemez"
+
+#: ../hwconf.c:1204
+msgid "RAID controller"
+msgstr "RAID-vezérlő"
+
+#: ../hwconf.c:1206
+msgid "IDE controller"
+msgstr "IDE-vezérlő"
+
+#: ../hwconf.c:1208
+msgid "printer"
+msgstr "nyomtató"
+
+#: ../hwconf.c:1210
+msgid "video capture card"
+msgstr "videófelvevőkártya"
+
+#: ../hwconf.c:1212
+msgid "keyboard"
+msgstr "billentyűzet"
+
+#: ../hwconf.c:1214
+msgid "monitor"
+msgstr "monitor"
+
+#: ../hwconf.c:1216
+msgid "USB controller"
+msgstr "USB-vezérlő"
+
+#: ../hwconf.c:1218
+msgid "IEEE1394 controller"
+msgstr "IEEE1394-vezérlő"
+
+#: ../hwconf.c:1220
+msgid "PCMCIA/Cardbus controller"
+msgstr "PCMCIA/Cardbus-vezérlő"
+
+#: ../hwconf.c:1224
+#, c-format
+msgid "%s device"
+msgstr "%s eszköz"
+
+#: ../hwconf.c:1397
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr ""
+"csak biztonságos detektálási módok használata (melyek nem állíthatják el a "
+"hardvert)"
+
+#: ../hwconf.c:1401
+msgid "set timeout in seconds"
+msgstr "a várakozási idő másodpercben"
+
+#: ../hwconf.c:1404
+msgid "probe only, print information to stdout"
+msgstr "csak detektálás és információ kiírása az stdout-ra"
+
+#: ../hwconf.c:1408
+msgid "probe only the specified 'bus'"
+msgstr "csak a megadott busz ellenőrzése"
+
+#: ../hwconf.c:1412
+msgid "probe only for the specified 'class'"
+msgstr "csak a megadott osztály ellenőrzése"
+
+#: ../hwconf.c:1416
+msgid "read probed hardware from a file"
+msgstr "a detektált hardvereszközök beolvasása fájlból"
+
+#: ../hwconf.c:1417
+msgid "file to read hardware info from"
+msgstr "hardverinformációt tartalmazó fájl"
+
+#: ../hwconf.c:1420
+msgid "search for modules for a particular kernel version"
+msgstr "modulkeresési útvonal egy adott kernel esetén"
+
+#: ../hwconf.c:1421
+msgid "kernel version"
+msgstr "a kernel verziószáma"
+
+#: ../hwconf.c:1442
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"HIBA - A Kudzu futtatásához rendszergazdai jogosultság szükséges.\n"
+
+#~ msgid ""
+#~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
+#~ "screen"
+#~ msgstr ""
+#~ " <Tab>/<Alt+Tab> - lépegetés az elemek között  |  <Space> - kiválasztás  "
+#~ "|  <F12> - továbblépés "
+
+#~ msgid ""
+#~ "Hardware Discovery Utility %s                     (C) 2003 Red Hat, Inc."
+#~ msgstr ""
+#~ "Hardverfelismerő segédprogram %s                (C) Red Hat, Inc., 2003."
+
+#~ msgid "Update /etc/inittab"
+#~ msgstr "Az /etc/inittab fájl frissítése"
+
+#~ msgid "Yes"
+#~ msgstr "Igen"
+
+#~ msgid "No"
+#~ msgstr "Nem"
+
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for serial console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "A mostani /etc/inittab fájl nem alkalmas soros konzolos működéshez. Fel "
+#~ "szeretné frissíteni a fájl tartalmát?"
+
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for video console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "A mostani /etc/inittab fájl nem alkalmas konzolos működéshez. Fel "
+#~ "szeretné frissíteni a fájl tartalmát?"
+
+#~ msgid "Update /etc/securetty"
+#~ msgstr "Az /etc/securetty fájl frissítése"
+
+#~ msgid ""
+#~ "Your /etc/securetty does not contain `%s' device, which means root won't "
+#~ "be able to log in on console. Would you like to update it?"
+#~ msgstr ""
+#~ "Az /etc/securetty fájl nem tartalmazza a(z) '%s' eszközt, ami azt "
+#~ "jelenti, hogy a rendszergazda nem fog tudni konzolon keresztül "
+#~ "bejelentkezni. Szeretné frissíteni a fájl tartalmát?"
+
+#~ msgid "Configuring %s"
+#~ msgstr "%s beállítása"
+
+#~ msgid "Configuring"
+#~ msgstr "Beállítás"
+
+#~ msgid "ran netconfig for %s (%s)"
+#~ msgstr "a netconfig program elindítva %s részére (%s)"
+
+#~ msgid "ran system-config-keyboard for %s"
+#~ msgstr "a system-config-keyboard program elindítva %s részére"
+
+#~ msgid "ran printconf for %s"
+#~ msgstr "a printconf program elindítva %s részére"
+
+#~ msgid "Unconfiguring %s"
+#~ msgstr "%s beállításainak eltávolítása"
+
+#~ msgid "Removing Configuration"
+#~ msgstr "A beállítások eltávolítása"
+
+#~ msgid "Welcome to Kudzu"
+#~ msgstr "Üdvözöljük a Kudzuban!"
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue.\n"
+#~ "\n"
+#~ "         Normal bootup will continue in %d seconds."
+#~ msgstr ""
+#~ "Üdvözöljük a Kudzuban, a Red Hat Linux hardverdetektáló eszközében!\n"
+#~ "\n"
+#~ "A következő képernyőkön beállíthatja új ill. eltávolított "
+#~ "hardvereszközeit.\n"
+#~ "\n"
+#~ "                Nyomjon meg egy billentyűt a folytatáshoz.\n"
+#~ "\n"
+#~ "         A rendszer betöltése %ds múlva folytatódik."
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue."
+#~ msgstr ""
+#~ "Üdvözöljük a Kudzuban, a Red Hat Linux hardverdetektáló eszközében!\n"
+#~ "\n"
+#~ "A következő képernyőkön beállíthatja új ill. eltávolított "
+#~ "hardvereszközeit.\n"
+#~ "\n"
+#~ "                Nyomjon meg egy billentyűt a folytatáshoz."
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Timeout exceeded."
+#~ msgstr ""
+#~ "Üdvözöljük a Kudzuban, a Red Hat Linux hardverdetektáló eszközében!\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Időtúllépés történt."
+
+#~ msgid ""
+#~ " <F2> Configure / Unconfigure All  |  <F3> Ignore / Keep All  |  <F4> "
+#~ "Cancel "
+#~ msgstr ""
+#~ " <F2> Beállítás (mind)  |  <F3> Figyelmen kívül hagyás (mind) |  <F4> "
+#~ "Mégsem "
+
+#~ msgid "Hardware Removed"
+#~ msgstr "Hardver eltávolítva"
+
+#~ msgid "Remove Configuration"
+#~ msgstr "A beállítások eltávolítása"
+
+#~ msgid "Keep Configuration"
+#~ msgstr "A beállítások megtartása"
+
+#~ msgid "Do Nothing"
+#~ msgstr "Továbblépés (beavatkozás nélkül)"
+
+#~ msgid ""
+#~ "The following %s has been removed from your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Remove any existing configuration for the device.\n"
+#~ "2) Keep the existing configuration. You will not be prompted again if the "
+#~ "device seems to be missing.\n"
+#~ "3) Do nothing. The configuration will not be removed, but if the device "
+#~ "is found missing on subsequent reboots, you will be prompted again."
+#~ msgstr ""
+#~ "A következő %s elem el lett távolítva a rendszerből:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "A következő lehetőségek közül választhat:\n"
+#~ "\n"
+#~ "1) Eltávolítja az eszközzel kapcsolatos beállításokat.\n"
+#~ "2) Megtartja a beállításokat. Az operációs rendszer nem fog többé szólni, "
+#~ "hogy az eszköz hiányzik.\n"
+#~ "3) Nem tesz semmit. A beállítások megmaradnak, de a következő indításkor "
+#~ "ismét figyelmeztetést kap, ha az eszköz hiányzik."
+
+#~ msgid "Hardware Added"
+#~ msgstr "Hardver hozzáadva"
+
+#~ msgid "Configure"
+#~ msgstr "Beállítás"
+
+#~ msgid "Ignore"
+#~ msgstr "Figyelmen kívül hagyás"
+
+#~ msgid ""
+#~ "The following %s has been added to your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Configure the device.\n"
+#~ "2) Ignore the device. No configuration will be added, but you will not be "
+#~ "prompted if the device is detected on subsequent reboots.\n"
+#~ "3) Do nothing. No configuration will be added, and the device will show "
+#~ "up as new if it is detected on subsequent reboots."
+#~ msgstr ""
+#~ "A következő %s elem lett hozzáadva a rendszerhez:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "A következő lehetőségek közül választhat:\n"
+#~ "\n"
+#~ "1) Beállítja az eszközt.\n"
+#~ "2) Figyelmen kívül hagyja az eszközt. Az operációs rendszer nem fogja "
+#~ "kezelni az eszközt, de a későbbi indításoknál már nem érzékeli új "
+#~ "eszköznek.\n"
+#~ "3) Nem tesz semmit. Az operációs rendszer nem fogja kezelni az eszközt és "
+#~ "a következő indításkor ismét új eszköznek fogja érzékelni."
+
+#~ msgid "do configuration that doesn't require user input"
+#~ msgstr "felhasználói beavatkozás nélküli beállítás"

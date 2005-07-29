@@ -1,0 +1,382 @@
+# Ukrainian translation of kudzu.
+# Copyright (C) Free Software Foundation
+# yuri khylchuk <khylchuk@yahoo.com>
+# Maxim Dzumanenko <mvd@mylinux.com.ua>, 2003
+msgid ""
+msgstr ""
+"Project-Id-Version: kudzu 1.1\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"PO-Revision-Date: 2004-06-26 16:09+0200\n"
+"Last-Translator: Maxim Dzumanenko <mvd@mylinux.com.ua>\n"
+"Language-Team: Ukrainian <uk@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../hwconf.c:126
+#, c-format
+msgid "linked %s to %s"
+msgstr "створено посилання %s до %s"
+
+#: ../hwconf.c:147
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "посилання видалено %s (було зв'язано з %s)"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s"
+msgstr "видалено %s"
+
+#: ../hwconf.c:189
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "виконано loadkeys %s"
+
+#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
+#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#, c-format
+msgid "aliased %s as %s"
+msgstr "%s як псевдонім %s"
+
+#: ../hwconf.c:883
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "виконано mouseconfig для %s"
+
+#: ../hwconf.c:906
+msgid "turned on bcm5820 service"
+msgstr "ввімкнено службу bcm5820"
+
+#: ../hwconf.c:917
+msgid "turned on aep1000 service"
+msgstr "налаштовано службу aep1000"
+
+#: ../hwconf.c:1182
+msgid "network card"
+msgstr "мережна карта"
+
+#: ../hwconf.c:1184
+msgid "SCSI controller"
+msgstr "контролер SCSI"
+
+#: ../hwconf.c:1186
+msgid "video adapter"
+msgstr "відео адаптер"
+
+#: ../hwconf.c:1188
+msgid "sound card"
+msgstr "звукова карта"
+
+#: ../hwconf.c:1190
+msgid "mouse"
+msgstr "миша"
+
+#: ../hwconf.c:1192
+msgid "modem"
+msgstr "модем"
+
+#: ../hwconf.c:1194
+msgid "CD-ROM drive"
+msgstr "пристрій CD-ROM"
+
+#: ../hwconf.c:1196
+msgid "tape drive"
+msgstr "стриммер"
+
+#: ../hwconf.c:1198
+msgid "floppy drive"
+msgstr "дисковод"
+
+#: ../hwconf.c:1200
+msgid "scanner"
+msgstr "сканер"
+
+#: ../hwconf.c:1202
+msgid "hard disk"
+msgstr "жорсткий диск"
+
+#: ../hwconf.c:1204
+msgid "RAID controller"
+msgstr "контролер RAID"
+
+#: ../hwconf.c:1206
+msgid "IDE controller"
+msgstr "контролер IDE"
+
+#: ../hwconf.c:1208
+msgid "printer"
+msgstr "принтер"
+
+#: ../hwconf.c:1210
+msgid "video capture card"
+msgstr "пристрій захоплення відео"
+
+#: ../hwconf.c:1212
+msgid "keyboard"
+msgstr "клавіатура"
+
+#: ../hwconf.c:1214
+msgid "monitor"
+msgstr "монітор"
+
+#: ../hwconf.c:1216
+msgid "USB controller"
+msgstr "контролер USB"
+
+#: ../hwconf.c:1218
+msgid "IEEE1394 controller"
+msgstr "контролер IEEE1394"
+
+#: ../hwconf.c:1220
+msgid "PCMCIA/Cardbus controller"
+msgstr "контролер PCMCIA/Cardbus"
+
+#: ../hwconf.c:1224
+#, c-format
+msgid "%s device"
+msgstr "пристрій %s"
+
+#: ../hwconf.c:1397
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr "провадити тільки 'безпечні' проби, які не турбують апаратні засоби "
+
+#: ../hwconf.c:1401
+msgid "set timeout in seconds"
+msgstr "встановити затримку в секундах"
+
+#: ../hwconf.c:1404
+msgid "probe only, print information to stdout"
+msgstr "лише пошук, виводити інформацію у стандартний вивід"
+
+#: ../hwconf.c:1408
+msgid "probe only the specified 'bus'"
+msgstr "шукати пристрої лише на вказаній шині('bus')"
+
+#: ../hwconf.c:1412
+msgid "probe only for the specified 'class'"
+msgstr "шукати лише пристрої, для яких зазначено 'class'"
+
+#: ../hwconf.c:1416
+msgid "read probed hardware from a file"
+msgstr "читати інформацію про пристрої з файлу"
+
+#: ../hwconf.c:1417
+msgid "file to read hardware info from"
+msgstr "файл для читання інформації про пристрої"
+
+#: ../hwconf.c:1420
+msgid "search for modules for a particular kernel version"
+msgstr "пошук модулів для окремої версії ядра"
+
+#: ../hwconf.c:1421
+msgid "kernel version"
+msgstr "версія ядра"
+
+#: ../hwconf.c:1442
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"ПОМИЛКА - для виконання kudzu необхідно мати права root.\n"
+
+#~ msgid ""
+#~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
+#~ "screen"
+#~ msgstr ""
+#~ " <Tab>/<Alt-Tab> між елементами | <Space> вибір  | <F12> наступний екран"
+
+#~ msgid ""
+#~ "Hardware Discovery Utility %s                     (C) 2003 Red Hat, Inc."
+#~ msgstr ""
+#~ "Утиліта відшукування обладнання %s                (C) 2003 Red Hat, Inc."
+
+#~ msgid "Update /etc/inittab"
+#~ msgstr "Оновлення /etc/inittab"
+
+#~ msgid "Yes"
+#~ msgstr "Так"
+
+#~ msgid "No"
+#~ msgstr "Ні"
+
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for serial console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "Ваш /etc/inittab не підходить для роботи з послідовною консоллю. Бажаєте "
+#~ "поновити його? "
+
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for video console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "Ваш /etc/inittab не підходить для роботи з відео консоллю. Бажаєте "
+#~ "поновити його? "
+
+#~ msgid "Update /etc/securetty"
+#~ msgstr "Оновлення /etc/securetty"
+
+#~ msgid ""
+#~ "Your /etc/securetty does not contain `%s' device, which means root won't "
+#~ "be able to log in on console. Would you like to update it?"
+#~ msgstr ""
+#~ "Ваш /etc/securetty не містить пристрою `%s', тобто root не може ввійти в "
+#~ "систему через консоль. Бажаєте оновити його?"
+
+#~ msgid "Configuring %s"
+#~ msgstr "Налаштовується %s"
+
+#~ msgid "Configuring"
+#~ msgstr "Налаштовується"
+
+#~ msgid "ran netconfig for %s (%s)"
+#~ msgstr "виконано netconfig для %s (%s)"
+
+#~ msgid "ran system-config-keyboard for %s"
+#~ msgstr "виконано system-config-keyboard для %s"
+
+#~ msgid "ran printconf for %s"
+#~ msgstr "виконано printconf для %s"
+
+#~ msgid "Unconfiguring %s"
+#~ msgstr "Видаляються настройки %s"
+
+#~ msgid "Removing Configuration"
+#~ msgstr "Видалення настройок"
+
+#~ msgid "Welcome to Kudzu"
+#~ msgstr "Ласкаво просимо у Kudzu"
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue.\n"
+#~ "\n"
+#~ "         Normal bootup will continue in %d seconds."
+#~ msgstr ""
+#~ "Ласкаво просимо у Kudzu - програму настройки апаратних пристроїв Red Hat "
+#~ "Linux.\n"
+#~ "\n"
+#~ "На наступних екранах ви зможете настроїти новий або видалений апаратний "
+#~ "пристрій вашого коп'ютера.\n"
+#~ "\n"
+#~ "              Натисніть будь-яку клавішу.\n"
+#~ "\n"
+#~ "        Нормальне завантаження буде продовжено за %d секунд."
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue."
+#~ msgstr ""
+#~ "Ласкаво просимо у Kudzu - програму настройки апаратних пристроїв Red Hat "
+#~ "Linux.\n"
+#~ "\n"
+#~ "На наступних екранах ви зможете настроїти новий або видалений апаратний "
+#~ "пристрій вашого коп'ютера.\n"
+#~ "\n"
+#~ "              Натисніть будь-яку клавішу."
+
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Timeout exceeded."
+#~ msgstr ""
+#~ "Ласкаво просимо у Kudzu - програму настройки апаратних пристроїв Red Hat "
+#~ "Linux.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                           Час вичерпано."
+
+#~ msgid ""
+#~ " <F2> Configure / Unconfigure All  |  <F3> Ignore / Keep All  |  <F4> "
+#~ "Cancel "
+#~ msgstr ""
+#~ "<F2> Настроїти/Видалити настр. все | <F3> Ігнор. / Зберег. все | <F4> "
+#~ "Скасувати "
+
+#~ msgid "Hardware Removed"
+#~ msgstr "Пристрій видалено"
+
+#~ msgid "Remove Configuration"
+#~ msgstr "Видалити настройки"
+
+#~ msgid "Keep Configuration"
+#~ msgstr "Зберегти настройки"
+
+#~ msgid "Do Nothing"
+#~ msgstr "Нічого не робити"
+
+#~ msgid ""
+#~ "The following %s has been removed from your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Remove any existing configuration for the device.\n"
+#~ "2) Keep the existing configuration. You will not be prompted again if the "
+#~ "device seems to be missing.\n"
+#~ "3) Do nothing. The configuration will not be removed, but if the device "
+#~ "is found missing on subsequent reboots, you will be prompted again."
+#~ msgstr ""
+#~ "Наступний пристрій %s видалено з вашої системи:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "Ви можете:\n"
+#~ "\n"
+#~ "1) Видалити існуючі настройки цього пристрою.\n"
+#~ "2) Зберегти існуючі настройки. Надалі це запитання не буде повторюватись, "
+#~ "якщо пристрій буде відсутній при наступних запусках.\n"
+#~ "3) Не робити нічого. Настройки не будуть видалені, але якщо пристрій не "
+#~ "буде знайдено при наступному перезавантаженні, це питання повториться."
+
+#~ msgid "Hardware Added"
+#~ msgstr "Знайдено пристрій"
+
+#~ msgid "Configure"
+#~ msgstr "Настроїти"
+
+#~ msgid "Ignore"
+#~ msgstr "Ігнорувати"
+
+#~ msgid ""
+#~ "The following %s has been added to your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Configure the device.\n"
+#~ "2) Ignore the device. No configuration will be added, but you will not be "
+#~ "prompted if the device is detected on subsequent reboots.\n"
+#~ "3) Do nothing. No configuration will be added, and the device will show "
+#~ "up as new if it is detected on subsequent reboots."
+#~ msgstr ""
+#~ "У вашій системі знайдено пристрій типу %s:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "Ви можете:\n"
+#~ "\n"
+#~ "1) Настроїти пристрій.\n"
+#~ "2) Ігнорувати пристрій. Пристрій не буде настроєний, але це питання не "
+#~ "буде з'являтись при наступних запусках.\n"
+#~ "3) Не робити нічого. Пристрій не буде настроєний, та пристрій буде "
+#~ "показаний як новий при наступному перезавантаженні."
+
+#~ msgid "do configuration that doesn't require user input"
+#~ msgstr "виконувати конфігурацію, яка не вимагає інформації від користувача"

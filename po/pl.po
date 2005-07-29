@@ -1,0 +1,194 @@
+# translation of pl.po to Polish
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Andrzej Olszewski <andrzej.olszewski@ifj.edu.pl>, 2004.
+# Tom Berner <tom@lodz.pl>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: pl\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"PO-Revision-Date: 2005-02-24 14:51+0100\n"
+"Last-Translator: Tom Berner <tom@lodz.pl>\n"
+"Language-Team: Polish <pl@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../hwconf.c:128
+#, c-format
+msgid "linked %s to %s"
+msgstr "dowiązano %s do %s"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "odwiązano %s (był dowiązany do %s)"
+
+#: ../hwconf.c:151
+#, c-format
+msgid "unlinked %s"
+msgstr "odwiązano %s"
+
+#: ../hwconf.c:191
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "uruchomiono loadkeys %s"
+
+#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
+#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#, c-format
+msgid "aliased %s as %s"
+msgstr "%s aliasowany do %s"
+
+#: ../hwconf.c:885
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "uruchomiono mouseconfig dla %s"
+
+#: ../hwconf.c:908
+msgid "turned on bcm5820 service"
+msgstr "włączono usługę bcm5820"
+
+#: ../hwconf.c:919
+msgid "turned on aep1000 service"
+msgstr "włączono usługę aep1000"
+
+#: ../hwconf.c:1184
+msgid "network card"
+msgstr "karta sieciowa"
+
+#: ../hwconf.c:1186
+msgid "SCSI controller"
+msgstr "Kontroler SCSI"
+
+#: ../hwconf.c:1188
+msgid "video adapter"
+msgstr "karta graficzna"
+
+#: ../hwconf.c:1190
+msgid "sound card"
+msgstr "karta dźwiękowa"
+
+#: ../hwconf.c:1192
+msgid "mouse"
+msgstr "mysz"
+
+#: ../hwconf.c:1194
+msgid "modem"
+msgstr "modem"
+
+#: ../hwconf.c:1196
+msgid "CD-ROM drive"
+msgstr "napęd CD-ROM"
+
+#: ../hwconf.c:1198
+msgid "tape drive"
+msgstr "napęd taśmowy"
+
+#: ../hwconf.c:1200
+msgid "floppy drive"
+msgstr "napęd dyskietek"
+
+#: ../hwconf.c:1202
+msgid "scanner"
+msgstr "skaner"
+
+#: ../hwconf.c:1204
+msgid "hard disk"
+msgstr "twardy dysk"
+
+#: ../hwconf.c:1206
+msgid "RAID controller"
+msgstr "kontroler RAID"
+
+#: ../hwconf.c:1208
+msgid "IDE controller"
+msgstr "kontroler IDE"
+
+#: ../hwconf.c:1210
+msgid "printer"
+msgstr "drukarka"
+
+#: ../hwconf.c:1212
+msgid "video capture card"
+msgstr "karta przechwytująca wideo"
+
+#: ../hwconf.c:1214
+msgid "keyboard"
+msgstr "klawiatura"
+
+#: ../hwconf.c:1216
+msgid "monitor"
+msgstr "monitor"
+
+#: ../hwconf.c:1218
+msgid "USB controller"
+msgstr "kontroler USB"
+
+#: ../hwconf.c:1220
+msgid "IEEE1394 controller"
+msgstr "kontroler IEEE1394"
+
+#: ../hwconf.c:1222
+msgid "PCMCIA/Cardbus controller"
+msgstr "kontroler PCMCIA/Cardbus"
+
+#: ../hwconf.c:1226
+#, c-format
+msgid "%s device"
+msgstr "urządzenie %s"
+
+#: ../hwconf.c:1417
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr ""
+"wykonaj jedynie 'bezpieczne' testy które nie spowodują zaburzeń w pracy "
+"sprzętu"
+
+#: ../hwconf.c:1421
+msgid "set timeout in seconds"
+msgstr "ustaw czas oczekiwania w sekundach"
+
+#: ../hwconf.c:1424
+msgid "probe only, print information to stdout"
+msgstr "tylko szukaj, wyślij informację na stdout"
+
+#: ../hwconf.c:1428
+msgid "probe only the specified 'bus'"
+msgstr "szukaj tylko na określonej magistrali"
+
+#: ../hwconf.c:1432
+msgid "probe only for the specified 'class'"
+msgstr "szukaj tylko w określonej klasie urządzeń"
+
+#: ../hwconf.c:1436
+msgid "read probed hardware from a file"
+msgstr "listę wyszukiwanych urządzeń odczytaj z pliku"
+
+#: ../hwconf.c:1437
+msgid "file to read hardware info from"
+msgstr "plik do czytania z informacją o sprzęcie"
+
+#: ../hwconf.c:1440
+msgid "search for modules for a particular kernel version"
+msgstr "szukaj modułów dla podanej wersji jądra"
+
+#: ../hwconf.c:1441
+msgid "kernel version"
+msgstr "wersja jądra"
+
+#: ../hwconf.c:1444
+msgid "read probed hardware from a socket"
+msgstr "listę wyszukiwanych urządzeń odczytaj z pliku"
+
+#: ../hwconf.c:1466
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"BŁĄD - musisz być rootem, aby uruchomić kudzu.\n"
+

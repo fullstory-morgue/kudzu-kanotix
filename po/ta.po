@@ -1,0 +1,194 @@
+# translation of ta.po to Tamil
+# This file is distributed under the same license as the PACKAGE package.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
+# Jayaradha N <jaya@pune.redhat.com>, 2004.
+# Jayaradha <njaya@redhat.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ta\n"
+"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"PO-Revision-Date: 2005-03-22 12:19+0530\n"
+"Last-Translator: Jayaradha <njaya@redhat.com>\n"
+"Language-Team: Tamil <zhakanini@yahoogroups.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"\n"
+
+#: ../hwconf.c:128
+#, c-format
+msgid "linked %s to %s"
+msgstr "%s உடன் %s இணைக்கப்பட்டது"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "இணைக்கப்படாத %s (%s உடன் இணைக்கப்பட்டுள்ளது)"
+
+#: ../hwconf.c:151
+#, c-format
+msgid "unlinked %s"
+msgstr "%s உடன் இணைக்கப்பட்டுள்ளது "
+
+#: ../hwconf.c:191
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "ran loadkeys %s"
+
+#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
+#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#, c-format
+msgid "aliased %s as %s"
+msgstr "%s யை %s ஆக மாற்றியுள்ளது"
+
+#: ../hwconf.c:885
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "mouseconfig %s க்காக இயக்கியது "
+
+#: ../hwconf.c:908
+msgid "turned on bcm5820 service"
+msgstr "bcm5820  சேவை துவக்கப்பட்டது"
+
+#: ../hwconf.c:919
+msgid "turned on aep1000 service"
+msgstr "aep1000  சேவை துவக்கப்பட்டது"
+
+#: ../hwconf.c:1184
+msgid "network card"
+msgstr "வலைப்பின்னல் அட்டை"
+
+#: ../hwconf.c:1186
+msgid "SCSI controller"
+msgstr "SCSI கட்டுப்படுத்தி"
+
+#: ../hwconf.c:1188
+msgid "video adapter"
+msgstr "படக்காட்சி ஏற்பி"
+
+#: ../hwconf.c:1190
+msgid "sound card"
+msgstr "ஒலி அட்டை"
+
+#: ../hwconf.c:1192
+msgid "mouse"
+msgstr "சுட்டி"
+
+#: ../hwconf.c:1194
+msgid "modem"
+msgstr "மோடம்"
+
+#: ../hwconf.c:1196
+msgid "CD-ROM drive"
+msgstr "குறுந்தகடு சாதனம்"
+
+#: ../hwconf.c:1198
+msgid "tape drive"
+msgstr "நாடா சாதனம்"
+
+#: ../hwconf.c:1200
+msgid "floppy drive"
+msgstr "நெகிழ்வட்டு சாதனம்"
+
+#: ../hwconf.c:1202
+msgid "scanner"
+msgstr "வருடி"
+
+#: ../hwconf.c:1204
+msgid "hard disk"
+msgstr "வன் தகடு"
+
+#: ../hwconf.c:1206
+msgid "RAID controller"
+msgstr "RAID கட்டுப்படுத்தி"
+
+#: ../hwconf.c:1208
+msgid "IDE controller"
+msgstr "IDE கட்டுப்படுத்தி"
+
+#: ../hwconf.c:1210
+msgid "printer"
+msgstr "அச்சியந்திரம்"
+
+#: ../hwconf.c:1212
+msgid "video capture card"
+msgstr "படம் பிடிக்கும் அட்டை"
+
+#: ../hwconf.c:1214
+msgid "keyboard"
+msgstr "விசைப்பலகை"
+
+#: ../hwconf.c:1216
+msgid "monitor"
+msgstr "திரை"
+
+#: ../hwconf.c:1218
+msgid "USB controller"
+msgstr "USB சாதனம்"
+
+#: ../hwconf.c:1220
+msgid "IEEE1394 controller"
+msgstr "IEEE1394 கட்டுப்படுத்தி"
+
+#: ../hwconf.c:1222
+msgid "PCMCIA/Cardbus controller"
+msgstr "PCMCIA/Cardbus கட்டுப்படுத்தி"
+
+#: ../hwconf.c:1226
+#, c-format
+msgid "%s device"
+msgstr "%s சாதனம்"
+
+#: ../hwconf.c:1417
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr "ஏற்கெனவே உள்ள வன்பொருள்களுக்கு பங்கம் வராதபடி 'பாதுகாப்பாக' தேடு"
+
+#: ../hwconf.c:1421
+msgid "set timeout in seconds"
+msgstr "காலம் கடந்ததை வினாடிகளாக அமை"
+
+#: ../hwconf.c:1424
+msgid "probe only, print information to stdout"
+msgstr "stdout இல் அச்சுத்தகவல்களை மட்டும் அனுப்பும்படி தேடு"
+
+#: ../hwconf.c:1428
+msgid "probe only the specified 'bus'"
+msgstr "குறிப்பிட்ட பஸ்ஸை மட்டும் தேடு"
+
+#: ../hwconf.c:1432
+msgid "probe only for the specified 'class'"
+msgstr "வகுப்புத்தகவலை மட்டும் தேடு"
+
+#: ../hwconf.c:1436
+msgid "read probed hardware from a file"
+msgstr "கோப்பில் இருந்து வன்பொருள் தகவலை படி அல்லது தேடு"
+
+#: ../hwconf.c:1437
+msgid "file to read hardware info from"
+msgstr "வன்பொருள் தகவலை தேடுவதற்கான கோப்பு"
+
+#: ../hwconf.c:1440
+msgid "search for modules for a particular kernel version"
+msgstr "குறிப்பிட்ட கர்னலின் பதிப்பை மட்டும் தேடு"
+
+#: ../hwconf.c:1441
+msgid "kernel version"
+msgstr "கர்னல் பதிப்பு"
+
+#: ../hwconf.c:1444
+msgid "read probed hardware from a socket"
+msgstr "சாக்கெட்டிலிருந்து தேடிய வன்பொருளை படி"
+
+#: ../hwconf.c:1466
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"ERROR - குடுவிற்கு அனுப்பு.\n"
+

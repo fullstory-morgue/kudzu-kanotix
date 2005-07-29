@@ -1,0 +1,522 @@
+# translation of ja.po to Japanese
+# Japanese Translation for Kudzu
+# Copyright (C) 2001 Red Hat, Inc.
+# James Hashida <khashida@redhat.com>, 2002,2003.
+# Tadashi Jokagi <fedora@elf.no-ip.org>, 2004.
+# Hirofumi Saito <hi_saito@yk.rim.or.jp>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: ja\n"
+"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"PO-Revision-Date: 2004-09-06 15:10+0900\n"
+"Last-Translator: Hirofumi Saito <hi_saito@yk.rim.or.jp>\n"
+"Language-Team: Japanese <fedora-trans-ja@redhat.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Generator: KBabel 1.0.2\n"
+
+# ../hwconf.c:299
+#: ../hwconf.c:128
+#, c-format
+msgid "linked %s to %s"
+msgstr "%s を %s にリンクしました。"
+
+# ../hwconf.c:320
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "%s のリンクを解除しました (%s にリンクされていました)"
+
+# ../hwconf.c:322
+#: ../hwconf.c:151
+#, c-format
+msgid "unlinked %s"
+msgstr "%s のリンクを解除しました。"
+
+# ../hwconf.c:357
+#: ../hwconf.c:191
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "loadkeys %s を実行しました。"
+
+# ../hwconf.c:852 ../hwconf.c:897 ../hwconf.c:918 ../hwconf.c:934
+# ../hwconf.c:980
+#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
+#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#, c-format
+msgid "aliased %s as %s"
+msgstr "%s の別名として %s を設定しました。"
+
+# ../hwconf.c:1005
+#: ../hwconf.c:885
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "%s に対して mouseconfig を実行しました。"
+
+#: ../hwconf.c:908
+msgid "turned on bcm5820 service"
+msgstr "bcm5820 サービスに移行しました"
+
+#: ../hwconf.c:919
+msgid "turned on aep1000 service"
+msgstr "aep1000 サービスに移行しました。"
+
+#: ../hwconf.c:1184
+msgid "network card"
+msgstr "ネットワーク・カード"
+
+#: ../hwconf.c:1186
+msgid "SCSI controller"
+msgstr "SCSI コントローラ"
+
+#: ../hwconf.c:1188
+msgid "video adapter"
+msgstr "ビデオ・カード"
+
+#: ../hwconf.c:1190
+msgid "sound card"
+msgstr "サウンド・カード"
+
+#: ../hwconf.c:1192
+msgid "mouse"
+msgstr "マウス"
+
+#: ../hwconf.c:1194
+msgid "modem"
+msgstr "モデム"
+
+#: ../hwconf.c:1196
+msgid "CD-ROM drive"
+msgstr "CD-ROM ドライブ"
+
+#: ../hwconf.c:1198
+msgid "tape drive"
+msgstr "テープ・ドライブ"
+
+#: ../hwconf.c:1200
+msgid "floppy drive"
+msgstr "フロッピー・ドライブ"
+
+#: ../hwconf.c:1202
+msgid "scanner"
+msgstr "スキャナー"
+
+#: ../hwconf.c:1204
+msgid "hard disk"
+msgstr "ハード・ディスク"
+
+#: ../hwconf.c:1206
+msgid "RAID controller"
+msgstr "RAID コントローラ"
+
+#: ../hwconf.c:1208
+msgid "IDE controller"
+msgstr "IDE コントローラ"
+
+#: ../hwconf.c:1210
+msgid "printer"
+msgstr "プリンタ"
+
+#: ../hwconf.c:1212
+msgid "video capture card"
+msgstr "ビデオ・キャプチャ・カード"
+
+#: ../hwconf.c:1214
+msgid "keyboard"
+msgstr "キーボード"
+
+#: ../hwconf.c:1216
+msgid "monitor"
+msgstr "モニタ"
+
+#: ../hwconf.c:1218
+msgid "USB controller"
+msgstr "USB コントローラ"
+
+#: ../hwconf.c:1220
+msgid "IEEE1394 controller"
+msgstr "IEEE1394 コントローラ"
+
+#: ../hwconf.c:1222
+msgid "PCMCIA/Cardbus controller"
+msgstr "PCMCIA/カードバス・コントローラ"
+
+#: ../hwconf.c:1226
+#, c-format
+msgid "%s device"
+msgstr "%s デバイス"
+
+# ../hwconf.c:1403
+#: ../hwconf.c:1417
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr "ハードウェアを干渉しない「安全」検出のみを行う"
+
+# ../hwconf.c:1407
+#: ../hwconf.c:1421
+msgid "set timeout in seconds"
+msgstr "待ち時間を秒単位で設定する"
+
+#: ../hwconf.c:1424
+msgid "probe only, print information to stdout"
+msgstr "検出のみ、情報をstdoutに表示する"
+
+#: ../hwconf.c:1428
+msgid "probe only the specified 'bus'"
+msgstr "指定された「バスのみ」検出する"
+
+#: ../hwconf.c:1432
+msgid "probe only for the specified 'class'"
+msgstr "指定された「クラス」のみ検出する"
+
+# ../hwconf.c:1410
+#: ../hwconf.c:1436
+msgid "read probed hardware from a file"
+msgstr "検出されたハードウェアをファイルから読み込む"
+
+# ../hwconf.c:1411
+#: ../hwconf.c:1437
+msgid "file to read hardware info from"
+msgstr "ハードウェア情報を読み込むファイル"
+
+#: ../hwconf.c:1440
+msgid "search for modules for a particular kernel version"
+msgstr "特定のカーネルバージョン用にモジュールを検索します"
+
+#: ../hwconf.c:1441
+msgid "kernel version"
+msgstr "カーネルバージョン"
+
+# ../hwconf.c:1410
+#: ../hwconf.c:1444
+msgid "read probed hardware from a socket"
+msgstr "検出されたハードウェアをソケットから読み込む"
+
+# ../hwconf.c:1422
+#: ../hwconf.c:1466
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"エラー - kudzu を実行するには root でなければなりません。\n"
+
+# ../hwconf.c:60
+#~ msgid ""
+#~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
+#~ "screen"
+#~ msgstr " <Tab>/<Alt-Tab> 項目間の移動|  <Space> 選択   |  <F12> 次の画面"
+
+# ../hwconf.c:63
+#~ msgid ""
+#~ "Hardware Discovery Utility %s                     (C) 2003 Red Hat, Inc."
+#~ msgstr ""
+#~ "ハードウェア検出ユーティリティ %s                 (C) 2003 Red Hat, Inc."
+
+# ../hwconf.c:451
+#~ msgid "Update /etc/inittab"
+#~ msgstr "/etc/inittab をアップデートする"
+
+# ../hwconf.c:451 ../hwconf.c:584 ../hwconf.c:861
+#~ msgid "Yes"
+#~ msgstr "はい"
+
+# ../hwconf.c:451 ../hwconf.c:584 ../hwconf.c:861
+#~ msgid "No"
+#~ msgstr "いいえ"
+
+# ../hwconf.c:452
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for serial console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "/etc/inittab はシリアルコンソールの操作に適していません。更新しますか?"
+
+# ../hwconf.c:454
+#~ msgid ""
+#~ "Your /etc/inittab is not suitable for video console operation. Would you "
+#~ "like to update it?"
+#~ msgstr ""
+#~ "/etc/inittab はビデオコンソールの操作に適していません。更新しますか?"
+
+# ../hwconf.c:584
+#~ msgid "Update /etc/securetty"
+#~ msgstr "/etc/securetty を更新します。"
+
+# ../hwconf.c:585
+#~ msgid ""
+#~ "Your /etc/securetty does not contain `%s' device, which means root won't "
+#~ "be able to log in on console. Would you like to update it?"
+#~ msgstr ""
+#~ "/etc/securetty に `%s' デバイスが含まれていません。このため、root ユーザは"
+#~ "コンソールにログインできません。更新しますか?"
+
+# ../hwconf.c:818
+#~ msgid "Configuring %s"
+#~ msgstr "%s 設定"
+
+# ../hwconf.c:819
+#~ msgid "Configuring"
+#~ msgstr "設定"
+
+# ../hwconf.c:870
+#~ msgid "ran netconfig for %s (%s)"
+#~ msgstr "%s(%s)に対して netconfig を実行しました。"
+
+# ../hwconf.c:870
+#~ msgid "ran system-config-keyboard for %s"
+#~ msgstr "%s に対して system-config-keyboard を実行しました。"
+
+# ../hwconf.c:870
+#~ msgid "ran printconf for %s"
+#~ msgstr "%s の printconf を実行しました。"
+
+# ../hwconf.c:1063
+#~ msgid "Unconfiguring %s"
+#~ msgstr "%s を取り消しています。"
+
+# ../hwconf.c:1064
+#~ msgid "Removing Configuration"
+#~ msgstr "設定を削除しています。"
+
+# ../hwconf.c:1173 ../hwconf.c:1176 ../hwconf.c:1210
+#~ msgid "Welcome to Kudzu"
+#~ msgstr "Kudzu へようこそ"
+
+# ../hwconf.c:1185
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue.\n"
+#~ "\n"
+#~ "         Normal bootup will continue in %d seconds."
+#~ msgstr ""
+#~ "Red Hat Linux ハードウェアの検出/設定ツール Kudzu へようこそ\n"
+#~ "\n"
+#~ "次の画面では、 コンピュータのハードウェアの新規設定および削除を行うことが"
+#~ "できます。\n"
+#~ "\n"
+#~ "続行するには、任意のキーを押してください。\n"
+#~ "\n"
+#~ "%d 秒後に起動処理を実行します。"
+
+# ../hwconf.c:1194
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "On the following screens you will be able to configure any new or removed "
+#~ "hardware for your computer.\n"
+#~ "\n"
+#~ "                Press any key to continue."
+#~ msgstr ""
+#~ "Red Hat Linux ハードウェアの検出/設定ツール Kudzu へようこそ\n"
+#~ "\n"
+#~ "次の画面では、 コンピュータのハードウェアの新規設定および削除を行うことが"
+#~ "できます。\n"
+#~ "\n"
+#~ "続行するには、任意のキーを押してください。"
+
+# ../hwconf.c:1211
+#~ msgid ""
+#~ "Welcome to Kudzu, the Red Hat Linux hardware detection and configuration "
+#~ "tool.\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             Timeout exceeded."
+#~ msgstr ""
+#~ "Red Hat Linux ハードウェアの検出/設定ツール Kudzu へようこそ\n"
+#~ "\n"
+#~ "\n"
+#~ "\n"
+#~ "                             待ち時間に達しました。"
+
+#~ msgid ""
+#~ " <F2> Configure / Unconfigure All  |  <F3> Ignore / Keep All  |  <F4> "
+#~ "Cancel "
+#~ msgstr ""
+#~ " <F2> 全部を 設定 / 解除           |  <F3> 全部を 無視/キープ |  <F4> 取"
+#~ "消 "
+
+# ../hwconf.c:1311
+#~ msgid "Hardware Removed"
+#~ msgstr "取り外されたハードウェア"
+
+# ../hwconf.c:1311
+#~ msgid "Remove Configuration"
+#~ msgstr "設定を削除"
+
+# ../hwconf.c:1312
+#~ msgid "Keep Configuration"
+#~ msgstr "設定を保持"
+
+# ../hwconf.c:1312 ../hwconf.c:1348
+#~ msgid "Do Nothing"
+#~ msgstr "何も行わない"
+
+# ../hwconf.c:1313
+#~ msgid ""
+#~ "The following %s has been removed from your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Remove any existing configuration for the device.\n"
+#~ "2) Keep the existing configuration. You will not be prompted again if the "
+#~ "device seems to be missing.\n"
+#~ "3) Do nothing. The configuration will not be removed, but if the device "
+#~ "is found missing on subsequent reboots, you will be prompted again."
+#~ msgstr ""
+#~ "以下の%sがシステムから取り外されました:\n"
+#~ "         %s\n"
+#~ "\n"
+#~ "以下の処理の中から選択することができます。:\n"
+#~ "\n"
+#~ "1) 取り外されたデバイスの既存の設定を削除する。\n"
+#~ "2) 既存の設定を保持する。デバイスが接続されていなくても、このメッセージは"
+#~ "再度表しません。\n"
+#~ "3) 何も行わない。設定は削除されませんが、次にシステムを再起動したときにデ"
+#~ "バイスが接続されていたら、このメッセージは再表示します。"
+
+# ../hwconf.c:1347
+#~ msgid "Hardware Added"
+#~ msgstr "追加されたハードウェア"
+
+# ../hwconf.c:1347
+#~ msgid "Configure"
+#~ msgstr "設定"
+
+# ../hwconf.c:1348
+#~ msgid "Ignore"
+#~ msgstr "無視"
+
+# ../hwconf.c:1349
+#~ msgid ""
+#~ "The following %s has been added to your system:\n"
+#~ "        %s\n"
+#~ "\n"
+#~ "You can choose to:\n"
+#~ "\n"
+#~ "1) Configure the device.\n"
+#~ "2) Ignore the device. No configuration will be added, but you will not be "
+#~ "prompted if the device is detected on subsequent reboots.\n"
+#~ "3) Do nothing. No configuration will be added, and the device will show "
+#~ "up as new if it is detected on subsequent reboots."
+#~ msgstr ""
+#~ "以下の %s がシステムに追加されました\n"
+#~ "%s\n"
+#~ "\n"
+#~ "以下の処理の中から選択できます:\n"
+#~ "\n"
+#~ "1) 追加されたデバイスを設定する。\n"
+#~ "2) 追加されたデバイスを無視する。設定は追加されませんが、次にシステムを再"
+#~ "起動したときに接続されていても、このメッセージを再表示しません。\n"
+#~ "3) 何も行わない。設定は追加されません。次にシステムを再起動したときに追加"
+#~ "したデバイスをもう一度検出します。"
+
+# ../hwconf.c:1399
+#~ msgid "do configuration that doesn't require user input"
+#~ msgstr "ユーザ入力が不要な設定を行う"
+
+# ../hwconf.c:861
+#~ msgid "Existing Configuration Detected"
+#~ msgstr "既存の設定を検出しました。"
+
+# ../hwconf.c:862
+#~ msgid "Migrate existing network configuration?"
+#~ msgstr "既存のネットワーク設定を移行しますか?"
+
+# ../hwconf.c:1020
+#~ msgid "ran kbdconfig for %s"
+#~ msgstr "%s のkbdconfigを実行しました。"
+
+# ../hwconf.c:118
+#~ msgid "RPM Required"
+#~ msgstr "必要な RPM"
+
+# ../hwconf.c:118
+#~ msgid "CD"
+#~ msgstr "CD"
+
+# ../hwconf.c:118
+#~ msgid "Filesystem"
+#~ msgstr "ファイルシステム"
+
+# ../hwconf.c:118 ../hwconf.c:167
+#~ msgid "Cancel"
+#~ msgstr "取り消し"
+
+# ../hwconf.c:119
+#~ msgid ""
+#~ "The %s RPM is needed to use this graphics card. You can install it from "
+#~ "your Red Hat Linux CD-ROM, from another location on the filesystem, or "
+#~ "postpone it until later."
+#~ msgstr ""
+#~ "このグラフィックカードを使用するためには、%s の RPM が必要です。これは "
+#~ "Red Hat Linux の CD-ROM またはファイルシステム上の別の場所からインストール"
+#~ "できます。あるいは後でインストールできます。"
+
+# ../hwconf.c:125
+#~ msgid "Insert CD-ROM"
+#~ msgstr "CD-ROM を挿入してください"
+
+# ../hwconf.c:125 ../hwconf.c:134 ../hwconf.c:149 ../hwconf.c:167
+# ../hwconf.c:184 ../hwconf.c:1036
+#~ msgid "Ok"
+#~ msgstr "OK"
+
+# ../hwconf.c:126
+#~ msgid "Please insert your Red Hat Linux CD-ROM (Disc 1)."
+#~ msgstr "Red Hat Linux の CD-ROM (ディスク 1) を挿入してください。"
+
+# ../hwconf.c:134
+#~ msgid "Mount failed"
+#~ msgstr "マウントに失敗しました"
+
+# ../hwconf.c:135
+#~ msgid "Could not mount CD-ROM."
+#~ msgstr "CD-ROM をマウントできませんでした"
+
+# ../hwconf.c:149 ../hwconf.c:184
+#~ msgid "RPM Install Failed"
+#~ msgstr "RPM のインストールに失敗しました"
+
+# ../hwconf.c:150 ../hwconf.c:185
+#~ msgid "RPM install of %s failed."
+#~ msgstr "%s の RPM のインストールに失敗しました。"
+
+# ../hwconf.c:159
+#~ msgid "Path:"
+#~ msgstr "パス:"
+
+# ../hwconf.c:164
+#~ msgid "Please enter the path where the %s RPM can be found:"
+#~ msgstr "%s のRPM が格納されているパスを入力してください。"
+
+# ../hwconf.c:165
+#~ msgid "Enter path to RPM"
+#~ msgstr "RPM のパスを入力してください。"
+
+#~ msgid "disabling sleep bit on potentially buggy %s hardware"
+#~ msgstr ""
+#~ "バグ%sの可能性のあるハードウェア上のスリープ指令を無効にしています。"
+
+# ../hwconf.c:1036
+#~ msgid "Run printtool"
+#~ msgstr "printtool を実行します"
+
+# ../hwconf.c:1037
+#~ msgid ""
+#~ "To properly configure your %s, you need to run the 'printtool' command "
+#~ "from the X window system"
+#~ msgstr ""
+#~ "%s を適切に設定するには、X Window Systemから 'printtool' コマンドを実行す"
+#~ "る必要があります"

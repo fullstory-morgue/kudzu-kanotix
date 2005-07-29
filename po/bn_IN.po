@@ -1,0 +1,194 @@
+# translation of bn_IN.po to Bangla
+# Bangla Translation of Kudzu.pot
+# Copyright (C) 2004 Red Hat Inc.
+# This file is distributed under the same license as the kudzu package.
+# Runa Bhattacharjee <runab@redhat.com>, 2004, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: bn_IN\n"
+"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"PO-Revision-Date: 2005-03-23 16:34+0530\n"
+"Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
+"Language-Team: Bangla <redhat-translation@bengalinux.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Report-Msgid-Bugs-To: \n"
+"X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"\n"
+
+#: ../hwconf.c:128
+#, c-format
+msgid "linked %s to %s"
+msgstr "%s কে %s-র সাথে সংযোগ করা হয়েছে"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "%s-র সংযোগ বিচ্ছিন্ন করা হয়েছে (%s-র সাথে সংযোগ করা হয়েছিল)"
+
+#: ../hwconf.c:151
+#, c-format
+msgid "unlinked %s"
+msgstr "%s-র সংযোগ বিচ্ছিন্ন করা হয়েছে"
+
+#: ../hwconf.c:191
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "%s loadkeys চালানো হয়েছে"
+
+#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
+#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#, c-format
+msgid "aliased %s as %s"
+msgstr "%s-র জন্য %s উপনাম অর্পণ করা হয়েছে"
+
+#: ../hwconf.c:885
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "%s-র জন্য mouseconfig চালানো হয়েছে"
+
+#: ../hwconf.c:908
+msgid "turned on bcm5820 service"
+msgstr "bcm5820 পরিসেবা সক্রিয় করা হয়েছে"
+
+#: ../hwconf.c:919
+msgid "turned on aep1000 service"
+msgstr "aep1000 পরিসেবাটি সক্রিয় করা হয়েছে"
+
+#: ../hwconf.c:1184
+msgid "network card"
+msgstr "নেটওয়ার্ক কার্ড"
+
+#: ../hwconf.c:1186
+msgid "SCSI controller"
+msgstr "SCSI নিয়ন্ত্রক"
+
+#: ../hwconf.c:1188
+msgid "video adapter"
+msgstr "ভিডিও অ্যাডাপ্টার"
+
+#: ../hwconf.c:1190
+msgid "sound card"
+msgstr "সাউন্ড কার্ড"
+
+#: ../hwconf.c:1192
+msgid "mouse"
+msgstr "মাউস"
+
+#: ../hwconf.c:1194
+msgid "modem"
+msgstr "মোডেম"
+
+#: ../hwconf.c:1196
+msgid "CD-ROM drive"
+msgstr "CD-ROM ড্রাইভ"
+
+#: ../hwconf.c:1198
+msgid "tape drive"
+msgstr "টেপ ড্রাইভ"
+
+#: ../hwconf.c:1200
+msgid "floppy drive"
+msgstr "ফ্লপি ড্রাইভ"
+
+#: ../hwconf.c:1202
+msgid "scanner"
+msgstr "স্ক্যানার"
+
+#: ../hwconf.c:1204
+msgid "hard disk"
+msgstr "হার্ড ডিস্ক"
+
+#: ../hwconf.c:1206
+msgid "RAID controller"
+msgstr "RAID নিয়ন্ত্রক"
+
+#: ../hwconf.c:1208
+msgid "IDE controller"
+msgstr "IDE নিয়ন্ত্রক"
+
+#: ../hwconf.c:1210
+msgid "printer"
+msgstr "প্রিন্টার"
+
+#: ../hwconf.c:1212
+msgid "video capture card"
+msgstr "ভিডিও ক্যাপচার কার্ড"
+
+#: ../hwconf.c:1214
+msgid "keyboard"
+msgstr "কীবোর্ড"
+
+#: ../hwconf.c:1216
+msgid "monitor"
+msgstr "মনিটার"
+
+#: ../hwconf.c:1218
+msgid "USB controller"
+msgstr "USB নিয়ন্ত্রক"
+
+#: ../hwconf.c:1220
+msgid "IEEE1394 controller"
+msgstr "IEEE 1394 নিয়ন্ত্রক"
+
+#: ../hwconf.c:1222
+msgid "PCMCIA/Cardbus controller"
+msgstr "PCMCIA/Cardbus নিয়ন্ত্রক"
+
+#: ../hwconf.c:1226
+#, c-format
+msgid "%s device"
+msgstr "%s ডিভাইস"
+
+#: ../hwconf.c:1417
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr "হার্ডওয়্যারে বিশৃঙ্খলা না ঘটিয়ে কেবলমাত্র 'সুরক্ষিত' অনুসন্ধান করো"
+
+#: ../hwconf.c:1421
+msgid "set timeout in seconds"
+msgstr "সেকেন্ড হিসাবে সময়সীমা নির্ধারণ করুন"
+
+#: ../hwconf.c:1424
+msgid "probe only, print information to stdout"
+msgstr "কেবলমাত্র অনুসন্ধান করো, stdout-এ তথ্য প্রিন্ট করো"
+
+#: ../hwconf.c:1428
+msgid "probe only the specified 'bus'"
+msgstr "কেবলমাত্র নির্ধারিত 'bus'-এ অনুসন্ধান করো"
+
+#: ../hwconf.c:1432
+msgid "probe only for the specified 'class'"
+msgstr "কেবলমাত্র নির্ধারিত 'class'-র জন্য অনুসন্ধান করো"
+
+#: ../hwconf.c:1436
+msgid "read probed hardware from a file"
+msgstr "সনাক্ত করা হার্ডওয়্যার ফাইল থেকে পড়ো"
+
+#: ../hwconf.c:1437
+msgid "file to read hardware info from"
+msgstr "যে ফাইল থেকে হার্ডওয়্যার সম্বন্ধে তথ্য পড়া হবে"
+
+#: ../hwconf.c:1440
+msgid "search for modules for a particular kernel version"
+msgstr "কোনো নির্দিষ্ট কার্ণেল সংস্করণের জন্য মডিউল অনুসন্ধান করো"
+
+#: ../hwconf.c:1441
+msgid "kernel version"
+msgstr "কার্ণেলের সংস্করণ"
+
+#: ../hwconf.c:1444
+msgid "read probed hardware from a socket"
+msgstr "সনাক্ত করা হার্ডওয়্যার একটি সকেট থেকে পড়ো"
+
+#: ../hwconf.c:1466
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"ত্রুটি - Kudzu চালাতে হলে আপনাকে root পরিচয় ব্যবহার করতে হবে।\n"
+

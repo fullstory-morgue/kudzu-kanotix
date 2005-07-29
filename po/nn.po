@@ -1,0 +1,334 @@
+# Norwegian (Nynorsk) KDE translation
+# Copyright (C) 2000 Gaute Hvoslef Kvalnes.
+# Gaute Hvoslef Kvalnes <ai98ghk@stud.hib.no>, 2000
+# Kjartan Maraas <kmaraas@gnome.org>, 2001.
+msgid ""
+msgstr ""
+"Project-Id-Version: kudzu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"PO-Revision-Date: 2001-06-25 18:55+02:00\n"
+"Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
+"Language-Team: Norwegian (nynorsk)\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ../hwconf.c:126
+#, fuzzy, c-format
+msgid "linked %s to %s"
+msgstr "Linjer som skal hoppast over:"
+
+#: ../hwconf.c:147
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr ""
+
+#: ../hwconf.c:149
+#, fuzzy, c-format
+msgid "unlinked %s"
+msgstr "understreka"
+
+#: ../hwconf.c:189
+#, c-format
+msgid "ran loadkeys %s"
+msgstr ""
+
+#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
+#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#, fuzzy, c-format
+msgid "aliased %s as %s"
+msgstr "Lagra som: %s"
+
+#: ../hwconf.c:883
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr ""
+
+#: ../hwconf.c:906
+msgid "turned on bcm5820 service"
+msgstr ""
+
+#: ../hwconf.c:917
+msgid "turned on aep1000 service"
+msgstr ""
+
+#: ../hwconf.c:1182
+#, fuzzy
+msgid "network card"
+msgstr "Leit på nettverket"
+
+#: ../hwconf.c:1184
+#, fuzzy
+msgid "SCSI controller"
+msgstr "SCSI-kontrollerarar"
+
+#: ../hwconf.c:1186
+#, fuzzy
+msgid "video adapter"
+msgstr "Nettverk-adapter"
+
+#: ../hwconf.c:1188
+#, fuzzy
+msgid "sound card"
+msgstr "Lydkort"
+
+#: ../hwconf.c:1190
+#, fuzzy
+msgid "mouse"
+msgstr "Mus"
+
+#: ../hwconf.c:1192
+msgid "modem"
+msgstr "modem"
+
+#: ../hwconf.c:1194
+msgid "CD-ROM drive"
+msgstr "CD-ROM-spelar"
+
+#: ../hwconf.c:1196
+#, fuzzy
+msgid "tape drive"
+msgstr "Bandstasjonsval"
+
+#: ../hwconf.c:1198
+#, fuzzy
+msgid "floppy drive"
+msgstr "Diskettstasjon"
+
+#: ../hwconf.c:1200
+#, fuzzy
+msgid "scanner"
+msgstr "Skannar"
+
+#: ../hwconf.c:1202
+#, fuzzy
+msgid "hard disk"
+msgstr "Harddisk"
+
+#: ../hwconf.c:1204
+#, fuzzy
+msgid "RAID controller"
+msgstr "RAID buss-kontrollerar"
+
+#: ../hwconf.c:1206
+#, fuzzy
+msgid "IDE controller"
+msgstr "RAID buss-kontrollerar"
+
+#: ../hwconf.c:1208
+#, fuzzy
+msgid "printer"
+msgstr "Skrivar"
+
+#: ../hwconf.c:1210
+#, fuzzy
+msgid "video capture card"
+msgstr "Skjermkort"
+
+#: ../hwconf.c:1212
+#, fuzzy
+msgid "keyboard"
+msgstr "&Tastatur"
+
+#: ../hwconf.c:1214
+#, fuzzy
+msgid "monitor"
+msgstr "Monitor"
+
+#: ../hwconf.c:1216
+#, fuzzy
+msgid "USB controller"
+msgstr "USB-kontrollerar"
+
+#: ../hwconf.c:1218
+#, fuzzy
+msgid "IEEE1394 controller"
+msgstr "SCSI-kontrollerarar"
+
+#: ../hwconf.c:1220
+#, fuzzy
+msgid "PCMCIA/Cardbus controller"
+msgstr "IPI buss-kontrollerar"
+
+#: ../hwconf.c:1224
+#, fuzzy, c-format
+msgid "%s device"
+msgstr "CD-eining"
+
+#: ../hwconf.c:1397
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr ""
+
+#: ../hwconf.c:1401
+#, fuzzy
+msgid "set timeout in seconds"
+msgstr "Tidsgrense %1 sekund"
+
+#: ../hwconf.c:1404
+#, fuzzy
+msgid "probe only, print information to stdout"
+msgstr "Informasjon om nettverksskrivar"
+
+#: ../hwconf.c:1408
+#, fuzzy
+msgid "probe only the specified 'bus'"
+msgstr "Vis berre valte køyrenivå"
+
+#: ../hwconf.c:1412
+msgid "probe only for the specified 'class'"
+msgstr ""
+
+#: ../hwconf.c:1416
+msgid "read probed hardware from a file"
+msgstr ""
+
+#: ../hwconf.c:1417
+#, fuzzy
+msgid "file to read hardware info from"
+msgstr "Les oppdateringsinstruksjonar frå fil"
+
+#: ../hwconf.c:1420
+msgid "search for modules for a particular kernel version"
+msgstr ""
+
+#: ../hwconf.c:1421
+msgid "kernel version"
+msgstr ""
+
+#: ../hwconf.c:1442
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+
+#, fuzzy
+#~ msgid "Update /etc/inittab"
+#~ msgstr "&Oppdateringsintervall"
+
+#~ msgid "Yes"
+#~ msgstr "Ja"
+
+#~ msgid "No"
+#~ msgstr "Nei"
+
+#, fuzzy
+#~ msgid "Update /etc/securetty"
+#~ msgstr "Oppdater kvart"
+
+#, fuzzy
+#~ msgid "Configuring %s"
+#~ msgstr "Set opp %1"
+
+#, fuzzy
+#~ msgid "Configuring"
+#~ msgstr "Set opp %1"
+
+#, fuzzy
+#~ msgid "ran netconfig for %s (%s)"
+#~ msgstr "Tilkoplingslogg for %1 %2"
+
+#, fuzzy
+#~ msgid "ran system-config-keyboard for %s"
+#~ msgstr "Tilkoplingslogg for %1 %2"
+
+#, fuzzy
+#~ msgid "ran printconf for %s"
+#~ msgstr "Tilkoplingslogg for %1 %2"
+
+#, fuzzy
+#~ msgid "Unconfiguring %s"
+#~ msgstr "Set opp %1"
+
+#, fuzzy
+#~ msgid "Removing Configuration"
+#~ msgstr "Tilbakestill oppsett"
+
+#, fuzzy
+#~ msgid "Welcome to Kudzu"
+#~ msgstr "Velkomen til KDE!"
+
+#, fuzzy
+#~ msgid "Hardware Removed"
+#~ msgstr "Fjerna"
+
+#, fuzzy
+#~ msgid "Remove Configuration"
+#~ msgstr "Tilbakestill oppsett"
+
+#, fuzzy
+#~ msgid "Keep Configuration"
+#~ msgstr "KView-oppsett"
+
+#, fuzzy
+#~ msgid "Do Nothing"
+#~ msgstr "Gjer &ingenting"
+
+#, fuzzy
+#~ msgid "Hardware Added"
+#~ msgstr "Maskinvareinnstillingar"
+
+#~ msgid "Configure"
+#~ msgstr "Set opp"
+
+#~ msgid "Ignore"
+#~ msgstr "Ignorer"
+
+#, fuzzy
+#~ msgid "Existing Configuration Detected"
+#~ msgstr "Oppsett ferdig"
+
+#, fuzzy
+#~ msgid "Migrate existing network configuration?"
+#~ msgstr "Innstillingar for syntaksmerking"
+
+#, fuzzy
+#~ msgid "ran kbdconfig for %s"
+#~ msgstr "Kan ikkje setja opp brukar"
+
+#~ msgid "RPM Required"
+#~ msgstr "Krevjer RPM"
+
+#~ msgid "CD"
+#~ msgstr "CD"
+
+#~ msgid "Filesystem"
+#~ msgstr "Filsystem"
+
+#~ msgid "Cancel"
+#~ msgstr "Avbryt"
+
+#~ msgid "Insert CD-ROM"
+#~ msgstr "Set inn CD-ROM"
+
+#~ msgid "Ok"
+#~ msgstr "OK"
+
+#, fuzzy
+#~ msgid "Mount failed"
+#~ msgstr "Mislukka innlogging"
+
+#, fuzzy
+#~ msgid "Could not mount CD-ROM."
+#~ msgstr "Kunne ikkje logga inn til %1"
+
+#, fuzzy
+#~ msgid "RPM Install Failed"
+#~ msgstr "Installerer filer"
+
+#, fuzzy
+#~ msgid "RPM install of %s failed."
+#~ msgstr "feil ved opning av %1"
+
+#, fuzzy
+#~ msgid "Please enter the path where the %s RPM can be found:"
+#~ msgstr "Oppgi eit namn på den nye gruppa."
+
+#, fuzzy
+#~ msgid "Enter path to RPM"
+#~ msgstr "Oppgi teiknsett"
+
+#, fuzzy
+#~ msgid "Run printtool"
+#~ msgstr "skriv til fil"

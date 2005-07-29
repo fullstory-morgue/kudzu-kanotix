@@ -1,0 +1,189 @@
+# translation of mr.po to kudzu
+# Marathi translations for kudzu package.
+# Copyright (C) 2004 Free Software Foundation
+# This file is distributed under the same license as the kudzu package.
+# Automatically generated, 2004.
+# Pallavi Nikam <nikam.pallavi@gmail.com>, 2005.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: kudzu\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"PO-Revision-Date: 2005-06-14 19:19+0530\n"
+"Last-Translator:Pallavi Nikam <nikam.pallavi@gmail.com>\n"
+"Language-Team:Marathi <en@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: KBabel 1.9.1\n"
+
+#: ../hwconf.c:126
+#, c-format
+msgid "linked %s to %s"
+msgstr "%s हे %s शी जोडले"
+
+#: ../hwconf.c:147
+#, c-format
+msgid "unlinked %s (was linked to %s)"
+msgstr "%s जोडलेले नाही (%s शी  जोडलेले होते)"
+
+#: ../hwconf.c:149
+#, c-format
+msgid "unlinked %s"
+msgstr "%s जोडलेले नाही"
+
+#: ../hwconf.c:189
+#, c-format
+msgid "ran loadkeys %s"
+msgstr "%s लोडकिज सुरु केले"
+
+#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
+#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#, c-format
+msgid "aliased %s as %s"
+msgstr "%s ला %s हे टोपण  ना दिलेले आहेव "
+
+#: ../hwconf.c:883
+#, c-format
+msgid "ran mouseconfig for %s"
+msgstr "%s साठी mouseconfig सुरु करा"
+
+#: ../hwconf.c:906
+msgid "turned on bcm5820 service"
+msgstr "bcm5820 सेवा सुरु केली"
+
+#: ../hwconf.c:917
+msgid "turned on aep1000 service"
+msgstr "aep1000 सेवा सुरु केली"
+
+#: ../hwconf.c:1182
+msgid "network card"
+msgstr "नेटवर्क कार्ड"
+
+#: ../hwconf.c:1184
+msgid "SCSI controller"
+msgstr "SCSI नियंत्रक"
+
+#: ../hwconf.c:1186
+msgid "video adapter"
+msgstr "व्हिडिओ अडॅप्टर"
+
+#: ../hwconf.c:1188
+msgid "sound card"
+msgstr "सांऊड कार्ड"
+
+#: ../hwconf.c:1190
+msgid "mouse"
+msgstr "माऊस"
+
+#: ../hwconf.c:1192
+msgid "modem"
+msgstr "मोडेम"
+
+#: ../hwconf.c:1194
+msgid "CD-ROM drive"
+msgstr "CD-ROM ड्राईव्ह"
+
+#: ../hwconf.c:1196
+msgid "tape drive"
+msgstr "टेप ड्राईव्ह"
+
+#: ../hwconf.c:1198
+msgid "floppy drive"
+msgstr "फ्लॉपी ड्राईव्ह"
+
+#: ../hwconf.c:1200
+msgid "scanner"
+msgstr "स्कॅनर"
+
+#: ../hwconf.c:1202
+msgid "hard disk"
+msgstr "हार्ड डिस्क"
+
+#: ../hwconf.c:1204
+msgid "RAID controller"
+msgstr "RAID नियंत्रक"
+
+#: ../hwconf.c:1206
+msgid "IDE controller"
+msgstr "IDE नियंत्रक"
+
+#: ../hwconf.c:1208
+msgid "printer"
+msgstr "प्रिण्टर"
+
+#: ../hwconf.c:1210
+msgid "video capture card"
+msgstr "व्हिडिओ कॅपच्युअर कार्ड"
+
+#: ../hwconf.c:1212
+msgid "keyboard"
+msgstr "किबोर्ड"
+
+#: ../hwconf.c:1214
+msgid "monitor"
+msgstr "मॉनिटर"
+
+#: ../hwconf.c:1216
+msgid "USB controller"
+msgstr "USB  नियंत्रक"
+
+#: ../hwconf.c:1218
+msgid "IEEE1394 controller"
+msgstr "IEEE1394 नियंत्रक"
+
+#: ../hwconf.c:1220
+msgid "PCMCIA/Cardbus controller"
+msgstr "PCMCIA/Cardbus नियंत्रक"
+
+#: ../hwconf.c:1224
+#, c-format
+msgid "%s device"
+msgstr "%s उपकरण"
+
+#: ../hwconf.c:1397
+msgid "do only 'safe' probes that won't disturb hardware"
+msgstr "ज्या हार्डवेअरला विस्कळीत करणार नाहीत फक्त अशाच सुरक्षीत तपासण्या करा"
+
+#: ../hwconf.c:1401
+msgid "set timeout in seconds"
+msgstr "सेकंदांमध्ये वेळसमाप्तिची रचना करा"
+
+#: ../hwconf.c:1404
+msgid "probe only, print information to stdout"
+msgstr "फक्त stdout साठी प्रिण्ट करण्याच्या माहितीची तपासनी करा"
+
+#: ../hwconf.c:1408
+msgid "probe only the specified 'bus'"
+msgstr "फक्त नमूद केलेल्या  'bus' ची तपासनी करा"
+
+#: ../hwconf.c:1412
+msgid "probe only for the specified 'class'"
+msgstr "फक्त नमूद केलेल्या  'class' ची तपासनी करा"
+
+#: ../hwconf.c:1416
+msgid "read probed hardware from a file"
+msgstr "तपासनी केलेले हार्डवेअर फाईलमधून वाचा"
+
+#: ../hwconf.c:1417
+msgid "file to read hardware info from"
+msgstr "फाईल जी हार्डवेअरची माहिती वाचण्यासाठी वापरतात"
+
+#: ../hwconf.c:1420
+msgid "search for modules for a particular kernel version"
+msgstr "विशिष्ठ कर्नल आवृत्तीसाठी मॉड्यूलस शोधा"
+
+#: ../hwconf.c:1421
+msgid "kernel version"
+msgstr "कर्नल आवृत्ती"
+
+#: ../hwconf.c:1442
+#, c-format
+msgid ""
+"\n"
+"ERROR - You must be root to run kudzu.\n"
+msgstr ""
+"\n"
+"चूक - kudzu सुरु करण्यासाठी तुम्ही रुटच्या स्वरुपात असणे आवश्यक आहे.\n"
+

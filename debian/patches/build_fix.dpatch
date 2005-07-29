@@ -1,0 +1,36 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## build_fix.diff by Stefan Lippers-Hollmann <s.l-h@gmx.de>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description
+
+@DPATCH@
+--- kudzu-kanotix-1.1.116.2.orig/pci.c
++++ kudzu-kanotix-1.1.116.2/pci.c
+@@ -738,7 +738,7 @@
+ #endif	
+ 	unsigned int devtype, command;
+ 	
+-	devtype = p->device_class;
++	devtype = config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_DEVICE];
+ 	if (p->irq || pciToKudzu(devtype) != CLASS_VIDEO) {
+ 		return 0;
+ 	}
+@@ -844,14 +844,14 @@
+ 		    subvend = config[PCI_SUBSYSTEM_VENDOR_ID+1] << 8 | config[PCI_SUBSYSTEM_VENDOR_ID];
+ 		    subdev = config[PCI_SUBSYSTEM_ID+1] << 8 | config[PCI_SUBSYSTEM_ID];
+ 		}
+-		pci_fill_info(p, PCI_FILL_IDENT | PCI_FILL_CLASS | PCI_FILL_IRQ | PCI_FILL_BASES | PCI_FILL_ROM_BASE | PCI_FILL_SIZES);
++		pci_fill_info(p, PCI_FILL_IDENT | PCI_FILL_IRQ | PCI_FILL_BASES | PCI_FILL_ROM_BASE | PCI_FILL_SIZES);
+ 		bustype = PCI_NORMAL;
+ 	        for (bridgenum=0; cardbus_bridges[bridgenum]; bridgenum++) {
+ 			if (p->bus == cardbus_bridges[bridgenum])
+ 			  bustype = PCI_CARDBUS;
+ 		}
+-		dev = pciGetDeviceInfo(p->vendor_id,p->device_id, subvend, subdev, bustype, p->device_class << 8 | config[PCI_CLASS_PROG]);
+-		devtype = p->device_class;
++		dev = pciGetDeviceInfo(p->vendor_id,p->device_id, subvend, subdev, bustype, config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_PROG]);
++		devtype = config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_DEVICE];
+ 		if (devtype == PCI_CLASS_SERIAL_USB) {    
+ 			/* Test to see if it's UHCI or OHCI */
+ 			if (config[PCI_CLASS_PROG] == 0) {

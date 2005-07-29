@@ -1,0 +1,34 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## make_man.diff by Stefan Lippers-Hollmann <s.l-h@gmx.de>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description
+
+@DPATCH@
+--- kudzu-kanotix-1.1.116.2.orig/Makefile
++++ kudzu-kanotix-1.1.116.2/Makefile
+@@ -32,7 +32,7 @@
+ VBEOBJS=./ddcprobe/vesamode.o ./ddcprobe/vbe.o ./ddcprobe/of.o ./ddcprobe/common.o minifind.o
+ endif
+ 
+-all: $(VBELIBS) libkudzu.a libkudzu_loader.a _kudzumodule.so kudzu module_upgrade
++all: $(VBELIBS) libkudzu.a libkudzu_loader.a _kudzumodule.so kudzu updfstab module_upgrade
+ 
+ AR = ar
+ RANLIB = ranlib
+--- kudzu-kanotix-1.1.116.2.orig/module_upgrade.8
++++ kudzu-kanotix-1.1.116.2/module_upgrade.8
+@@ -1,4 +1,4 @@
+-.TH module_upgrade 1 "Red Hat, Inc."
++.TH module_upgrade 8 "Red Hat, Inc."
+ .UC 4
+ .SH NAME
+ module_upgrade \- changes obsolete modules.conf entries to current ones
+--- kudzu-kanotix-1.1.116.2.orig/kudzu.8
++++ kudzu-kanotix-1.1.116.2/kudzu.8
+@@ -1,4 +1,4 @@
+-.TH kudzu 1 "Red Hat, Inc."
++.TH kudzu 8 "Red Hat, Inc."
+ .UC 4
+ .SH NAME
+ kudzu \- detects and configures new and/or changed hardware on a system

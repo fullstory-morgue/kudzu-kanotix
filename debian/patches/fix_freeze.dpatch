@@ -1,0 +1,19 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## fix_freeze.diff by Stefan Lippers-Hollmann <s.l-h@gmx.de>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description
+
+@DPATCH@
+--- kudzu-kanotix-1.1.116.2.orig/modules.c
++++ kudzu-kanotix-1.1.116.2/modules.c
+@@ -99,8 +99,7 @@
+ 	int x;
+ 	
+ 	if (cf==NULL) {
+-		printf("freeConfModules called with NULL pointer. Don't do that.\n");
+-		abort();
++		return;
+ 	}
+ 	for (x=0;x<cf->numlines;x++) {
+ 		if (cf->lines[x]) free(cf->lines[x]);

@@ -1,0 +1,437 @@
+kudzu-kanotix (1.1.118-1) unstable; urgency=low
+
+  * new upstream version:
+    - make sure ISAPNP devices don't end up as CLASS_UNSPEC (#163949)
+    - fix usb - class/subclass/protocol are hex, not decimal (#160450)
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 25 Jul 2005 16:25:30 +0200
+
+kudzu-kanotix (1.1.116.2-2) unstable; urgency=low
+
+  * switch to dpatch instead of monolithic patching.
+  * recompile with gcc-4.0.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 22 Jul 2005 01:01:29 +0200
+
+kudzu-kanotix (1.1.116.2-1) unstable; urgency=low
+
+  * new upstream version:
+    - tweak synaptics detection for ALPS (#158062, <pnasrat@redhat.com>)
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 28 May 2005 13:16:42 +0200
+
+kudzu-kanotix (1.1.116-1) unstable; urgency=low
+
+  * new upstream version:
+    - hack for nForce4 (#153176)
+    - fix uninitialized memory use in pci probe
+    - fix snd-powermac configuration (#151591)
+    - fix some potential segfaults if the files read are empty (#145998)
+    - don't write install lines for sound cards (not useful with udev),
+      add a 'index' parameter for the acutal module, not just the alias
+      (#133759)
+    - support modules.pcimap class/class_mask, and generic entries too
+      (#146213)
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat,  7 May 2005 11:53:04 +0200
+
+kudzu-kanotix (1.1.112-1) unstable; urgency=low
+
+  * new upstream version:
+    - make up some fan devices for mac things that can only be found in
+      the device-tree (#151661)
+    - fix crash in vio.c if the viocd file is empty (#154905)
+    - fix firewire crash (#153987, <danieldk@pobox.com>)
+    - add PCI class for HD audio
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 18 Apr 2005 19:46:46 +0200
+
+kudzu-kanotix (1.1.111-1) unstable; urgency=low
+
+  * new upstream version:
+    - handle -q/--quiet
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 19 Mar 2005 22:17:04 +0100
+
+kudzu-kanotix (1.1.110-1) unstable; urgency=low
+
+  * new upstream version:
+    - fix reading of modules.pcimap when /usr/share/hwdata isn't there
+      (#150123, <dlehman@redhat.com>)
+    - support fddiX device naming (#109689)
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri,  4 Mar 2005 01:28:44 +0100
+
+kudzu-kanotix (1.1.109-1) unstable; urgency=low
+
+  * new upstream version:
+    - use synaptics for ALPS touchpad (#149619, <pnasrat@redhat.com>).
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 26 Feb 2005 14:45:20 +0100
+
+kudzu-kanotix (1.1.108-1) unstable; urgency=low
+
+  * new upstream version. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 19 Feb 2005 18:59:07 +0100
+
+kudzu-kanotix (1.1.107-1) unstable; urgency=low
+
+  * new upstream version. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  3 Feb 2005 14:35:51 +0100
+
+kudzu-kanotix (1.1.106-1) unstable; urgency=low
+
+  * new upstream version.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat,  8 Jan 2005 00:51:04 +0100
+
+kudzu-kanotix (1.1.104-1) unstable; urgency=low
+
+  * new upstream release.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 18 Dec 2004 15:43:09 +0100
+
+kudzu-kanotix (1.1.101-1) unstable; urgency=low
+
+  * new upstream release. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu,  2 Dec 2004 10:59:11 +0100
+
+kudzu-kanotix (1.1.100-1) unstable; urgency=low
+
+  * new upstream release. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 25 Nov 2004 15:52:43 +0100
+
+kudzu-kanotix (1.1.96-1) unstable; urgency=low
+
+  * new upstream version. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 23 Nov 2004 23:55:40 +0100
+
+kudzu-kanotix (1.1.95-2) unstable; urgency=low
+
+  * minor fixes for the debian specific build process. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 14 Oct 2004 23:05:15 +0200
+
+kudzu-kanotix (1.1.95-1) unstable; urgency=low
+
+  * merge new upstream release. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 14 Oct 2004 22:19:30 +0200
+
+kudzu-kanotix (1.1.93-2) unstable; urgency=low
+
+  * merge new upstream version.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Mon, 11 Oct 2004 21:37:09 +0200
+
+kudzu-kanotix (1.1.93-1) unstable; urgency=low
+
+  * fix crash when there's no modprobe.conf/modules.conf.
+
+ -- Bill Nottingham <notting@redhat.com>  Fri,  8 Oct 2004 00:00:00 +0000
+
+kudzu-kanotix (1.1.92-2) unstable; urgency=low
+
+  * merge new upstream version.
+  * minor bugfixes. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun,  3 Oct 2004 22:09:56 +0200
+
+kudzu-kanotix (1.1.90-4) unstable; urgency=low
+
+  * fork from kudzu-kanotix.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 28 Sep 2004 00:26:19 +0200
+
+kudzu-knoppix (1.1.90-3) unstable; urgency=low
+
+  * fix deadlock. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 23 Sep 2004 23:25:23 +0200
+
+kudzu-knoppix (1.1.90-2) unstable; urgency=low
+
+  * sync to new upstream version. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 23 Sep 2004 22:57:42 +0200
+
+kudzu-knoppix (1.1.89-6) unstable; urgency=low
+
+  * clean up, minor fixes. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Sep 2004 23:27:29 +0000
+
+kudzu-knoppix (1.1.89-5) unstable; urgency=low
+
+  * fix upstream version. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Sep 2004 22:18:51 +0000
+
+kudzu-knoppix (1.1.89-4) unstable; urgency=low
+
+  * fix kudzu-knoppix-vesa. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 14 Sep 2004 12:42:40 +0200
+
+kudzu-knoppix (1.1.89-3) unstable; urgency=low
+
+  * re- add kudzu-knoppix-vesa. 
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 14 Sep 2004 02:44:21 +0200
+
+kudzu-knoppix (1.1.89-2) unstable; urgency=low
+
+  * new upstream release, ported to Kanotix BH8.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 14 Sep 2004 00:07:24 +0200
+
+kudzu-knoppix (1.1.72-2) unstable; urgency=low
+
+  * Ported to Kanotix Bug Hunter 7
+
+ -- slh <s.l-h@gmx.de>  Sat, 17 Jul 2004 00:38:59 +0200
+
+kudzu-knoppix (1.1.62-2) unstable; urgency=low
+
+  * Ported to Kanotix Bug Hunter 6
+
+ -- slh <s.l-h@gmx.de>  Wed, 30 Jun 2004 02:50:36 +0200
+
+kudzu-knoppix (1.1.36-2) unstable; urgency=low
+
+  * Removed autoloading of firewire modules
+  * Changes Package name to kudzu-knoppix
+
+ -- root <knopper@linuxtag.net>  Thu, 15 Jan 2004 06:04:43 +0100
+
+kudzu (1.1.36-1) unstable; urgency=low
+
+  * new upstream from 2003-11-02
+  * updated Standards-Version
+
+ -- Noèl Köthe <noel@debian.org>  Sun,  9 Nov 2003 14:15:00 +0100
+
+kudzu (1.1.3-7) unstable; urgency=low
+
+  * working on hppa problem 
+
+ -- Noel Koethe <noel@debian.org>  Mon,  8 Sep 2003 18:50:00 +0200
+
+kudzu (1.1.3-6) unstable; urgency=low
+
+  * fixed a buildd problem with python (2.2->2.3)
+  * removed empty /etc/sysconfig from package
+    (closes: Bug#199260)
+
+ -- Noel Koethe <noel@debian.org>  Sun,  7 Sep 2003 21:02:00 +0200
+
+kudzu (1.1.3-5) unstable; urgency=low
+
+  * trying to make package for all archs
+
+ -- Noel Koethe <noel@debian.org>  Sun,  7 Sep 2003 13:22:00 +0200
+
+kudzu (1.1.3-4) unstable; urgency=low
+
+  * default python version changed from 2.2 to 2.3
+  * updated Standards-Version
+
+ -- Noel Koethe <noel@debian.org>  Sat,  9 Aug 2003 09:49:00 +0200
+
+kudzu (1.1.3-3) unstable; urgency=low
+
+  * rebuild against new libnewt-dev
+    (closes: Bug#197087)
+
+ -- Noel Koethe <noel@debian.org>  Sat, 28 Jun 2003 14:00:00 +0200
+
+kudzu (1.1.3-2) unstable; urgency=low
+
+  * correct build-deps to python2.2-dev
+    (closes: Bug#193070)
+
+ -- Noel Koethe <noel@debian.org>  Wed, 14 Mai 2003 08:46:00 +0100
+
+kudzu (1.1.3-1) unstable; urgency=low
+
+  * new upstream from 2003-04-17
+    (closes: Bug#174838)
+  * python2.2 is now used
+    (closes: Bug#182458)
+  * fixed localisation location
+    (closes: Bug#177038)
+  * removed note that it doesn't run on each boot
+    (closes: Bug#185659)
+
+ -- Noel Koethe <noel@debian.org>  Fri, 25 Apr 2003 19:54:00 +0100
+
+kudzu (0.99.66-2) unstable; urgency=low
+
+  * corrected dependency from python-dev to python2.1-dev
+    (closes: Bug#162560)
+
+ -- Noel Koethe <noel@debian.org>  Sun, 29 Sep 2002 09:48:00 +0200
+
+kudzu (0.99.66-1) unstable; urgency=low
+
+  * new upstream version from 2002-08-28
+    (closes: Bug#155253)
+
+ -- Noel Koethe <noel@debian.org>  Sat, 14 Sep 2002 13:40:00 +0200
+
+kudzu (0.99.52-1) unstable; urgency=low
+
+  * new upstream version from 2002-04-17
+
+ -- Noel Koethe <noel@debian.org>  Sun, 11 May 2002 14:58:00 +0200
+
+kudzu (0.99.50-3) unstable; urgency=low
+
+  * changed section from misc to utils
+    (closes: Bug#145099)
+
+ -- Noel Koethe <noel@debian.org>  Thu,  9 May 2002 22:35:00 +0200
+
+kudzu (0.99.50-2) unstable; urgency=low
+
+  * working on making kudzu available for more archs
+
+ -- Noel Koethe <noel@debian.org>  Mon, 29 Apr 2002 20:21:00 +0200
+
+kudzu (0.99.50-1) unstable; urgency=medium
+
+  * new upstream version from 2002-04-08
+
+ -- Noel Koethe <noel@debian.org>  Tue, 23 Apr 2002 13:15:00 +0200
+
+kudzu (0.99.49-1) unstable; urgency=low
+
+  * new upstream version from 2002-03-03
+    (closes: Bug#133549)
+  * upstream splitted the kudzu package into kudzu and hwdata
+    (http://packages.debian.org/hwdata)
+  * added upstream changelog entries from .spec to Debian
+    package
+  * added kudzu homepage (http://rhlinux.redhat.com/kudzu/)
+    to copyright and the description in control
+  * change description to the orginal description from
+    redhat.
+
+ -- Noel Koethe <noel@debian.org>  Tue, 12 Feb 2002 13:50:00 +0100
+
+kudzu (0.99.45-1) unstable; urgency=low
+
+  * new upstream version from 2002-01-16
+    (closes: Bug#129043)
+    (closes: Bug#129695)
+  * upstream corrected my following reported bug
+    https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=56527
+  * upstream corrected pci.c so that the knoppix patch
+    isn't needed anymore
+    https://bugzilla.redhat.com/bugzilla/show_bug.cgi?id=56773
+  * updated mandrake pcitable to version 1.96 from
+    http://www.linux-mandrake.com/cgi-bin/cvsweb.cgi/soft/ldetect-lst/lst/pcitable
+
+ -- Noel Koethe <noel@debian.org>  Thu, 17 Jan 2002 17:15:00 +0100
+
+kudzu (0.99.40-7) unstable; urgency=low
+
+  * fixed error when copying pcitable.
+    It was named pcitable-merge instead of pcitable
+    (closes: Bug#127429)
+
+ -- Noel Koethe <noel@debian.org>  Sat,  5 Jan 2002 19:59:00 +0100
+
+kudzu (0.99.40-6) unstable; urgency=low
+
+  * kudzu ddcprobe bins only works on i386
+    I set the arch to only i386. Maybe I will move the ddcprobe
+    binaries to an extra package
+
+ -- Noel Koethe <noel@debian.org>  Mon, 24 Dec 2001 20:00:00 +0100
+
+kudzu (0.99.40-5) unstable; urgency=low
+
+  * corrected archs where kudzu makes sense
+    (closes: Bug#121618)
+  * added missing programms from ddcprobe directory
+
+ -- Noel Koethe <noel@debian.org>  Fri, 22 Dec 2001 13:44:00 +0100
+
+kudzu (0.99.40-4) unstable; urgency=low
+
+  * add missing directory /etc/sysconfig where kudzu
+    places its configuration files
+    (closes: Bug#125896)
+  * merge the pcitable of redhat and mandrake together and
+    put this into kudzu-common
+  * corrected debian/control to get a correct handling
+    when switch between kudzu-common and kudzu-common-knoppix
+
+ -- Noel Koethe <noel@debian.org>  Thu, 20 Dec 2001 14:44:00 +0100
+
+kudzu (0.99.40-3) unstable; urgency=low
+
+  * corrected minor spelling error in debian/controll
+    (closes: Bug#124851)
+
+ -- Noel Koethe <noel@debian.org>  Mon, 17 Dec 2001 23:56:01 +0100
+
+kudzu (0.99.40-2) unstable; urgency=low
+
+  * to have a datafile from redhat or mandrake doesn't make sense
+    because we only want hardware detection and it doesn't interest
+    us which hardware db we use.
+    I will merge the redhat and mandrake and filter the entries which
+    are twice in the list.
+    There is a kudzu-common-knoppix which have so special changes
+    for the knoppix live cd (www.knoppix.de)
+  * added a missing -fpic in Makefile which should repair #121618
+    (will close the bug if it really works)
+
+ -- Noel Koethe <noel@debian.org>  Sun, 16 Dec 2001 17:43:00 +0100
+
+kudzu (0.99.40-1) unstable; urgency=low
+
+  * new upstream version from:
+    ftp://ftp.redhat.com/pub/redhat/linux/rawhide/SRPMS/SRPMS/
+  * moved -common to -data and provides now the original
+    redhat hardware db (kudzu-data), the mandrake hardware db
+    (kudzu-data-mandrake) and the mandrake hardware db with
+    special changes for knoppix (kudzu-data-knoppix)
+  * fixed some spelling and grammar erros
+    (closes: Bug#122385)
+    (closes: Bug#122386)
+
+ -- Noel Koethe <noel@koethe.net>  Sun, 09 Dec 2001 23:30:00 +0100
+
+kudzu (0.99.23-1) unstable; urgency=low
+
+  * took package from Klaus Knopper
+  * new version (0.99.23-1)
+  * switch from debian native to .orig and .diff
+  * splitted into kudzu, -common, -dev
+  * (closes: Bug#120505)
+
+ -- Noel Koethe <noel@koethe.net>  Tue, 20 Nov 2001 15:45:00 +0100
+
+kudzu (0.99.2-2) unstable; urgency=low
+
+  * pcitable updates.
+
+ -- Klaus Knopper <knopper@knopper.net>  Thu, 17 Aug 2001 21:35:51 +0200
+
+kudzu (0.99.2-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Klaus Knopper <knopper@knopper.net>  Thu, 31 May 2001 23:04:20 +0200
+
+Local variables:
+mode: debian-changelog
+End:

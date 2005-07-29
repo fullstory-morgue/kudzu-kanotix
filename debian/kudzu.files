@@ -1,0 +1,5 @@
+usr/lib/python2.1/site-packages/*
+usr/sbin/kudzu
+usr/sbin/module_upgrade
+usr/sbin/updfstab
+usr/share/doc/kudzu/*

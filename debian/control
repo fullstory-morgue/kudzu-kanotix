@@ -2,8 +2,8 @@ Source: kudzu-kanotix
 Section: utils
 Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: debhelper (>> 3.0.0), pciutils-dev, python2.3-dev, libnewt-dev, libpopt-dev, gettext, perl, dietlibc-dev
-Standards-Version: 3.6.1
+Build-Depends: debhelper (>> 4.0.0), pciutils-dev, python2.3-dev, libnewt-dev, libpopt-dev, gettext, perl, dietlibc-dev
+Standards-Version: 3.6.2
 
 Package: kudzu-kanotix
 Provides: kudzu, kudzu-knoppix

@@ -2,8 +2,10 @@ kudzu-kanotix (1.1.119-1) unstable; urgency=low
 
   * New upstream release:
     - make sure changing network devices are properly caught (#141338)
+  * bump standards version to 3.6.2.
+  * adapt build-depends to debhelper 4.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 30 Jul 2005 16:00:56 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 30 Jul 2005 16:11:12 +0200
 
 kudzu-kanotix (1.1.118-1) unstable; urgency=low
 

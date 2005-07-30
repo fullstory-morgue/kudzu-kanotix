@@ -245,6 +245,11 @@ int compareDevice(struct device *dev1, struct device *dev2) {
 	 * want to act differently on upgrades.
 	 */
 	if (strcmp(dev1->driver,dev2->driver)) return 2;
+	/* If a network device changes hwaddr, flag it! */
+	if (dev1->type == CLASS_NETWORK && dev2->type == CLASS_NETWORK &&
+	    dev1->classprivate && dev2->classprivate &&
+	    strcmp((char *)dev1->classprivate,(char *)dev2->classprivate))
+		return 1;
 	return 0;
 }
 

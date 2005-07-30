@@ -1,5 +1,5 @@
 Name: kudzu
-Version: 1.1.118
+Version: 1.1.119
 Release: 1
 License: GPL
 Summary: The Red Hat Linux hardware probing tool.
@@ -80,7 +80,10 @@ fi
 %{_includedir}/kudzu
 
 %changelog
-* Fru Jul 22 2005 Bill Nottingham <notting@redhat.com> 1.1.118-1
+* Tue Jul 26 2005 Bill Nottingham <notting@redhat.com> 1.1.119-1
+- make sure changing network devices are properly caught (#141338)
+
+* Fri Jul 22 2005 Bill Nottingham <notting@redhat.com> 1.1.118-1
 - make sure ISAPNP devices don't end up as CLASS_UNSPEC (#163949)
 
 * Thu Jun 16 2005 Bill Nottingham <notting@redhat.com>

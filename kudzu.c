@@ -142,10 +142,10 @@ struct bus buses[] = {
 
 char *module_file = NULL;
 float kernel_release;
+char *kernel_ver = NULL;
 
 static void setupKernelVersion() {
 	unsigned int major, sub, minor;
-	char *kernel_ver = NULL;
 	
 	if (!kernel_ver) {
 		struct utsname utsbuf;

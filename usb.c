@@ -16,8 +16,6 @@
 #include <string.h>
 #include <unistd.h>
 
-#include <sys/utsname.h>
-
 #include "usb.h"
 #include "modules.h"
 
@@ -142,21 +140,9 @@ int usbReadDrivers(char *filename)
 	unsigned int vend = 0, dev;
 	struct usbdesc tmpdev;
 	char *vendor = NULL;
-	struct utsname utsbuf;
 	char path[256];
 
-	uname(&utsbuf);
-	if (strstr(utsbuf.release,"BOOT")) {
-		char kernelver[64];
-		int len;
-				
-		len = strstr(utsbuf.release,"BOOT")-utsbuf.release;
-		strncpy(kernelver,utsbuf.release,len);
-		kernelver[len] = '\0';
-		snprintf(path,255,"/lib/modules/%s/modules.usbmap", kernelver);
-	} else {
-		snprintf(path,255,"/lib/modules/%s/modules.usbmap", utsbuf.release);
-	}
+	snprintf(path,255,"/lib/modules/%s/modules.usbmap", kernel_ver);
 	fd = open(path, O_RDONLY);
         if (fd < 0) {
             fd = open("/modules/modules.usbmap",O_RDONLY);

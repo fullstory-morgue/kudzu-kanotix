@@ -12,6 +12,7 @@
 #ifndef _KUDZU_ISAPNP_H_
 #define _KUDZU_ISAPNP_H_
 
+#include "kudzu.h"
 #include "device.h"
 
 struct isapnpDevice {

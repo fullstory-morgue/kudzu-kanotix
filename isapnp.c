@@ -17,7 +17,6 @@
 #include <unistd.h>
 
 #include <sys/types.h>
-#include <sys/utsname.h>
 
 #include "isapnp.h"
 
@@ -100,14 +99,12 @@ static char *demangle(int vendor, int device) {
 int isapnpReadDrivers(char *filename) {
 	int fd;
 	char path[256];
-	struct utsname utsbuf;
 	int id1, id2, id3, id4;
 	struct isapnpDevice key, *nextDevice;
 	char *ident, *pident;
 	char *buf, *start, *next, *ptr, *module;
 	
-	uname(&utsbuf);
-	snprintf(path,255,"/lib/modules/%s/modules.isapnpmap",utsbuf.release);
+	snprintf(path,255,"/lib/modules/%s/modules.isapnpmap",kernel_ver);
 	fd = open(path,O_RDONLY);
 	if (fd < 0) {
 		fd = open("/etc/modules.isapnpmap", O_RDONLY);

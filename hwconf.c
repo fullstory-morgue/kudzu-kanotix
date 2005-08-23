@@ -57,7 +57,6 @@ int removedMouse = 0;
 
 static int rhgb = 0;
 static char *_module_file = NULL;
-static char *kernel_ver = NULL;
 static float _kernel_release;
 
 int Xconfig(struct device *dev)
@@ -442,14 +441,14 @@ int rewriteSecuretty(struct device *dev)
 	return 0;
 }
 
-int checkForModule(char *kernel_ver, char *modulename)
+int checkForModule(char *the_kernel_ver, char *modulename)
 {
 	struct stat sbuf;
 	char path[512], mod_name[100];
 	char *buf;
 	int fd;
 	
-	snprintf(path,512,"/lib/modules/%s/modules.dep",kernel_ver);
+	snprintf(path,512,"/lib/modules/%s/modules.dep",the_kernel_ver);
 	if (!stat(path,&sbuf)) {
 		fd = open(path,O_RDONLY);
 		buf = mmap(0,sbuf.st_size,PROT_READ,MAP_SHARED,fd,0);

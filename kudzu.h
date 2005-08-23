@@ -101,4 +101,5 @@ extern struct kudzuclass classes[];
 
 extern char *module_file;
 extern float kernel_release;
+extern char *kernel_ver;
 #endif

@@ -123,6 +123,9 @@ int main(int argc, char **argv) {
 
 	readModlist();
 	
+	if (argc >= 2)
+		kernel_ver = argv[1];
+	
 	cf = readConfModules("/etc/modprobe.conf");
 	if (!cf)
 	  return 0;

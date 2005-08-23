@@ -1,5 +1,5 @@
 Name: kudzu
-Version: 1.1.119
+Version: 1.1.120
 Release: 1
 License: GPL
 Summary: The Red Hat Linux hardware probing tool.
@@ -80,6 +80,12 @@ fi
 %{_includedir}/kudzu
 
 %changelog
+* Fri Aug 19 2005 Bill Nottingham <notting@redhat.com> 1.1.120-1
+- fix macio overzealous snd-powermac probe (#166011, <dwmw2@redhat.com>)
+- fix overriding of kernel version
+  - allow using that in module_upgrade
+- remove usb, firewire special cases in pci probing
+
 * Tue Jul 26 2005 Bill Nottingham <notting@redhat.com> 1.1.119-1
 - make sure changing network devices are properly caught (#141338)
 

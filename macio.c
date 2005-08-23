@@ -153,7 +153,7 @@ struct device *macioProbe( enum deviceClass probeClass, int probeFlags,
 	// Supported
 	for (n = list->result->next; n != list->result; n = n->next)
 	{
-		if (n->path)
+		if (n->path && strstr(n->path, "mac-io"))
 			ret = 1;
 	}
 

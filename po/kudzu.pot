@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-04-22 14:40-0400\n"
+"POT-Creation-Date: 2005-08-07 00:06-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,175 +16,175 @@ msgstr ""
 "Content-Type: text/plain; charset=CHARSET\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../hwconf.c:128
+#: ../hwconf.c:127
 #, c-format
 msgid "linked %s to %s"
 msgstr ""
 
-#: ../hwconf.c:149
+#: ../hwconf.c:148
 #, c-format
 msgid "unlinked %s (was linked to %s)"
 msgstr ""
 
-#: ../hwconf.c:151
+#: ../hwconf.c:150
 #, c-format
 msgid "unlinked %s"
 msgstr ""
 
-#: ../hwconf.c:191
+#: ../hwconf.c:190
 #, c-format
 msgid "ran loadkeys %s"
 msgstr ""
 
-#: ../hwconf.c:725 ../hwconf.c:741 ../hwconf.c:770 ../hwconf.c:789
-#: ../hwconf.c:815 ../hwconf.c:841 ../hwconf.c:868
+#: ../hwconf.c:724 ../hwconf.c:740 ../hwconf.c:769 ../hwconf.c:788
+#: ../hwconf.c:814 ../hwconf.c:840 ../hwconf.c:867
 #, c-format
 msgid "aliased %s as %s"
 msgstr ""
 
-#: ../hwconf.c:879
+#: ../hwconf.c:878
 #, c-format
 msgid "ran mouseconfig for %s"
 msgstr ""
 
-#: ../hwconf.c:902
+#: ../hwconf.c:901
 msgid "turned on bcm5820 service"
 msgstr ""
 
-#: ../hwconf.c:913
+#: ../hwconf.c:912
 msgid "turned on aep1000 service"
 msgstr ""
 
-#: ../hwconf.c:1170
+#: ../hwconf.c:1169
 msgid "network card"
 msgstr ""
 
-#: ../hwconf.c:1172
+#: ../hwconf.c:1171
 msgid "SCSI controller"
 msgstr ""
 
-#: ../hwconf.c:1174
+#: ../hwconf.c:1173
 msgid "video adapter"
 msgstr ""
 
-#: ../hwconf.c:1176
+#: ../hwconf.c:1175
 msgid "sound card"
 msgstr ""
 
-#: ../hwconf.c:1178
+#: ../hwconf.c:1177
 msgid "mouse"
 msgstr ""
 
-#: ../hwconf.c:1180
+#: ../hwconf.c:1179
 msgid "modem"
 msgstr ""
 
-#: ../hwconf.c:1182
+#: ../hwconf.c:1181
 msgid "CD-ROM drive"
 msgstr ""
 
-#: ../hwconf.c:1184
+#: ../hwconf.c:1183
 msgid "tape drive"
 msgstr ""
 
-#: ../hwconf.c:1186
+#: ../hwconf.c:1185
 msgid "floppy drive"
 msgstr ""
 
-#: ../hwconf.c:1188
+#: ../hwconf.c:1187
 msgid "scanner"
 msgstr ""
 
-#: ../hwconf.c:1190
+#: ../hwconf.c:1189
 msgid "hard disk"
 msgstr ""
 
-#: ../hwconf.c:1192
+#: ../hwconf.c:1191
 msgid "RAID controller"
 msgstr ""
 
-#: ../hwconf.c:1194
+#: ../hwconf.c:1193
 msgid "IDE controller"
 msgstr ""
 
-#: ../hwconf.c:1196
+#: ../hwconf.c:1195
 msgid "printer"
 msgstr ""
 
-#: ../hwconf.c:1198
+#: ../hwconf.c:1197
 msgid "video capture card"
 msgstr ""
 
-#: ../hwconf.c:1200
+#: ../hwconf.c:1199
 msgid "keyboard"
 msgstr ""
 
-#: ../hwconf.c:1202
+#: ../hwconf.c:1201
 msgid "monitor"
 msgstr ""
 
-#: ../hwconf.c:1204
+#: ../hwconf.c:1203
 msgid "USB controller"
 msgstr ""
 
-#: ../hwconf.c:1206
+#: ../hwconf.c:1205
 msgid "IEEE1394 controller"
 msgstr ""
 
-#: ../hwconf.c:1208
+#: ../hwconf.c:1207
 msgid "PCMCIA/Cardbus controller"
 msgstr ""
 
-#: ../hwconf.c:1212
+#: ../hwconf.c:1211
 #, c-format
 msgid "%s device"
 msgstr ""
 
-#: ../hwconf.c:1403
+#: ../hwconf.c:1402
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
 
-#: ../hwconf.c:1407
+#: ../hwconf.c:1406
 msgid "set timeout in seconds"
 msgstr ""
 
-#: ../hwconf.c:1410
+#: ../hwconf.c:1409
 msgid "probe only, print information to stdout"
 msgstr ""
 
-#: ../hwconf.c:1414
+#: ../hwconf.c:1413
 msgid "probe only the specified 'bus'"
 msgstr ""
 
-#: ../hwconf.c:1418
+#: ../hwconf.c:1417
 msgid "probe only for the specified 'class'"
 msgstr ""
 
-#: ../hwconf.c:1422
+#: ../hwconf.c:1421
 msgid "read probed hardware from a file"
 msgstr ""
 
-#: ../hwconf.c:1423
+#: ../hwconf.c:1422
 msgid "file to read hardware info from"
 msgstr ""
 
-#: ../hwconf.c:1426
+#: ../hwconf.c:1425
 msgid "search for modules for a particular kernel version"
 msgstr ""
 
-#: ../hwconf.c:1427
+#: ../hwconf.c:1426
 msgid "kernel version"
 msgstr ""
 
-#: ../hwconf.c:1430
+#: ../hwconf.c:1429
 msgid "read probed hardware from a socket"
 msgstr ""
 
-#: ../hwconf.c:1434
+#: ../hwconf.c:1433
 msgid "do configuration that doesn't require user input"
 msgstr ""
 
-#: ../hwconf.c:1456
+#: ../hwconf.c:1455
 #, c-format
 msgid ""
 "\n"

@@ -1,3 +1,15 @@
+kudzu-kanotix (1.1.120-1) unstable; urgency=low
+
+  * New upstream release:
+    - fix macio overzealous snd-powermac probe (#166011, <dwmw2@redhat.com>)
+    - fix overriding of kernel version
+      - allow using that in module_upgrade
+    - remove usb, firewire special cases in pci probing
+  * rediff build-fix.
+  * fix changelog.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 23 Aug 2005 13:59:39 +0200
+
 kudzu-kanotix (1.1.119-1) unstable; urgency=low
 
   * New upstream release:
@@ -264,7 +276,7 @@ kudzu (1.1.3-2) unstable; urgency=low
   * correct build-deps to python2.2-dev
     (closes: Bug#193070)
 
- -- Noel Koethe <noel@debian.org>  Wed, 14 Mai 2003 08:46:00 +0100
+ -- Noel Koethe <noel@debian.org>  Wed, 14 May 2003 08:46:00 +0100
 
 kudzu (1.1.3-1) unstable; urgency=low
 

@@ -19,7 +19,6 @@
 #include <libgen.h>
 
 #include <sys/stat.h>
-#include <sys/utsname.h>
 
 #include <pci/pci.h>
 
@@ -279,7 +278,6 @@ int pciReadDrivers(char *filename) {
 	struct pciDevice * nextDevice, *tmpdev = NULL, key;
 	char *module;
 	char path[256];
-	struct utsname utsbuf;
 
 	if (filename) {
 		pcifiledir = dirname(strdup(filename));
@@ -420,18 +418,7 @@ pcimap:
 		if (fd < 0)
 			return 0;
 	} else {
-		uname(&utsbuf);
-		if (strstr(utsbuf.release,"BOOT")) {
-			char kernelver[64];
-			int len;
-			
-			len = strstr(utsbuf.release,"BOOT")-utsbuf.release;
-			strncpy(kernelver,utsbuf.release,len);
-			kernelver[len] = '\0';
-			snprintf(path,255,"/lib/modules/%s/modules.pcimap", kernelver);
-		} else {
-			snprintf(path,255,"/lib/modules/%s/modules.pcimap", utsbuf.release);
-		}
+		snprintf(path,255,"/lib/modules/%s/modules.pcimap", kernel_ver);
 		fd = open(path, O_RDONLY);
 		if (fd < 0) {
 			fd = open("/etc/modules.pcimap",O_RDONLY);
@@ -852,32 +839,6 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 		}
 		dev = pciGetDeviceInfo(p->vendor_id,p->device_id, subvend, subdev, bustype, p->device_class << 8 | config[PCI_CLASS_PROG]);
 		devtype = p->device_class;
-		if (devtype == PCI_CLASS_SERIAL_USB) {    
-			/* Test to see if it's UHCI or OHCI */
-			if (config[PCI_CLASS_PROG] == 0) {
-				free(dev->driver);
-				if (kernel_release >= 2.5) 
-					dev->driver = strdup("uhci-hcd");
-				else
-					dev->driver = strdup("usb-uhci");
-			} else if (config[PCI_CLASS_PROG] == 0x10) {
-				free(dev->driver);
-				if (kernel_release >= 2.5)
-					dev->driver = strdup("ohci-hcd");
-				else
-					dev->driver = strdup("usb-ohci");
-			} else if (config[PCI_CLASS_PROG] == 0x20) {
-				free(dev->driver);
-				dev->driver = strdup("ehci-hcd");
-			}
-		}
-		if (devtype == PCI_CLASS_SERIAL_FIREWIRE) {    
-			/* Test to see if it's OHCI */
-			if (config[PCI_CLASS_PROG] == 0x10) {
-				free (dev->driver);
-				dev->driver = strdup("ohci1394");
-			}
-		}
 		/* Check for an i2o device. Note that symbios controllers
 		 * also need i2o_scsi module. Dunno how to delineate that
 		 * here. */

@@ -5,9 +5,9 @@
 ## DP: No description
 
 @DPATCH@
---- kudzu-kanotix-1.1.116.2.orig/pci.c
-+++ kudzu-kanotix-1.1.116.2/pci.c
-@@ -738,7 +738,7 @@
+--- kudzu-kanotix-1.1.120.orig/pci.c	2005-08-23 13:52:21.594899750 +0200
++++ kudzu-kanotix-1.1.120/pci.c	2005-08-23 13:51:02.921983000 +0200
+@@ -725,7 +725,7 @@ static int isDisabled(struct pci_dev *p,
  #endif	
  	unsigned int devtype, command;
  	
@@ -16,7 +16,7 @@
  	if (p->irq || pciToKudzu(devtype) != CLASS_VIDEO) {
  		return 0;
  	}
-@@ -844,14 +844,14 @@
+@@ -831,14 +831,14 @@ struct device * pciProbe(enum deviceClas
  		    subvend = config[PCI_SUBSYSTEM_VENDOR_ID+1] << 8 | config[PCI_SUBSYSTEM_VENDOR_ID];
  		    subdev = config[PCI_SUBSYSTEM_ID+1] << 8 | config[PCI_SUBSYSTEM_ID];
  		}
@@ -31,6 +31,6 @@
 -		devtype = p->device_class;
 +		dev = pciGetDeviceInfo(p->vendor_id,p->device_id, subvend, subdev, bustype, config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_PROG]);
 +		devtype = config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_DEVICE];
- 		if (devtype == PCI_CLASS_SERIAL_USB) {    
- 			/* Test to see if it's UHCI or OHCI */
- 			if (config[PCI_CLASS_PROG] == 0) {
+ 		/* Check for an i2o device. Note that symbios controllers
+ 		 * also need i2o_scsi module. Dunno how to delineate that
+ 		 * here. */

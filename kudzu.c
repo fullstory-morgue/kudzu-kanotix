@@ -534,6 +534,8 @@ struct device *readDevice(FILE *file) {
 int initializeBusDeviceList(enum deviceBus busSet) {
 	int bus;
 	
+	if (!kernel_ver)
+		setupKernelVersion();
 	for (bus=0;buses[bus].string;bus++) {
 	  if ((busSet & buses[bus].busType) && buses[bus].initFunc) {
 	      buses[bus].initFunc(NULL);
@@ -543,6 +545,8 @@ int initializeBusDeviceList(enum deviceBus busSet) {
 }
 
 int initializeDeviceList(void) {
+	if (!kernel_ver)
+		setupKernelVersion();
 	return initializeBusDeviceList(BUS_UNSPEC);
 }
 
@@ -1176,6 +1180,7 @@ out:
 					free(dev->device);
 					dev->device = strdup(tmpdev->dev);
 					ndevs = addToList(&devicelist, dev->device, ndevs);
+					break;
 				}
 			}
 		}

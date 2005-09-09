@@ -861,10 +861,14 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 			dev->detached = 1;
 		}
 		/* Sure, reuse a pci id for an incompatible card. */
-		if (dev->vendorId == 0x10ec && dev->deviceId == 0x8139 &&
-		    config[PCI_REVISION_ID] >= 0x20) {
-			free(dev->driver);
-			dev->driver = strdup("8139cp");
+		if (dev->vendorId == 0x10ec && dev->deviceId == 0x8139) {
+			if (config[PCI_REVISION_ID] >= 0x20) {
+				free(dev->driver);
+				dev->driver = strdup("8139cp");
+			} else {
+				free(dev->driver);
+				dev->driver = strdup("8139too");
+			}
 		}
 		/* nForce4 boards show up with their ethernet controller
 		 * as a bridge; hack it */

@@ -53,9 +53,9 @@ install: build
 	# Add here commands to install the package into debian/kudzu.
 
 	# kudzu
-	mkdir -p $(CURDIR)/debian/kudzu-kanotix/usr/lib/python2.3/site-packages
-	cp python2.3/_kudzumodule.so $(CURDIR)/debian/kudzu-kanotix/usr/lib/python2.3/site-packages/
-	cp kudzu.py $(CURDIR)/debian/kudzu-kanotix/usr/lib/python2.3/site-packages/
+	mkdir -p $(CURDIR)/debian/kudzu-kanotix/usr/lib/python2.4/site-packages
+	cp python2.4/_kudzumodule.so $(CURDIR)/debian/kudzu-kanotix/usr/lib/python2.4/site-packages/
+	cp kudzu.py $(CURDIR)/debian/kudzu-kanotix/usr/lib/python2.4/site-packages/
 	# LC_ files
 	-for i in `ls po/*.mo`; do \
 		l=`echo $$i|sed -e "s/po\/\(.*\)\.mo/\1/"`; \

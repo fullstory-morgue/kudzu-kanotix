@@ -472,38 +472,8 @@ int checkForModule(char *the_kernel_ver, char *modulename)
 
 int isAvailable(char *modulename)
 {
-	char path[512];
-	
 	if (checkForModule(kernel_ver, modulename))
 		return 1;
-	
-	/* If they're running a -BOOT kernel, try the original. */
-	if (strstr(kernel_ver,"BOOT")) {
-		char kernelver[64];
-		int len;
-		
-		len = strstr(kernel_ver,"BOOT")-kernel_ver;
-		strncpy(kernelver,kernel_ver,len);
-		kernelver[len]='\0';
-		if (checkForModule(kernelver, modulename))
-			return 1;
-
-		snprintf(path,512,"%ssmp",kernelver);
-		if (checkForModule(path, modulename))
-			return 1;
-		
-		snprintf(path,512,"%sbigmem",kernelver);
-		if (checkForModule(path, modulename))
-			return 1;
-
-		snprintf(path,512,"%shugemem",kernelver);
-		if (checkForModule(path, modulename))
-			return 1;
-
-		snprintf(path,512,"%ssummit",kernelver);
-		if (checkForModule(path, modulename))
-			return 1;
-	}
 	return 0;
 }
 

@@ -1,3 +1,11 @@
+kudzu-kanotix (1.1.122-1) unstable; urgency=low
+
+  * New upstream release
+    - don't rely on pcimap for 8139too/8139cp; hardcode the logic (#157783)
+    - make sure kernel version is always initialized (fixes python bindings)
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 10 Sep 2005 01:01:30 +0200
+
 kudzu-kanotix (1.1.120-1) unstable; urgency=low
 
   * New upstream release:

@@ -1,5 +1,5 @@
 Name: kudzu
-Version: 1.1.120
+Version: 1.1.122
 Release: 1
 License: GPL
 Summary: The Red Hat Linux hardware probing tool.
@@ -80,6 +80,12 @@ fi
 %{_includedir}/kudzu
 
 %changelog
+* Tue Aug 30 2005 Bill Nottingham <notting@redhat.com> 1.1.122-1
+- don't rely on pcimap for 8139too/8139cp; hardcode the logic (#157783)
+
+* Mon Aug 22 2005 Bill Nottingham <notting@redhat.com> 1.1.121-1
+- make sure kernel version is always initialized (fixes python bindings)
+
 * Fri Aug 19 2005 Bill Nottingham <notting@redhat.com> 1.1.120-1
 - fix macio overzealous snd-powermac probe (#166011, <dwmw2@redhat.com>)
 - fix overriding of kernel version

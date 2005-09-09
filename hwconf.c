@@ -1425,8 +1425,6 @@ int main(int argc, char **argv)
 			_("\nERROR - You must be root to run kudzu.\n"));
 		exit(1);
 	}
- 
-	setlocale(LC_ALL, "C");
 	
 	setupKernelVersion();
 	
@@ -1511,7 +1509,6 @@ int main(int argc, char **argv)
 				newDevs[x-1]->next = newDevs[x];
 			newDevs[x-1]->next = NULL;
 		}
-		setlocale(LC_ALL, "");
 	        configMenu((*oldDevs),(*newDevs),runFirst);
 	}
 	if (!runFirst)

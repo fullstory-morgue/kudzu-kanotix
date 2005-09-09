@@ -1,5 +1,5 @@
 Name: kudzu
-Version: 1.2.1
+Version: 1.1.122
 Release: 1
 License: GPL
 Summary: The Red Hat Linux hardware probing tool.
@@ -10,7 +10,9 @@ Obsoletes: rhs-hwdiag setconsole
 Prereq: chkconfig, modutils >= 2.3.11-5, /etc/init.d
 Requires: pam >= 0.74-17, hwdata
 Conflicts: netconfig < 0.8.18
-Requires: hwdata >= 0.169-1, hal >= 0.2.96
+Conflicts: Xconfigurator <= 4.9
+Conflicts: mouseconfig < 4.18
+Requires: hwdata >= 0.116-1, hal >= 0.2.96
 BuildPrereq: pciutils-devel >= 2.1.99.test8-3, python-devel python gettext
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -78,13 +80,6 @@ fi
 %{_includedir}/kudzu
 
 %changelog
-* Thu Sep  8 2005 Bill Nottingham <notting@redhat.com> 1.2.1-1
-- switch pci, usb probing to use modules.alias
-- switch usb probe to use sysfs
-- remove pcitable support
-- X drivers are now the video.xdriver field of CLASS_VIDEO
-  (framebuffer drivers will be returned if they match)
-
 * Tue Aug 30 2005 Bill Nottingham <notting@redhat.com> 1.1.122-1
 - don't rely on pcimap for 8139too/8139cp; hardcode the logic (#157783)
 

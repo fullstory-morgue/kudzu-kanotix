@@ -6,189 +6,190 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2005-06-19 20:46-0000\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-08-07 00:06-0400\n"
+"PO-Revision-Date: 2005-08-20 16:02-0000\n"
 "Last-Translator: Miloš Komarčević <kmilos@gmail.com>\n"
 "Language-Team: Serbian (sr) <fedora@prevod.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: ../hwconf.c:128
+#: ../hwconf.c:127
 #, c-format
 msgid "linked %s to %s"
 msgstr "повезано %s са %s"
 
-#: ../hwconf.c:149
+#: ../hwconf.c:148
 #, c-format
 msgid "unlinked %s (was linked to %s)"
 msgstr "раскинута веза %s (билa је повезанa са %s)"
 
-#: ../hwconf.c:151
+#: ../hwconf.c:150
 #, c-format
 msgid "unlinked %s"
 msgstr "раскинута веза %s"
 
-#: ../hwconf.c:191
+#: ../hwconf.c:190
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "покренути loadkeys %s"
 
-#: ../hwconf.c:725
-#: ../hwconf.c:741
-#: ../hwconf.c:770
-#: ../hwconf.c:789
-#: ../hwconf.c:815
-#: ../hwconf.c:841
-#: ../hwconf.c:868
+#: ../hwconf.c:724
+#: ../hwconf.c:740
+#: ../hwconf.c:769
+#: ../hwconf.c:788
+#: ../hwconf.c:814
+#: ../hwconf.c:840
+#: ../hwconf.c:867
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s се представља као %s"
 
-#: ../hwconf.c:879
+#: ../hwconf.c:878
 #, c-format
 msgid "ran mouseconfig for %s"
 msgstr "покренути mouseconfig за %s"
 
-#: ../hwconf.c:902
+#: ../hwconf.c:901
 msgid "turned on bcm5820 service"
 msgstr "укључен сервис bcm5820"
 
-#: ../hwconf.c:913
+#: ../hwconf.c:912
 msgid "turned on aep1000 service"
 msgstr "укључен сервис aep1000"
 
-#: ../hwconf.c:1170
+#: ../hwconf.c:1169
 msgid "network card"
 msgstr "мрежна картица"
 
-#: ../hwconf.c:1172
+#: ../hwconf.c:1171
 msgid "SCSI controller"
 msgstr "SCSI контролер"
 
-#: ../hwconf.c:1174
+#: ../hwconf.c:1173
 msgid "video adapter"
 msgstr "видео картица"
 
-#: ../hwconf.c:1176
+#: ../hwconf.c:1175
 msgid "sound card"
 msgstr "звучна картица"
 
-#: ../hwconf.c:1178
+#: ../hwconf.c:1177
 msgid "mouse"
 msgstr "миш"
 
-#: ../hwconf.c:1180
+#: ../hwconf.c:1179
 msgid "modem"
 msgstr "модем"
 
-#: ../hwconf.c:1182
+#: ../hwconf.c:1181
 msgid "CD-ROM drive"
 msgstr "CD-ROM уређај"
 
-#: ../hwconf.c:1184
+#: ../hwconf.c:1183
 msgid "tape drive"
 msgstr "читач магнетних трака"
 
-#: ../hwconf.c:1186
+#: ../hwconf.c:1185
 msgid "floppy drive"
 msgstr "дискетна јединица"
 
-#: ../hwconf.c:1188
+#: ../hwconf.c:1187
 msgid "scanner"
 msgstr "скенер"
 
-#: ../hwconf.c:1190
+#: ../hwconf.c:1189
 msgid "hard disk"
 msgstr "тврди диск"
 
-#: ../hwconf.c:1192
+#: ../hwconf.c:1191
 msgid "RAID controller"
 msgstr "RAID контролер"
 
-#: ../hwconf.c:1194
+#: ../hwconf.c:1193
 msgid "IDE controller"
 msgstr "IDE контролер"
 
-#: ../hwconf.c:1196
+#: ../hwconf.c:1195
 msgid "printer"
 msgstr "штампач"
 
-#: ../hwconf.c:1198
+#: ../hwconf.c:1197
 #, fuzzy
 msgid "video capture card"
 msgstr "картица за снимање видео записа"
 
-#: ../hwconf.c:1200
+#: ../hwconf.c:1199
 msgid "keyboard"
 msgstr "тастатура"
 
-#: ../hwconf.c:1202
+#: ../hwconf.c:1201
 msgid "monitor"
 msgstr "монитор"
 
-#: ../hwconf.c:1204
+#: ../hwconf.c:1203
 msgid "USB controller"
 msgstr "USB контролер"
 
-#: ../hwconf.c:1206
+#: ../hwconf.c:1205
 msgid "IEEE1394 controller"
 msgstr "IEEE1394 контролер"
 
-#: ../hwconf.c:1208
+#: ../hwconf.c:1207
 msgid "PCMCIA/Cardbus controller"
 msgstr "PCMCIA/Cardbus контролер"
 
-#: ../hwconf.c:1212
+#: ../hwconf.c:1211
 #, c-format
 msgid "%s device"
 msgstr "%s уређај"
 
-#: ../hwconf.c:1403
+#: ../hwconf.c:1402
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "извршавај само „сигурне“ тестове који неће узнемиравати хардвер"
 
-#: ../hwconf.c:1407
+#: ../hwconf.c:1406
 msgid "set timeout in seconds"
 msgstr "постави време истека у секундама"
 
-#: ../hwconf.c:1410
+#: ../hwconf.c:1409
 msgid "probe only, print information to stdout"
 msgstr "само тестираj, штампај информације на stdout"
 
-#: ../hwconf.c:1414
+#: ../hwconf.c:1413
 msgid "probe only the specified 'bus'"
 msgstr "тестирај само наведену „магистралу“"
 
-#: ../hwconf.c:1418
+#: ../hwconf.c:1417
 msgid "probe only for the specified 'class'"
 msgstr "тестирај само наведену „класу“"
 
-#: ../hwconf.c:1422
+#: ../hwconf.c:1421
 msgid "read probed hardware from a file"
 msgstr "учитај тестиран хардвер из датотеке"
 
-#: ../hwconf.c:1423
+#: ../hwconf.c:1422
 msgid "file to read hardware info from"
 msgstr "датотека из које се учитавају информације о хардверу"
 
-#: ../hwconf.c:1426
+#: ../hwconf.c:1425
 msgid "search for modules for a particular kernel version"
 msgstr "претрага модула за одређену верзију језгра"
 
-#: ../hwconf.c:1427
+#: ../hwconf.c:1426
 msgid "kernel version"
 msgstr "верзија језгра"
 
-#: ../hwconf.c:1430
+#: ../hwconf.c:1429
 msgid "read probed hardware from a socket"
 msgstr "учитај тестиран хардвер са сокета"
 
-#: ../hwconf.c:1434
+#: ../hwconf.c:1433
 msgid "do configuration that doesn't require user input"
-msgstr "извршавај подешавања која не захтевају кориснички улаз"
+msgstr "извршавај подешавања која не захтевају кориснички унос"
 
-#: ../hwconf.c:1456
+#: ../hwconf.c:1455
 #, c-format
 msgid ""
 "\n"

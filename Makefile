@@ -37,11 +37,12 @@ all: $(VBELIBS) libkudzu.a libkudzu_loader.a _kudzumodule.so kudzu module_upgrad
 AR = ar
 RANLIB = ranlib
 
-HEADERS = device.h adb.h ddc.h firewire.h ide.h isapnp.h keyboard.h kudzu.h macio.h misc.h modules.h \
+HEADERS = device.h alias.h adb.h ddc.h firewire.h ide.h isapnp.h keyboard.h kudzu.h macio.h misc.h modules.h \
 	    	parallel.h pci.h pcmcia.h psaux.h usb.h sbus.h scsi.h serial.h
 OBJS = kudzu.o modules.o pci.o pcmcia.o serial.o ide.o misc.o scsi.o parallel.o psaux.o usb.o sbus.o keyboard.o \
-		ddc.o pciserial.o isapnp.o firewire.o adb.o macio.o vio.o s390.o
-LOADEROBJ = kudzu_loader.o misc.o pci.o pcmcia.o scsi.o ide.o usb.o firewire.o
+		ddc.o pciserial.o isapnp.o firewire.o adb.o macio.o vio.o s390.o alias.o
+LOADEROBJ = kudzu_loader.o misc.o pci.o pcmcia.o scsi.o ide.o usb.o firewire.o alias.o
+
 ifeq (sparc,$(ARCH))
 LOADEROBJ += sbus.o
 endif

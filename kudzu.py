@@ -33,6 +33,11 @@ class device:
 		self.hwaddr = table["hwaddr"]
 	    else:
 	    	self.hwaddr = None
+	if self.deviceclass == CLASS_VIDEO:
+	    if table.has_key("xdriver"):
+		self.xdriver = table["xdriver"]
+	    else:
+		self.xdriver = None
 
     # maintain backwards compatibility
     def __getitem__(self, which):

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-08-07 00:06-0400\n"
+"POT-Creation-Date: 2005-08-22 23:02-0400\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -36,155 +36,155 @@ msgstr ""
 msgid "ran loadkeys %s"
 msgstr ""
 
-#: ../hwconf.c:724 ../hwconf.c:740 ../hwconf.c:769 ../hwconf.c:788
-#: ../hwconf.c:814 ../hwconf.c:840 ../hwconf.c:867
+#: ../hwconf.c:694 ../hwconf.c:710 ../hwconf.c:739 ../hwconf.c:758
+#: ../hwconf.c:784 ../hwconf.c:810 ../hwconf.c:837
 #, c-format
 msgid "aliased %s as %s"
 msgstr ""
 
-#: ../hwconf.c:878
+#: ../hwconf.c:848
 #, c-format
 msgid "ran mouseconfig for %s"
 msgstr ""
 
-#: ../hwconf.c:901
+#: ../hwconf.c:871
 msgid "turned on bcm5820 service"
 msgstr ""
 
-#: ../hwconf.c:912
+#: ../hwconf.c:882
 msgid "turned on aep1000 service"
 msgstr ""
 
-#: ../hwconf.c:1169
+#: ../hwconf.c:1139
 msgid "network card"
 msgstr ""
 
-#: ../hwconf.c:1171
+#: ../hwconf.c:1141
 msgid "SCSI controller"
 msgstr ""
 
-#: ../hwconf.c:1173
+#: ../hwconf.c:1143
 msgid "video adapter"
 msgstr ""
 
-#: ../hwconf.c:1175
+#: ../hwconf.c:1145
 msgid "sound card"
 msgstr ""
 
-#: ../hwconf.c:1177
+#: ../hwconf.c:1147
 msgid "mouse"
 msgstr ""
 
-#: ../hwconf.c:1179
+#: ../hwconf.c:1149
 msgid "modem"
 msgstr ""
 
-#: ../hwconf.c:1181
+#: ../hwconf.c:1151
 msgid "CD-ROM drive"
 msgstr ""
 
-#: ../hwconf.c:1183
+#: ../hwconf.c:1153
 msgid "tape drive"
 msgstr ""
 
-#: ../hwconf.c:1185
+#: ../hwconf.c:1155
 msgid "floppy drive"
 msgstr ""
 
-#: ../hwconf.c:1187
+#: ../hwconf.c:1157
 msgid "scanner"
 msgstr ""
 
-#: ../hwconf.c:1189
+#: ../hwconf.c:1159
 msgid "hard disk"
 msgstr ""
 
-#: ../hwconf.c:1191
+#: ../hwconf.c:1161
 msgid "RAID controller"
 msgstr ""
 
-#: ../hwconf.c:1193
+#: ../hwconf.c:1163
 msgid "IDE controller"
 msgstr ""
 
-#: ../hwconf.c:1195
+#: ../hwconf.c:1165
 msgid "printer"
 msgstr ""
 
-#: ../hwconf.c:1197
+#: ../hwconf.c:1167
 msgid "video capture card"
 msgstr ""
 
-#: ../hwconf.c:1199
+#: ../hwconf.c:1169
 msgid "keyboard"
 msgstr ""
 
-#: ../hwconf.c:1201
+#: ../hwconf.c:1171
 msgid "monitor"
 msgstr ""
 
-#: ../hwconf.c:1203
+#: ../hwconf.c:1173
 msgid "USB controller"
 msgstr ""
 
-#: ../hwconf.c:1205
+#: ../hwconf.c:1175
 msgid "IEEE1394 controller"
 msgstr ""
 
-#: ../hwconf.c:1207
+#: ../hwconf.c:1177
 msgid "PCMCIA/Cardbus controller"
 msgstr ""
 
-#: ../hwconf.c:1211
+#: ../hwconf.c:1181
 #, c-format
 msgid "%s device"
 msgstr ""
 
-#: ../hwconf.c:1402
+#: ../hwconf.c:1372
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
 
-#: ../hwconf.c:1406
+#: ../hwconf.c:1376
 msgid "set timeout in seconds"
 msgstr ""
 
-#: ../hwconf.c:1409
+#: ../hwconf.c:1379
 msgid "probe only, print information to stdout"
 msgstr ""
 
-#: ../hwconf.c:1413
+#: ../hwconf.c:1383
 msgid "probe only the specified 'bus'"
 msgstr ""
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:1387
 msgid "probe only for the specified 'class'"
 msgstr ""
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:1391
 msgid "read probed hardware from a file"
 msgstr ""
 
-#: ../hwconf.c:1422
+#: ../hwconf.c:1392
 msgid "file to read hardware info from"
 msgstr ""
 
-#: ../hwconf.c:1425
+#: ../hwconf.c:1395
 msgid "search for modules for a particular kernel version"
 msgstr ""
 
-#: ../hwconf.c:1426
+#: ../hwconf.c:1396
 msgid "kernel version"
 msgstr ""
 
-#: ../hwconf.c:1429
+#: ../hwconf.c:1399
 msgid "read probed hardware from a socket"
 msgstr ""
 
-#: ../hwconf.c:1433
+#: ../hwconf.c:1403
 msgid "do configuration that doesn't require user input"
 msgstr ""
 
-#: ../hwconf.c:1455
+#: ../hwconf.c:1425
 #, c-format
 msgid ""
 "\n"

@@ -1,4 +1,4 @@
-/* Copyright 1999-2004 Red Hat, Inc.
+/* Copyright 1999-2005 Red Hat, Inc.
  *
  * This software may be freely redistributed under the terms of the GNU
  * public license.
@@ -10,6 +10,7 @@
  */
 
 #include "kudzu.h"
+#include "alias.h"
 #include "adb.h"
 #include "ddc.h"
 #include "firewire.h"
@@ -143,6 +144,7 @@ struct bus buses[] = {
 char *module_file = NULL;
 float kernel_release;
 char *kernel_ver = NULL;
+struct aliaslist *aliases = NULL;
 
 static void setupKernelVersion() {
 	unsigned int major, sub, minor;
@@ -221,6 +223,8 @@ void writeDevice(FILE *file, struct device *dev) {
 	fprintf(file,"driver: %s\ndesc: \"%s\"\n",dev->driver,dev->desc);
 	if (dev->type == CLASS_NETWORK && dev->classprivate)
 		fprintf(file,"network.hwaddr: %s\n", (char *)dev->classprivate);
+	if (dev->type == CLASS_VIDEO && dev->classprivate)
+		fprintf(file,"video.xdriver: %s\n", (char *)dev->classprivate);
 }
 
 int compareDevice(struct device *dev1, struct device *dev2) {
@@ -385,6 +389,9 @@ struct device *readDevice(FILE *file) {
 		} else if (retdev->type == CLASS_NETWORK &&
 			   !strncmp(linebuf,"network.hwaddr:",15)) {
 			retdev->classprivate = strdup(linebuf+16);
+		} else if (retdev->type == CLASS_VIDEO &&
+			   !strncmp(linebuf,"video.xdriver:",14)) {
+			retdev->classprivate = strdup(linebuf+15);
 		}
 		switch (retdev->bus) {
 		 case BUS_PCI:
@@ -534,6 +541,8 @@ struct device *readDevice(FILE *file) {
 int initializeBusDeviceList(enum deviceBus busSet) {
 	int bus;
 	
+	if (!kernel_ver)
+		setupKernelVersion();
 	for (bus=0;buses[bus].string;bus++) {
 	  if ((busSet & buses[bus].busType) && buses[bus].initFunc) {
 	      buses[bus].initFunc(NULL);
@@ -543,6 +552,8 @@ int initializeBusDeviceList(enum deviceBus busSet) {
 }
 
 int initializeDeviceList(void) {
+	if (!kernel_ver)
+		setupKernelVersion();
 	return initializeBusDeviceList(BUS_UNSPEC);
 }
 
@@ -1176,6 +1187,7 @@ out:
 					free(dev->device);
 					dev->device = strdup(tmpdev->dev);
 					ndevs = addToList(&devicelist, dev->device, ndevs);
+					break;
 				}
 			}
 		}

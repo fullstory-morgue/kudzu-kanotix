@@ -1,16 +1,18 @@
-kudzu-kanotix (1.1.122-2) UNRELEASED; urgency=low
+kudzu-kanotix (1.1.122-2) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix broken dependency on hwdata-kanotix.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 10 Sep 2005 01:03:11 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue,  4 Oct 2005 03:41:35 +0200
 
 kudzu-kanotix (1.1.122-1) unstable; urgency=low
 
-  * New upstream release
+  * new upstream release:
     - don't rely on pcimap for 8139too/8139cp; hardcode the logic (#157783)
     - make sure kernel version is always initialized (fixes python bindings)
+  * adapt Makefile for gcc-4.0.2 woes.
+  * switch to python 2.4.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 10 Sep 2005 01:01:30 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun,  2 Oct 2005 17:23:37 +0200
 
 kudzu-kanotix (1.1.120-1) unstable; urgency=low
 

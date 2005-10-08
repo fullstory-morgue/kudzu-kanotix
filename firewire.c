@@ -20,6 +20,8 @@
 #include "firewire.h"
 #include "modules.h"
 
+#include "kudzuint.h"
+
 static void firewireFreeDevice(struct firewireDevice *dev)
 {
 	freeDevice((struct device *) dev);
@@ -54,7 +56,6 @@ struct device *firewireProbe(enum deviceClass probeClass, int probeFlags,
 			struct device *devlist)
 {
 	struct firewireDevice *fwdev;
-	int loaded_driver = 0;
 	
 	if (
 	    (probeClass & CLASS_SCSI) 
@@ -63,8 +64,6 @@ struct device *firewireProbe(enum deviceClass probeClass, int probeFlags,
 		struct dirent *entry;
 		int fd;
 		
-		if (!(probeFlags & PROBE_NOLOAD) && !loadModule("ohci1394"))
-			loaded_driver = 1;
 		dir = opendir("/sys/bus/ieee1394/devices");
 		if (!dir)
 			goto out;
@@ -78,7 +77,7 @@ struct device *firewireProbe(enum deviceClass probeClass, int probeFlags,
 			fd = open(path, O_RDONLY);
 			if (fd < 0)
 				continue;
-			specifier_id = bufFromFd(fd);
+			specifier_id = __bufFromFd(fd);
 			if (!specifier_id) continue;
 			specifier_id[strlen(specifier_id) - 1] = '\0';
 			snprintf(path,255,"/sys/bus/ieee1394/devices/%s/version",entry->d_name);
@@ -87,7 +86,7 @@ struct device *firewireProbe(enum deviceClass probeClass, int probeFlags,
 				free(specifier_id);
 				continue;
 			}
-			version = bufFromFd(fd);
+			version = __bufFromFd(fd);
 			if (!version) {
 				free(specifier_id);
 				continue;
@@ -104,7 +103,7 @@ struct device *firewireProbe(enum deviceClass probeClass, int probeFlags,
 				snprintf(path,255,"/sys/bus/ieee1394/devices/%s/model_name_kv",entry->d_name);
 				fd = open(path, O_RDONLY);
 				if (fd >= 0) {
-					fwdev->desc = bufFromFd(fd);
+					fwdev->desc = __bufFromFd(fd);
 					fwdev->desc[strlen(fwdev->desc) - 1] = '\0';
 				} else
 					fwdev->desc = strdup("Generic IEEE-1394 Storage Device");
@@ -115,7 +114,5 @@ struct device *firewireProbe(enum deviceClass probeClass, int probeFlags,
 		}
 	}
 out:
-	if (loaded_driver == 1)
-		removeModule("ohci1394");
 	return devlist;
 }

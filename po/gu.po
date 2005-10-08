@@ -7,183 +7,74 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: gu\n"
-"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-02-17 09:42+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
 "Language-Team: Gujarati <gu@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.9.1\n"
-"Plural-Forms: Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
+"Plural-Forms: Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"\n"
 "\n"
 
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "%s ને %s કડી થયેલ છે"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "%s કડી દૂર થયેલ (કે જે %s ની કડી હતી)"
-
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "%s કડી થયેલ છે"
-
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "કી લાવો %s ચલાવાયેલ હતી"
 
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
-#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s એ %s તરીકે ઉપનામ અપાયેલ છે"
 
-#: ../hwconf.c:885
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "%s માટે mouseconfig ચલાવાયેલ હતું"
-
-#: ../hwconf.c:908
-msgid "turned on bcm5820 service"
-msgstr "bcm5820 સેવા ચાલુ કરાયેલ હતી"
-
-#: ../hwconf.c:919
-msgid "turned on aep1000 service"
-msgstr "aep1000 સેવા ચાલુ કરાયેલ હતી"
-
-#: ../hwconf.c:1184
-msgid "network card"
-msgstr "નેટવર્ક કાર્ડ"
-
-#: ../hwconf.c:1186
-msgid "SCSI controller"
-msgstr "SCSI નિયંત્રક"
-
-#: ../hwconf.c:1188
-msgid "video adapter"
-msgstr "વિડીયો એડેપ્ટર"
-
-#: ../hwconf.c:1190
-msgid "sound card"
-msgstr "ધ્વનિ કાર્ડ"
-
-#: ../hwconf.c:1192
-msgid "mouse"
-msgstr "માઉસ"
-
-#: ../hwconf.c:1194
-msgid "modem"
-msgstr "મોડેમ"
-
-#: ../hwconf.c:1196
-msgid "CD-ROM drive"
-msgstr "CD-ROM ડ્રાઈવ"
-
-#: ../hwconf.c:1198
-msgid "tape drive"
-msgstr "ટેપ ડ્રાઈવ"
-
-#: ../hwconf.c:1200
-msgid "floppy drive"
-msgstr "ફ્લોપી ડ્રાઈવ"
-
-#: ../hwconf.c:1202
-msgid "scanner"
-msgstr "સ્કેનર"
-
-#: ../hwconf.c:1204
-msgid "hard disk"
-msgstr "હાર્ડ ડિસ્ક"
-
-#: ../hwconf.c:1206
-msgid "RAID controller"
-msgstr "RAID નિયંત્રક"
-
-#: ../hwconf.c:1208
-msgid "IDE controller"
-msgstr "IDE નિયંત્રક"
-
-#: ../hwconf.c:1210
-msgid "printer"
-msgstr "પ્રિન્ટર"
-
-#: ../hwconf.c:1212
-msgid "video capture card"
-msgstr "વિડીયો કેપ્ચર કાર્ડ"
-
-#: ../hwconf.c:1214
-msgid "keyboard"
-msgstr "કીબોર્ડ"
-
-#: ../hwconf.c:1216
-msgid "monitor"
-msgstr "મોનિટર"
-
-#: ../hwconf.c:1218
-msgid "USB controller"
-msgstr "USB નિયંત્રક"
-
-#: ../hwconf.c:1220
-msgid "IEEE1394 controller"
-msgstr "IEEE1394 નિયંત્રક"
-
-#: ../hwconf.c:1222
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/કાર્ડબસ નિયંત્રક"
-
-#: ../hwconf.c:1226
-#, c-format
-msgid "%s device"
-msgstr "%s ઉપકરણ"
-
-#: ../hwconf.c:1417
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "માત્ર 'સુરક્ષિત' ચકાસણીઓ કરો કે જે હાર્ડવેરને હેરાન નહિં કરે"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "સમયસમાપ્તિ સેકન્ડોમાં સુયોજિત કરો"
 
-#: ../hwconf.c:1424
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "માત્ર ચકાસો, stdout ને છાપન જાણકારી"
 
-#: ../hwconf.c:1428
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "માત્ર સ્પષ્ટ કરેલા 'bus' ને ચકાસો"
 
-#: ../hwconf.c:1432
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "માત્ર સ્પષ્ટ કરેલ 'વર્ગ' માટે પ્રોબ કરો"
 
-#: ../hwconf.c:1436
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "ફાઈલમાંથી ચકાસાયેલ હાર્ડવેર વાંચો"
 
-#: ../hwconf.c:1437
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "ફાઈલ કે જેમાંથી હાર્ડવેર જાણકારી વાંચવાની છે"
 
-#: ../hwconf.c:1440
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "કોઈ ચોક્કસ કર્નલ આવૃત્તિ માટે મોડ્યુલો શોધો"
 
-#: ../hwconf.c:1441
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "કર્નલ આવૃત્તિ"
 
-#: ../hwconf.c:1444
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "સોકેટમાંથી ચકાસાયેલ હાર્ડવેર વાંચો"
 
-#: ../hwconf.c:1466
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr ""
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -192,3 +83,83 @@ msgstr ""
 "\n"
 "ભૂલ - kudzu ચલાવવા માટે તમે રુટ હોવા જ જોઈએ.\n"
 
+#~ msgid "linked %s to %s"
+#~ msgstr "%s ને %s કડી થયેલ છે"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "%s કડી દૂર થયેલ (કે જે %s ની કડી હતી)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "%s કડી થયેલ છે"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "%s માટે mouseconfig ચલાવાયેલ હતું"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "bcm5820 સેવા ચાલુ કરાયેલ હતી"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "aep1000 સેવા ચાલુ કરાયેલ હતી"
+
+#~ msgid "network card"
+#~ msgstr "નેટવર્ક કાર્ડ"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI નિયંત્રક"
+
+#~ msgid "video adapter"
+#~ msgstr "વિડીયો એડેપ્ટર"
+
+#~ msgid "sound card"
+#~ msgstr "ધ્વનિ કાર્ડ"
+
+#~ msgid "mouse"
+#~ msgstr "માઉસ"
+
+#~ msgid "modem"
+#~ msgstr "મોડેમ"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM ડ્રાઈવ"
+
+#~ msgid "tape drive"
+#~ msgstr "ટેપ ડ્રાઈવ"
+
+#~ msgid "floppy drive"
+#~ msgstr "ફ્લોપી ડ્રાઈવ"
+
+#~ msgid "scanner"
+#~ msgstr "સ્કેનર"
+
+#~ msgid "hard disk"
+#~ msgstr "હાર્ડ ડિસ્ક"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID નિયંત્રક"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE નિયંત્રક"
+
+#~ msgid "printer"
+#~ msgstr "પ્રિન્ટર"
+
+#~ msgid "video capture card"
+#~ msgstr "વિડીયો કેપ્ચર કાર્ડ"
+
+#~ msgid "keyboard"
+#~ msgstr "કીબોર્ડ"
+
+#~ msgid "monitor"
+#~ msgstr "મોનિટર"
+
+#~ msgid "USB controller"
+#~ msgstr "USB નિયંત્રક"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394 નિયંત્રક"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/કાર્ડબસ નિયંત્રક"
+
+#~ msgid "%s device"
+#~ msgstr "%s ઉપકરણ"

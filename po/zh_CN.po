@@ -7,181 +7,71 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: zh_CN\n"
-"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-02-25 15:23+1000\n"
 "Last-Translator: Sarah Wang <sarahs@redhat.com>\n"
 "Language-Team: zh_CN <i18n@redhat.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.2\n"
 
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "将 %s 链接至 %s"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "无链接的 %s（曾链接至 %s）"
-
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "无链接的 %s"
-
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "运行 loadkeys %s "
 
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
-#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "将 %s 的别名定为 %s"
 
-#: ../hwconf.c:885
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "为 %s 运行 mouseconfig"
-
-#: ../hwconf.c:908
-msgid "turned on bcm5820 service"
-msgstr "开启 bcm5820 服务"
-
-#: ../hwconf.c:919
-msgid "turned on aep1000 service"
-msgstr "开启  aep100 服务"
-
-#: ../hwconf.c:1184
-msgid "network card"
-msgstr "网卡"
-
-#: ../hwconf.c:1186
-msgid "SCSI controller"
-msgstr "SCSI 控制器"
-
-#: ../hwconf.c:1188
-msgid "video adapter"
-msgstr "视频适配器"
-
-#: ../hwconf.c:1190
-msgid "sound card"
-msgstr "声卡"
-
-#: ../hwconf.c:1192
-msgid "mouse"
-msgstr "鼠标"
-
-#: ../hwconf.c:1194
-msgid "modem"
-msgstr "调制解调器"
-
-#: ../hwconf.c:1196
-msgid "CD-ROM drive"
-msgstr "光盘驱动器"
-
-#: ../hwconf.c:1198
-msgid "tape drive"
-msgstr "磁带驱动器"
-
-#: ../hwconf.c:1200
-msgid "floppy drive"
-msgstr "软盘驱动器"
-
-#: ../hwconf.c:1202
-msgid "scanner"
-msgstr "扫描仪"
-
-#: ../hwconf.c:1204
-msgid "hard disk"
-msgstr "硬盘"
-
-#: ../hwconf.c:1206
-msgid "RAID controller"
-msgstr "RAID 控制器"
-
-#: ../hwconf.c:1208
-msgid "IDE controller"
-msgstr "IDE 控制器"
-
-#: ../hwconf.c:1210
-msgid "printer"
-msgstr "打印机"
-
-#: ../hwconf.c:1212
-msgid "video capture card"
-msgstr "视频捕捉卡"
-
-#: ../hwconf.c:1214
-msgid "keyboard"
-msgstr "键盘"
-
-#: ../hwconf.c:1216
-msgid "monitor"
-msgstr "显示器"
-
-#: ../hwconf.c:1218
-msgid "USB controller"
-msgstr "USB 控制器"
-
-#: ../hwconf.c:1220
-msgid "IEEE1394 controller"
-msgstr "IEEE 1394 控制器"
-
-#: ../hwconf.c:1222
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus 控制器"
-
-#: ../hwconf.c:1226
-#, c-format
-msgid "%s device"
-msgstr "%s 设备"
-
-#: ../hwconf.c:1417
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "只进行那些不会打扰硬件的“安全”探测"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "设立超时秒数"
 
-#: ../hwconf.c:1424
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "只探测，将信息用 stdout 打印出来"
 
-#: ../hwconf.c:1428
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "只探测指定的“总线”"
 
-#: ../hwconf.c:1432
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "只探测指定的“类别”"
 
-#: ../hwconf.c:1436
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "从文件中读取探测硬件的信息"
 
-#: ../hwconf.c:1437
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "读取硬件信息的文件"
 
-#: ../hwconf.c:1440
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "搜索某一特定内核版本的模块"
 
-#: ../hwconf.c:1441
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "内核版本"
 
-#: ../hwconf.c:1444
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "从套接字中读取探测硬件的信息"
 
-#: ../hwconf.c:1466
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "做那些不需用户输入的配置"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -189,6 +79,87 @@ msgid ""
 msgstr ""
 "\n"
 "错误 - 您必须是根用户才能运行 kudzu。\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "将 %s 链接至 %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "无链接的 %s（曾链接至 %s）"
+
+#~ msgid "unlinked %s"
+#~ msgstr "无链接的 %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "为 %s 运行 mouseconfig"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "开启 bcm5820 服务"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "开启  aep100 服务"
+
+#~ msgid "network card"
+#~ msgstr "网卡"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI 控制器"
+
+#~ msgid "video adapter"
+#~ msgstr "视频适配器"
+
+#~ msgid "sound card"
+#~ msgstr "声卡"
+
+#~ msgid "mouse"
+#~ msgstr "鼠标"
+
+#~ msgid "modem"
+#~ msgstr "调制解调器"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "光盘驱动器"
+
+#~ msgid "tape drive"
+#~ msgstr "磁带驱动器"
+
+#~ msgid "floppy drive"
+#~ msgstr "软盘驱动器"
+
+#~ msgid "scanner"
+#~ msgstr "扫描仪"
+
+#~ msgid "hard disk"
+#~ msgstr "硬盘"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID 控制器"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE 控制器"
+
+#~ msgid "printer"
+#~ msgstr "打印机"
+
+#~ msgid "video capture card"
+#~ msgstr "视频捕捉卡"
+
+#~ msgid "keyboard"
+#~ msgstr "键盘"
+
+#~ msgid "monitor"
+#~ msgstr "显示器"
+
+#~ msgid "USB controller"
+#~ msgstr "USB 控制器"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE 1394 控制器"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus 控制器"
+
+#~ msgid "%s device"
+#~ msgstr "%s 设备"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -371,7 +342,3 @@ msgstr ""
 #~ "将不会被提示；\n"
 #~ "3) 什么都不做。这将不会添加任何配置文件,但是如果在今后的重启中检测到该设"
 #~ "备，它将会被列为新设备。"
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "做那些不需用户输入的配置"
-

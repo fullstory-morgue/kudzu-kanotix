@@ -339,11 +339,7 @@ struct device *scsiProbe( enum deviceClass probeClass, int probeFlags,
     int i, state = SCSISCSI_TOP;
     char * start, * chptr, * next, *end;
     int host=-1, channel=-1, id=-1, lun=-1;
-    char *alias = NULL;
     struct scsiDevice *newdev;
-    struct module *probeMods = NULL;
-    struct confModules *cf;
-    int numMods;
     struct device * devend = NULL, *devhead = NULL;
     int missingHosts[256];
     int numMissingHosts = 0;
@@ -360,34 +356,6 @@ struct device *scsiProbe( enum deviceClass probeClass, int probeFlags,
 
 	numMissingHosts = loadMissingHosts(missingHosts);
 	    
-	probeMods = malloc(2 * sizeof(struct module));
-	probeMods[0].name = NULL;
-	cf = readConfModules(module_file);
-	if (!(probeFlags & PROBE_NOLOAD) && cf && (alias = getAlias(cf,"scsi_hostadapter")) && !loadModule(alias)) {
-		probeMods[0].name = strdup(alias);
-		free(alias);
-		probeMods[0].loaded = 1;
-		probeMods[1].name = NULL; 
-		numMods = 1;
-		for (i=1; ; i++) {
-			snprintf(linebuf,80,"scsi_hostadapter%d",i);
-			if ((alias = getAlias(cf,linebuf)) && !loadModule(alias)) {
-				probeMods = realloc(probeMods,(numMods+2)*sizeof(struct module));
-				probeMods[numMods].name = strdup(alias);
-				free(alias);
-				probeMods[numMods].loaded = 1;
-				probeMods[numMods+1].name = NULL;
-				numMods++;
-			} else {
-				break;
-			}
-		}
-	}
-	if (alias)
-	      free(alias);
-	if (cf)
-	      freeConfModules(cf);
-	
 	if (access("/proc/scsi/scsi", R_OK)) goto out;
 
 	fd = open("/proc/scsi/scsi", O_RDONLY);
@@ -526,7 +494,6 @@ struct device *scsiProbe( enum deviceClass probeClass, int probeFlags,
 		newdev->channel = channel;
 		newdev->lun = lun;
 		newdev->id = id;
-		newdev->driver = strdup("ignore");
 		newdev->desc = strdup(linebuf);
 		
 		i = 0;
@@ -595,15 +562,5 @@ out:
 	    }
     }
 	
-    if (probeMods) {
-	    for (i=0; probeMods[i].name ; i++) {
-		    if (!removeModule(probeMods[i].name)) {
-			    probeMods[i].loaded = 0;
-			    free(probeMods[i].name);
-		    }
-		    
-	    }
-	    free(probeMods);
-    }
     return devlist;
 }

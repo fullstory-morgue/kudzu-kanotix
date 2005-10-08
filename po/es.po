@@ -10,220 +10,85 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: es\n"
-"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-03-22 13:22+1000\n"
 "Last-Translator: Manuel Ospina <mospina@redhat.com>\n"
 "Language-Team: Spanish <es@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.2\n"
 
-# ../hwconf.c:297
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "enlace creado de %s a %s"
-
-# ../hwconf.c:318
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "eliminado el enlace %s (apuntaba a %s)"
-
-# ../hwconf.c:320
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "eliminado enlace %s"
-
 # ../hwconf.c:360
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "ejecutó loadkeys %s"
 
 # ../hwconf.c:891 ../hwconf.c:924 ../hwconf.c:970 ../hwconf.c:990
 # ../hwconf.c:1016 ../hwconf.c:1055
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
-#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "alias creado para %s como %s"
 
-# ../hwconf.c:1077
-#: ../hwconf.c:885
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "ejecutó mouseconfig para %s"
-
-# ../hwconf.c:1120
-#: ../hwconf.c:908
-msgid "turned on bcm5820 service"
-msgstr "servicio bcm5820 activado"
-
-# ../hwconf.c:1120
-#: ../hwconf.c:919
-msgid "turned on aep1000 service"
-msgstr "servicio aep1000 activado"
-
-# ../hwconf.c:1518
-#: ../hwconf.c:1184
-msgid "network card"
-msgstr "tarjeta de red"
-
-# ../hwconf.c:1520
-#: ../hwconf.c:1186
-msgid "SCSI controller"
-msgstr "controlador SCSI"
-
-# ../hwconf.c:1522
-#: ../hwconf.c:1188
-msgid "video adapter"
-msgstr "adaptador de vídeo"
-
-# ../hwconf.c:1524
-#: ../hwconf.c:1190
-msgid "sound card"
-msgstr "tarjeta de sonido"
-
-# ../hwconf.c:1526
-#: ../hwconf.c:1192
-msgid "mouse"
-msgstr "ratón"
-
-# ../hwconf.c:1528
-#: ../hwconf.c:1194
-msgid "modem"
-msgstr "módem"
-
-# ../hwconf.c:1530
-#: ../hwconf.c:1196
-msgid "CD-ROM drive"
-msgstr "lector de CD-ROM"
-
-# ../hwconf.c:1532
-#: ../hwconf.c:1198
-msgid "tape drive"
-msgstr "unidad de cinta"
-
-# ../hwconf.c:1534
-#: ../hwconf.c:1200
-msgid "floppy drive"
-msgstr "unidad de disco flexible"
-
-# ../hwconf.c:1536
-#: ../hwconf.c:1202
-msgid "scanner"
-msgstr "escáner"
-
-# ../hwconf.c:1538
-#: ../hwconf.c:1204
-msgid "hard disk"
-msgstr "disco duro"
-
-# ../hwconf.c:1540
-#: ../hwconf.c:1206
-msgid "RAID controller"
-msgstr "controlador RAID"
-
-# ../hwconf.c:1540
-#: ../hwconf.c:1208
-msgid "IDE controller"
-msgstr "controlador IDE"
-
-# ../hwconf.c:1542
-#: ../hwconf.c:1210
-msgid "printer"
-msgstr "impresora"
-
-# ../hwconf.c:1544
-#: ../hwconf.c:1212
-msgid "video capture card"
-msgstr "tarjeta de captura de vídeo"
-
-# ../hwconf.c:1546
-#: ../hwconf.c:1214
-msgid "keyboard"
-msgstr "teclado"
-
-# ../hwconf.c:1548
-#: ../hwconf.c:1216
-msgid "monitor"
-msgstr "monitor"
-
-# ../hwconf.c:1550
-#: ../hwconf.c:1218
-msgid "USB controller"
-msgstr "controlador USB"
-
-# ../hwconf.c:1520
-#: ../hwconf.c:1220
-msgid "IEEE1394 controller"
-msgstr "controlador IEEE1394"
-
-# ../hwconf.c:1552
-#: ../hwconf.c:1222
-msgid "PCMCIA/Cardbus controller"
-msgstr "controlador PCMCIA/Cardbus"
-
-# ../hwconf.c:1556
-#: ../hwconf.c:1226
-#, c-format
-msgid "%s device"
-msgstr "dispositivo %s"
-
 # ../hwconf.c:1793
-#: ../hwconf.c:1417
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "realizar solamente sondeos 'seguros' que no perjudiquen el hardware"
 
 # ../hwconf.c:1797
-#: ../hwconf.c:1421
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "fijar el tiempo de operación en segundos"
 
 # ../hwconf.c:1800
-#: ../hwconf.c:1424
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
-msgstr "sondear únicamente; imprimir la información a la salida estándar (stdout)"
+msgstr ""
+"sondear únicamente; imprimir la información a la salida estándar (stdout)"
 
 # ../hwconf.c:1804
-#: ../hwconf.c:1428
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "comprobar sólo el 'bus' específico"
 
 # ../hwconf.c:1808
-#: ../hwconf.c:1432
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "comprobar sólo la 'clase' específica"
 
 # ../hwconf.c:1812
-#: ../hwconf.c:1436
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "leer hardware monitorizado desde un fichero"
 
 # ../hwconf.c:1813
-#: ../hwconf.c:1437
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "fichero para leer información sobre hardware"
 
-#: ../hwconf.c:1440
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "buscar módulos para una versión particular de kernel"
 
-#: ../hwconf.c:1441
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "versión de kernel"
 
 # ../hwconf.c:1812
-#: ../hwconf.c:1444
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "leer hardware monitorizado desde un socket (conector)"
 
+# ../hwconf.c:1789
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "Configuración sin solicitar la entrada del usuario"
+
 # ../hwconf.c:1834
-#: ../hwconf.c:1466
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -231,6 +96,114 @@ msgid ""
 msgstr ""
 "\n"
 "ERROR -  Debe ser root para poder ejecutar kudzu.\n"
+
+# ../hwconf.c:297
+#~ msgid "linked %s to %s"
+#~ msgstr "enlace creado de %s a %s"
+
+# ../hwconf.c:318
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "eliminado el enlace %s (apuntaba a %s)"
+
+# ../hwconf.c:320
+#~ msgid "unlinked %s"
+#~ msgstr "eliminado enlace %s"
+
+# ../hwconf.c:1077
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "ejecutó mouseconfig para %s"
+
+# ../hwconf.c:1120
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "servicio bcm5820 activado"
+
+# ../hwconf.c:1120
+#~ msgid "turned on aep1000 service"
+#~ msgstr "servicio aep1000 activado"
+
+# ../hwconf.c:1518
+#~ msgid "network card"
+#~ msgstr "tarjeta de red"
+
+# ../hwconf.c:1520
+#~ msgid "SCSI controller"
+#~ msgstr "controlador SCSI"
+
+# ../hwconf.c:1522
+#~ msgid "video adapter"
+#~ msgstr "adaptador de vídeo"
+
+# ../hwconf.c:1524
+#~ msgid "sound card"
+#~ msgstr "tarjeta de sonido"
+
+# ../hwconf.c:1526
+#~ msgid "mouse"
+#~ msgstr "ratón"
+
+# ../hwconf.c:1528
+#~ msgid "modem"
+#~ msgstr "módem"
+
+# ../hwconf.c:1530
+#~ msgid "CD-ROM drive"
+#~ msgstr "lector de CD-ROM"
+
+# ../hwconf.c:1532
+#~ msgid "tape drive"
+#~ msgstr "unidad de cinta"
+
+# ../hwconf.c:1534
+#~ msgid "floppy drive"
+#~ msgstr "unidad de disco flexible"
+
+# ../hwconf.c:1536
+#~ msgid "scanner"
+#~ msgstr "escáner"
+
+# ../hwconf.c:1538
+#~ msgid "hard disk"
+#~ msgstr "disco duro"
+
+# ../hwconf.c:1540
+#~ msgid "RAID controller"
+#~ msgstr "controlador RAID"
+
+# ../hwconf.c:1540
+#~ msgid "IDE controller"
+#~ msgstr "controlador IDE"
+
+# ../hwconf.c:1542
+#~ msgid "printer"
+#~ msgstr "impresora"
+
+# ../hwconf.c:1544
+#~ msgid "video capture card"
+#~ msgstr "tarjeta de captura de vídeo"
+
+# ../hwconf.c:1546
+#~ msgid "keyboard"
+#~ msgstr "teclado"
+
+# ../hwconf.c:1548
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+# ../hwconf.c:1550
+#~ msgid "USB controller"
+#~ msgstr "controlador USB"
+
+# ../hwconf.c:1520
+#~ msgid "IEEE1394 controller"
+#~ msgstr "controlador IEEE1394"
+
+# ../hwconf.c:1552
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "controlador PCMCIA/Cardbus"
+
+# ../hwconf.c:1556
+#~ msgid "%s device"
+#~ msgstr "dispositivo %s"
 
 # ../hwconf.c:64
 #~ msgid ""
@@ -458,10 +431,6 @@ msgstr ""
 #~ "3) No hacer nada. No se añadirá ninguna configuración, y se le pedirá que "
 #~ "configure el dispositivo si es detectado al arrancar."
 
-# ../hwconf.c:1789
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "Configuración sin solicitar la entrada del usuario"
-
 # ../hwconf.c:933
 #~ msgid "Existing Configuration Detected"
 #~ msgstr "Detectada la configuración existente"
@@ -477,4 +446,3 @@ msgstr ""
 #~ msgid "disabling sleep bit on potentially buggy %s hardware"
 #~ msgstr ""
 #~ "deshabilitar el sleep bit del hardware %s con tendencia a ser defectuoso"
-

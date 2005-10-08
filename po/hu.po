@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-07-17 12:22+0200\n"
 "Last-Translator: Arpad Biro <biro_arpad@yahoo.com>\n"
 "Language-Team: Hungarian\n"
@@ -14,167 +14,62 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "%s linkelése ehhez: %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "%s linkelés megszüntetve (eddig ehhez volt: %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "%s linkelés megszüntetve"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "loadkeys %s lefuttatva"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s alias neve: %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "a mouseconfig program elindítva %s részére"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "a bcm5820 szolgáltatás bekapcsolva"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "az aep1000 szolgáltatás bekapcsolva"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "hálózati kártya"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "SCSI-vezérlő"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "videokártya"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "hangkártya"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "egér"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "CD-ROM-meghajtó"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "szalagos meghajtó"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "floppymeghajtó"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "lapolvasó"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "merevlemez"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "RAID-vezérlő"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "IDE-vezérlő"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "nyomtató"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "videófelvevőkártya"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "billentyűzet"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "USB-vezérlő"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "IEEE1394-vezérlő"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus-vezérlő"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "%s eszköz"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
 "csak biztonságos detektálási módok használata (melyek nem állíthatják el a "
 "hardvert)"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "a várakozási idő másodpercben"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "csak detektálás és információ kiírása az stdout-ra"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "csak a megadott busz ellenőrzése"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "csak a megadott osztály ellenőrzése"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "a detektált hardvereszközök beolvasása fájlból"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "hardverinformációt tartalmazó fájl"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "modulkeresési útvonal egy adott kernel esetén"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "a kernel verziószáma"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "a detektált hardvereszközök beolvasása fájlból"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "felhasználói beavatkozás nélküli beállítás"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -182,6 +77,87 @@ msgid ""
 msgstr ""
 "\n"
 "HIBA - A Kudzu futtatásához rendszergazdai jogosultság szükséges.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "%s linkelése ehhez: %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "%s linkelés megszüntetve (eddig ehhez volt: %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "%s linkelés megszüntetve"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "a mouseconfig program elindítva %s részére"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "a bcm5820 szolgáltatás bekapcsolva"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "az aep1000 szolgáltatás bekapcsolva"
+
+#~ msgid "network card"
+#~ msgstr "hálózati kártya"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI-vezérlő"
+
+#~ msgid "video adapter"
+#~ msgstr "videokártya"
+
+#~ msgid "sound card"
+#~ msgstr "hangkártya"
+
+#~ msgid "mouse"
+#~ msgstr "egér"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM-meghajtó"
+
+#~ msgid "tape drive"
+#~ msgstr "szalagos meghajtó"
+
+#~ msgid "floppy drive"
+#~ msgstr "floppymeghajtó"
+
+#~ msgid "scanner"
+#~ msgstr "lapolvasó"
+
+#~ msgid "hard disk"
+#~ msgstr "merevlemez"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID-vezérlő"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE-vezérlő"
+
+#~ msgid "printer"
+#~ msgstr "nyomtató"
+
+#~ msgid "video capture card"
+#~ msgstr "videófelvevőkártya"
+
+#~ msgid "keyboard"
+#~ msgstr "billentyűzet"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "USB-vezérlő"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394-vezérlő"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus-vezérlő"
+
+#~ msgid "%s device"
+#~ msgstr "%s eszköz"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -377,6 +353,3 @@ msgstr ""
 #~ "eszköznek.\n"
 #~ "3) Nem tesz semmit. Az operációs rendszer nem fogja kezelni az eszközt és "
 #~ "a következő indításkor ismét új eszköznek fogja érzékelni."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "felhasználói beavatkozás nélküli beállítás"

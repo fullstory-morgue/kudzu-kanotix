@@ -383,6 +383,11 @@ PyObject * createDict(struct device * probedDevice)
 	PyDict_SetItemString(dict,"hwaddr",o);
 	Py_DECREF(o);
     }
+    if (probedDevice->classprivate && probedDevice->type == CLASS_VIDEO) {
+	o = PyString_FromString((char *)probedDevice->classprivate);
+	PyDict_SetItemString(dict,"xdriver",o);
+	Py_DECREF(o);
+    }
     switch(probedDevice->bus){
     case BUS_ADB:
         addAdbInfo(dict,(struct adbDevice*)probedDevice);

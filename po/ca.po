@@ -6,180 +6,70 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
-"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-02-22 09:00+0100\n"
 "Last-Translator: Xavier Conde Rueda <xaviconde@eresmas.com>\n"
 "Language-Team: Catalan <fedora@softcatala.net>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "s'ha enllaçat %s a %s"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "s'ha esborrat l'enllaç %s (estava enllaçat a %s)"
-
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "s'ha esborrat l'enllaç %s"
-
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "s'ha executat el loadkeys %s"
 
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
-#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "s'ha creat un sobrenom de %s com a %s"
 
-#: ../hwconf.c:885
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "s'ha executat mouseconfig per a %s"
-
-#: ../hwconf.c:908
-msgid "turned on bcm5820 service"
-msgstr "s'ha activat el servei bcm5820"
-
-#: ../hwconf.c:919
-msgid "turned on aep1000 service"
-msgstr "s'ha activat el servei aep1000"
-
-#: ../hwconf.c:1184
-msgid "network card"
-msgstr "targeta de xarxa"
-
-#: ../hwconf.c:1186
-msgid "SCSI controller"
-msgstr "Controladora SCSI"
-
-#: ../hwconf.c:1188
-msgid "video adapter"
-msgstr "adaptador de vídeo"
-
-#: ../hwconf.c:1190
-msgid "sound card"
-msgstr "targeta de so"
-
-#: ../hwconf.c:1192
-msgid "mouse"
-msgstr "ratolí"
-
-#: ../hwconf.c:1194
-msgid "modem"
-msgstr "mòdem"
-
-#: ../hwconf.c:1196
-msgid "CD-ROM drive"
-msgstr "unitat de CD-ROM"
-
-#: ../hwconf.c:1198
-msgid "tape drive"
-msgstr "unitat de cinta"
-
-#: ../hwconf.c:1200
-msgid "floppy drive"
-msgstr "unitat de disquet"
-
-#: ../hwconf.c:1202
-msgid "scanner"
-msgstr "escàner"
-
-#: ../hwconf.c:1204
-msgid "hard disk"
-msgstr "disc dur"
-
-#: ../hwconf.c:1206
-msgid "RAID controller"
-msgstr "controladora RAID"
-
-#: ../hwconf.c:1208
-msgid "IDE controller"
-msgstr "controladora IDE"
-
-#: ../hwconf.c:1210
-msgid "printer"
-msgstr "impressora"
-
-#: ../hwconf.c:1212
-msgid "video capture card"
-msgstr "targeta de captura de vídeo"
-
-#: ../hwconf.c:1214
-msgid "keyboard"
-msgstr "teclat"
-
-#: ../hwconf.c:1216
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1218
-msgid "USB controller"
-msgstr "controladora USB"
-
-#: ../hwconf.c:1220
-msgid "IEEE1394 controller"
-msgstr "controladora IEEE1394"
-
-#: ../hwconf.c:1222
-msgid "PCMCIA/Cardbus controller"
-msgstr "controladora PCMCIA/Cardbus"
-
-#: ../hwconf.c:1226
-#, c-format
-msgid "%s device"
-msgstr "dispositiu %s"
-
-#: ../hwconf.c:1417
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "només fes proves 'segures', que no interrompin el maquinari"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "defineix el temps d'espera en segons"
 
-#: ../hwconf.c:1424
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "només prova, escriu la informació per la sortida estàndard"
 
-#: ../hwconf.c:1428
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "només prova el 'bus' especificat"
 
-#: ../hwconf.c:1432
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "només prova la 'classe' especificada"
 
-#: ../hwconf.c:1436
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "llegeix el maquinari provat d'un fitxer"
 
-#: ../hwconf.c:1437
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "fitxer del qual es llegirà la informació del maquinari"
 
-#: ../hwconf.c:1440
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "cerca mòduls per a una versió particular del nucli"
 
-#: ../hwconf.c:1441
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "versió del nucli"
 
-#: ../hwconf.c:1444
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "llegeix el maquinari provat des d'un sòcol"
 
-#: ../hwconf.c:1466
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "fes una configuració que no requereixi entrada de l'usuari"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -187,6 +77,87 @@ msgid ""
 msgstr ""
 "\n"
 "S'ha produït un error: heu de ser el superusuari per executar el kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "s'ha enllaçat %s a %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "s'ha esborrat l'enllaç %s (estava enllaçat a %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "s'ha esborrat l'enllaç %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "s'ha executat mouseconfig per a %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "s'ha activat el servei bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "s'ha activat el servei aep1000"
+
+#~ msgid "network card"
+#~ msgstr "targeta de xarxa"
+
+#~ msgid "SCSI controller"
+#~ msgstr "Controladora SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "adaptador de vídeo"
+
+#~ msgid "sound card"
+#~ msgstr "targeta de so"
+
+#~ msgid "mouse"
+#~ msgstr "ratolí"
+
+#~ msgid "modem"
+#~ msgstr "mòdem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "unitat de CD-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "unitat de cinta"
+
+#~ msgid "floppy drive"
+#~ msgstr "unitat de disquet"
+
+#~ msgid "scanner"
+#~ msgstr "escàner"
+
+#~ msgid "hard disk"
+#~ msgstr "disc dur"
+
+#~ msgid "RAID controller"
+#~ msgstr "controladora RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "controladora IDE"
+
+#~ msgid "printer"
+#~ msgstr "impressora"
+
+#~ msgid "video capture card"
+#~ msgstr "targeta de captura de vídeo"
+
+#~ msgid "keyboard"
+#~ msgstr "teclat"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "controladora USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "controladora IEEE1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "controladora PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "dispositiu %s"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -381,6 +352,3 @@ msgstr ""
 #~ "consultats si es detecta el dispositiu en següents rearrancades.\n"
 #~ "3) No fer res. No s'afegirà cap configuració, i el dispositiu es mostrarà "
 #~ "com si fos nou si es detecta en properes arrencades."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "fes una configuració que no requereixi entrada de l'usuari"

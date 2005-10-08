@@ -5,180 +5,70 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: kudzu VERSION\n"
-"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-02-19 01:46+0100\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8-bit\n"
-"Report-Msgid-Bugs-To: \n"
 
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "symbolický odkaz %s na %s"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "odstraněn %s (byl odkaz na %s)"
-
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "odstraněn %s"
-
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "spuštěno loadkeys %s"
 
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
-#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "alias %s jako %s"
 
-#: ../hwconf.c:885
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "spuštěn mouseconfig pro %s"
-
-#: ../hwconf.c:908
-msgid "turned on bcm5820 service"
-msgstr "zapnuta služba bcm5820"
-
-#: ../hwconf.c:919
-msgid "turned on aep1000 service"
-msgstr "zapnuta služba aep1000"
-
-#: ../hwconf.c:1184
-msgid "network card"
-msgstr "síťová karta"
-
-#: ../hwconf.c:1186
-msgid "SCSI controller"
-msgstr "řadič SCSI"
-
-#: ../hwconf.c:1188
-msgid "video adapter"
-msgstr "videokarta"
-
-#: ../hwconf.c:1190
-msgid "sound card"
-msgstr "zvuková karta"
-
-#: ../hwconf.c:1192
-msgid "mouse"
-msgstr "myš"
-
-#: ../hwconf.c:1194
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1196
-msgid "CD-ROM drive"
-msgstr "mechanika CD-ROM"
-
-#: ../hwconf.c:1198
-msgid "tape drive"
-msgstr "pásková jednotka"
-
-#: ../hwconf.c:1200
-msgid "floppy drive"
-msgstr "disketová jednotka"
-
-#: ../hwconf.c:1202
-msgid "scanner"
-msgstr "scanner"
-
-#: ../hwconf.c:1204
-msgid "hard disk"
-msgstr "pevný disk"
-
-#: ../hwconf.c:1206
-msgid "RAID controller"
-msgstr "řadič RAID"
-
-#: ../hwconf.c:1208
-msgid "IDE controller"
-msgstr "řadič IDE"
-
-#: ../hwconf.c:1210
-msgid "printer"
-msgstr "tiskárna"
-
-#: ../hwconf.c:1212
-msgid "video capture card"
-msgstr "karta pro zachytávání videa"
-
-#: ../hwconf.c:1214
-msgid "keyboard"
-msgstr "klávesnice"
-
-#: ../hwconf.c:1216
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1218
-msgid "USB controller"
-msgstr "řadič USB"
-
-#: ../hwconf.c:1220
-msgid "IEEE1394 controller"
-msgstr "řadič IEEE1394"
-
-#: ../hwconf.c:1222
-msgid "PCMCIA/Cardbus controller"
-msgstr "řadič PCMCIA/Cardbus"
-
-#: ../hwconf.c:1226
-#, c-format
-msgid "%s device"
-msgstr "%s zařízení"
-
-#: ../hwconf.c:1417
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "provést jen 'bezpečné' detekce, které neruší hardware"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "nastavit časový limit ve vteřinách"
 
-#: ../hwconf.c:1424
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "jen detekovat a vytisknout informace na std. výstup"
 
-#: ../hwconf.c:1428
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "detekovat jen na specifikované 'sběrnici'"
 
-#: ../hwconf.c:1432
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "detekovat jen pro specifikovanou 'třídu'"
 
-#: ../hwconf.c:1436
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "číst detekovaný hardware ze souboru"
 
-#: ../hwconf.c:1437
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "soubor s informacemi o hardware"
 
-#: ../hwconf.c:1440
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "hledat moduly pro konkrétní verzi jádra"
 
-#: ../hwconf.c:1441
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "verze jádra"
 
-#: ../hwconf.c:1444
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "číst detekovaný hardware ze socketu"
 
-#: ../hwconf.c:1466
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr ""
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -186,3 +76,84 @@ msgid ""
 msgstr ""
 "\n"
 "CHYBA - Kudzu může spustit jen root.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "symbolický odkaz %s na %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "odstraněn %s (byl odkaz na %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "odstraněn %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "spuštěn mouseconfig pro %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "zapnuta služba bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "zapnuta služba aep1000"
+
+#~ msgid "network card"
+#~ msgstr "síťová karta"
+
+#~ msgid "SCSI controller"
+#~ msgstr "řadič SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "videokarta"
+
+#~ msgid "sound card"
+#~ msgstr "zvuková karta"
+
+#~ msgid "mouse"
+#~ msgstr "myš"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "mechanika CD-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "pásková jednotka"
+
+#~ msgid "floppy drive"
+#~ msgstr "disketová jednotka"
+
+#~ msgid "scanner"
+#~ msgstr "scanner"
+
+#~ msgid "hard disk"
+#~ msgstr "pevný disk"
+
+#~ msgid "RAID controller"
+#~ msgstr "řadič RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "řadič IDE"
+
+#~ msgid "printer"
+#~ msgstr "tiskárna"
+
+#~ msgid "video capture card"
+#~ msgstr "karta pro zachytávání videa"
+
+#~ msgid "keyboard"
+#~ msgstr "klávesnice"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "řadič USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "řadič IEEE1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "řadič PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "%s zařízení"

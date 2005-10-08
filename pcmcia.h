@@ -13,7 +13,7 @@
 #define _KUDZU_PCMCIA_H_
 
 #include "device.h"
-
+#include "kudzu.h"
 
 struct pcmciaDevice {
 	/* common fields */

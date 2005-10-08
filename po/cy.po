@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: cy\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-03-01 17:45+0000\n"
 "Last-Translator: Owain Green <owaing@oceanfree.net>\n"
 "Language-Team: Cymraeg <cy@li.org>\n"
@@ -19,165 +19,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "cysylltwyd %s â %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "datgysylltwyd %s (oedd wedi'i gysylltu â %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "datgysylltwyd %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "rhedwyd loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "ffugenwyd %s yn %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "rhedwyd mouseconfig ar gyfer %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "cynnwyd gwasanaeth bcm5820"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "cynnwyd gwasanaeth aep1000"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "cerdyn rhwydwaith"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "rheolydd SCSI"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "addasydd fideo"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "cerdyn sain"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "llygoden"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "gyriant CDd-ROM"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "gyriant tâp"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "gyriant disg meddal"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "sganiwr"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "disg galed"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "rheolydd RAID"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "rheolydd IDE"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "argraffydd"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "cerdyn cipio fideo"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "bysellfwrdd"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "rheolydd USB"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "rheolydd IEEE1394"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "rheolydd PCMCIA/Cardbus"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "dyfais %s"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "gwneud archwiliadau 'diogel' yn unig na fyddant yn tarfu ar galedwedd"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "gosodwch y goramser mewn eiliadau"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "archwilio'n unig, argraffu gwybodaeth i stdout"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "archwilio'r 'bws' penodedig yn unig"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "achwilio ar gyfer y 'dosbarth' penodedig yn unig"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "dallen caledwedd archwiliedig o ffeil"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "ffeil i ddarllen gwybodaeth caledwedd ohoni"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "chwilio am fodiwlau ar gyfer fersiwn cnewyllyn penodol"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "fersiwn cnewyllyn"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "dallen caledwedd archwiliedig o ffeil"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "gwneud cyfluniad nad oes angen mewnbwn defnyddiwr"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -185,6 +80,87 @@ msgid ""
 msgstr ""
 "\n"
 "GWALL - Rhaid eich bod yn wraidd i redeg kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "cysylltwyd %s â %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "datgysylltwyd %s (oedd wedi'i gysylltu â %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "datgysylltwyd %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "rhedwyd mouseconfig ar gyfer %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "cynnwyd gwasanaeth bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "cynnwyd gwasanaeth aep1000"
+
+#~ msgid "network card"
+#~ msgstr "cerdyn rhwydwaith"
+
+#~ msgid "SCSI controller"
+#~ msgstr "rheolydd SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "addasydd fideo"
+
+#~ msgid "sound card"
+#~ msgstr "cerdyn sain"
+
+#~ msgid "mouse"
+#~ msgstr "llygoden"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "gyriant CDd-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "gyriant tâp"
+
+#~ msgid "floppy drive"
+#~ msgstr "gyriant disg meddal"
+
+#~ msgid "scanner"
+#~ msgstr "sganiwr"
+
+#~ msgid "hard disk"
+#~ msgstr "disg galed"
+
+#~ msgid "RAID controller"
+#~ msgstr "rheolydd RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "rheolydd IDE"
+
+#~ msgid "printer"
+#~ msgstr "argraffydd"
+
+#~ msgid "video capture card"
+#~ msgstr "cerdyn cipio fideo"
+
+#~ msgid "keyboard"
+#~ msgstr "bysellfwrdd"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "rheolydd USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "rheolydd IEEE1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "rheolydd PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "dyfais %s"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -378,6 +354,3 @@ msgstr ""
 #~ "canfyddir y ddyfais ar ailgychwynion pellach.\n"
 #~ "3) Gwneud dim. Ni ychwanegir cyfluniad, ac fe ymddengys y ddyfais fel un "
 #~ "newydd os y'i chanfyddir ar ailgychwynion pellach."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "gwneud cyfluniad nad oes angen mewnbwn defnyddiwr"

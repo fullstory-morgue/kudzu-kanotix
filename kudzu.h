@@ -24,6 +24,7 @@
 #endif
 
 #include "device.h"
+#include "alias.h"
 #include "ddc.h"
 #include "scsi.h"
 #include "ide.h"
@@ -102,4 +103,5 @@ extern struct kudzuclass classes[];
 extern char *module_file;
 extern float kernel_release;
 extern char *kernel_ver;
+extern struct aliaslist *aliases;
 #endif

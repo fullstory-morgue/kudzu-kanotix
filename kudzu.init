@@ -27,7 +27,7 @@ case "$1" in
 	rm -f /var/run/Xconfig-failed
 
         # Have a 30 second timeout.
- 	/usr/sbin/kudzu $KUDZU_ARGS -z || /usr/sbin/kudzu $KUDZU_ARGS
+ 	/sbin/kudzu $KUDZU_ARGS -z || /sbin/kudzu $KUDZU_ARGS
 	RETVAL=$?
 	if [ "$RETVAL" -eq 0 ]; then
   	   action "" /bin/true

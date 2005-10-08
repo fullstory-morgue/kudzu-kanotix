@@ -355,28 +355,6 @@ void setLogLevel(int level) {
 	syscall(SYS_syslog,8,NULL,level);
 }
 
-static int runModuleCommand(char **argv) {
-	int fd, status, pid;
-	
-	fd = open("/dev/null", O_RDWR);
-	
-	if (!(pid = fork())) {
-		close(0);
-		close(1);
-		close(2);
-		dup2(fd,0);
-		dup2(fd,1);
-		dup2(fd,2);
-		execv(argv[0], argv);
-		exit(-1);
-	}
-	close(fd);
-	waitpid(pid,&status,0);
-	if (WIFEXITED(status))
-	  return WEXITSTATUS(status);
-	return -1;
-}
-
 #define QM_INFO 5
 struct module_info
 {
@@ -419,26 +397,6 @@ int isLoaded(char *module) {
 	free(mod);
 	fclose(pm);
 	return 0;
-}
-
-int loadModule(char *module) {
-	char *args[] = { "/sbin/modprobe", "-s", "-q", NULL, NULL };
-	if (isLoaded(module)) {
-		return -1;
-	} else {
-		args[3] = module;
-		return runModuleCommand(args);
-	}
-}
-
-int removeModule(char *module) {
-	char *args[] = { "/sbin/modprobe", "-q", "-r", NULL, NULL };
-	if (isLoaded(module)) {
-		args[3] = module;
-		return runModuleCommand(args);
-	} else {
-		return -1;
-	}
 }
 
 #ifdef TESTING

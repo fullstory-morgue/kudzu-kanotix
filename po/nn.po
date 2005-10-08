@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2001-06-25 18:55+02:00\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian (nynorsk)\n"
@@ -15,193 +15,159 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../hwconf.c:126
-#, fuzzy, c-format
-msgid "linked %s to %s"
-msgstr "Linjer som skal hoppast over:"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr ""
-
-#: ../hwconf.c:149
-#, fuzzy, c-format
-msgid "unlinked %s"
-msgstr "understreka"
-
-#: ../hwconf.c:189
 #, c-format
 msgid "ran loadkeys %s"
 msgstr ""
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, fuzzy, c-format
 msgid "aliased %s as %s"
 msgstr "Lagra som: %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr ""
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr ""
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr ""
-
-#: ../hwconf.c:1182
-#, fuzzy
-msgid "network card"
-msgstr "Leit på nettverket"
-
-#: ../hwconf.c:1184
-#, fuzzy
-msgid "SCSI controller"
-msgstr "SCSI-kontrollerarar"
-
-#: ../hwconf.c:1186
-#, fuzzy
-msgid "video adapter"
-msgstr "Nettverk-adapter"
-
-#: ../hwconf.c:1188
-#, fuzzy
-msgid "sound card"
-msgstr "Lydkort"
-
-#: ../hwconf.c:1190
-#, fuzzy
-msgid "mouse"
-msgstr "Mus"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "CD-ROM-spelar"
-
-#: ../hwconf.c:1196
-#, fuzzy
-msgid "tape drive"
-msgstr "Bandstasjonsval"
-
-#: ../hwconf.c:1198
-#, fuzzy
-msgid "floppy drive"
-msgstr "Diskettstasjon"
-
-#: ../hwconf.c:1200
-#, fuzzy
-msgid "scanner"
-msgstr "Skannar"
-
-#: ../hwconf.c:1202
-#, fuzzy
-msgid "hard disk"
-msgstr "Harddisk"
-
-#: ../hwconf.c:1204
-#, fuzzy
-msgid "RAID controller"
-msgstr "RAID buss-kontrollerar"
-
-#: ../hwconf.c:1206
-#, fuzzy
-msgid "IDE controller"
-msgstr "RAID buss-kontrollerar"
-
-#: ../hwconf.c:1208
-#, fuzzy
-msgid "printer"
-msgstr "Skrivar"
-
-#: ../hwconf.c:1210
-#, fuzzy
-msgid "video capture card"
-msgstr "Skjermkort"
-
-#: ../hwconf.c:1212
-#, fuzzy
-msgid "keyboard"
-msgstr "&Tastatur"
-
-#: ../hwconf.c:1214
-#, fuzzy
-msgid "monitor"
-msgstr "Monitor"
-
-#: ../hwconf.c:1216
-#, fuzzy
-msgid "USB controller"
-msgstr "USB-kontrollerar"
-
-#: ../hwconf.c:1218
-#, fuzzy
-msgid "IEEE1394 controller"
-msgstr "SCSI-kontrollerarar"
-
-#: ../hwconf.c:1220
-#, fuzzy
-msgid "PCMCIA/Cardbus controller"
-msgstr "IPI buss-kontrollerar"
-
-#: ../hwconf.c:1224
-#, fuzzy, c-format
-msgid "%s device"
-msgstr "CD-eining"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 #, fuzzy
 msgid "set timeout in seconds"
 msgstr "Tidsgrense %1 sekund"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 #, fuzzy
 msgid "probe only, print information to stdout"
 msgstr "Informasjon om nettverksskrivar"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 #, fuzzy
 msgid "probe only the specified 'bus'"
 msgstr "Vis berre valte køyrenivå"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr ""
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr ""
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 #, fuzzy
 msgid "file to read hardware info from"
 msgstr "Les oppdateringsinstruksjonar frå fil"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr ""
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr ""
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+msgid "read probed hardware from a socket"
+msgstr ""
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr ""
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
 "ERROR - You must be root to run kudzu.\n"
 msgstr ""
+
+#, fuzzy
+#~ msgid "linked %s to %s"
+#~ msgstr "Linjer som skal hoppast over:"
+
+#, fuzzy
+#~ msgid "unlinked %s"
+#~ msgstr "understreka"
+
+#, fuzzy
+#~ msgid "network card"
+#~ msgstr "Leit på nettverket"
+
+#, fuzzy
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI-kontrollerarar"
+
+#, fuzzy
+#~ msgid "video adapter"
+#~ msgstr "Nettverk-adapter"
+
+#, fuzzy
+#~ msgid "sound card"
+#~ msgstr "Lydkort"
+
+#, fuzzy
+#~ msgid "mouse"
+#~ msgstr "Mus"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM-spelar"
+
+#, fuzzy
+#~ msgid "tape drive"
+#~ msgstr "Bandstasjonsval"
+
+#, fuzzy
+#~ msgid "floppy drive"
+#~ msgstr "Diskettstasjon"
+
+#, fuzzy
+#~ msgid "scanner"
+#~ msgstr "Skannar"
+
+#, fuzzy
+#~ msgid "hard disk"
+#~ msgstr "Harddisk"
+
+#, fuzzy
+#~ msgid "RAID controller"
+#~ msgstr "RAID buss-kontrollerar"
+
+#, fuzzy
+#~ msgid "IDE controller"
+#~ msgstr "RAID buss-kontrollerar"
+
+#, fuzzy
+#~ msgid "printer"
+#~ msgstr "Skrivar"
+
+#, fuzzy
+#~ msgid "video capture card"
+#~ msgstr "Skjermkort"
+
+#, fuzzy
+#~ msgid "keyboard"
+#~ msgstr "&Tastatur"
+
+#, fuzzy
+#~ msgid "monitor"
+#~ msgstr "Monitor"
+
+#, fuzzy
+#~ msgid "USB controller"
+#~ msgstr "USB-kontrollerar"
+
+#, fuzzy
+#~ msgid "IEEE1394 controller"
+#~ msgstr "SCSI-kontrollerarar"
+
+#, fuzzy
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "IPI buss-kontrollerar"
+
+#, fuzzy
+#~ msgid "%s device"
+#~ msgstr "CD-eining"
 
 #, fuzzy
 #~ msgid "Update /etc/inittab"

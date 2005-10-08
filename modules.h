@@ -61,6 +61,4 @@ int isAliased(struct confModules *cf, char *alias, char *module);
 int isLoaded(char *module);
 int getLogLevel();
 void setLogLevel(int level);
-int loadModule(char *module);
-int removeModule(char *module);
 #endif

@@ -1,5 +1,5 @@
 # translation of tr.po to Turkish
-# $Id: tr.po,v 1.22 2004/12/17 21:48:33 notting Exp $
+# $Id: tr.po,v 1.23 2005/09/22 20:05:40 notting Exp $
 # Nilgün Belma Bugüner <nilgun@superonline.com>, 2003.
 # Bahadir Yagan <bahadir.yagan@mentorsystem.com>, 2004.
 #
@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: tr\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-03-15 23:26+0200\n"
 "Last-Translator: Bahadir Yagan <bahadir.yagan@mentorsystem.com>\n"
 "Language-Team: Turkish <fedora-trans-tr@redhat.com>\n"
@@ -18,165 +18,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "%s'ten %s'e bağ kuruldu"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "%s bağı silindi (%s'e bağlıydı)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "%s bağı silindi"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "loadkeys %s çalıştır"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s için %s takma adı oluşturuldu"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "%s için mouseconfig çalıştır"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "bcm5820 hizmeti etkinleştirildi"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "aep1000 hizmeti etkinleştirildi"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "ağ kartı"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "SCSI sürücü"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "ekran kartı"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "ses kartı"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "fare"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "CD-ROM sürücü"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "Teyp sürücü"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "disket sürücü"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "tarayıcı"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "sabit disk"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "RAID sürücü"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "IDE denetleyicisi"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "yazıcı"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "görüntü yakalama kartı"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "klavye"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitör"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "USB sürücü"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "IEEE1394 denetleyici"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus sürücü"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "%s aygıtı"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "sadece güvenli donanım tanıma yap"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "Zamanaşımını saniye cinsinden tanımla"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "sadece tanıma uygula, bilgileri standart çıktıya yaz"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "sadece belirtilen `bus' için tanıma uygula"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "sadece belirtilen `sınıf' için tanıma uygula"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "Tanınan donanımları dosyadan oku"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "Donanım bilgisinin okunacağı dosya"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "belli bir çekirdek sürümünün modüllerini ara"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "çekirdek sürümü"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "Tanınan donanımları dosyadan oku"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "kullanıcı girişine gerek bırakmayan ayar yap"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -184,6 +79,87 @@ msgid ""
 msgstr ""
 "\n"
 "HATA - kudzu'yu çalıştırabilmek için root olmalısınız.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "%s'ten %s'e bağ kuruldu"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "%s bağı silindi (%s'e bağlıydı)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "%s bağı silindi"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "%s için mouseconfig çalıştır"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "bcm5820 hizmeti etkinleştirildi"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "aep1000 hizmeti etkinleştirildi"
+
+#~ msgid "network card"
+#~ msgstr "ağ kartı"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI sürücü"
+
+#~ msgid "video adapter"
+#~ msgstr "ekran kartı"
+
+#~ msgid "sound card"
+#~ msgstr "ses kartı"
+
+#~ msgid "mouse"
+#~ msgstr "fare"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM sürücü"
+
+#~ msgid "tape drive"
+#~ msgstr "Teyp sürücü"
+
+#~ msgid "floppy drive"
+#~ msgstr "disket sürücü"
+
+#~ msgid "scanner"
+#~ msgstr "tarayıcı"
+
+#~ msgid "hard disk"
+#~ msgstr "sabit disk"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID sürücü"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE denetleyicisi"
+
+#~ msgid "printer"
+#~ msgstr "yazıcı"
+
+#~ msgid "video capture card"
+#~ msgstr "görüntü yakalama kartı"
+
+#~ msgid "keyboard"
+#~ msgstr "klavye"
+
+#~ msgid "monitor"
+#~ msgstr "monitör"
+
+#~ msgid "USB controller"
+#~ msgstr "USB sürücü"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394 denetleyici"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus sürücü"
+
+#~ msgid "%s device"
+#~ msgstr "%s aygıtı"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -379,9 +355,6 @@ msgstr ""
 #~ "aygıt tekrar bulunursa yeniden bu pencereyi görmeyeceksiniz.\n"
 #~ "3) Hiç bir işlem yapmayabilirsiniz. Fazladan ayar eklenmeyecek, ancak "
 #~ "aygıt diğer açılışlarda bulunursa bu pencereyle yeniden karşılaşacaksınız."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "kullanıcı girişine gerek bırakmayan ayar yap"
 
 #~ msgid "Existing Configuration Detected"
 #~ msgstr "Mevcut Ayarlar Bulundu"

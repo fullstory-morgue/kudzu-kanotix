@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: et\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-02-05 17:07+0200\n"
 "Last-Translator: Allan Sims <allsi@eau.ee>\n"
 "Language-Team: Estonian <Eesti>\n"
@@ -20,170 +20,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "%s ühendatud %s-i"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "%s ühendamata (oli ühendatud %s-i)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "ühendamata %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "käivitus laadevõtmed %s"
 
-#: ../hwconf.c:719
-#: ../hwconf.c:735
-#: ../hwconf.c:774
-#: ../hwconf.c:793
-#: ../hwconf.c:819
-#: ../hwconf.c:845
-#: ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s samastatud kui %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "mouseconfig käivitatakse %s jaoks"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "teenus bcm5820 käivitatud"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "teenus aep1000 käivitatud"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "võrgukaart"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "SCSI regulaator"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "videoadapter"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "helikaart"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "hiir"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "CD-ROM seade"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "lintseade"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "flopiseade"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "skanner"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "kõvaketas"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "RAID regulaator"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "IDE regulaator"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "printer"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "videohõivekaart"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "klaviatuur"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "USB regulaator"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "IEEE1394 regulaator"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/kaardisiin regulaator"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "%s seade"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "proovi ainult ohutult, mis ei sega riistvara"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "sea ooteaeg sekundites"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "proovi ainult, väljasta teave standard väljundisse"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "proovi ainult täpsustatud 'siin'"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "proovi ainult täpsustatud 'klass'"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "loe järele proovitud riistvara failist"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "riistvara info fail"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "otsi mooduleid konkreetse kerneli versiooni jaoks"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "tuuma versioon"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "loe järele proovitud riistvara failist"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr ""
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -192,3 +82,83 @@ msgstr ""
 "\n"
 "Vuga - kudzu käivitamiseks on vaja juurkasutaja õigusi.\n"
 
+#~ msgid "linked %s to %s"
+#~ msgstr "%s ühendatud %s-i"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "%s ühendamata (oli ühendatud %s-i)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "ühendamata %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "mouseconfig käivitatakse %s jaoks"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "teenus bcm5820 käivitatud"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "teenus aep1000 käivitatud"
+
+#~ msgid "network card"
+#~ msgstr "võrgukaart"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI regulaator"
+
+#~ msgid "video adapter"
+#~ msgstr "videoadapter"
+
+#~ msgid "sound card"
+#~ msgstr "helikaart"
+
+#~ msgid "mouse"
+#~ msgstr "hiir"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM seade"
+
+#~ msgid "tape drive"
+#~ msgstr "lintseade"
+
+#~ msgid "floppy drive"
+#~ msgstr "flopiseade"
+
+#~ msgid "scanner"
+#~ msgstr "skanner"
+
+#~ msgid "hard disk"
+#~ msgstr "kõvaketas"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID regulaator"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE regulaator"
+
+#~ msgid "printer"
+#~ msgstr "printer"
+
+#~ msgid "video capture card"
+#~ msgstr "videohõivekaart"
+
+#~ msgid "keyboard"
+#~ msgstr "klaviatuur"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "USB regulaator"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394 regulaator"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/kaardisiin regulaator"
+
+#~ msgid "%s device"
+#~ msgstr "%s seade"

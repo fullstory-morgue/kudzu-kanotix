@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: ru\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-02-26 11:55+0300\n"
 "Last-Translator: Andrew Martynov <andrewm@inventa.ru>\n"
 "Language-Team: Russian <fedora-trans-ru@redhat.com>\n"
@@ -15,171 +15,61 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
 
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "создана ссылка %s на %s"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "ссылка %s удалена (ссылалась на %s)"
-
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "удалено %s"
-
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "выполнено loadkeys %s"
 
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
-#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s как псевдоним %s"
 
-#: ../hwconf.c:885
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "выполнен mouseconfig для %s"
-
-#: ../hwconf.c:908
-msgid "turned on bcm5820 service"
-msgstr "включена служба bcm5820"
-
-#: ../hwconf.c:919
-msgid "turned on aep1000 service"
-msgstr "настроена служба aep1000"
-
-#: ../hwconf.c:1184
-msgid "network card"
-msgstr "сетевая плата"
-
-#: ../hwconf.c:1186
-msgid "SCSI controller"
-msgstr "контроллер SCSI"
-
-#: ../hwconf.c:1188
-msgid "video adapter"
-msgstr "видео адаптер"
-
-#: ../hwconf.c:1190
-msgid "sound card"
-msgstr "звуковая плата"
-
-#: ../hwconf.c:1192
-msgid "mouse"
-msgstr "мышь"
-
-#: ../hwconf.c:1194
-msgid "modem"
-msgstr "модем"
-
-#: ../hwconf.c:1196
-msgid "CD-ROM drive"
-msgstr "привод CD-ROM"
-
-#: ../hwconf.c:1198
-msgid "tape drive"
-msgstr "стример"
-
-#: ../hwconf.c:1200
-msgid "floppy drive"
-msgstr "дисковод гибких дисков"
-
-#: ../hwconf.c:1202
-msgid "scanner"
-msgstr "сканер"
-
-#: ../hwconf.c:1204
-msgid "hard disk"
-msgstr "жесткий диск"
-
-#: ../hwconf.c:1206
-msgid "RAID controller"
-msgstr "контроллер RAID"
-
-#: ../hwconf.c:1208
-msgid "IDE controller"
-msgstr "контроллер IDE"
-
-#: ../hwconf.c:1210
-msgid "printer"
-msgstr "принтер"
-
-#: ../hwconf.c:1212
-msgid "video capture card"
-msgstr "устройство видеозахвата"
-
-#: ../hwconf.c:1214
-msgid "keyboard"
-msgstr "клавиатура"
-
-#: ../hwconf.c:1216
-msgid "monitor"
-msgstr "монитор"
-
-#: ../hwconf.c:1218
-msgid "USB controller"
-msgstr "контроллер USB"
-
-#: ../hwconf.c:1220
-msgid "IEEE1394 controller"
-msgstr "контроллер IEEE1394"
-
-#: ../hwconf.c:1222
-msgid "PCMCIA/Cardbus controller"
-msgstr "контроллер PCMCIA/Cardbus"
-
-#: ../hwconf.c:1226
-#, c-format
-msgid "%s device"
-msgstr "устройство %s"
-
-#: ../hwconf.c:1417
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "использовать только 'безопасные' проверки, не затрагивающие аппаратуру"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "установить задержку в секундах"
 
-#: ../hwconf.c:1424
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "только поиск, вывести информацию на стандартный вывод"
 
-#: ../hwconf.c:1428
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "искать устройства только на указанной шине ('bus')"
 
-#: ../hwconf.c:1432
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "искать только устройства, для которых указан 'class'"
 
-#: ../hwconf.c:1436
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "читать информацию о устройствах из файла"
 
-#: ../hwconf.c:1437
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "файл для чтении информации о устройствах"
 
-#: ../hwconf.c:1440
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "поиск модулей для конкретной версии ядра"
 
-#: ../hwconf.c:1441
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "версия ядра"
 
-#: ../hwconf.c:1444
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "читать информацию о устройствах через сокет"
 
-#: ../hwconf.c:1466
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "настраивать то, что не требует ввода пользователя"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -187,6 +77,87 @@ msgid ""
 msgstr ""
 "\n"
 "ОШИБКА: для выполнения kudzu необходимо иметь права root.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "создана ссылка %s на %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "ссылка %s удалена (ссылалась на %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "удалено %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "выполнен mouseconfig для %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "включена служба bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "настроена служба aep1000"
+
+#~ msgid "network card"
+#~ msgstr "сетевая плата"
+
+#~ msgid "SCSI controller"
+#~ msgstr "контроллер SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "видео адаптер"
+
+#~ msgid "sound card"
+#~ msgstr "звуковая плата"
+
+#~ msgid "mouse"
+#~ msgstr "мышь"
+
+#~ msgid "modem"
+#~ msgstr "модем"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "привод CD-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "стример"
+
+#~ msgid "floppy drive"
+#~ msgstr "дисковод гибких дисков"
+
+#~ msgid "scanner"
+#~ msgstr "сканер"
+
+#~ msgid "hard disk"
+#~ msgstr "жесткий диск"
+
+#~ msgid "RAID controller"
+#~ msgstr "контроллер RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "контроллер IDE"
+
+#~ msgid "printer"
+#~ msgstr "принтер"
+
+#~ msgid "video capture card"
+#~ msgstr "устройство видеозахвата"
+
+#~ msgid "keyboard"
+#~ msgstr "клавиатура"
+
+#~ msgid "monitor"
+#~ msgstr "монитор"
+
+#~ msgid "USB controller"
+#~ msgstr "контроллер USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "контроллер IEEE1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "контроллер PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "устройство %s"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -384,9 +355,6 @@ msgstr ""
 #~ "вопрос не будет появляться при последующих перезапусках. \n"
 #~ "3) Ничего не делать. Настройка не будет произведена и устройство будет "
 #~ "отображено как новое при последующих перезапусках."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "настраивать то, что не требует ввода пользователя"
 
 #~ msgid "Existing Configuration Detected"
 #~ msgstr "Обнаружена существующая настройка"

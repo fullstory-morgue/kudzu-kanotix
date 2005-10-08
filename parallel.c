@@ -151,7 +151,6 @@ static struct parallelDevice *readProbeInfo(char *ppath) {
 		}
 		pardev->desc=strdup(desc);
 	}
-	pardev->driver=strdup("unknown");
 	pardev->pnpmfr = strdup(mfr);
 	pardev->pnpmodel = strdup(model);
 	if (modes)
@@ -191,7 +190,6 @@ struct device *parallelProbe( enum deviceClass probeClass, int probeFlags,
 	struct dirent *dent;
 	char path[256];
 	int procdir = 0;
-	int loaded_driver = 0;
     
 	if (
 	    (probeClass & CLASS_OTHER) ||
@@ -203,8 +201,6 @@ struct device *parallelProbe( enum deviceClass probeClass, int probeFlags,
 	    (probeClass & CLASS_SCANNER)  ||
 	    (probeClass & CLASS_PRINTER)
 	    ) {
-		if (!(probeFlags & PROBE_NOLOAD) && !loadModule("parport_pc"))
-		  loaded_driver = 1;
 		dir=opendir(procDirs[0]);
 		if (!dir) {
 			dir=opendir(procDirs[1]);
@@ -238,7 +234,5 @@ struct device *parallelProbe( enum deviceClass probeClass, int probeFlags,
 		closedir(dir);
 	}
 out:
-        if (loaded_driver == 1)
-	  removeModule("parport_pc");
 	return devlist;
 }

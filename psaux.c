@@ -20,6 +20,7 @@
 
 #include "kudzu.h"
 #include "psaux.h"
+#include "kudzuint.h"
 
 static void psauxFreeDevice(struct psauxDevice *dev)
 {
@@ -62,7 +63,7 @@ struct device *psauxProbe(enum deviceClass probeClass, int probeFlags,
 	    
 	    fd = open("/proc/bus/input/devices", O_RDONLY);
 	    if (fd < 0) return devlist;
-	    buf = bufFromFd(fd);
+	    buf = __bufFromFd(fd);
 	    if (!buf) return devlist;
 	    
 	    start = buf;
@@ -81,7 +82,6 @@ struct device *psauxProbe(enum deviceClass probeClass, int probeFlags,
 			    }
 			    start = buf;
 			    ps2dev = psauxNewDevice(NULL);
-			    ps2dev->driver = strdup("ignore");
 			    continue;
 		    }
 		 

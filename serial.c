@@ -1013,7 +1013,6 @@ struct device *serialProbe(enum deviceClass probeClass, int probeFlags,
 		    serdev->desc=strdup(foo);
 		    serdev->device=strdup(port+5);
 		    if (serdev->driver) free(serdev->driver);
-		    serdev->driver=strdup("ignore");
 		    serdev->pnpmfr = strdup(pnp_id.eisa_id);
 		    serdev->pnpmodel = strdup(pnp_id.product_id);
 			
@@ -1095,7 +1094,6 @@ struct device *serialProbe(enum deviceClass probeClass, int probeFlags,
 			    serdev=serialNewDevice(NULL);
 			    serdev->type = CLASS_MODEM;
 			    serdev->device = strdup(port+5);
-			    serdev->driver= strdup("ignore");
 			    serdev->desc = strdup("Generic Serial Modem");
 			    if (devlist)
 				serdev->next = devlist;

@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-03-03 18:15-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-08-29 20:32+0200\n"
 "Last-Translator: Severin Heiniger <severinheiniger@gmail.com>\n"
 "Language-Team: German / Deutsch <fedora-i18n-list@redhat.com>\n"
@@ -20,190 +20,72 @@ msgstr ""
 "X-Generator: KBabel 1.10.2\n"
 "Plural-Forms:  nplurals=2; plural=(n != 1);\n"
 
-# ../hwconf.c:283
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "%s mit %s verknüpft"
-
-# ../hwconf.c:304
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "%s gelöst (war mit %s verknüpft)"
-
-# ../hwconf.c:306
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "%s ist nicht verknüpft"
-
 # ../hwconf.c:341
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "loadkeys %s wurde ausgeführt"
 
 # ../hwconf.c:817 ../hwconf.c:860 ../hwconf.c:881 ../hwconf.c:897
 # ../hwconf.c:928
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:766 ../hwconf.c:785
-#: ../hwconf.c:811 ../hwconf.c:837 ../hwconf.c:864
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "für %s wurde Alias %s gesetzt"
 
-# ../hwconf.c:953
-#: ../hwconf.c:875
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "mouseconfig wurde für %s ausgeführt"
-
-#: ../hwconf.c:898
-msgid "turned on bcm5820 service"
-msgstr "bcm5820-Dienst eingeschaltet"
-
-#: ../hwconf.c:909
-msgid "turned on aep1000 service"
-msgstr "aep1000-Dienst eingeschaltet"
-
-#: ../hwconf.c:1166
-msgid "network card"
-msgstr "Netzwerkkarte"
-
-#: ../hwconf.c:1168
-msgid "SCSI controller"
-msgstr "SCSI-Controller"
-
-#: ../hwconf.c:1170
-msgid "video adapter"
-msgstr "Grafikadapter"
-
-#: ../hwconf.c:1172
-msgid "sound card"
-msgstr "Soundkarte"
-
-#: ../hwconf.c:1174
-msgid "mouse"
-msgstr "Maus"
-
-#: ../hwconf.c:1176
-msgid "modem"
-msgstr "Modem"
-
-#: ../hwconf.c:1178
-msgid "CD-ROM drive"
-msgstr "CD-ROM-Laufwerk"
-
-#: ../hwconf.c:1180
-msgid "tape drive"
-msgstr "Band-Laufwerk"
-
-#: ../hwconf.c:1182
-msgid "floppy drive"
-msgstr "Disketten-Laufwerk"
-
-#: ../hwconf.c:1184
-msgid "scanner"
-msgstr "Scanner"
-
-#: ../hwconf.c:1186
-msgid "hard disk"
-msgstr "Festplatte"
-
-#: ../hwconf.c:1188
-msgid "RAID controller"
-msgstr "RAID-Controller"
-
-#: ../hwconf.c:1190
-msgid "IDE controller"
-msgstr "IDE-Controller"
-
-#: ../hwconf.c:1192
-msgid "printer"
-msgstr "Drucker"
-
-#: ../hwconf.c:1194
-msgid "video capture card"
-msgstr "Videokarte"
-
-#: ../hwconf.c:1196
-msgid "keyboard"
-msgstr "Tastatur"
-
-#: ../hwconf.c:1198
-msgid "monitor"
-msgstr "Monitor"
-
-#: ../hwconf.c:1200
-msgid "USB controller"
-msgstr "USB-Controller"
-
-#: ../hwconf.c:1202
-msgid "IEEE1394 controller"
-msgstr "IEEE1394-Controller"
-
-#: ../hwconf.c:1204
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus-Controller"
-
-#: ../hwconf.c:1208
-#, c-format
-msgid "%s device"
-msgstr "%s Gerät"
-
 # ../hwconf.c:1350
-#: ../hwconf.c:1399
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
 "sicheren Erkennungsmodus verwenden, der Hardware-Funktionen nicht "
 "beeinträchtigt"
 
 # ../hwconf.c:1354
-#: ../hwconf.c:1403
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "Zeitüberschreitung in Sekunden festlegen"
 
-#: ../hwconf.c:1406
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "nur suchen, gebe Informationen auf die Standardausgabe aus"
 
-#: ../hwconf.c:1410
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "nur angegebenen Bus durchsuchen"
 
-#: ../hwconf.c:1414
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "nur nach der angegebene 'Klasse' suchen"
 
 # ../hwconf.c:1357
-#: ../hwconf.c:1418
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "erkannte Hardware aus Datei lesen"
 
 # ../hwconf.c:1358
-#: ../hwconf.c:1419
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "Datei für das Einlesen der Hardware-Informationen"
 
-#: ../hwconf.c:1422
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "Nach Modulen für eine bestimmte Kernelversion suchen"
 
-#: ../hwconf.c:1423
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "Kernelversion"
 
 # ../hwconf.c:1357
-#: ../hwconf.c:1426
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "erkannte Hardware von einem Socket lesen"
 
 # ../hwconf.c:1346
-#: ../hwconf.c:1430
+#: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
 msgstr "Konfiguration ohne Benutzereingaben durchführen"
 
-#: ../hwconf.c:1452
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -212,3 +94,87 @@ msgstr ""
 "\n"
 "Fehler - Sie müssen als Root angemeldet sein, um Kudzu zu starten.\n"
 
+# ../hwconf.c:283
+#~ msgid "linked %s to %s"
+#~ msgstr "%s mit %s verknüpft"
+
+# ../hwconf.c:304
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "%s gelöst (war mit %s verknüpft)"
+
+# ../hwconf.c:306
+#~ msgid "unlinked %s"
+#~ msgstr "%s ist nicht verknüpft"
+
+# ../hwconf.c:953
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "mouseconfig wurde für %s ausgeführt"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "bcm5820-Dienst eingeschaltet"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "aep1000-Dienst eingeschaltet"
+
+#~ msgid "network card"
+#~ msgstr "Netzwerkkarte"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI-Controller"
+
+#~ msgid "video adapter"
+#~ msgstr "Grafikadapter"
+
+#~ msgid "sound card"
+#~ msgstr "Soundkarte"
+
+#~ msgid "mouse"
+#~ msgstr "Maus"
+
+#~ msgid "modem"
+#~ msgstr "Modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM-Laufwerk"
+
+#~ msgid "tape drive"
+#~ msgstr "Band-Laufwerk"
+
+#~ msgid "floppy drive"
+#~ msgstr "Disketten-Laufwerk"
+
+#~ msgid "scanner"
+#~ msgstr "Scanner"
+
+#~ msgid "hard disk"
+#~ msgstr "Festplatte"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID-Controller"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE-Controller"
+
+#~ msgid "printer"
+#~ msgstr "Drucker"
+
+#~ msgid "video capture card"
+#~ msgstr "Videokarte"
+
+#~ msgid "keyboard"
+#~ msgstr "Tastatur"
+
+#~ msgid "monitor"
+#~ msgstr "Monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "USB-Controller"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394-Controller"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus-Controller"
+
+#~ msgid "%s device"
+#~ msgstr "%s Gerät"

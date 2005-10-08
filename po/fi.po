@@ -6,7 +6,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-06-25 08:50+0300\n"
 "Last-Translator: Lauri Nurmi <lanurmi@iki.fi>\n"
 "Language-Team: Finnish <>\n"
@@ -17,165 +17,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "linkitettiin %s -> %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "irrotettiin linkitys %s (linkityksen kohde oli %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "irrotettiin linkitys %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "suoritettiin loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "annettiin moduulille %s alias %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "suoritettiin mouseconfig laitteelle %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "otettiin käyttöön bcm5820-palvelu"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "otettiin käyttöön aep1000-palvelu"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "verkkokortti"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "SCSI-ohjain"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "videosovitin"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "äänikortti"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "hiiri"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modeemi"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "CD-ROM-asema"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "nauha-asema"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "levykeasema"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "kuvanlukija"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "kiintolevy"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "RAID-ohjain"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "IDE-ohjain"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "tulostin"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "videonsieppauskortti"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "näppäimistö"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "näyttö"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "USB-ohjain"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "IEEE1394-ohjain"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus-ohjain"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "%s-laite"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "tee vain \"turvallisia\" etsintöjä, jotka eivät häiritse laitteistoa"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "aseta aikakatkaisu sekunteina"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "tee vain etsintä, tulosta tiedot vakiotulosteeseen"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "etsi vain annetusta \"väylästä\""
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "etsi vain annetun \"luokan\" laitteita"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "lue etsitty laitteisto tiedostosta"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "tiedosto, josta laitteistotiedot luetaan"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "etsi moduuleita tietylle ytimen versiolle"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "ytimen versio"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "lue etsitty laitteisto tiedostosta"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "tee asetukset siten, ettei se vaadi syötettä käyttäjältä"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -183,6 +78,87 @@ msgid ""
 msgstr ""
 "\n"
 "VIRHE - Vain pääkäyttäjä voi suorittaa kudzun.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "linkitettiin %s -> %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "irrotettiin linkitys %s (linkityksen kohde oli %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "irrotettiin linkitys %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "suoritettiin mouseconfig laitteelle %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "otettiin käyttöön bcm5820-palvelu"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "otettiin käyttöön aep1000-palvelu"
+
+#~ msgid "network card"
+#~ msgstr "verkkokortti"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI-ohjain"
+
+#~ msgid "video adapter"
+#~ msgstr "videosovitin"
+
+#~ msgid "sound card"
+#~ msgstr "äänikortti"
+
+#~ msgid "mouse"
+#~ msgstr "hiiri"
+
+#~ msgid "modem"
+#~ msgstr "modeemi"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM-asema"
+
+#~ msgid "tape drive"
+#~ msgstr "nauha-asema"
+
+#~ msgid "floppy drive"
+#~ msgstr "levykeasema"
+
+#~ msgid "scanner"
+#~ msgstr "kuvanlukija"
+
+#~ msgid "hard disk"
+#~ msgstr "kiintolevy"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID-ohjain"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE-ohjain"
+
+#~ msgid "printer"
+#~ msgstr "tulostin"
+
+#~ msgid "video capture card"
+#~ msgstr "videonsieppauskortti"
+
+#~ msgid "keyboard"
+#~ msgstr "näppäimistö"
+
+#~ msgid "monitor"
+#~ msgstr "näyttö"
+
+#~ msgid "USB controller"
+#~ msgstr "USB-ohjain"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394-ohjain"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus-ohjain"
+
+#~ msgid "%s device"
+#~ msgstr "%s-laite"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -380,6 +356,3 @@ msgstr ""
 #~ "uudestaan, vaikka laite löytyisi tulevilla käynnistyskerroilla.\n"
 #~ "3) Ohita. Asetuksia ei tehdä, ja laite näytetään uutena, jos se havaitaan "
 #~ "tulevilla käynnistyskerroilla."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "tee asetukset siten, ettei se vaadi syötettä käyttäjältä"

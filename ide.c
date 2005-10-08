@@ -28,12 +28,6 @@
 #include "ide.h"
 #include "modules.h"
 
-static struct module probeMods[] = {
-	{ "ide-probe-mod", 0 },
-	{ "ide-probe",  0 },
-	{ NULL, 0 }
-};
-
 static void ideFreeDevice(struct ideDevice *dev)
 {
 	if (dev->physical) free(dev->physical);
@@ -93,11 +87,6 @@ struct device *ideProbe(enum deviceClass probeClass, int probeFlags,
 	    (probeClass & CLASS_TAPE) ||
 	    (probeClass & CLASS_HD) 
 	    ) {
-		if (!access("/proc/ide", R_OK))
-		  for (i=0; probeMods[i].name; i++) {
-			if (!(probeFlags & PROBE_NOLOAD) && !loadModule(probeMods[i].name))
-			  probeMods[i].loaded = 1;
-		  }
 		if (access("/proc/ide", R_OK))
 		  goto out;
 
@@ -134,7 +123,6 @@ struct device *ideProbe(enum deviceClass probeClass, int probeFlags,
 				else
 					newdev->type = CLASS_OTHER;
 				newdev->device = strdup(ent->d_name);
-				newdev->driver = strdup("ignore");
 
 				sprintf(path, "/proc/ide/%s/model", ent->d_name);
 				if ((fd = open(path, O_RDONLY)) >= 0) {
@@ -179,9 +167,5 @@ struct device *ideProbe(enum deviceClass probeClass, int probeFlags,
 		closedir(dir);
 	}
 out:
-	for (i=0; probeMods[i].name ; i++)
-	  if (probeMods[i].loaded == 1 && !removeModule(probeMods[i].name))
-	    probeMods[i].loaded = 0;
-
 	return devlist;
 }

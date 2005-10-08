@@ -20,6 +20,8 @@
 
 #include "isapnp.h"
 
+#include "kudzuint.h"
+
 /* I am in hell. ISAPnP is the fifth ring of hell. */
 
 static struct isapnpDevice *isapnpDeviceList = NULL;
@@ -118,7 +120,7 @@ int isapnpReadDrivers(char *filename) {
 		}
 	}
 	
-	start = buf = bufFromFd(fd);
+	start = buf = __bufFromFd(fd);
 	
 	nextDevice = isapnpDeviceList + numIsapnpDevices;
 	
@@ -289,16 +291,16 @@ static void setDriverAndClass(struct isapnpDevice *dev) {
 	if (searchdev) {
 		dev->driver = strdup(searchdev->driver);
 	}
-	if (!strncmp(dev->driver,"snd-",4))
+	if (dev->driver && !strncmp(dev->driver,"snd-",4))
 		dev->type = CLASS_AUDIO;
 	for (x=0; netlist[x]; x++) {
-		if (!strcmp(netlist[x],dev->driver)) {
+		if (dev->driver && !strcmp(netlist[x],dev->driver)) {
 			dev->type = CLASS_NETWORK;
 			dev->device = strdup("eth");
 		}
 	}
 	for (x=0; scsilist[x]; x++) {
-		if (!strcmp(scsilist[x],dev->driver))
+		if (dev->driver && !strcmp(scsilist[x],dev->driver))
 		  dev->type = CLASS_SCSI;
 	}
 }
@@ -310,7 +312,7 @@ static struct device *isapnpAddDevice(int idfd, const char *pdevice, const char 
 	char *tmp = NULL;
 	char *devid;
 
-	devid = bufFromFd(idfd);
+	devid = __bufFromFd(idfd);
 	devid[strlen(devid) - 1] = '\0';
 	if ((tmp = strchr(devid, '\n'))) {
 		*tmp = '\0';
@@ -319,7 +321,6 @@ static struct device *isapnpAddDevice(int idfd, const char *pdevice, const char 
 	dev = isapnpNewDevice(NULL);
 	if (pdevice)
 		dev->pdeviceId = strdup(pdevice);
-	dev->driver = strdup("unknown");
 	dev->deviceId = strdup(devid);
 	if (tmp) {
 		char *t  = tmp;
@@ -402,14 +403,14 @@ struct device * isapnpProbe(enum deviceClass probeClass, int probeFlags, struct 
 						 path,bentry->d_name);
 					fd = open(dpath,O_RDONLY);
 					if (fd >= 0) {
-						pdevice = bufFromFd(fd);
+						pdevice = __bufFromFd(fd);
 						pdevice[strlen(pdevice) - 1] = '\0';
 					}
 					snprintf(dpath,255,"%s/%s/name",
 						 path,bentry->d_name);
 					fd = open(dpath,O_RDONLY);
 					if (fd >= 0) {
-						pname = bufFromFd(fd);
+						pname = __bufFromFd(fd);
 						pname[strlen(pname) - 1] = '\0';
 					}
 				

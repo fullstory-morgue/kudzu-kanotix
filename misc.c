@@ -121,7 +121,6 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
                         miscdev = miscNewDevice(NULL);
                         miscdev->type = CLASS_HD;
                         miscdev->desc = strdup("Compaq RAID logical disk");
-                        miscdev->driver = strdup("ignore");
                         miscdev->device = strdup(buf);
                         if (devlist)
                             miscdev->next = devlist;
@@ -145,7 +144,6 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
                         miscdev = miscNewDevice(NULL);
                         miscdev->type = CLASS_HD;
                         miscdev->desc = strdup("Compaq RAID logical disk");
-                        miscdev->driver = strdup("ignore");
                         miscdev->device = strdup(buf);
                         if (devlist)
                             miscdev->next = devlist;
@@ -172,7 +170,6 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
                         miscdev = miscNewDevice(NULL);
                         miscdev->type = CLASS_HD;
                         miscdev->desc = strdup("DAC960 RAID logical disk");
-                        miscdev->driver = strdup("ignore");
                         miscdev->device = strdup(start+5); /* skip "/dev/" */
                         if (devlist)
                             miscdev->next = devlist;
@@ -196,7 +193,6 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
                     miscdev = miscNewDevice(NULL);
                     miscdev->type = CLASS_HD;
                     miscdev->desc = strdup("Promise SX8 block device");
-                    miscdev->driver = strdup("ignore");
                     miscdev->device = strdup(ent->d_name);
                     for (c = miscdev->device; *c; c++)
                         if (*c == '!') *c = '/';
@@ -224,7 +220,6 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
                         miscdev = miscNewDevice(NULL);
                         miscdev->type = CLASS_HD;
                         miscdev->desc = strdup("I2O block device");
-                        miscdev->driver = strdup("ignore");
                         sprintf(devname, "i2o/hd%c", 'a' + (devnum++));
                         miscdev->device = strdup(devname);
                         if (devlist)
@@ -260,7 +255,6 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
                             miscdev = miscNewDevice(NULL);
                             miscdev->type = CLASS_HD;
                             miscdev->desc = strdup("I2O block device");
-                            miscdev->driver = strdup("ignore");
                             sprintf(devname, "i2o/hd%c", 'a' + (devnum ++));
                             miscdev->device = strdup(devname);
                             if (devlist)
@@ -295,7 +289,6 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
 				miscdev->device = strdup(basename(path));
 				miscdev->type = CLASS_FLOPPY;
 				miscdev->desc = getFloppyDesc(name);
-				miscdev->driver = strdup("unknown");
 				if (ds.track < 0)
 					miscdev->detached = 1;
 				if (devlist)

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-04-14 11:58+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@myrealbox.com>\n"
 "Language-Team: Malay <translation-team-ms@lists.sourceforge.net>\n"
@@ -18,165 +18,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "paut %s ke %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "nyahpaut %s (dahulu dipaut ke %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "nyahpaut %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "laksanakan loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "dialiaskan %s sebagai %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "laksana mouseconfig bagi %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "menghidupkan servis bcm5820"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "menghidupkan servis aep1000"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "kad rangkaian"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "Pengawal SCSI"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "adapter video"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "kad bunyi"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "tetikus"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "pemacu CD-ROM"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "pemacu pita"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "pemacu liut"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "pengimbas"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "cakera keras"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "Pengawal RAID"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "Pengawal IDE"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "pencetak"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "kad cekupan video"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "papan kekunci"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "Pengawal USB"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "pengawal IEEE 1394"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "Pengawal PCMCIA/Cardbus"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "peranti %s"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "lakukan hanya pengesanan 'selamat' yang tidak mengusik perkakasan"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "tetap masatamat dalam saat"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "siasat sahaja, cetak maklumat ke stdout"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "siasat sahaja 'bas' dinyatakan"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "kesan hanya untuk 'kelas' dinyatakan"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "baca perkakasan dikesan daripada fail"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "fail untuk maklumat perkakasan dibaca"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "cari untuk modul bagi versi kernel tertentu"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "versi kernel"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "baca perkakasan dikesan daripada fail"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "lakukan konfigurasi yang tidak memerlukan masukan pengguna"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -184,6 +79,87 @@ msgid ""
 msgstr ""
 "\n"
 "RALAT - Anda mesti menjadi root untuk melaksanakan kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "paut %s ke %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "nyahpaut %s (dahulu dipaut ke %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "nyahpaut %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "laksana mouseconfig bagi %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "menghidupkan servis bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "menghidupkan servis aep1000"
+
+#~ msgid "network card"
+#~ msgstr "kad rangkaian"
+
+#~ msgid "SCSI controller"
+#~ msgstr "Pengawal SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "adapter video"
+
+#~ msgid "sound card"
+#~ msgstr "kad bunyi"
+
+#~ msgid "mouse"
+#~ msgstr "tetikus"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "pemacu CD-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "pemacu pita"
+
+#~ msgid "floppy drive"
+#~ msgstr "pemacu liut"
+
+#~ msgid "scanner"
+#~ msgstr "pengimbas"
+
+#~ msgid "hard disk"
+#~ msgstr "cakera keras"
+
+#~ msgid "RAID controller"
+#~ msgstr "Pengawal RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "Pengawal IDE"
+
+#~ msgid "printer"
+#~ msgstr "pencetak"
+
+#~ msgid "video capture card"
+#~ msgstr "kad cekupan video"
+
+#~ msgid "keyboard"
+#~ msgstr "papan kekunci"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "Pengawal USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "pengawal IEEE 1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "Pengawal PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "peranti %s"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -380,6 +356,3 @@ msgstr ""
 #~ "akan ditanya jika peranti dikesan pada boot seterusnya.\n"
 #~ "3) Jangan buat apa-apa. Konfigurasi tidak akan ditambah, dan peranti akan "
 #~ "dikelihatan seperti baru jika dikesan pada boot seterusnya."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "lakukan konfigurasi yang tidak memerlukan masukan pengguna"

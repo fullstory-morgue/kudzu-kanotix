@@ -20,6 +20,8 @@
 
 #include "ddc.h"
 
+#include "kudzuint.h"
+
 static void ddcFreeDevice(struct ddcDevice *dev)
 {
 	if (dev->id) free(dev->id);
@@ -158,7 +160,7 @@ int ddcReadDrivers(char *filename)
 		}
 	}
 	
-	filebuf = bufFromFd(dbfile);
+	filebuf = __bufFromFd(dbfile);
 	if (!filebuf) return -1;
 	
 	start = filebuf;
@@ -305,7 +307,6 @@ struct device *ddcProbe(enum deviceClass probeClass, int probeFlags,
 				if (!newdev->desc)
 					newdev->desc = strdup("Some Random Video Card");
 				newdev->type = CLASS_VIDEO;
-				newdev->driver = strdup("unknown");
 				if (devlist)
 					newdev->next = devlist;
 				devlist = (struct device *)newdev;
@@ -380,7 +381,6 @@ struct device *ddcProbe(enum deviceClass probeClass, int probeFlags,
 				}
 			}
 			newdev->type = CLASS_MONITOR;
-			newdev->driver = strdup("unknown");
 			if (devlist)
 				newdev->next = devlist;
 			devlist = (struct device *)newdev;

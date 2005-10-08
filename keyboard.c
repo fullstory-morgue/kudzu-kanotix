@@ -165,7 +165,6 @@ struct device *keyboardProbe(enum deviceClass probeClass, int probeFlags,
 		}
 		
 		kbddev=keyboardNewDevice(NULL);
-		kbddev->driver=strdup("ignore");
 		kbddev->type=CLASS_KEYBOARD;
 		if (devlist)
 			kbddev->next = devlist;
@@ -274,7 +273,6 @@ struct device *keyboardProbe(enum deviceClass probeClass, int probeFlags,
 		if (fd >= 0 && !tcgetattr(fd, &mode) && !termcmp(&cmode, &mode)) {
 			close(fd);
 			kbddev=keyboardNewDevice(NULL);
-			kbddev->driver=strdup("ignore");
 			kbddev->type=CLASS_KEYBOARD;
 			if (devlist)
 				kbddev->next = devlist;
@@ -288,7 +286,6 @@ struct device *keyboardProbe(enum deviceClass probeClass, int probeFlags,
 			if (fd >=0 && !tcgetattr(fd, &mode) && !termcmp(&cmode, &mode)) {
 				close(fd);
 				kbddev=keyboardNewDevice(NULL);
-				kbddev->driver = strdup("ignore");
 				kbddev->type = CLASS_KEYBOARD;
 				if (devlist)
 					kbddev->next = devlist;
@@ -305,7 +302,6 @@ struct device *keyboardProbe(enum deviceClass probeClass, int probeFlags,
 		if (fd >=0) {
 			close(fd);
 			kbddev = keyboardNewDevice(NULL);
-			kbddev->driver = strdup("ignore");
 			kbddev->type = CLASS_KEYBOARD;
 			if (devlist)
 				kbddev->next = devlist;
@@ -367,7 +363,6 @@ struct device *keyboardProbe(enum deviceClass probeClass, int probeFlags,
 			}
 			if (!fdstd) close(fd);
 			kbddev=keyboardNewDevice(NULL);
-			kbddev->driver=strdup("ignore");
 			kbddev->type=CLASS_KEYBOARD;
 			if (devlist)
 				kbddev->next = devlist;

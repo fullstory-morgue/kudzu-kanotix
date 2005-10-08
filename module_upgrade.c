@@ -184,7 +184,8 @@ int main(int argc, char **argv) {
 				if (x == rc) break;
 				x = rc;
 				snprintf(alias, 64, "eth%d",x);
-				for (tmpdev = devs[0]; tmpdev; tmpdev = tmpdev->next)
+				for (tmpdev = devs[0]; tmpdev; tmpdev = tmpdev->next) {
+				  if (!tmpdev->driver) continue;
 				  for (i=0; l->newnames[i]; i++)
 				    if (!strcmp(l->newnames[i], tmpdev->driver)) {
 					    addAlias(cf,alias, tmpdev->driver, CM_REPLACE);
@@ -194,6 +195,7 @@ int main(int argc, char **argv) {
 						   alias,l->name, tmpdev->driver);
 					    closelog();
 				    }
+				}
 			}
 			break;
 		 case CLASS_SCSI:
@@ -204,7 +206,8 @@ int main(int argc, char **argv) {
 				  snprintf(alias, 64, "scsi_hostadapter%d",x);
 				else
 				  snprintf(alias, 64, "scsi_hostadapter");
-				for (tmpdev = devs[0]; tmpdev; tmpdev = tmpdev->next)
+				for (tmpdev = devs[0]; tmpdev; tmpdev = tmpdev->next) {
+				  if (!tmpdev->driver) continue;
 				  for (i=0; l->newnames[i]; i++)
 				    if (!strcmp(l->newnames[i], tmpdev->driver)) {
 					    addAlias(cf,alias, tmpdev->driver, CM_REPLACE);
@@ -214,6 +217,7 @@ int main(int argc, char **argv) {
 						   alias,l->name, tmpdev->driver);
 					    closelog();
 				    }
+				}
 			}
 			break;
 		 case CLASS_AUDIO:
@@ -221,7 +225,8 @@ int main(int argc, char **argv) {
 				if (x == rc) break;
 				x = rc;
 				snprintf(alias, 64, "snd-card-%d",x);
-				for (tmpdev = devs[0]; tmpdev; tmpdev = tmpdev->next)
+				for (tmpdev = devs[0]; tmpdev; tmpdev = tmpdev->next) {
+				  if (!tmpdev->driver) continue;
 				  for (i=0; l->newnames[i]; i++)
 				    if (!strcmp(l->newnames[i], tmpdev->driver)) {
 					    addAlias(cf,alias, tmpdev->driver, CM_REPLACE);
@@ -231,6 +236,7 @@ int main(int argc, char **argv) {
 						   alias,l->name, tmpdev->driver);
 					    closelog();
 				    }
+				}
 			}
 			break;
 		 case CLASS_USB:

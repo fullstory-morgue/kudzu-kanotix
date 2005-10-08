@@ -1,5 +1,4 @@
 build_fix.dpatch
-dont_probe_ohci1394.dpatch
 fix_freeze.dpatch
 make_man.dpatch
 makefile.dpatch

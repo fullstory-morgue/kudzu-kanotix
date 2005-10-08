@@ -1,5 +1,5 @@
 Name: kudzu
-Version: 1.1.122
+Version: 1.2.9
 Release: 1
 License: GPL
 Summary: The Red Hat Linux hardware probing tool.
@@ -9,10 +9,8 @@ Source: kudzu-%{PACKAGE_VERSION}.tar.gz
 Obsoletes: rhs-hwdiag setconsole
 Prereq: chkconfig, modutils >= 2.3.11-5, /etc/init.d
 Requires: pam >= 0.74-17, hwdata
-Conflicts: netconfig < 0.8.18
-Conflicts: Xconfigurator <= 4.9
-Conflicts: mouseconfig < 4.18
-Requires: hwdata >= 0.116-1, hal >= 0.2.96
+Conflicts: netconfig < 0.8.18, kernel < 2.6.13
+Requires: hwdata >= 0.169-1, hal >= 0.2.96
 BuildPrereq: pciutils-devel >= 2.1.99.test8-3, python-devel python gettext
 BuildRoot: %{_tmppath}/%{name}-root
 
@@ -65,6 +63,7 @@ fi
 %files -f %{name}.lang
 %defattr(-,root,root)
 %doc README hwconf-description
+/sbin/kudzu
 %{_sbindir}/kudzu
 %{_sbindir}/module_upgrade
 %{_sbindir}/fix-mouse-psaux
@@ -80,6 +79,45 @@ fi
 %{_includedir}/kudzu
 
 %changelog
+* Fri Sep 23 2005 Bill Nottingham <notting@redhat.com> 1.2.9-1
+- move kudzu to /sbin (since we no longer use newt (#74736))
+- don't congfigure usb/firewire controllers, modems, scanners
+  in kudzu program (as such configurations aren't used)
+
+* Thu Sep 22 2005 Bill Nottingham <notting@redhat.com> 1.2.8-1
+- fix crash in sortNetDevices (#169003)
+
+* Mon Sep 19 2005 Bill Nottingham <notting@redhat.com> 1.2.7-1
+- fix fbProbe to work with X drivers, not card entries
+- fix crash in matchNetDevices (#168689)
+
+* Sun Sep 18 2005 Bill Nottingham <notting@redhat.com> 1.2.5-1
+- fix module_upgrade
+
+* Fri Sep 16 2005 Bill Nottingham <notting@redhat.com> 1.2.4-1
+- remove obsolete updfstab code
+- ABI change: drivers are no longer set to unknown/ignore/disabled;
+  they are just left as NULL
+- remove support for loading modules; it's not used by any library
+  consumers
+- remove support for system-config-mouse, as it's no longer shipped
+- read hwaddrs for network devices from sysfs, not ethtool (and
+  conflict with older kernels that don't support that)
+
+* Wed Sep 14 2005 Bill Nottingham <notting@redhat.com> 1.2.3-1
+- port pcmcia probe to new model
+
+* Fri Sep  9 2005 Bill Nottingham <notting@redhat.com> 1.2.2-1
+- fix usb device list double-free
+- fix passing of filenames to (pci|usb)ReadDrivers()
+
+* Thu Sep  8 2005 Bill Nottingham <notting@redhat.com> 1.2.1-1
+- switch pci, usb probing to use modules.alias
+- switch usb probe to use sysfs
+- remove pcitable support
+- X drivers are now the video.xdriver field of CLASS_VIDEO
+  (framebuffer drivers will be returned if they match)
+
 * Tue Aug 30 2005 Bill Nottingham <notting@redhat.com> 1.1.122-1
 - don't rely on pcimap for 8139too/8139cp; hardcode the logic (#157783)
 

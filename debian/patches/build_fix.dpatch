@@ -1,13 +1,14 @@
 #! /bin/sh /usr/share/dpatch/dpatch-run
-## build_fix.diff by Stefan Lippers-Hollmann <s.l-h@gmx.de>
+## build_fix.patch by Stefan Lippers-Hollmann <s.l-h@gmx.de>
 ##
 ## All lines beginning with `## DP:' are a description of the patch.
-## DP: No description
+## DP: port to debian.
 
 @DPATCH@
---- kudzu-kanotix-1.1.120.orig/pci.c	2005-08-23 13:52:21.594899750 +0200
-+++ kudzu-kanotix-1.1.120/pci.c	2005-08-23 13:51:02.921983000 +0200
-@@ -725,7 +725,7 @@ static int isDisabled(struct pci_dev *p,
+diff -Nrup --exclude=debian --exclude='*stamp' kudzu-kanotix-1.2.9.orig/pci.c kudzu-kanotix-1.2.9/pci.c
+--- kudzu-kanotix-1.2.9.orig/pci.c	2005-10-02 16:41:58.000000000 +0200
++++ kudzu-kanotix-1.2.9/pci.c	2005-10-02 16:44:12.303732500 +0200
+@@ -258,7 +258,7 @@
  #endif	
  	unsigned int devtype, command;
  	
@@ -16,7 +17,7 @@
  	if (p->irq || pciToKudzu(devtype) != CLASS_VIDEO) {
  		return 0;
  	}
-@@ -831,14 +831,14 @@ struct device * pciProbe(enum deviceClas
+@@ -388,7 +388,7 @@ struct device * pciProbe(enum deviceClas
  		    subvend = config[PCI_SUBSYSTEM_VENDOR_ID+1] << 8 | config[PCI_SUBSYSTEM_VENDOR_ID];
  		    subdev = config[PCI_SUBSYSTEM_ID+1] << 8 | config[PCI_SUBSYSTEM_ID];
  		}
@@ -25,12 +26,19 @@
  		bustype = PCI_NORMAL;
  	        for (bridgenum=0; cardbus_bridges[bridgenum]; bridgenum++) {
  			if (p->bus == cardbus_bridges[bridgenum])
- 			  bustype = PCI_CARDBUS;
- 		}
--		dev = pciGetDeviceInfo(p->vendor_id,p->device_id, subvend, subdev, bustype, p->device_class << 8 | config[PCI_CLASS_PROG]);
+@@ -401,13 +401,13 @@ struct device * pciProbe(enum deviceClas
+ 		dev->subDeviceId = subdev;
+ 		dev->pciType = bustype;
+ 		asprintf(&t,"v%08Xd%08Xsv%08Xsd%08Xbc%02Xsc%02Xi%02x",p->vendor_id,p->device_id,
+-			 subvend, subdev,(u_int8_t)(p->device_class >> 8),(u_int8_t)(p->device_class),config[PCI_CLASS_PROG]);
++			 subvend, subdev,(u_int8_t)((config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_DEVICE]) >> 8),(u_int8_t)(config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_DEVICE]),config[PCI_CLASS_PROG]);
+ 		drv = aliasSearch(aliases, "pci", t);
+ 		x_drv = aliasSearch(aliases, "pcivideo", t);
+ 		free(t);
+ 		if (drv)
+ 			dev->driver = strdup(drv);
 -		devtype = p->device_class;
-+		dev = pciGetDeviceInfo(p->vendor_id,p->device_id, subvend, subdev, bustype, config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_PROG]);
 +		devtype = config[PCI_CLASS_DEVICE+1] << 8 | config[PCI_CLASS_DEVICE];
- 		/* Check for an i2o device. Note that symbios controllers
- 		 * also need i2o_scsi module. Dunno how to delineate that
- 		 * here. */
+ 		if (x_drv) {
+ 			dev->classprivate = strdup(x_drv);
+ 		}

@@ -1,4 +1,4 @@
-/* Copyright 1999-2003 Red Hat, Inc.
+/* Copyright 1999-2005 Red Hat, Inc.
  *
  * This software may be freely redistributed under the terms of the GNU
  * public license.
@@ -10,6 +10,7 @@
  */
 
 #include <ctype.h>
+#include <dirent.h>
 #include <fcntl.h>
 #include <setjmp.h>
 #include <stdio.h>
@@ -19,49 +20,19 @@
 #include <libgen.h>
 
 #include <sys/stat.h>
+#include <sys/types.h>
 
 #include <pci/pci.h>
 
 #include "pci.h"
 #include "pciserial.h"
 
-static struct pciDevice * pciDeviceList = NULL;
-static int numPciDevices = 0;
+#include "kudzuint.h"
+
 static struct pci_access *pacc=NULL;
 static jmp_buf pcibuf;
 static char *pcifiledir = NULL;
 static void pciWriteDevice(FILE *file, struct pciDevice *dev);
-
-static int devCmp(const void * a, const void * b) {
-    const struct pciDevice * one = a;
-    const struct pciDevice * two = b;
-    int x=0,y=0,z=0,xx=0,yy=0,zz=0;
-    
-    x = (one->vendorId - two->vendorId);
-    xx = (one->subVendorId - two->subVendorId);
-    y = (one->deviceId - two->deviceId);
-    yy = (one->subDeviceId - two->subDeviceId);
-    if (one->pciType && two->pciType)
-	  z = (one->pciType - two->pciType);
-    if (one->pcidom || two->pcidom) {
-	  unsigned int mask;
-	  
-	  mask = one->pcibus ? one->pcibus : two->pcibus;
-	  zz = ((one->pcidom & mask) - (two->pcidom & mask));
-    }
-    if (x)
-      return x;
-    else if (y)
-      return y;
-    else if (xx)
-      return xx;
-    else if (yy)
-      return yy;
-    else if (zz)
-      return zz;
-    else
-      return z;
-}
 
 static int devCmp2(const void * a, const void * b) {
     const struct pciDevice * one = a;
@@ -86,38 +57,6 @@ static int devCmp2(const void * a, const void * b) {
     } 
 	return z;
 }
-
-static int devCmp3(const void * a, const void * b) {
-    const struct pciDevice * one = a;
-    const struct pciDevice * two = b;
-    int x=0,y=0,z=0,xx=0,yy=0,zz=0;
-    
-    x = (one->vendorId - two->vendorId);
-    xx = (one->subVendorId - two->subVendorId);
-    y = (one->deviceId - two->deviceId);
-    yy = (one->subDeviceId - two->subDeviceId);
-    if (one->pciType && two->pciType)
-	  z = (one->pciType - two->pciType);
-    if (one->pcidom && two->pcidom) {
-	  unsigned int mask;
-	  
-	  mask = one->pcibus ? one->pcibus : two->pcibus;
-	  zz = ((one->pcidom & mask) - (two->pcidom & mask));
-    }
-    if (x)
-      return x;
-    else if (y)
-      return y;
-    else if (xx)
-      return xx;
-    else if (yy)
-      return yy;
-    else if (zz)
-      return zz;
-    else
-      return z;
-}
-
 
 static void pciFreeDevice(struct pciDevice *dev) {
     freeDevice((struct device *)dev);
@@ -268,442 +207,36 @@ static enum deviceClass pciToKudzu(unsigned int class) {
 
 
 int pciReadDrivers(char *filename) {
-	int fd;
-	char * buf;
-	int numDrivers;
-	int oldlength;
-	int vendid, devid, subvendid, subdevid;
-	int merge = 0;
-	char * start, *ptr, *bufptr;
-	struct pciDevice * nextDevice, *tmpdev = NULL, key;
-	char *module;
-	char path[256];
+	char *p;
+	
+	aliases = readAliases(aliases, filename, "pci");
 
 	if (filename) {
 		pcifiledir = dirname(strdup(filename));
-		fd = open(filename, O_RDONLY);
-		if (fd < 0)
-		  goto pcimap;
+		asprintf(&p,"%s/videoaliases",pcifiledir);
+		aliases = readAliases(aliases, p, "pcivideo");
+		free(p);
+		return 0;
 	} else {
-		fd = open("/usr/share/hwdata/pcitable", O_RDONLY);
-		if (fd < 0) {
-			fd = open("/etc/pcitable", O_RDONLY);
-			if (fd < 0) {
-				fd = open("/modules/pcitable", O_RDONLY);
-				if (fd < 0) {
-					fd = open("./pcitable", O_RDONLY);
-					if (fd < 0)
-					  goto pcimap;
-				}
+		int x;
+		struct stat sbuf;
+		char *paths[] = { "/usr/share/hwdata/videoaliases", "/etc/videoaliases",
+				"/modules/videoaliases", "./videoaliases" , NULL };
+		
+		for (x = 0; paths[x] ; x++) {
+			if (!stat(paths[x],&sbuf)) {
+				p = paths[x];
+				break;
 			}
 		}
-	}
-	buf = bufFromFd(fd);
-	if (!buf) goto pcimap;
-	
-
-	/* upper bound */
-	numDrivers = 1;
-	start = buf;
-	while ((start = strchr(start, '\n'))) {
-		numDrivers++;
-		start++;
-	}
-    
-	if (pciDeviceList)
-	  merge = 1;
-
-	pciDeviceList = realloc(pciDeviceList, sizeof(*pciDeviceList) *
-				(numPciDevices + numDrivers));
-	nextDevice = pciDeviceList + numPciDevices;
-
-	start = buf;
-	while (start && *start) {
-		while (isspace(*start)) start++;
-		if (*start != '#' && *start != '\n') {
-			vendid = strtoul(start,&ptr,16);
-			if (!(*ptr && *ptr != '\n'))
-			  continue;
-			start = ptr+1;
-			devid = strtoul(start,&ptr,16);	
-			if (!(*ptr && *ptr != '\n'))
-			  continue;
-			start = ptr+1;
-			subvendid = strtoul(start,&ptr,16);
-			if (start != ptr) {
-				if (!(*ptr && *ptr != '\n'))
-				  continue;
-				start = ptr+1;
-				subdevid = strtoul(start,&ptr,16);
-			} else {
-				subvendid = 0xffff;
-				subdevid = 0;
-			}
-			while(*ptr && *ptr != '"' && *ptr != '\n') ptr++;
-			if (*ptr != '"' ) continue;
-			ptr++;
-			start=ptr;
-			while(*ptr && *ptr != '"' && *ptr != '\n') ptr++;
-			if (*ptr != '"' ) continue;
-			*ptr = '\0';
-			module = strdup(start);
-			ptr++;
-			start=ptr;
-
-			if (merge) {
-				tmpdev = nextDevice;
-				key.vendorId = vendid;
-				key.deviceId = devid;
-
-				key.subVendorId = subvendid;
-				key.subDeviceId = subdevid;
-				if (strncmp (module, "CardBus:", 8) == 0)
-				  key.pciType = PCI_CARDBUS;
-				else
-				  key.pciType = PCI_NORMAL;
-				key.pcidom = key.pcibus = 0;
-				
-				nextDevice = bsearch(&key,pciDeviceList,numPciDevices,
-						     sizeof(struct pciDevice), devCmp);
-				if (!nextDevice) {
-					nextDevice = tmpdev;
-					tmpdev = NULL;
-					numPciDevices++;
-				} else {
-					if (nextDevice->device) free(nextDevice->device);
-					if (nextDevice->driver) free(nextDevice->driver);
-				}
-			} else
-			  numPciDevices++;
-			nextDevice->vendorId = vendid;
-			nextDevice->deviceId = devid;
-			nextDevice->subVendorId = subvendid;
-			nextDevice->subDeviceId = subdevid;
-			if (strncmp (module, "CardBus:", 8) == 0) {
-				nextDevice->pciType = PCI_CARDBUS;
-				nextDevice->driver = strdup(&module [8]);
-			} else {
-				nextDevice->pciType = PCI_NORMAL;
-				nextDevice->driver = strdup(module);
-			}
-			nextDevice->pcidom = nextDevice->pcibus = 0;
-			nextDevice->desc = NULL;
-			nextDevice->next = NULL;
-			nextDevice->device = NULL;
-			nextDevice->type = 0;
-			nextDevice->bus = BUS_PCI;
-			if (merge && tmpdev)
-			  nextDevice = tmpdev;
-			else {
-				nextDevice++;
-				if (merge)
-				  qsort(pciDeviceList, numPciDevices, sizeof(*pciDeviceList), devCmp);
-			}
-			free(module);
-		}
-
-		while (*start && *start != '\n') start++;
-		if (start) start++;
-	}
-	free(buf);
-
-	qsort(pciDeviceList, numPciDevices, sizeof(*pciDeviceList), devCmp);
-
-pcimap:
-	fd = -1;
-	/* OK, now read the modutils modules.pcimap file. */
-	if (filename) {
-		snprintf(path,255,"%s/modules.pcimap",pcifiledir);
-		fd = open(path, O_RDONLY);
-		if (fd < 0)
+		if (!paths[x])
 			return 0;
-	} else {
-		snprintf(path,255,"/lib/modules/%s/modules.pcimap", kernel_ver);
-		fd = open(path, O_RDONLY);
-		if (fd < 0) {
-			fd = open("/etc/modules.pcimap",O_RDONLY);
-			if (fd < 0) {
-				fd = open("/modules/modules.pcimap",O_RDONLY);
-				if (fd < 0) {
-					fd = open("./modules.pcimap",O_RDONLY);
-					if (fd < 0)
-					  return 0;
-				}
-			}
-		}
+		aliases = readAliases(aliases, p, "pcivideo");
 	}
-	bufptr = bufFromFd(fd);
-	if (!bufptr) return 0;
-
-	start = buf = bufptr;
-	numDrivers = 0;
-	while ((start = strchr(start, '\n'))) {
-		numDrivers++;
-		start++;
-	}
-	pciDeviceList = realloc(pciDeviceList, sizeof(*pciDeviceList) *
-				(numPciDevices + numDrivers));
-	oldlength = numPciDevices;
-	nextDevice = pciDeviceList + numPciDevices;
-
-	start = buf = bufptr;
-	while (start && *start) {
-		int pclass, pclassmask;
-		
-		while (*buf && *buf != '\n') buf++;
-		if (*buf) {
-			*buf = '\0';
-			buf++;
-		}
-		if (*start == '#') {
-			start = buf;
-			continue;
-		}
-		ptr = start;
-		while (*ptr && *ptr != ' ') ptr++;
-		if (*ptr) {
-			*ptr = '\0';
-			ptr++;
-		}
-		module = strdup(start);
-		while (*ptr && *ptr == ' ') ptr++;
-		if (!*ptr) {
-			start = buf;
-			free(module);
-			continue;
-		}
-		start = ptr;
-		while (*ptr && *ptr != ' ') ptr++;
-		if (*ptr) {
-			*ptr = '\0';
-			ptr++;
-		}
-		vendid = strtoul(start,(char **)NULL,16);
-		if (vendid == 0xffffffff)
-			vendid = 0xffff;
-		while (*ptr && *ptr == ' ') ptr++;
-		if (!*ptr) {
-			start = buf;
-			free(module);
-			continue;
-		}
-		start = ptr;
-		while (*ptr && *ptr != ' ') ptr++;
-		if (*ptr) {
-			*ptr = '\0';
-			ptr++;
-		}
-		devid = strtoul(start, (char **)NULL, 16);
-		if (devid == 0xffffffff)
-			devid = 0xffff;
-		while (*ptr && *ptr == ' ') ptr++;
-		if (!*ptr) {
-			start = buf;
-			free(module);
-			continue;
-		}
-		start = ptr;
-		while (*ptr && *ptr != ' ') ptr++;
-		if (*ptr) {
-			*ptr = '\0';
-			ptr++;
-		}
-		subvendid = strtoul(start, (char **)NULL, 16);
-		if (subvendid == 0xffffffff)
-			subvendid = 0xffff;
-		while (*ptr && *ptr == ' ') ptr++;
-		if (!*ptr) {
-			start = buf;
-			free(module);
-			continue;
-		}
-		start = ptr;
-		while (*ptr && *ptr != ' ') ptr++;
-		if (*ptr) {
-			*ptr = '\0';
-			ptr++;
-		}
-		subdevid = strtoul(start, (char **)NULL, 16);
-		if (subdevid == 0xffffffff)
-			subdevid = 0;
-		while (*ptr && *ptr == ' ') ptr++;
-		if (!*ptr) {
-			start = buf;
-			free(module);
-			continue;
-		}
-		start = ptr;
-		while (*ptr && *ptr != ' ') ptr++;
-		if (*ptr) {
-			*ptr = '\0';
-			ptr++;
-		}
-		pclass = strtoul(start, (char **)NULL, 16);
-		while (*ptr && *ptr == ' ') ptr++;
-		if (!*ptr) {
-			start = buf;
-			free(module);
-			continue;
-		}
-		start = ptr;
-		while (*ptr && *ptr != ' ') ptr++;
-		if (*ptr) {
-			*ptr = '\0';
-			ptr++;
-		}
-		pclassmask = strtoul(start, (char **)NULL, 16);
-		start = buf;
-		
-		tmpdev = nextDevice;
-		key.vendorId = vendid;
-		key.deviceId = devid;
-		key.subVendorId = subvendid;
-		key.subDeviceId = subdevid;
-		/* overload */
-		key.pcidom = pclass;
-		key.pcibus = pclassmask;
-		
-		key.pciType = PCI_NORMAL;
-		nextDevice = bsearch(&key,pciDeviceList,oldlength,
-				     sizeof(struct pciDevice), devCmp);
-		/* HACK */
-		if (nextDevice && !strcmp(nextDevice->driver, "bcm5700"))
-			nextDevice = NULL;
-		/* HACK */
-		if (nextDevice && !strcmp(nextDevice->driver, "eepro100"))
-			nextDevice = NULL;
-		if (!nextDevice) {
-			key.vendorId = vendid;
-			key.deviceId = devid;
-			key.subVendorId = 0xffff;
-			key.subDeviceId = 0;
-			key.pciType = PCI_NORMAL;
-			nextDevice = bsearch(&key, pciDeviceList, oldlength,
-					     sizeof (struct pciDevice), devCmp);
-		}
-		if (!nextDevice) {
-			nextDevice = tmpdev;
-			tmpdev = NULL;
-			numPciDevices++;
-			nextDevice->vendorId = vendid;
-			nextDevice->deviceId = devid;
-			nextDevice->subVendorId = subvendid;
-			nextDevice->subDeviceId = subdevid;
-			nextDevice->pciType = PCI_NORMAL;
-			nextDevice->driver = strdup(module);
-			nextDevice->pcidom = pclass;
-			nextDevice->pcibus = pclassmask;
-			nextDevice->desc = NULL;
-			nextDevice->next = NULL;
-			nextDevice->device = NULL;
-			nextDevice->type = 0;
-			nextDevice->bus = BUS_PCI;
-		} else {
-			if (!strcmp(nextDevice->driver,"unknown") ||
-			    !strcmp(nextDevice->driver,"disabled") ||
-			    !strcmp(nextDevice->driver,"ignore")) {
-				free(nextDevice->driver);
-				nextDevice->driver = strdup(module);
-			}
-		}
-		if (tmpdev)
-			nextDevice = tmpdev;
-		else {
-			nextDevice++;
-		}
-		free(module);
-	}
-	qsort(pciDeviceList, numPciDevices, sizeof(*pciDeviceList), devCmp);
-	free(bufptr);
 	return 0;
 }
 
 void pciFreeDrivers(void) {
-	int x;
-	
-	if (pciDeviceList) {
-		for (x=0;x<numPciDevices;x++) {
-			if (pciDeviceList[x].device) free (pciDeviceList[x].device);
-			if (pciDeviceList[x].driver) free (pciDeviceList[x].driver);
-		}
-		free(pciDeviceList);
-		pciDeviceList=NULL;
-		numPciDevices=0;
-	}
-}
-
-static struct pciDevice * pciGetDeviceInfo(unsigned int vend, unsigned int dev, 
-				    unsigned int subvend, unsigned int subdev,
-				    int bus, unsigned int pclass) {
-    struct pciDevice *searchDev, key;
-    
-    key.vendorId = vend;
-    key.deviceId = dev;
-    key.pciType = bus;
-    key.subVendorId = subvend;
-    key.subDeviceId = subdev;
-    key.pcidom = pclass;
-    key.pcibus = 0;
-    
-    searchDev = bsearch(&key,pciDeviceList,numPciDevices,
-			sizeof(struct pciDevice), devCmp3);
-    if (!searchDev && key.pciType != PCI_NORMAL) {
-	key.pciType = PCI_NORMAL;
-        searchDev = bsearch(&key,pciDeviceList,numPciDevices,
-			    sizeof(struct pciDevice), devCmp3);
-    }
-    if (!searchDev) {
-	    key.pciType = bus;
-	    key.subVendorId = 0xffff;
-	    key.subDeviceId = 0;
-	    searchDev = bsearch(&key,pciDeviceList,numPciDevices,
-				sizeof(struct pciDevice), devCmp3);
-    }
-    if (!searchDev && key.pciType != PCI_NORMAL) {
-	    key.pciType = PCI_NORMAL;
-	    searchDev = bsearch(&key,pciDeviceList,numPciDevices,
-				sizeof(struct pciDevice), devCmp3);
-    }
-    if (!searchDev) {
-	    key.pciType = bus;
-	    key.deviceId = 0xffff;
-	    searchDev = bsearch(&key,pciDeviceList,numPciDevices,
-				sizeof(struct pciDevice), devCmp3);
-    }
-    if (!searchDev && key.pciType != PCI_NORMAL) {
-	    key.pciType = PCI_NORMAL;
-	    searchDev = bsearch(&key,pciDeviceList,numPciDevices,
-				sizeof(struct pciDevice), devCmp3);
-    }
-    if (!searchDev) {
-	    key.pciType = bus;
-	    key.vendorId = 0xffff;
-	    searchDev = bsearch(&key,pciDeviceList,numPciDevices,
-				sizeof(struct pciDevice), devCmp3);
-    }
-    if (!searchDev && key.pciType != PCI_NORMAL) {
-	    key.pciType = PCI_NORMAL;
-	    searchDev = bsearch(&key,pciDeviceList,numPciDevices,
-				sizeof(struct pciDevice), devCmp3);
-    }
-    if (!searchDev) {
-	searchDev = pciNewDevice(NULL);
-	searchDev->vendorId = vend;
-	searchDev->deviceId = dev;
-	searchDev->pciType = bus;
-	searchDev->subVendorId = subvend;
-	searchDev->subDeviceId = subdev;
-	searchDev->driver = strdup("unknown");
-    } else {
-	searchDev->desc = NULL;
-	searchDev = pciNewDevice(searchDev);
-	searchDev->pciType = bus;
-	searchDev->subVendorId = subvend;
-	searchDev->subDeviceId = subdev;
-	searchDev->vendorId = vend;
-	searchDev->deviceId = dev;
-    }
-    return searchDev;
 }
 
 static void pcinull(char * foo, ...)
@@ -748,6 +281,28 @@ static int isDisabled(struct pci_dev *p, u_int8_t config[256]) {
 	return disabled;
 }
 
+static char *getNetworkPath(struct pciDevice *dev) {
+	char *path, *ret = NULL;
+	DIR *d;
+	struct dirent *entry;
+	
+	asprintf(&path,"/sys/bus/pci/devices/%04x:%02x:%02x.%x",dev->pcidom,
+		 dev->pcibus, dev->pcidev, dev->pcifn);
+	d = opendir(path);
+	if (!d) {
+		free(path);
+		return NULL;
+	}
+	while ((entry = readdir(d))) {
+		if (!strncmp(entry->d_name,"net:",4)) {
+			if (ret) free(ret);
+			asprintf(&ret,"%s/%s",path,entry->d_name);
+		}
+	}
+	free(path);
+	return ret;
+}
+
 struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct device *devlist) {
     struct pci_dev *p;
     /* This should be plenty. */
@@ -772,7 +327,7 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 	(probeClass & CLASS_RAID)) {
 	pacc = pci_alloc();
 	if (!pacc) return devlist;
-	if (!pciDeviceList) {
+	if (!getAliases(aliases, "pci")) {
 		pciReadDrivers(NULL);
 		init_list = 1;
 	}
@@ -815,6 +370,8 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 	    }
 	    
 	    for (p = pacc->devices; p; p=p->next) {
+		char *t;
+		char *drv, *x_drv;
 		u_int8_t config[256];
 		int bustype;
 		unsigned int subvend, subdev;
@@ -837,25 +394,40 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 			if (p->bus == cardbus_bridges[bridgenum])
 			  bustype = PCI_CARDBUS;
 		}
-		dev = pciGetDeviceInfo(p->vendor_id,p->device_id, subvend, subdev, bustype, p->device_class << 8 | config[PCI_CLASS_PROG]);
+		dev = pciNewDevice(NULL);
+		dev->vendorId = p->vendor_id;
+		dev->deviceId = p->device_id;
+		dev->subVendorId = subvend;
+		dev->subDeviceId = subdev;
+		dev->pciType = bustype;
+		asprintf(&t,"v%08Xd%08Xsv%08Xsd%08Xbc%02Xsc%02Xi%02x",p->vendor_id,p->device_id,
+			 subvend, subdev,(u_int8_t)(p->device_class >> 8),(u_int8_t)(p->device_class),config[PCI_CLASS_PROG]);
+		drv = aliasSearch(aliases, "pci", t);
+		x_drv = aliasSearch(aliases, "pcivideo", t);
+		free(t);
+		if (drv)
+			dev->driver = strdup(drv);
 		devtype = p->device_class;
+		if (x_drv) {
+			dev->classprivate = strdup(x_drv);
+		}
 		/* Check for an i2o device. Note that symbios controllers
 		 * also need i2o_scsi module. Dunno how to delineate that
 		 * here. */
 		if (devtype == 0x0e00) {
 			if ((config[PCI_CLASS_PROG] == 0 || config[PCI_CLASS_PROG] == 1) &&
-				!strcmp(dev->driver,"unknown")) {
-				free(dev->driver);
+				!dev->driver) {
+				if (dev->driver) free(dev->driver);
 				dev->driver = strdup("i2o_block");
 			}
 		}
 		if (devtype == PCI_CLASS_BRIDGE_CARDBUS) {
-			free(dev->driver);
+			if (dev->driver) free(dev->driver);
 			dev->driver = strdup("yenta_socket");
 		}
 		if (isDisabled(p, config)) {
-			free(dev->driver);
-			dev->driver = strdup("disabled");
+			if (dev->driver) free(dev->driver);
+			dev->driver = NULL;
 		}
 	        if (dev->pciType == PCI_CARDBUS) {
 			dev->detached = 1;
@@ -863,10 +435,10 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 		/* Sure, reuse a pci id for an incompatible card. */
 		if (dev->vendorId == 0x10ec && dev->deviceId == 0x8139) {
 			if (config[PCI_REVISION_ID] >= 0x20) {
-				free(dev->driver);
+				if (dev->driver) free(dev->driver);
 				dev->driver = strdup("8139cp");
 			} else {
-				free(dev->driver);
+				if (dev->driver) free(dev->driver);
 				dev->driver = strdup("8139too");
 			}
 		}
@@ -884,20 +456,33 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 					    PCI_LOOKUP_VENDOR | PCI_LOOKUP_DEVICE,
 					    p->vendor_id, p->device_id, 0, 0);
 			
-		if ( (probeFlags & PROBE_ALL) || (strcmp(dev->driver,"unknown") && strcmp(dev->driver, "disabled") && strcmp(dev->driver,"ignore"))) {
+		if ( (probeFlags & PROBE_ALL) || (dev->driver)) {
 		    if (!type || (type<0xff && (type==devtype>>8))
 			|| (type== kudzuToPci (pciToKudzu (devtype)))) {
 			a_dev = pciNewDevice(dev);
 			a_dev->type = pciToKudzu(devtype);
+			if (x_drv) {
+				a_dev->classprivate = strdup(x_drv);
+				a_dev->type = CLASS_VIDEO;
+			}
 			switch (a_dev->type) {
 			case CLASS_NETWORK:
-				if (devtype == PCI_CLASS_NETWORK_TOKEN_RING)
-				  a_dev->device = strdup("tr");
-				else if (devtype == PCI_CLASS_NETWORK_FDDI)
-				  a_dev->device = strdup("fddi");
-				else
-				  a_dev->device = strdup("eth");
+				{
+				char *netpath;
+				
+				netpath = getNetworkPath(dev);
+				
+				if (!netpath || __getNetworkDevAndAddr((struct device *)a_dev,netpath)) {
+					if (devtype == PCI_CLASS_NETWORK_TOKEN_RING)
+						a_dev->device = strdup("tr");
+					else if (devtype == PCI_CLASS_NETWORK_FDDI)
+						a_dev->device = strdup("fddi");
+					else
+						a_dev->device = strdup("eth");
+				}
+				if (netpath) free(netpath);
 				break;
+				}
 			case CLASS_MODEM:
 				checkPCISerial (a_dev, p);
 				break;
@@ -917,7 +502,7 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 	    pci_cleanup(pacc);
 	}
     }
-    if (pciDeviceList && init_list)
+    if (init_list)
 	  pciFreeDrivers();
     return devlist;
 }

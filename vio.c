@@ -20,6 +20,7 @@
 #include <linux/fd.h>
 
 #include "vio.h"
+#include "kudzuint.h"
 #include "modules.h"
 
 static void vioFreeDevice(struct vioDevice *dev)
@@ -98,7 +99,7 @@ struct device *vioProbe(enum deviceClass probeClass, int probeFlags,
 	    goto dasddone;
 	}
 
-	start = buf = bufFromFd(fd);
+	start = buf = __bufFromFd(fd);
 	close(fd);
 
 	end = start ? start + strlen(start) : NULL;
@@ -192,17 +193,13 @@ dasddone:
     if (probeClass & CLASS_CDROM) {
 	char *buf, *ptr, *b;
 	int cdnum;
-	int modloaded = 0;
 
-	if (!(probeFlags & PROBE_NOLOAD) && !loadModule("viocd"))
-	    modloaded = 1;
-			
 	if (access("/proc/iSeries/viocd", R_OK))
 	    goto viocddone;
 	fd = open("/proc/iSeries/viocd", O_RDONLY);
 	if (fd < 0)
 	    goto viocddone;
-	b = buf = bufFromFd(fd);
+	b = buf = __bufFromFd(fd);
 	while (buf && *buf) {
 	    ptr = buf;
 	    while (*ptr && *ptr != '\n')
@@ -227,7 +224,6 @@ dasddone:
 	    else
 		snprintf(viodev->desc,63,"IBM Virtual CD-ROM");
 	    viodev->type = CLASS_CDROM;
-	    viodev->driver = strdup("ignore");
 	    if (devlist)
 		viodev->next = devlist;
 	    devlist = (struct device *) viodev;
@@ -236,8 +232,7 @@ dasddone:
 	}
 	if (b) free(b);
 viocddone:
-	if (modloaded)
-	    removeModule("viocd");
+	    ;
     }
 
     if (probeClass & CLASS_SCSI) {

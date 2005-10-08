@@ -1,4 +1,4 @@
-/* Copyright 1999-2003 Red Hat, Inc.
+/* Copyright 1999-2005 Red Hat, Inc.
  *
  * This software may be freely redistributed under the terms of the GNU
  * public license.
@@ -10,14 +10,19 @@
  */
 
 #include <ctype.h>
+#include <dirent.h>
 #include <fcntl.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
 
+#include <sys/types.h>
+
 #include "usb.h"
 #include "modules.h"
+
+#include "kudzuint.h"
 
 static void usbFreeDevice(struct usbDevice *dev)
 {
@@ -88,218 +93,13 @@ struct usbDevice *usbNewDevice(struct usbDevice *old)
 	return ret;
 }
 
-struct usbdesc {
-	unsigned int vendorId;
-	unsigned int deviceId;
-	char *desc;
-	char *driver;
-};
-
-static struct usbdesc *usbDeviceList = NULL;
-static int numUsbDevices = 0;
-
-struct usbdrvinfo {
-	unsigned int vendid;
-	unsigned int devid;
-	char *driver;
-};
-
-static struct usbdrvinfo *usbDrvList = NULL;
-static int numUsbDrivers = 0;
-
-static int devCmp(const void *a, const void *b)
-{
-	const struct usbdesc *one = a;
-	const struct usbdesc *two = b;
-	int x, y;
-
-	x = one->vendorId - two->vendorId;
-	y = one->deviceId - two->deviceId;
-	if (x)
-		return x;
-	return y;
+void usbFreeDrivers() {
 }
-
-static int drvCmp(const void *a, const void *b)
-{
-	const struct usbdrvinfo *one = a;
-	const struct usbdrvinfo *two = b;
-	int x, y;
-	
-	x = one->vendid - two->vendid;
-	y = one->devid - two->devid;
-	if (x) return x;
-	return y;
-}
-
 
 int usbReadDrivers(char *filename)
 {
-	int fd;
-	char *b, *buf, *tmp, *ptr;
-	unsigned int vend = 0, dev;
-	struct usbdesc tmpdev;
-	char *vendor = NULL;
-	char path[256];
-
-	snprintf(path,255,"/lib/modules/%s/modules.usbmap", kernel_ver);
-	fd = open(path, O_RDONLY);
-        if (fd < 0) {
-            fd = open("/modules/modules.usbmap",O_RDONLY);
-            if (fd < 0) {
-                fd = open("./modules.usbmap",O_RDONLY);
-                if (fd < 0)
-                    return 0;
-            }
-        }
-
-	if (fd >= 0) {
-		char *drv;
-		int vid, did;
-		
-		b = buf = bufFromFd(fd);
-                if (!buf) return 0;
-
-		while (*buf) {
- 			ptr = buf;
-			while (*ptr && *ptr != '\n')
-				ptr++;
-			if (*ptr) {
-				*ptr = '\0';
-				ptr++;
-			}
-			if (*buf == '#') {
-				buf = ptr;
-				continue;
-			}
-			tmp = buf;
-			while (*tmp && !isspace(*tmp) && tmp < ptr) tmp++;
-			*tmp = '\0';
-			tmp++;
-			drv = buf;
-			buf = tmp;
-			if (strtoul(buf,&buf,16) != 3) {
-				buf = ptr;
-				continue;
-			}
-			if (!buf) {
-				buf = ptr;
-				continue;
-			}
-			vid = strtoul(buf,&buf,16);
-			if (!buf) {
-				buf = ptr;
-				continue;
-			}
-			did = strtoul(buf,NULL,16);
-			usbDrvList = realloc(usbDrvList,(numUsbDrivers+1)*
-					     sizeof(struct usbdrvinfo));
-			usbDrvList[numUsbDrivers].vendid = vid;
-			usbDrvList[numUsbDrivers].devid = did;
-			usbDrvList[numUsbDrivers].driver = strdup(drv);
-			numUsbDrivers++;
-			buf = ptr;
-		}
-		free(b);
-	}
-	if (numUsbDrivers) {
-		qsort(usbDrvList,numUsbDrivers,sizeof(struct usbdrvinfo),
-		      drvCmp);
-	}
-	
-	if (filename) {
-		fd = open(filename, O_RDONLY);
-		if (fd < 0)
-			return -1;
-	} else {
-		fd = open("/usr/share/hwdata/usb.ids", O_RDONLY);
-		if (fd < 0) {
-			fd = open("./usb.ids", O_RDONLY);
-			if (fd < 0)
-				return -1;
-		}
-	}
-	b = buf = bufFromFd(fd);
-        if (!buf) return -1;
-
-	while (*buf) {
-		ptr = buf;
-		while (*ptr && *ptr != '\n')
-			ptr++;
-		if (*ptr) {
-			*ptr = '\0';
-			ptr++;
-		}
-		if (!strncmp(buf,"# List of known device classes",30))
-			break;
-		if (*buf == '#') {
-			buf = ptr;
-			continue;
-		}
-		if (isalnum(*buf)) {
-			tmp = buf;
-			while (*tmp && !isspace(*tmp))
-				tmp++;
-			if (*tmp) {
-				*tmp = '\0';
-				do
-					tmp++;
-				while (isspace(*tmp));
-			}
-			vend = strtol(buf, NULL, 16);
-			vendor = tmp;
-		}
-		if (*buf == '\t') {
-			buf++;
-			tmp = buf;
-			while (*tmp && !isspace(*tmp))
-				tmp++;
-			if (*tmp) {
-				*tmp = '\0';
-				do
-					tmp++;
-				while (isspace(*tmp));
-			}
-			dev = strtol(buf, NULL, 16);
-			if (vend && dev) {
-				struct usbdrvinfo drvtmp, *sdev;
-				
-				tmpdev.vendorId = vend;
-				tmpdev.deviceId = dev;
-				tmpdev.driver = NULL;
-				tmpdev.desc =
-					malloc(strlen(tmp) + 2 + strlen(vendor));
-				snprintf(tmpdev.desc,
-					 strlen(tmp) + 2 + strlen(vendor), "%s %s",
-					 vendor, tmp);
-				usbDeviceList =
-					realloc(usbDeviceList,
-						(numUsbDevices +
-						 1) * sizeof(struct usbdesc));
-				drvtmp.vendid = vend;
-				drvtmp.devid = dev;
-				sdev = bsearch(&drvtmp, usbDrvList, numUsbDrivers,
-					sizeof(struct usbdrvinfo), drvCmp);
-				if (sdev)
-					tmpdev.driver = strdup(sdev->driver);
-				usbDeviceList[numUsbDevices] = tmpdev;
-				numUsbDevices++;
-			}
-		}
-		buf = ptr;
-	}
-	free(b);
-	qsort(usbDeviceList, numUsbDevices, sizeof(struct usbdesc),
-	      devCmp);
+	aliases = readAliases(aliases, filename, "usb");
 	return 0;
-}
-
-static void parseTopologyLine(char *line, struct usbDevice *usbdev)
-{
-	usbdev->usbbus = atoi(&line[8]);
-	usbdev->usblevel = atoi(&line[15]);
-	usbdev->usbport = atoi(&line[31]);
-	usbdev->usbdev = atoi(&line[46]);
 }
 
 static enum deviceClass usbToKudzu(int usbclass, int usbsubclass, int usbprotocol)
@@ -351,189 +151,162 @@ static enum deviceClass usbToKudzu(int usbclass, int usbsubclass, int usbprotoco
 	}
 }
 
-static void parseDescriptorLine(char *line, struct usbDevice *usbdev)
-{
-	usbdev->usbclass = strtol(&line[30], (char **)NULL, 16);
-	usbdev->usbsubclass = strtol(&line[44], (char **)NULL, 16);
-	usbdev->usbprotocol = strtol(&line[52], (char **)NULL, 16);
-	usbdev->type =
-		usbToKudzu(usbdev->usbclass, usbdev->usbsubclass,
-			   usbdev->usbprotocol);
-	if (usbdev->device) {
-		free(usbdev->device);
-		usbdev->device = NULL;
-	}
-	free(usbdev->driver);
-
-	switch (usbdev->type) {
-	case CLASS_MOUSE:
-		usbdev->driver = strdup("genericwheelusb");
-		usbdev->device = strdup("input/mice");
-		break;
-	case CLASS_KEYBOARD:
-		usbdev->driver = strdup("keybdev");
-		usbdev->type = CLASS_KEYBOARD;
-		break;
-	case CLASS_FLOPPY:
-	case CLASS_CDROM:
-	case CLASS_HD:
-		usbdev->driver = strdup("usb-storage");
-		break;
-	case CLASS_AUDIO:
-		usbdev->driver = strdup("snd-usb-audio");
-		break;
-	default:
-		usbdev->driver = strdup("unknown");
-		break;
-	}
-}
-
-static void parseIdLine(char *line, struct usbDevice *usbdev)
-{
-	usbdev->vendorId = strtol(&line[11], NULL, 16);
-	usbdev->deviceId = strtol(&line[23], NULL, 16);
-}
-
-static void parseStringDescriptorLine(char *line, struct usbDevice *usbdev)
-{
-	int x;
-	char *tmp;
-
-	if ((tmp = strcasestr(line, "product")) != NULL) {
-		if (usbdev->usbprod);
-			free(usbdev->usbprod);
-		usbdev->usbprod = strdup(tmp + 8);
-		for (x = 0; usbdev->usbprod[x]; x++)
-			if (usbdev->usbprod[x] == '\n')
-				usbdev->usbprod[x] = '\0';
-		for (x-=2; x>=0; x--) {
-			if (isspace(usbdev->usbprod[x]))
-				usbdev->usbprod[x] = '\0';
-			else
-				break;
-		}
-	}
-	if ((tmp = strcasestr(line, "manufacturer")) != NULL) {
-		if (usbdev->usbmfr);
-			free(usbdev->usbmfr);
-		usbdev->usbmfr = strdup(tmp + 13);
-		for (x = 0; usbdev->usbmfr[x]; x++)
-			if (usbdev->usbmfr[x] == '\n')
-				usbdev->usbmfr[x] = '\0';
-		for (x-=2; x>=0; x--) {
-			if (isspace(usbdev->usbmfr[x]))
-				usbdev->usbmfr[x] = '\0';
-			else
-				break;
-		}
-	}
-}
-
-void usbFreeDrivers()
-{
-	int x;
-	if (usbDrvList) {
-		for (x = 0; x < numUsbDrivers; x++) {
-			free(usbDrvList[x].driver);
-		}
-		free(usbDrvList);
-	}
-	if (usbDeviceList) {
-		for (x = 0; x < numUsbDevices; x++) {
-			free(usbDeviceList[x].desc);
-		}
-		free(usbDeviceList);
-	}
-	usbDrvList = NULL;
-	usbDeviceList = NULL;
-	numUsbDrivers = 0;
-	numUsbDevices = 0;
-}
-
-static void usbSearchAndAdd(struct usbDevice *usbdev, struct device **devlistptr,
-			    enum deviceClass probeClass)
-{
-	struct usbdesc *searchDev, key;
-	struct device *devlist = *devlistptr;
+struct usbDevice *getUsbDevice(char *name, struct usbDevice *ret, enum deviceClass probeClass, int level) {
+	struct usbDevice *tmp;
+	struct dirent *entry;
+	char *tname;
+	DIR *d;
+	int cwd;
 	
-	key.vendorId = usbdev->vendorId;
-	key.deviceId = usbdev->deviceId;
-	searchDev = bsearch(&key, usbDeviceList, numUsbDevices,
-			    sizeof(struct usbdesc), devCmp);
-	if (searchDev) {
-		free(usbdev->desc);
-		usbdev->desc = strdup(searchDev->desc);
-	        if (searchDev->driver) {
-			free(usbdev->driver);
-			usbdev->driver = strdup(searchDev->driver);
-		}
-	}
-	if (!strcmp(usbdev->desc,"unknown") && usbdev->usbprod) {
-		if (usbdev->usbmfr) {
-			char buf[128];
-			snprintf(buf,127,"%s %s",usbdev->usbmfr, usbdev->usbprod);
-			usbdev->desc = strdup(buf);
-		} else {
-			usbdev->desc = strdup(usbdev->usbprod);
-		}
-	}
-	/* hack for network devices */
-	if (!strcmp(usbdev->driver, "pegasus") ||
-	    !strcmp(usbdev->driver, "catc") ||
-	    !strcmp(usbdev->driver, "kaweth") ||
-	    !strcmp(usbdev->driver, "rtl8150") ||
-	    !strcmp(usbdev->driver, "ax8817x") ||
-	    !strcmp(usbdev->driver, "usbnet")) {
-		if (usbdev->type == CLASS_OTHER)
-			usbdev->type = CLASS_NETWORK;
-	}
-	if (strcasestr(usbdev->desc,"Wacom") &&
-	    usbdev->type == CLASS_MOUSE) {
-		free(usbdev->driver);
-		usbdev->driver = strdup("wacom");
-	}
-		
-	if (usbdev->type & probeClass) {
-		usbdev->next = devlist;
-		devlist = (struct device *)usbdev;
+	d = opendir(name);
+	if (!d)
+		return ret;
+	cwd = open(".", O_RDONLY);
+	chdir(name);
+	tmp = usbNewDevice(NULL);
+	tname = name;
+	if (!strncmp(name,"usb",3)) {
+		tname = alloca(strlen(name));
+		sprintf(tname,"%d-0",atoi(name+3));
 	} else {
-		usbFreeDevice(usbdev);
+		level++;
 	}
-	*devlistptr = devlist;
-}
+	while ((entry = readdir(d))) {
 
-static int
-usbDeviceIgnore (struct usbDevice *usbdev, const char *line)
-{
-	int proto, alt;
-
-	if (usbdev != NULL) {
-		/* If the Proto is different, it's a different device */
-		proto = atoi(&line[52]);
-		if (proto != usbdev->usbprotocol) {
-			return 0;
+		if (entry->d_name[0] == '.')
+			continue;
+		if (!strcmp(entry->d_name,"idProduct"))
+			tmp->deviceId = __readHex(entry->d_name);
+		if (!strcmp(entry->d_name,"idVendor"))
+			tmp->vendorId = __readHex(entry->d_name);
+		if (!strcmp(entry->d_name,"manufacturer"))
+			tmp->usbmfr = __readString(entry->d_name);
+		if (!strcmp(entry->d_name,"product"))
+			tmp->usbprod = __readString(entry->d_name);
+		if (!strcmp(entry->d_name,"devnum"))
+			tmp->usbdev = __readInt(entry->d_name);
+	}
+	rewinddir(d);
+	while ((entry = readdir(d))) {
+		int ind = strchr(tname,'-')-tname;
+		if (!strncmp(entry->d_name,tname,strlen(tname)) &&
+		    entry->d_name[strlen(tname)] == ':') {
+			struct usbDevice *t;
+			DIR *interface;
+			struct dirent *ent;
+			int wd;
+			int alt;
+			int x;
+			t = usbNewDevice(tmp);
+			
+			interface = opendir(entry->d_name);
+			if (!interface)
+				break;
+			
+			wd = open(".",O_RDONLY);
+			chdir(entry->d_name);
+			while ((ent = readdir(interface))) {
+				
+				if (!strcmp(ent->d_name,"bAlternateSetting"))
+					alt = __readHex(ent->d_name);
+				if (!strcmp(ent->d_name,"bInterfaceClass"))
+					t->usbclass = __readHex(ent->d_name);
+				if (!strcmp(ent->d_name,"bInterfaceSubClass"))
+					t->usbsubclass = __readHex(ent->d_name);
+				if (!strcmp(ent->d_name,"bInterfaceProtocol"))
+					t->usbprotocol = __readHex(ent->d_name);
+				if (!strcmp(ent->d_name,"modalias")) {
+					char *modalias;
+					
+					modalias = __readString(ent->d_name);
+					if (modalias) {
+						char *alias = aliasSearch(aliases,"usb",modalias+4);
+						
+						if (alias) {
+							if (t->driver)
+								free(t->driver);
+							t->driver = strdup(alias);
+						}
+						free(modalias);
+					}
+				}
+				if (!strncmp(ent->d_name,"net:",4)) {
+					char *tmppath;
+					
+					asprintf(&tmppath,"./%s",ent->d_name);
+					__getNetworkDevAndAddr((struct device *)t,tmppath);
+					free(tmppath);
+				}
+			}
+			closedir(interface);
+			fchdir(wd);
+			
+			t->type = usbToKudzu(t->usbclass, t->usbsubclass, t->usbprotocol);
+			t->usbbus = strtol(tname,NULL,10);
+			t->usblevel = level;
+			x = strlen(tname);
+			while (!isdigit(tname[x])) x--;
+			t->usbport = strtol(tname+x,NULL,10);
+			if (level != 0)
+				t->usbport--;
+			
+			if (!t->driver) {
+				switch (t->type) {
+				case CLASS_MOUSE:
+					t->driver = strdup("genericwheelusb");
+					t->device = strdup("input/mice");
+					break;
+				case CLASS_KEYBOARD:
+					t->driver = strdup("keybdev");
+					break;
+				default:
+					break;
+				}
+			}
+			if (t->usbmfr && t->usbprod)
+				asprintf(&t->desc,"%s %s",t->usbmfr, t->usbprod);
+			else if (t->usbprod)
+				t->desc = strdup(t->usbprod);
+			else
+				asprintf(&t->desc,"Unknown USB device 0x%x:0x%x",t->vendorId,t->deviceId);
+			if (t->driver && (!strcmp(t->driver, "pegasus") ||
+			    !strcmp(t->driver, "catc") ||
+			    !strcmp(t->driver, "kaweth") ||
+			    !strcmp(t->driver, "rtl8150") ||
+			    !strcmp(t->driver, "ax8817x") ||
+			    !strcmp(t->driver, "zd1201") || 
+			    !strcmp(t->driver, "usbnet"))) {
+				if (t->type == CLASS_OTHER)
+					t->type = CLASS_NETWORK;
+			}
+			if (strcasestr(t->desc,"Wacom") &&
+			    t->type == CLASS_MOUSE) {
+				free(t->driver);
+				t->driver = strdup("wacom");
+			}
+		
+			if ((probeClass & t->type) && !alt) {
+				if (ret)
+					t->next = (struct device *)ret;
+				ret = t;
+			} else {
+				t->freeDevice(t);
+			}
+		} else if (!strncmp(entry->d_name,tname,ind) && !strchr(entry->d_name,':')) {
+			ret = getUsbDevice(entry->d_name,ret,probeClass,level);
 		}
 	}
-
-	/* Alt needs to be '0' */
-	alt = atoi(&line[15]);
-	if (alt != 0) {
-		return 1;
-	}
-
-	return 0;
+	closedir(d);
+	fchdir(cwd);
+	close(cwd);
+	return ret;
 }
 
 struct device *usbProbe(enum deviceClass probeClass, int probeFlags,
 			struct device *devlist)
 {
-	FILE *usbdevicelist;
-	char line[255];
-	struct usbDevice *usbdev = NULL, *tmpdev = NULL;
-	struct confModules *cf;
-	struct module *probeMods = NULL;
-	int numMods, i, init_list = 0;
-	char *alias = NULL;
+	int init_list = 0;
+	int cwd;
 
 	if (
 	    (probeClass & CLASS_OTHER) ||
@@ -547,96 +320,30 @@ struct device *usbProbe(enum deviceClass probeClass, int probeFlags,
 	    (probeClass & CLASS_MODEM) ||
 	    (probeClass & CLASS_NETWORK)
 	    ) {
+		DIR *dir;
+		struct dirent *entry;
 		
-		if (!usbDeviceList) {
+		if (!getAliases(aliases,"usb")) {
 			usbReadDrivers(NULL);
 			init_list = 1;
 		}
-		probeMods = malloc(2 * sizeof(struct module));
-		probeMods[0].name = NULL;
-		cf = readConfModules(module_file);
-		if (!(probeFlags & PROBE_NOLOAD) && cf && (alias = getAlias(cf, "usb-controller"))
-		    && !loadModule(alias)) {
-			probeMods[0].name = strdup(alias);
-			probeMods[0].loaded = 1;
-			probeMods[1].name = NULL;
-			free(alias);
-			numMods = 1;
-			for (i = 1;; i++) {
-				snprintf(line, 80, "usb-controller%d", i);
-				if ((alias = getAlias(cf, line))
-				    && !loadModule(alias)) {
-					probeMods = realloc(probeMods,(numMods+2)*sizeof(struct module));
-					probeMods[numMods].name =
-					    strdup(alias);
-					free(alias);
-					probeMods[numMods].loaded = 1;
-					probeMods[numMods + 1].name = NULL;
-					numMods++;
-				} else {
-					break;
-				}
-			}
-		}
-		if (alias)
-		  free(alias);
-		if (cf)
-		  freeConfModules(cf);
-
-		usbdevicelist = fopen("/proc/bus/usb/devices", "r");
-		if (usbdevicelist == NULL)
+		
+		dir = opendir("/sys/bus/usb/devices");
+		if (!dir)
 			goto out;
-		while (fgets(line, 255, usbdevicelist)) {	/* device info */
-			switch (line[0]) {
-			case 'T':
-				if (usbdev != NULL) {
-					usbSearchAndAdd(usbdev,&devlist, probeClass);
-				}
-				usbdev = usbNewDevice(NULL);
-				usbdev->desc = strdup("unknown");
-				usbdev->driver = strdup("unknown");
-				parseTopologyLine(line, usbdev);
-				break;
-			case 'I':
-				if (usbDeviceIgnore (usbdev, line) != 0) {
-					break;
-				}
-				/* Interface number > 0 */
-				if (atoi(line+8) > 0) {
-					if (usbdev != NULL) {
-						tmpdev = usbNewDevice(usbdev);
-					        usbSearchAndAdd(usbdev,&devlist, probeClass);
-						usbdev = tmpdev;
-					}
-				}
-				parseDescriptorLine(line, usbdev);
-				break;
-			case 'P':
-				parseIdLine(line, usbdev);
-			case 'S':
-				parseStringDescriptorLine(line, usbdev);
-				break;
-			default:
-				break;
-			}
+		cwd = open(".",O_RDONLY);
+		chdir("/sys/bus/usb/devices");
+		while ((entry = readdir(dir))) {
+			if (!strncmp(entry->d_name,"usb",3) && isdigit(entry->d_name[3]))
+				devlist = (struct device *)getUsbDevice(entry->d_name, (struct usbDevice *)devlist, probeClass,0);
 		}
-		if (usbdev != NULL) {
-			usbSearchAndAdd(usbdev,&devlist, probeClass);
-		}
-		fclose(usbdevicelist);
-	      out:
-
-		if (probeMods) {
-			for (i = 0; probeMods[i].name; i++) {
-				if (!removeModule(probeMods[i].name)) {
-					probeMods[i].loaded = 0;
-					free(probeMods[i].name);
-				}
-			}
-			free(probeMods);
-		}
+		closedir(dir);
+		fchdir(cwd);
+		close(cwd);
 	}
-	if (usbDeviceList && init_list)
-	  usbFreeDrivers();
+out:
+	if (init_list) {
+		usbFreeDrivers();
+	}
 	return devlist;
 }

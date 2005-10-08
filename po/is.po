@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu 1.10\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-12-18 14:09+0000\n"
 "Last-Translator: Richard Allen <ra@ra.is>\n"
 "Language-Team: is <kde-isl@molar.is>\n"
@@ -17,165 +17,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "tengdi %s við %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "aftengdi %s (var tengt %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "aftengdi %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "keyrði loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "nefndi %s sem %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "keyrði mouseconfig fyrir %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "set bcm5820 þjónustuna í gang"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "set aep1000 þjónustuna í gang"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "netspjald"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "SCSI stýring"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "skjákort"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "hljóðkort"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "mús"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "módald"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "geisladrif"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "segulbandsstöð"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "disklingadrif"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "skanni"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "harður diskur"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "RAID stýring"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "IDE stýring"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "prentari"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "myndskanni"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "lyklaborð"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "skjár"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "USB stýring"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "IEEE1394 stýring"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus stýring"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "%s tæki"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "framkvæma einungis 'örugga' vélbúnaðarleit sem truflar ekki vélbúnað"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "setja tímatakmörk í sekúndum"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "leita einungis, prenta það sem finnst á staðalúttak"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "leita einungis á tiltekinni braut"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "leita einungis að tilteknum hóp"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "lesa niðurstöður vélbúnaðarleitar úr skrá"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "skrá sem inniheldur vélbúnaðarupplýsingar"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "leita að reklum fyrir tiltekna kjarnaútgáfu"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "útgáfa kjarna"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "lesa niðurstöður vélbúnaðarleitar úr skrá"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr ""
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -183,3 +78,84 @@ msgid ""
 msgstr ""
 "\n"
 "VILLA - Þú verður að vera rótarnotandi til að keyra kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "tengdi %s við %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "aftengdi %s (var tengt %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "aftengdi %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "keyrði mouseconfig fyrir %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "set bcm5820 þjónustuna í gang"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "set aep1000 þjónustuna í gang"
+
+#~ msgid "network card"
+#~ msgstr "netspjald"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI stýring"
+
+#~ msgid "video adapter"
+#~ msgstr "skjákort"
+
+#~ msgid "sound card"
+#~ msgstr "hljóðkort"
+
+#~ msgid "mouse"
+#~ msgstr "mús"
+
+#~ msgid "modem"
+#~ msgstr "módald"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "geisladrif"
+
+#~ msgid "tape drive"
+#~ msgstr "segulbandsstöð"
+
+#~ msgid "floppy drive"
+#~ msgstr "disklingadrif"
+
+#~ msgid "scanner"
+#~ msgstr "skanni"
+
+#~ msgid "hard disk"
+#~ msgstr "harður diskur"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID stýring"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE stýring"
+
+#~ msgid "printer"
+#~ msgstr "prentari"
+
+#~ msgid "video capture card"
+#~ msgstr "myndskanni"
+
+#~ msgid "keyboard"
+#~ msgstr "lyklaborð"
+
+#~ msgid "monitor"
+#~ msgstr "skjár"
+
+#~ msgid "USB controller"
+#~ msgstr "USB stýring"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394 stýring"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus stýring"
+
+#~ msgid "%s device"
+#~ msgstr "%s tæki"

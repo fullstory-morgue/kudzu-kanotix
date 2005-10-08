@@ -65,7 +65,6 @@ install: build
 	#cp po/*.mo $(CURDIR)/debian/kudzu-kanotix/usr/share/locale/kudzu/LC_MESSAGES/
 	mkdir -p $(CURDIR)/debian/kudzu-kanotix/usr/sbin
 	cp kudzu $(CURDIR)/debian/kudzu-kanotix/usr/sbin/
-	cp updfstab $(CURDIR)/debian/kudzu-kanotix/usr/sbin/
 	cp fix-mouse-psaux $(CURDIR)/debian/kudzu-kanotix/usr/sbin/
 	chmod +x $(CURDIR)/debian/kudzu-kanotix/usr/sbin/fix-mouse-psaux
 	cp module_upgrade $(CURDIR)/debian/kudzu-kanotix/usr/sbin/

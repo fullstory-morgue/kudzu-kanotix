@@ -83,7 +83,6 @@ struct device *s390Probe(enum deviceClass probeClass, int probeFlags,
 	    s390dev = s390NewDevice(NULL);
 	    s390dev->device = strdup(devname);
 	    s390dev->desc = strdup("IBM ECKD DASD");
-	    s390dev->driver = strdup("ignore");
 	    s390dev->type = CLASS_HD;
 	    if (devlist)
 	      s390dev->next = devlist;

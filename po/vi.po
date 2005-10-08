@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2003-09-21 11:50+0700\n"
 "Last-Translator: pclouds <pclouds@gmx.net>\n"
 "Language-Team: GnomeVI <gnomevi-list@lists.sourceforge.net>\n"
@@ -17,165 +17,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "liên kết %s tới %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "không liên kết %s (từng được liên kết tới %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "không liên kết %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "đã chạy loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "bí danh %s là %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "đã chạy mouseconfig cho %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "đã bật dịch vụ bcm5820"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "đã bật dịch vụ aep1000"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "card mạng"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "bộ điều khiển SCSI"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "bộ điều hợp video"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "card âm thanh"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "chuột"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "ổ CD-ROm"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "ổ băng từ"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "ổ đĩa mềm"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "máy quét"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "đĩa cứng"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "bộ điều khiển RAID"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "bộ điều khiển IDE"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "máy in"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "card chụp video"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "bàn phím"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "màn hình"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "bộ điều khiển USB"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "bộ điều khiển IEEE1394"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "bộ điều khiển PCMCIA/Cardbus"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "thiết bị %s"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "chỉ thực hiện dò tìm 'an toàn' không làm phiền phần cứng"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "đặt thời hạn (giây)"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "chỉ dò tìm, in thông tin ra stdout"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "chỉ dò tìm 'bus' xác định"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "chỉ dò tìm 'class' xác định"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "đọc phần cứng đã dò tìm từ tập tin"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "file để đọc thông tin phần cứng"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "tìm môđun cho phiên bản hạt nhân đặc biệt"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "phiên bản hạt nhân"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "đọc phần cứng đã dò tìm từ tập tin"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "thực hiện cấu hình không cần hỏi người dùng"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -183,6 +78,87 @@ msgid ""
 msgstr ""
 "\n"
 "LỖI - Bạn phải là root mới có thể chạy kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "liên kết %s tới %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "không liên kết %s (từng được liên kết tới %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "không liên kết %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "đã chạy mouseconfig cho %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "đã bật dịch vụ bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "đã bật dịch vụ aep1000"
+
+#~ msgid "network card"
+#~ msgstr "card mạng"
+
+#~ msgid "SCSI controller"
+#~ msgstr "bộ điều khiển SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "bộ điều hợp video"
+
+#~ msgid "sound card"
+#~ msgstr "card âm thanh"
+
+#~ msgid "mouse"
+#~ msgstr "chuột"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "ổ CD-ROm"
+
+#~ msgid "tape drive"
+#~ msgstr "ổ băng từ"
+
+#~ msgid "floppy drive"
+#~ msgstr "ổ đĩa mềm"
+
+#~ msgid "scanner"
+#~ msgstr "máy quét"
+
+#~ msgid "hard disk"
+#~ msgstr "đĩa cứng"
+
+#~ msgid "RAID controller"
+#~ msgstr "bộ điều khiển RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "bộ điều khiển IDE"
+
+#~ msgid "printer"
+#~ msgstr "máy in"
+
+#~ msgid "video capture card"
+#~ msgstr "card chụp video"
+
+#~ msgid "keyboard"
+#~ msgstr "bàn phím"
+
+#~ msgid "monitor"
+#~ msgstr "màn hình"
+
+#~ msgid "USB controller"
+#~ msgstr "bộ điều khiển USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "bộ điều khiển IEEE1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "bộ điều khiển PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "thiết bị %s"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -380,9 +356,6 @@ msgstr ""
 #~ "thông báo nếu thiết bị được tìm ra ở những lần khởi động sau.\n"
 #~ "3) Không làm gì cả. Không thêm cấu hình mới, và thiết bị này sẽ được xem "
 #~ "là mới ở lần khởi động sau nếu được tìm thấy."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "thực hiện cấu hình không cần hỏi người dùng"
 
 #~ msgid "Existing Configuration Detected"
 #~ msgstr "Dò được cấu hình đã có"

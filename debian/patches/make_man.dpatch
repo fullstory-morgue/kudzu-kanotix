@@ -5,17 +5,6 @@
 ## DP: No description
 
 @DPATCH@
---- kudzu-kanotix-1.1.116.2.orig/Makefile
-+++ kudzu-kanotix-1.1.116.2/Makefile
-@@ -32,7 +32,7 @@
- VBEOBJS=./ddcprobe/vesamode.o ./ddcprobe/vbe.o ./ddcprobe/of.o ./ddcprobe/common.o minifind.o
- endif
- 
--all: $(VBELIBS) libkudzu.a libkudzu_loader.a _kudzumodule.so kudzu module_upgrade
-+all: $(VBELIBS) libkudzu.a libkudzu_loader.a _kudzumodule.so kudzu updfstab module_upgrade
- 
- AR = ar
- RANLIB = ranlib
 --- kudzu-kanotix-1.1.116.2.orig/module_upgrade.8
 +++ kudzu-kanotix-1.1.116.2/module_upgrade.8
 @@ -1,4 +1,4 @@

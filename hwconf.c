@@ -1,4 +1,4 @@
-/* Copyright 1999-2004 Red Hat, Inc.
+/* Copyright 1999-2005 Red Hat, Inc.
  *
  * This software may be freely redistributed under the terms of the GNU
  * public license.
@@ -38,6 +38,8 @@
 
 #include "kudzu.h"
 
+#include "kudzuint.h"
+
 #include "modules.h"
 
 #define FILENAME "hwconf"
@@ -53,9 +55,7 @@ struct device **currentDevs;
 int numCurrent=0;
 
 int configuredX = -1;
-int removedMouse = 0;
 
-static int rhgb = 0;
 static char *_module_file = NULL;
 static float _kernel_release;
 
@@ -110,70 +110,6 @@ char *checkConfFile()
 		}
 	}
 	return strdup(path);
-}
-
-int makeLink(struct device *dev, char *name)
-{
-	char oldfname[256],newfname[256];
-	
-	if (!dev->device || !name) return 1;
-	snprintf(oldfname,256,"/dev/%s",dev->device);
-	if (dev->index > 0) {
-		snprintf(newfname,256,"/dev/%s%d",name,dev->index);
-	} else {
-		snprintf(newfname,256,"/dev/%s",name);
-	}
-	openlog("kudzu",0,LOG_USER);
-	syslog(LOG_NOTICE,_("linked %s to %s"),newfname,oldfname);
-	closelog();
-	return symlink(oldfname,newfname);
-}
-
-int removeLink(struct device *dev, char *name)
-{
-	char newfname[256];
-	char oldfname[256];
-	int x;
-	
-	if (!name) return 1;
-	if (dev->index > 0) {
-		snprintf(newfname,256,"/dev/%s%d",name,dev->index);
-	} else {
-		snprintf(newfname,256,"/dev/%s",name);
-	}
-	memset(oldfname,'\0',256);
-	x=readlink(newfname,oldfname,255);
-	openlog("kudzu",0,LOG_USER);
-	if (x!=-1)
-	  syslog(LOG_NOTICE,_("unlinked %s (was linked to %s)"),newfname,oldfname);
-	else
-	  syslog(LOG_NOTICE,_("unlinked %s"),newfname);
-	closelog();
-	return(unlink(newfname));
-}
-
-int isLinked(struct device *dev, char *name)
-{
-	char path[256],path2[256];
-	
-	memset(path,'\0',256);
-	memset(path2,'\0',256);
-	if (!name) return 0;
-	if (!dev->device) return 0;
-	if (dev->index) 
-	  snprintf(path,256,"/dev/%s%d",name,dev->index);
-	else 
-	  snprintf(path,256,"/dev/%s",name);
-	if (readlink(path,path2,255)>0) {
-		if (!strncmp(path2,"/dev/",5)) {
-			if (!strcmp(path2+5,dev->device))
-			  return 1;
-		} else {
-			if (!strcmp(path2,dev->device))
-			  return 1;
-		}
-	}
-	return 0;
 }
 
 #ifdef __sparc__
@@ -480,22 +416,14 @@ int isAvailable(char *modulename)
 int isConfigurable(struct device *dev) {
 	struct stat tmpstat;
 	
-	if (!strcmp(dev->driver,"parport_serial"))
+	if (dev->driver && !strcmp(dev->driver,"parport_serial"))
 		return 1;
 	switch (dev->type) {
 	 case CLASS_NETWORK:
 	 case CLASS_SCSI:
 	 case CLASS_IDE:
 	 case CLASS_RAID:
-	 case CLASS_CAPTURE:
-	 case CLASS_USB:
-	 case CLASS_FIREWIRE:
 	 case CLASS_KEYBOARD:
-	 case CLASS_MODEM:
-	 case CLASS_SCANNER:
-		return 1;
-	 case CLASS_MOUSE:
-		return 1;
 	 case CLASS_AUDIO:
 		return 1;
 	 case CLASS_VIDEO:
@@ -505,18 +433,6 @@ int isConfigurable(struct device *dev) {
 			return 1;
 		else
 			return 0;
-	 case CLASS_OTHER:
-		if (dev->bus == BUS_PCI && 
-		    ((struct pciDevice *)dev)->vendorId == 0x14e4 &&
-		    ((struct pciDevice *)dev)->deviceId == 0x5820)
-			return 1;
-		return 0;
-	 case CLASS_PRINTER:
-	 case CLASS_TAPE:
-	 case CLASS_FLOPPY:
-	 case CLASS_HD:
-	 case CLASS_CDROM:
-	 case CLASS_SOCKET:
 	 default:
 		return 0;
 	}
@@ -535,24 +451,20 @@ int isConfigured(struct device *dev)
 	cf = readConfModules(_module_file);
 	switch (dev->type) {
 	 case CLASS_NETWORK:
-		if (!strcmp(dev->driver,"unknown") ||
-		    !strcmp(dev->driver,"ignore") ||
-		    !strcmp(dev->driver,"disabled"))
+		if (!dev->driver)
 		  ret=1;
 		/* Assume cardbus stuff is unconfigured */
 		if (dev->bus == BUS_PCMCIA)
 			break;
 		if (dev->bus != BUS_PCI || ((struct pciDevice *)dev)->pciType != PCI_CARDBUS)
 		  if (cf)
-		    if (dev->device && isAliased(cf,dev->device,dev->driver)!=-1)
+		    if (dev->device && dev->driver && isAliased(cf,dev->device,dev->driver)!=-1)
 		      ret = 1;
 		break;
 	 case CLASS_RAID:
 	 case CLASS_SCSI:
 	 case CLASS_IDE:
-		if (!strcmp(dev->driver,"unknown") ||
-		    !strcmp(dev->driver,"disabled") ||
-		    !strcmp(dev->driver,"ignore"))
+		if (!dev->driver)
 		  ret=1;
 		if (cf)
 		  if (isAliased(cf,"scsi_hostadapter",dev->driver)!=-1)
@@ -567,24 +479,11 @@ int isConfigured(struct device *dev)
 #else
 		ret = 1;
 #endif
-		if (!strcmp(dev->driver,"unknown") ||
-		    !strcmp(dev->driver,"disabled") ||
-		    !strcmp(dev->driver,"ignore"))
+		if (!dev->driver)
 		  ret=1;
-		break;
-	 case CLASS_CAPTURE:
-		if (!strcmp(dev->driver,"unknown") ||
-		    !strcmp(dev->driver,"disabled") ||
-		    !strcmp(dev->driver,"ignore"))
-		  ret=1;
-		if (cf)
-		  if (isAliased(cf,"char-major-81",dev->driver)!=-1)
-		    ret = 1;
 		break;
 	 case CLASS_AUDIO:
-		if (!strcmp(dev->driver,"unknown") ||
-		    !strcmp(dev->driver,"disabled") ||
-		    !strcmp(dev->driver,"ignore"))
+		if (!dev->driver)
 		  ret=1;
 		if (cf) {
 			if (isAliased(cf,"sound",dev->driver)!=-1)
@@ -597,59 +496,6 @@ int isConfigured(struct device *dev)
 			  ret = 1;
 		}
 		break;
-	 case CLASS_USB:
-	        if (!strcmp(dev->driver,"unknown") ||
-		    !strcmp(dev->driver,"disabled") ||
-		    !strcmp(dev->driver,"ignore"))
-		    ret = 1;
-		if (cf && isAliased(cf,"usb-controller",dev->driver)!=-1)
-		  ret = 1;
-		break;
-	 case CLASS_FIREWIRE:
-	        if (!strcmp(dev->driver,"unknown") ||
-		    !strcmp(dev->driver,"disabled") ||
-		    !strcmp(dev->driver,"ignore"))
-		    ret = 1;
-		if (cf && isAliased(cf,"ieee1394-controller",dev->driver)!=-1)
-		  ret = 1;
-		break;
-	 case CLASS_MOUSE:
-		{
-			int fd;
-			char *buf, *tmp, devpath[256];
-
-			fd = open("/etc/sysconfig/mouse",O_RDONLY);
-			if (fd < 0) {
-				ret = 0;
-				break;
-			}
-			buf = bufFromFd(fd);
-			if (!buf) {
-				ret = 0;
-				break;
-			}
-			tmp = strstr(buf,"DEVICE=");
-			if (!tmp) {
-				ret = 0;
-				break;
-			}
-			if (tmp == buf || *(tmp-1) == '\n') {
-				snprintf(devpath,255,"/dev/%s",dev->device);
-				if (!strncmp(tmp+7,devpath, strlen(devpath))) {
-					ret = 1;
-					break;
-				}
-			}
-			ret = 0;
-		}
-		break;
-			
-	 case CLASS_MODEM:
-		ret = isLinked(dev,"modem");
-		break;
-	 case CLASS_SCANNER:
-		ret = isLinked(dev,"scanner");
-		break;
 	 case CLASS_KEYBOARD:
 #ifdef __sparc__
 		if (!checkKeyboardConfig(dev) && !checkInittab(dev))
@@ -659,12 +505,6 @@ int isConfigured(struct device *dev)
 			ret = 1;
 #endif
 		break;	 
-	 case CLASS_OTHER:
-		if (dev->bus == BUS_PCI && 
-		    ((struct pciDevice *)dev)->vendorId == 0x14e4 &&
-		    ((struct pciDevice *)dev)->deviceId == 0x5820)
-			return 0;
-		return 1;
 	 default:
 		/* If we don't know how to configure it, assume it's configured. */
 		ret = 1;
@@ -680,9 +520,8 @@ int configure(struct device *dev)
 	struct confModules *cf;
 	char path[256];
 	int index;
-	FILE *f;
 
-	if (!strcmp(dev->driver,"parport_serial")) {
+	if (dev->driver && !strcmp(dev->driver,"parport_serial")) {
 		cf = readConfModules(_module_file);
 		if (!cf)
 		  cf = newConfModules();
@@ -695,7 +534,7 @@ int configure(struct device *dev)
 		closelog();
 	} else switch (dev->type) {
 	 case CLASS_NETWORK:
-		if (!dev->device) break;
+		if (!dev->device || !dev->driver) break;
 		cf = readConfModules(_module_file);
 		if (!cf) 
 		  cf = newConfModules();
@@ -716,6 +555,7 @@ int configure(struct device *dev)
 	 case CLASS_RAID:
 	 case CLASS_IDE:
 	 case CLASS_SCSI:
+		if (!dev->driver) break;
 		cf = readConfModules(_module_file);
 		if (!cf)
 		  cf = newConfModules();
@@ -742,77 +582,11 @@ int configure(struct device *dev)
 		freeConfModules(cf);
 		break;
 	 case CLASS_VIDEO:
+		if (!dev->driver) break;
 		configuredX = Xconfig(dev);
 		break;
-	 case CLASS_CAPTURE:
-		cf = readConfModules(_module_file);
-		if (!cf)
-		  cf = newConfModules();
-		cf->madebackup = madebak;
-		if (isAliased(cf,"char-major-81",dev->driver)==-1) {
-			snprintf(path,256,"char-major-81");
-			addAlias(cf,path,dev->driver,CM_REPLACE);
-			writeConfModules(cf,_module_file);
-			madebak = cf->madebackup;
-			openlog("kudzu",0,LOG_USER);
-			syslog(LOG_NOTICE,_("aliased %s as %s"),path,dev->driver);
-			closelog();
-		}
-		freeConfModules(cf);
-		break;
-	 case CLASS_USB:
-		cf = readConfModules(_module_file);
-		if (!cf)
-		  cf = newConfModules();
-		cf->madebackup = madebak;
-		if (isAliased(cf,"usb-controller",dev->driver)==-1) {
-			index=0;
-			while (1) {
-				if (index)
-				  snprintf(path,256,"usb-controller%d",index);
-				else
-				  snprintf(path,256,"usb-controller");
-				if (getAlias(cf,path))
-				  index++;
-				else
-				  break;
-			}
-			addAlias(cf,path,dev->driver,CM_REPLACE);
-			writeConfModules(cf,_module_file);
-			madebak = cf->madebackup;
-			openlog("kudzu",0,LOG_USER);
-			syslog(LOG_NOTICE,_("aliased %s as %s"),path,dev->driver);
-			closelog();
-		}
-		freeConfModules(cf);
-		break;
-	 case CLASS_FIREWIRE:
-		cf = readConfModules(_module_file);
-		if (!cf)
-		  cf = newConfModules();
-		cf->madebackup = madebak;
-		if (isAliased(cf,"ieee1394-controller",dev->driver)==-1) {
-			index=0;
-			while (1) {
-				if (index)
-				  snprintf(path,256,"ieee1394-controller%d",index);
-				else
-				  snprintf(path,256,"ieee1394-controller");
-				if (getAlias(cf,path))
-				  index++;
-				else
-				  break;
-			}
-			addAlias(cf,path,dev->driver,CM_REPLACE);
-			writeConfModules(cf,_module_file);
-			madebak = cf->madebackup;
-			openlog("kudzu",0,LOG_USER);
-			syslog(LOG_NOTICE,_("aliased %s as %s"),path,dev->driver);
-			closelog();
-		}
-		freeConfModules(cf);
-		break;
 	 case CLASS_AUDIO:
+		if (!dev->driver) break;
 		cf = readConfModules(_module_file);
 		if (!cf)
 			cf = newConfModules();
@@ -838,55 +612,12 @@ int configure(struct device *dev)
 			closelog();
 		}
 		break;
-	 case CLASS_MOUSE:
-		if (!strcmp(dev->driver,"ignore")) break;
-		snprintf(path,256,"/usr/sbin/mouseconfig --kickstart --device %s %s",
-			 dev->device, dev->driver);
-		system(path);
-		removedMouse = 0;
-		openlog("kudzu",0,LOG_USER);
-		syslog(LOG_NOTICE,_("ran mouseconfig for %s"),dev->device);
-		closelog();
-		break;
 	 case CLASS_KEYBOARD:
 		if (!rewriteInittab(dev))
 			system("[ -x /sbin/telinit -a -p /dev/initctl -a -f /proc/1/exe -a -d /proc/1/root ] && /sbin/telinit q >/dev/null 2>&1");
 		if (isSerialish(dev))
 			rewriteSecuretty(dev);
 		break;
-	 case CLASS_MODEM:
-		makeLink(dev,"modem");
-		break;
-	 case CLASS_SCANNER:
-		makeLink(dev,"scanner");
-		break;
-	 case CLASS_OTHER:
-		if (dev->bus == BUS_PCI && 
-		    !strcmp(dev->driver,"bcm5820")) {
-			int retcode;
-			
-			retcode = system("/sbin/chkconfig --level 345 bcm5820 on > /dev/null 2>&1");
-			if (retcode == 0) {
-				openlog("kudzu",0,LOG_USER);
-				syslog(LOG_NOTICE,_("turned on bcm5820 service"));
-				closelog();
-			}
-		}
-		if (dev->bus == BUS_PCI && 
-		    !strcmp(dev->driver,"paep")) {
-			int retcode;
-			
-			retcode = system("/sbin/chkconfig --level 345 aep1000 on > /dev/null 2>&1");
-			if (retcode == 0) {
-				openlog("kudzu",0,LOG_USER);
-				syslog(LOG_NOTICE,_("turned on aep1000 service"));
-				closelog();
-			}
-		}
-		break;
-	 case CLASS_TAPE:
-	 case CLASS_FLOPPY:
-	 case CLASS_HD:
 	 default:
 		break;
 	}
@@ -900,7 +631,7 @@ int unconfigure(struct device *dev)
 	char *tmpalias;
 	int index,needed;
 	
-	if (!strcmp(dev->driver,"parport_serial")) {
+	if (dev->driver && !strcmp(dev->driver,"parport_serial")) {
 	   	int x;
 	   	
 		cf = readConfModules(_module_file);
@@ -924,7 +655,7 @@ int unconfigure(struct device *dev)
 		freeConfModules(cf);
 	} else switch (dev->type) {
 	 case CLASS_NETWORK:
-		if (!dev->device) break;
+		if (!dev->driver || !dev->device) break;
 		cf = readConfModules(_module_file);
 		if (!cf)
 		  cf = newConfModules();
@@ -940,6 +671,7 @@ int unconfigure(struct device *dev)
 	 case CLASS_RAID:
 	 case CLASS_IDE:
 	 case CLASS_SCSI:
+		if (!dev->driver) break;
 		cf = readConfModules(_module_file);
 		if (!cf)
 		  cf = newConfModules();
@@ -973,77 +705,10 @@ int unconfigure(struct device *dev)
 		madebak = cf->madebackup;
 		freeConfModules(cf);
 		break;
-	 case CLASS_USB:
-		cf = readConfModules(_module_file);
-		if (!cf)
-		  cf = newConfModules();
-		cf->madebackup = madebak;
-		index = 0;
-		while (1) {
-			if (index) 
-			  snprintf(path,256,"usb-controller%d",index);
-			else
-			  snprintf(path,256,"usb-controller");
-			tmpalias=getAlias(cf,path);
-			if (tmpalias && !strcmp(tmpalias,dev->driver)) {
-				int x;
-				
-				needed = 0;
-				
-				for (x=0;currentDevs[x];x++) { 
-					if (currentDevs[x]->driver &&
-					    !strcmp(currentDevs[x]->driver,dev->driver)) {
-						needed = 1;
-						break;
-					}
-				}
-				if (!needed)
-				  removeAlias(cf,path,CM_REPLACE);
-			} else if (!tmpalias)
-			  break;
-			index++;
-		}
-		writeConfModules(cf,_module_file);
-		madebak = cf->madebackup;
-		freeConfModules(cf);
-		break;
-	 case CLASS_FIREWIRE:
-		cf = readConfModules(_module_file);
-		if (!cf)
-		  cf = newConfModules();
-		cf->madebackup = madebak;
-		index = 0;
-		while (1) {
-			if (index) 
-			  snprintf(path,256,"ieee1394-controller%d",index);
-			else
-			  snprintf(path,256,"ieee1394-controller");
-			tmpalias=getAlias(cf,path);
-			if (tmpalias && !strcmp(tmpalias,dev->driver)) {
-				int x;
-				
-				needed = 0;
-				
-				for (x=0;currentDevs[x];x++) { 
-					if (currentDevs[x]->driver &&
-					    !strcmp(currentDevs[x]->driver,dev->driver)) {
-						needed = 1;
-						break;
-					}
-				}
-				if (!needed)
-				  removeAlias(cf,path,CM_REPLACE);
-			} else if (!tmpalias)
-			  break;
-			index++;
-		}
-		writeConfModules(cf,_module_file);
-		madebak = cf->madebackup;
-		freeConfModules(cf);
-		break;
 	 case CLASS_VIDEO:
 		break;
 	 case CLASS_AUDIO:
+		if (!dev->driver) break;
 		cf = readConfModules(_module_file);
 		if (!cf)
 		  cf = newConfModules();
@@ -1099,107 +764,23 @@ int unconfigure(struct device *dev)
 		freeConfModules(cf);
 		break;
 	 case CLASS_MOUSE:
-		unlink("/etc/sysconfig/mouse");
-		removedMouse++;
 		break;
-	 case CLASS_MODEM:
-		removeLink(dev,"modem");
-		break;
-	 case CLASS_SCANNER:
-		removeLink(dev,"scanner");
-		break;
- 	 case CLASS_OTHER:
-		if (dev->bus == BUS_PCI && 
-		    !strcmp(dev->driver, "bcm5820")) {
-			int retcode;
-			retcode = system("/sbin/chkconfig --level 345 bcm5820 off > /dev/null 2>&1");
-		}
-		if (dev->bus == BUS_PCI && 
-		    !strcmp(dev->driver, "paep")) {
-			int retcode;
-			retcode = system("/sbin/chkconfig --level 345 aep1000 off > /dev/null 2>&1");
-		}
-		break;
-	 case CLASS_TAPE:
-	 case CLASS_FLOPPY:
-	 case CLASS_HD:
-	 case CLASS_KEYBOARD:
 	 default:
 		break;
 	}
 	return 0;
 }
 
-char *hwType(enum deviceClass class, enum deviceBus bus)
-{
-	char generic[32];
-	
-	switch (class) {
-	 case CLASS_NETWORK:
-		return _("network card");
-	 case CLASS_SCSI:
-		return _("SCSI controller");
-	 case CLASS_VIDEO:
-		return _("video adapter");
-	 case CLASS_AUDIO:
-		return _("sound card");
-	 case CLASS_MOUSE:
-		return _("mouse");
-	 case CLASS_MODEM:
-		return _("modem");
-	 case CLASS_CDROM:
-		return _("CD-ROM drive");
-	 case CLASS_TAPE:
-		return _("tape drive");
-	 case CLASS_FLOPPY:
-		return _("floppy drive");
-	 case CLASS_SCANNER:
-		return _("scanner");
-	 case CLASS_HD:
-		return _("hard disk");
-	 case CLASS_RAID:
-		return _("RAID controller");
-	 case CLASS_IDE:
-		return _("IDE controller");
-	 case CLASS_PRINTER:
-		return _("printer");
-	 case CLASS_CAPTURE:
-		return _("video capture card");
-	 case CLASS_KEYBOARD:
-		return _("keyboard");
-	 case CLASS_MONITOR:
-		return _("monitor");
-	 case CLASS_USB:
-		return _("USB controller");
-	 case CLASS_FIREWIRE:
-		return _("IEEE1394 controller");
-	 case CLASS_SOCKET:
-		return _("PCMCIA/Cardbus controller");
-	 default:
-		break;
-	}
-	snprintf(generic, 32, _("%s device"), buses[bus].string);
-	/* Yes, this leaks. :( */
-	return strdup(generic);
-}
-
-
 void configMenu(struct device *oldDevs, struct device *newDevs, int runFirst)
 {
-	int y;
 	struct device *dev, *tmpdev;
-	int mouseconfigured = 0;
 	
 	/* First, make sure we have work to do... */
 	dev = oldDevs;
 	for ( ; dev; dev=dev->next) {
 		if (isConfigurable(dev) &&
-		    !(dev->bus == BUS_PCI && dev->type != CLASS_MODEM &&
-		      (!strcmp(dev->driver, "ignore") ||
-		       !strcmp(dev->driver, "disabled") ||
-		       !strcmp(dev->driver, "unknown")))) {
+		    !(dev->bus == BUS_PCI && !dev->driver)) {
 			if (!dev->detached) {
-				struct stat sbuf;
 				
 				/* If the device only changed in the driver used, ignore it */
 				tmpdev = newDevs;
@@ -1210,18 +791,7 @@ void configMenu(struct device *oldDevs, struct device *newDevs, int runFirst)
 						continue;
 					}
 				}
-				/* If they have a serial mouse, and GPM or RHGB is running,
-				 * it will disappear. */
-				if (dev->type == CLASS_MOUSE &&
-				    dev->bus == BUS_SERIAL &&
-				    (!stat("/dev/gpmctl",&sbuf) || safe ||
-				     !access("/initrd/rhgb-socket",F_OK))) {
-					    currentDevs = realloc(currentDevs,(numCurrent+2)*sizeof(struct device *));
-					    currentDevs[numCurrent] = dev;
-					    currentDevs[numCurrent+1] = NULL;
-					    numCurrent++;
-				} else
-				    continue;
+				continue;
 			} else {
 				/* Add detached devices to current list */
 				currentDevs = realloc(currentDevs,(numCurrent+2)*sizeof(struct device *));
@@ -1232,48 +802,20 @@ void configMenu(struct device *oldDevs, struct device *newDevs, int runFirst)
 		}
 		oldDevs = listRemove(oldDevs, dev);
 	}
-	for (y=0; currentDevs[y]; y++) {
-		if (currentDevs[y]->type == CLASS_MOUSE &&
-		    isConfigured(currentDevs[y])) {
-			mouseconfigured = 1;
-			break;
-		}
-	}
-	/* If a non-serial mouse got removed, ignore it */
-	dev = oldDevs;
-	for ( ; dev; dev=dev->next) {
-		if (dev->type == CLASS_MOUSE && dev->bus != BUS_SERIAL) {
-			oldDevs = listRemove(oldDevs,dev);
-		}
-	}
 	dev = newDevs;
 	for ( ; dev; dev=dev->next) {
 		if (isConfigurable(dev) &&
-		    !(dev->bus == BUS_PCI &&  dev->type != CLASS_MODEM &&
-		      (!strcmp(dev->driver, "ignore") || 
-		       !strcmp(dev->driver, "disabled") ||
-		       !strcmp(dev->driver, "unknown"))) ) {
+		    !(dev->bus == BUS_PCI && !dev->driver)) {
 		  if (!runFirst || !isConfigured(dev)) {
 			  switch (dev->type) {
 			   case CLASS_NETWORK:
 			   case CLASS_SCSI:
 			   case CLASS_IDE:
 			   case CLASS_RAID:
-			   case CLASS_CAPTURE:
 			   case CLASS_AUDIO:
-			   case CLASS_USB:
-			   case CLASS_FIREWIRE:
-			   case CLASS_OTHER:
 				  if (isAvailable(dev->driver))
 				    continue;
 				  break;
-			   /* If we are running for the first time, and they
-			    * have a mouse that currently exists configured,
-			    * ignore any secondary mice. */
-			   case CLASS_MOUSE:
-				  if (mouseconfigured)
-				    break;
-				  continue;
 			   default:
 				  continue;
 			  }
@@ -1298,22 +840,6 @@ void configMenu(struct device *oldDevs, struct device *newDevs, int runFirst)
 			close(open("/var/run/Xconfig-failed",O_CREAT|O_EXCL,0644));
 		} else {
 			close(open("/var/run/Xconfig",O_CREAT|O_EXCL,0644));
-		}
-	}
-	if (removedMouse) {
-		int i;
-		int fixedmouse = 0;
-		
-		for (i=0; currentDevs[i]; i++) {
-			if (currentDevs[i]->type == CLASS_MOUSE &&
-			    strcmp(currentDevs[i]->driver,"ignore")) {
-				configure(currentDevs[i]);
-				fixedmouse = 1;
-				break;
-			}
-		}
-		if (!fixedmouse) {
-			close(open("/var/run/Xconfig-failed",O_CREAT|O_EXCL,0644));
 		}
 	}
 }
@@ -1425,6 +951,8 @@ int main(int argc, char **argv)
 			_("\nERROR - You must be root to run kudzu.\n"));
 		exit(1);
 	}
+ 
+	setlocale(LC_ALL, "C");
 	
 	setupKernelVersion();
 	
@@ -1509,6 +1037,7 @@ int main(int argc, char **argv)
 				newDevs[x-1]->next = newDevs[x];
 			newDevs[x-1]->next = NULL;
 		}
+		setlocale(LC_ALL, "");
 	        configMenu((*oldDevs),(*newDevs),runFirst);
 	}
 	if (!runFirst)
@@ -1516,8 +1045,5 @@ int main(int argc, char **argv)
 	else
 	  writeDevices("/etc/sysconfig/hwconf",currentDevs);
 	
-	if (!access("/usr/bin/rhgb-client",X_OK) && rhgb) {
-		system("/usr/bin/rhgb-client --details=no >/dev/null 2>&1");
-	}
 	return 0;
 }

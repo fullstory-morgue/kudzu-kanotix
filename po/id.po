@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: id\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-07-13 03:13+0700\n"
 "Last-Translator: Alexander Agung <redtux@sby.dnet.net.id>\n"
 "Language-Team: Bahasa Indonesia <viribus@traderweb.net>\n"
@@ -18,165 +18,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "terhubung %s ke %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "%s tidak terhubung (pernah terhubung ke %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "%s tidak terhubung"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "jalankan loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s dialiaskan sebagai %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "jalankan mouseconfig untuk %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "hidupkan layanan bcm5820"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "hidupkan layanan aep1000"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "kartu jaringan"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "Pengontrol SCSI"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "adapter video"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "sound card"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "mouse"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "drive CD-ROM"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "tape drive"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "floppy drive"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "scanner / pemindai"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "hard disk"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "pengontrol RAID"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "pengontrol IDE"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "pencetak"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "video capture card"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "keyboard"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "pengontrol USB"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "pengontrol IEEE1394"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "pengontrol PCMCIA/Cardbus"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "piranti %s"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "Hanya lakukan pengujian 'safe' yang tidak mengganggu piranti keras"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "set timeout dalam detik"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "hanya pengujian, cetak informasi ke stdout"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "hanya pengujian 'bus' (jenis) tertentu"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "hanya pengujian untuk 'class' (jenis) tertentu"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "baca piranti keras yang dicoba dari berkas"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "berkas untuk membaca info piranti keras dari"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "mencari modul-modul untuk versi kernel yang khusus"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "versi kernel"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "baca piranti keras yang dicoba dari berkas"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "lakukan konfigurasi yang tidak memerlukan input pemakai"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -184,6 +79,87 @@ msgid ""
 msgstr ""
 "\n"
 "SALAH - Anda harus menjadi root untuk menjalankan kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "terhubung %s ke %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "%s tidak terhubung (pernah terhubung ke %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "%s tidak terhubung"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "jalankan mouseconfig untuk %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "hidupkan layanan bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "hidupkan layanan aep1000"
+
+#~ msgid "network card"
+#~ msgstr "kartu jaringan"
+
+#~ msgid "SCSI controller"
+#~ msgstr "Pengontrol SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "adapter video"
+
+#~ msgid "sound card"
+#~ msgstr "sound card"
+
+#~ msgid "mouse"
+#~ msgstr "mouse"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "drive CD-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "tape drive"
+
+#~ msgid "floppy drive"
+#~ msgstr "floppy drive"
+
+#~ msgid "scanner"
+#~ msgstr "scanner / pemindai"
+
+#~ msgid "hard disk"
+#~ msgstr "hard disk"
+
+#~ msgid "RAID controller"
+#~ msgstr "pengontrol RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "pengontrol IDE"
+
+#~ msgid "printer"
+#~ msgstr "pencetak"
+
+#~ msgid "video capture card"
+#~ msgstr "video capture card"
+
+#~ msgid "keyboard"
+#~ msgstr "keyboard"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "pengontrol USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "pengontrol IEEE1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "pengontrol PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "piranti %s"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -382,6 +358,3 @@ msgstr ""
 #~ "anda tidak akan diberitahu jika piranti terdeteksi pada saat reboot.\n"
 #~ "3) Diam. Konfigurasi tidak akan ditambahkan, dan piranti akan muncul "
 #~ "sebagai piranti baru jika ia terdeteksi pada saat reboot."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "lakukan konfigurasi yang tidak memerlukan input pemakai"

@@ -6,7 +6,8 @@ LDFLAGS =
 prefix=$(DESTDIR)/usr
 sysconfdir=$(DESTDIR)/etc
 bindir=$(prefix)/bin
-sbindir=$(prefix)/sbin
+sbindir=$(DESTDIR)/sbin
+usbindir=$(prefix)/sbin
 datadir=$(prefix)/share
 mandir=$(datadir)/man
 includedir=$(prefix)/include
@@ -37,11 +38,12 @@ all: $(VBELIBS) libkudzu.a libkudzu_loader.a _kudzumodule.so kudzu module_upgrad
 AR = ar
 RANLIB = ranlib
 
-HEADERS = device.h adb.h ddc.h firewire.h ide.h isapnp.h keyboard.h kudzu.h macio.h misc.h modules.h \
+HEADERS = device.h alias.h adb.h ddc.h firewire.h ide.h isapnp.h keyboard.h kudzu.h macio.h misc.h modules.h \
 	    	parallel.h pci.h pcmcia.h psaux.h usb.h sbus.h scsi.h serial.h
 OBJS = kudzu.o modules.o pci.o pcmcia.o serial.o ide.o misc.o scsi.o parallel.o psaux.o usb.o sbus.o keyboard.o \
-		ddc.o pciserial.o isapnp.o firewire.o adb.o macio.o vio.o s390.o
-LOADEROBJ = kudzu_loader.o misc.o pci.o pcmcia.o scsi.o ide.o usb.o firewire.o
+		ddc.o pciserial.o isapnp.o firewire.o adb.o macio.o vio.o s390.o alias.o
+LOADEROBJ = kudzu_loader.o misc.o pci.o pcmcia.o scsi.o ide.o usb.o firewire.o alias.o
+
 ifeq (sparc,$(ARCH))
 LOADEROBJ += sbus.o
 endif
@@ -73,10 +75,7 @@ libkudzu.a: $(OBJS) $(VBEOBJS)
 	$(RANLIB) libkudzu.a
 
 kudzu: libkudzu.a $(KUDOBJS) po
-	$(CC) $(CFLAGS) $(LDFLAGS) $(KUDOBJS) -o kudzu -L. -lkudzu -L. -lpci -lpopt
-
-updfstab: libkudzu.a updfstab.o po
-	$(CC) $(CFLAGS) $(LDFLAGS) updfstab.o -o updfstab -L. -lkudzu -lpci -lpopt
+	$(CC) $(CFLAGS) $(LDFLAGS) $(KUDOBJS) -o kudzu -L. -lkudzu -L. -lpci -Wl,-Bstatic -lpopt -Wl,-Bdynamic
 
 module_upgrade: libkudzu.a module_upgrade.c
 	$(CC) $(CFLAGS) $(LDFLAGS) module_upgrade.c -o module_upgrade -L. -lkudzu -lpci
@@ -94,10 +93,11 @@ po:	dummy
 	make -C po
 
 install-program: kudzu module_upgrade
-	install -m 755 -d $(sbindir)
+	install -m 755 -d $(sbindir) $(usbindir)
 	install -m 755 -d $(mandir)/man8
 	install -m 755 kudzu $(sbindir)/kudzu
-	install -m 755 module_upgrade $(sbindir)/module_upgrade
+	ln -s ../../sbin/kudzu $(usbindir)/kudzu
+	install -m 755 module_upgrade $(usbindir)/module_upgrade
 	install -m 755 -d $(sysconfdir)/rc.d/init.d
 	install -m 755 -d $(sysconfdir)/sysconfig
 	install -m 644 kudzu.8 $(mandir)/man8/kudzu.8
@@ -112,12 +112,6 @@ install-program: kudzu module_upgrade
 		install -m 644 $$header $(includedir)/kudzu/$$header ; \
 	done
 	make -C po instroot=$(prefix) install
-
-install-updfstab:
-	install -m 755 -d $(sbindir)
-	install -m 755 -d $(mandir)/man8
-	install -m 755 updfstab $(sbindir)/updfstab
-	install -m 644 updfstab.8 $(mandir)/man8/updfstab.8
 
 install:  _kudzumodule.so
 	for ver in $(PYTHONVERS) ; do \
@@ -148,7 +142,7 @@ create-archive:
 archive: clean tag-archive create-archive
 
 clean:
-	rm -f *.o *.do *.so *.pyc updfstab kudzu modules module_upgrade *.a core *~ *.tar.gz
+	rm -f *.o *.do *.so *.pyc kudzu modules module_upgrade *.a core *~ *.tar.gz
 	rm -rf python*
 	( cd ddcprobe ; make clean )
 	( cd po ; make clean )

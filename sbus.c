@@ -136,7 +136,7 @@ struct device *prom_walk(int node, int sbus, int ebus,
 	int nextnode;
 	int len, nsbus = sbus, nebus = ebus;
 	char *prop = prom_getproperty("device_type", &len);
-	char *type = NULL, *port=NULL, *module;
+	char *type = NULL, *port=NULL, *module = NULL;
     	enum deviceClass devClass;
 	int depth=-1, width = 1152, height = 900;
 	int freq = 0, sense = -1;
@@ -162,7 +162,6 @@ struct device *prom_walk(int node, int sbus, int ebus,
 		    	devClass = CLASS_NETWORK;
 		} else if (!strcmp(prop, "le")) {
 			type = "Sun Lance Ethernet";
-			module = "ignore";
 		    	devClass = CLASS_NETWORK;
 		} else if (!strcmp(prop, "qe")) {
 			prop = prom_getproperty("channel#", &len);
@@ -207,11 +206,9 @@ struct device *prom_walk(int node, int sbus, int ebus,
 		    	devClass = CLASS_SCSI;
 		} else if (!strcmp(prop, "esp")) {
 			type = "Sun Enhanced SCSI Processor (ESP)";
-			module = "ignore";
 		    	devClass = CLASS_SCSI;
 		} else if (!strcmp(prop, "fas")) {
 			type = "Sun Swift (ESP)";
-			module = "ignore";
 		    	devClass = CLASS_SCSI;
 		} else if (!strcmp(prop, "ptisp")) {
 			type = "Performance Technologies ISP";
@@ -421,7 +418,8 @@ struct device *prom_walk(int node, int sbus, int ebus,
 		newDev->type = CLASS_VIDEO;
 		break;
 	     default:
-		newDev->driver = strdup(module);
+		if (module)
+		    newDev->driver = strdup(module);
 		newDev->type = devClass;
 	    }
 	    if (newDev->type == CLASS_NETWORK)
@@ -466,7 +464,6 @@ struct device *sbusProbe( enum deviceClass probeClass, int probeFlags,
 	    mousedev->type = CLASS_MOUSE;
 	    mousedev->device = strdup("sunmouse");
 	    mousedev->desc = strdup("Sun Mouse");
-	    mousedev->driver = strdup("ignore");
 	    mousedev->next = devlist;
 	    devlist = (struct device *)mousedev;
 	}

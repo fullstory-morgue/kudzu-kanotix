@@ -95,7 +95,6 @@ void freeDevice(struct device *dev);
 void writeDevice(FILE *file, struct device *dev);
 int compareDevice(struct device *dev1, struct device *dev2);
 struct device *readDevice(FILE *file);
-char *bufFromFd(int fd);
 
 /* Return everything found, even non-useful stuff */
 #define PROBE_ALL       1
@@ -103,7 +102,7 @@ char *bufFromFd(int fd);
 #define PROBE_SAFE (1<<1)
 /* Stop at first device found */
 #define PROBE_ONE       (1<<2)
-/* Do not load any modules */
+/* Do not load any modules. This is for historic use only - there is no module loading any more. */
 #define PROBE_NOLOAD	(1<<3)
 /* Return devices for which modules are currently loaded */
 /* Only implemented for network cards currently */

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2001-03-18 10:42+0100\n"
 "Last-Translator: Jesús Bravo Álvarez <jba@pobox.com>\n"
 "Language-Team: Galician <trasno@ceu.fi.udc.es>\n"
@@ -22,168 +22,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "ligouse %s a %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "desligouse %s (estaba ligado a %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "desligouse %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "executouse loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "fíxose un alias de %s como %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "executouse o mouseconfig para %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "activado o servicio bcm5820"
-
-#: ../hwconf.c:917
-#, fuzzy
-msgid "turned on aep1000 service"
-msgstr "activado o servicio bcm5820"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "tarxeta de rede"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "controlador SCSI"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "adaptador de vídeo"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "tarxeta de son"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "rato"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "módem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "unidade de CD-ROM"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "unidade de cinta"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "disqueteira"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "escáner"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "disco duro"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "controlador RAID"
-
-#: ../hwconf.c:1206
-#, fuzzy
-msgid "IDE controller"
-msgstr "controlador RAID"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "impresora"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "tarxeta de captura de vídeo"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "teclado"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "controlador USB"
-
-#: ../hwconf.c:1218
-#, fuzzy
-msgid "IEEE1394 controller"
-msgstr "controlador SCSI"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "controlador PCMCIA/Cardbus"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "dispositivo %s"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "facer só deteccións 'seguras' que non interfiran co hardware"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "establecer tempo de espera en segundos"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "só analizar, escribir a información na saída estándar"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "analizar unicamente o 'bus' especificado"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "analizar unicamente a 'clase' especificada"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "ler o hardware detectado dun ficheiro"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "ficheiro do que ler a información do hardware"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr ""
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr ""
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "ler o hardware detectado dun ficheiro"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "configurar sen requirir a intervención do usuario"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -191,6 +83,90 @@ msgid ""
 msgstr ""
 "\n"
 "ERRO - Debe ser root para executar o kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "ligouse %s a %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "desligouse %s (estaba ligado a %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "desligouse %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "executouse o mouseconfig para %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "activado o servicio bcm5820"
+
+#, fuzzy
+#~ msgid "turned on aep1000 service"
+#~ msgstr "activado o servicio bcm5820"
+
+#~ msgid "network card"
+#~ msgstr "tarxeta de rede"
+
+#~ msgid "SCSI controller"
+#~ msgstr "controlador SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "adaptador de vídeo"
+
+#~ msgid "sound card"
+#~ msgstr "tarxeta de son"
+
+#~ msgid "mouse"
+#~ msgstr "rato"
+
+#~ msgid "modem"
+#~ msgstr "módem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "unidade de CD-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "unidade de cinta"
+
+#~ msgid "floppy drive"
+#~ msgstr "disqueteira"
+
+#~ msgid "scanner"
+#~ msgstr "escáner"
+
+#~ msgid "hard disk"
+#~ msgstr "disco duro"
+
+#~ msgid "RAID controller"
+#~ msgstr "controlador RAID"
+
+#, fuzzy
+#~ msgid "IDE controller"
+#~ msgstr "controlador RAID"
+
+#~ msgid "printer"
+#~ msgstr "impresora"
+
+#~ msgid "video capture card"
+#~ msgstr "tarxeta de captura de vídeo"
+
+#~ msgid "keyboard"
+#~ msgstr "teclado"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "controlador USB"
+
+#, fuzzy
+#~ msgid "IEEE1394 controller"
+#~ msgstr "controlador SCSI"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "controlador PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "dispositivo %s"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -394,9 +370,6 @@ msgstr ""
 #~ "arrinques.\n"
 #~ "3) Non facer nada. Non se engadirá ningunha configuración, e o "
 #~ "dispositivo aparecerá como novo se for detectado nos seguintes arrinques."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "configurar sen requirir a intervención do usuario"
 
 #~ msgid "Existing Configuration Detected"
 #~ msgstr "Detectouse unha Configuración Existente"

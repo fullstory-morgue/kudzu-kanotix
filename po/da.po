@@ -7,181 +7,71 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: da\n"
-"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-03-14 02:00+0100\n"
 "Last-Translator: Keld Simonsen <keld@dkuug.dk>\n"
 "Language-Team: Danish <<dansk@klid.dk>>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.0.2\n"
 
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "lænkede %s til %s"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "fjernede lænken %s (var lænket til %s)"
-
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "fjernede lænken %s"
-
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "kørte 'loadkeys' %s"
 
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
-#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "oprettet alias %s som %s"
 
-#: ../hwconf.c:885
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "kørte 'mouseconfig' for %s"
-
-#: ../hwconf.c:908
-msgid "turned on bcm5820 service"
-msgstr "aktiverede bcm5820-tjeneste"
-
-#: ../hwconf.c:919
-msgid "turned on aep1000 service"
-msgstr "aktiverede aep1000-tjeneste"
-
-#: ../hwconf.c:1184
-msgid "network card"
-msgstr "netkort"
-
-#: ../hwconf.c:1186
-msgid "SCSI controller"
-msgstr "SCSI-controller"
-
-#: ../hwconf.c:1188
-msgid "video adapter"
-msgstr "grafikkort"
-
-#: ../hwconf.c:1190
-msgid "sound card"
-msgstr "lydkort"
-
-#: ../hwconf.c:1192
-msgid "mouse"
-msgstr "mus"
-
-#: ../hwconf.c:1194
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1196
-msgid "CD-ROM drive"
-msgstr "Cd-rom-drev"
-
-#: ../hwconf.c:1198
-msgid "tape drive"
-msgstr "båndstation"
-
-#: ../hwconf.c:1200
-msgid "floppy drive"
-msgstr "diskettedrev"
-
-#: ../hwconf.c:1202
-msgid "scanner"
-msgstr "skanner"
-
-#: ../hwconf.c:1204
-msgid "hard disk"
-msgstr "harddisk"
-
-#: ../hwconf.c:1206
-msgid "RAID controller"
-msgstr "RAID-controller"
-
-#: ../hwconf.c:1208
-msgid "IDE controller"
-msgstr "IDE-kontroller"
-
-#: ../hwconf.c:1210
-msgid "printer"
-msgstr "printer"
-
-#: ../hwconf.c:1212
-msgid "video capture card"
-msgstr "video-indlæsningskort"
-
-#: ../hwconf.c:1214
-msgid "keyboard"
-msgstr "tastatur"
-
-#: ../hwconf.c:1216
-msgid "monitor"
-msgstr "skærm"
-
-#: ../hwconf.c:1218
-msgid "USB controller"
-msgstr "USB-controller"
-
-#: ../hwconf.c:1220
-msgid "IEEE1394 controller"
-msgstr "IEEE1394-controller"
-
-#: ../hwconf.c:1222
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus-controller"
-
-#: ../hwconf.c:1226
-#, c-format
-msgid "%s device"
-msgstr "%s enhed"
-
-#: ../hwconf.c:1417
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "Udfør kun 'sikre' søgninger som ikke vil forstyrre udstyret"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "sæt tidsudløb i sekunder"
 
-#: ../hwconf.c:1424
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "søg kun, send information til standard-ud"
 
-#: ../hwconf.c:1428
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "søg kun på den angivne 'bus'"
 
-#: ../hwconf.c:1432
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "søg kun efter den angivne 'klasse'"
 
-#: ../hwconf.c:1436
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "Læs søgte hardware fra en fil"
 
-#: ../hwconf.c:1437
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "fil at læse hardwareinfo fra"
 
-#: ../hwconf.c:1440
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "søg efter moduler for en bestemt kerneversion"
 
-#: ../hwconf.c:1441
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "kerneversion"
 
-#: ../hwconf.c:1444
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "Læs søgte hardware fra en sokkel"
 
-#: ../hwconf.c:1466
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "lav konfiguration der ikke kræver inddata fra bruger"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -189,6 +79,87 @@ msgid ""
 msgstr ""
 "\n"
 "FEJL - Du skal være 'root' for at køre kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "lænkede %s til %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "fjernede lænken %s (var lænket til %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "fjernede lænken %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "kørte 'mouseconfig' for %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "aktiverede bcm5820-tjeneste"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "aktiverede aep1000-tjeneste"
+
+#~ msgid "network card"
+#~ msgstr "netkort"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI-controller"
+
+#~ msgid "video adapter"
+#~ msgstr "grafikkort"
+
+#~ msgid "sound card"
+#~ msgstr "lydkort"
+
+#~ msgid "mouse"
+#~ msgstr "mus"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "Cd-rom-drev"
+
+#~ msgid "tape drive"
+#~ msgstr "båndstation"
+
+#~ msgid "floppy drive"
+#~ msgstr "diskettedrev"
+
+#~ msgid "scanner"
+#~ msgstr "skanner"
+
+#~ msgid "hard disk"
+#~ msgstr "harddisk"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID-controller"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE-kontroller"
+
+#~ msgid "printer"
+#~ msgstr "printer"
+
+#~ msgid "video capture card"
+#~ msgstr "video-indlæsningskort"
+
+#~ msgid "keyboard"
+#~ msgstr "tastatur"
+
+#~ msgid "monitor"
+#~ msgstr "skærm"
+
+#~ msgid "USB controller"
+#~ msgstr "USB-controller"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394-controller"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus-controller"
+
+#~ msgid "%s device"
+#~ msgstr "%s enhed"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -385,9 +356,6 @@ msgstr ""
 #~ "3) Gøre ingenting. Ingen konfiguration vil blive tilføjet,og enheden vil "
 #~ "blive vist igen næste gang den bliver detekteret."
 
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "lav konfiguration der ikke kræver inddata fra bruger"
-
 #~ msgid "Existing Configuration Detected"
 #~ msgstr "Eksisterende konfiguration fundet"
 
@@ -463,4 +431,3 @@ msgstr ""
 
 #~ msgid "ran sndconfig for %s"
 #~ msgstr "kørte 'sndconfig' for %s"
-

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu 0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2003-09-17 10:21+CEST\n"
 "Last-Translator: auto\n"
 "Language-Team: Croatian <lokalizacija@linux.hr>\n"
@@ -13,165 +13,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "%s je vezan na %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "%s više nije vezan (bio je vezan na %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "%s više nije vezan"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "pokreni loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s je ime nadimak kao %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "pokreni museconfig za %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "uključen servis bcm5820"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "uključen servis aep1000"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "mrežna kartica"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "SCSI kontroler"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "video kartica"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "zvučna kartica"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "miš"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "CD-ROM uređaj"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "tračni uređaj"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "disketni uređaj"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "skener"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "hard disk"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "RAID kontroler"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "IDE kontroler"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "printer"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "kartica za hvatanje videa"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "tipkovnica"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "USB kontroler"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "IEEE1394 kontroler"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus kontroler"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "%s uređaj"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "napravi samo 'sigurna' ispitivanja koje neče utjecati na hardver"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "postavlja prekoračenje vremena u sekundama"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "samo ispituje, ispisuje informacije na stdout"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "ispituje samo određenu sabirnicu"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "ispituje samo za određenu 'klasu'"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "čita pronađeni hardver iz datoteke"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "datoteka iz koje se čitaju podaci o hardveru"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "traži module za određenu inačicu jezgre Linux-a"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "kernel inačica"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "čita pronađeni hardver iz datoteke"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "napravi postavke koje ne zahtijevaju korisnički unos"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -179,6 +74,87 @@ msgid ""
 msgstr ""
 "\n"
 "GREŠKA - morate biti root korisnik za pokretanje kudzua.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "%s je vezan na %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "%s više nije vezan (bio je vezan na %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "%s više nije vezan"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "pokreni museconfig za %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "uključen servis bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "uključen servis aep1000"
+
+#~ msgid "network card"
+#~ msgstr "mrežna kartica"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI kontroler"
+
+#~ msgid "video adapter"
+#~ msgstr "video kartica"
+
+#~ msgid "sound card"
+#~ msgstr "zvučna kartica"
+
+#~ msgid "mouse"
+#~ msgstr "miš"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM uređaj"
+
+#~ msgid "tape drive"
+#~ msgstr "tračni uređaj"
+
+#~ msgid "floppy drive"
+#~ msgstr "disketni uređaj"
+
+#~ msgid "scanner"
+#~ msgstr "skener"
+
+#~ msgid "hard disk"
+#~ msgstr "hard disk"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID kontroler"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE kontroler"
+
+#~ msgid "printer"
+#~ msgstr "printer"
+
+#~ msgid "video capture card"
+#~ msgstr "kartica za hvatanje videa"
+
+#~ msgid "keyboard"
+#~ msgstr "tipkovnica"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "USB kontroler"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394 kontroler"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus kontroler"
+
+#~ msgid "%s device"
+#~ msgstr "%s uređaj"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -377,6 +353,3 @@ msgstr ""
 #~ "upitani ako uređaj bude pronađen tijekom sljedećih podizanja sustava.\n"
 #~ "3) Bez podešavanja. Postavke neće biti dodane, a uređaj će se pojaviti "
 #~ "kao novi uređaj tijekom sljedećeg podizanja sustava."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "napravi postavke koje ne zahtijevaju korisnički unos"

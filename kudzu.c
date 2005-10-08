@@ -1,4 +1,4 @@
-/* Copyright 1999-2004 Red Hat, Inc.
+/* Copyright 1999-2005 Red Hat, Inc.
  *
  * This software may be freely redistributed under the terms of the GNU
  * public license.
@@ -10,6 +10,7 @@
  */
 
 #include "kudzu.h"
+#include "alias.h"
 #include "adb.h"
 #include "ddc.h"
 #include "firewire.h"
@@ -48,7 +49,6 @@
 
 #include "device.h"
 
-
 #ifndef __LOADER__
 
 static struct {
@@ -60,21 +60,22 @@ static struct {
    a shell pattern (see glob(7)) of either the desc or driver
    strings probed by kudzu library (for PCI you can find this
    in pcitable file). */
-{ "ATY Mach64", "*:*Mach64*" },
-{ "BWtwo", "Sun|Monochrome (bwtwo)" },
-{ "CGfourteen", "Sun|SX*" },
-{ "CGsix ", "Sun|*GX*" },
-{ "CGthree", "Sun|Color3 (cgthree)" },
-{ "CLgen", "Cirrus Logic|GD *" },
-{ "Creator", "Sun|FFB*" },
-{ "DEC 21030 TGA", "DEC|DECchip 21030 [TGA]" },
-{ "Elite 3D", "Sun|Elite3D*" },
-{ "Leo", "Sun|*ZX*" },
-{ "MATROX", "Matrox|MGA*" },
-{ "Permedia2", "*3DLabs*" },
-{ "TCX", "Sun|TCX*" },
-{ "VESA VGA", "FBDev*" },
-{ "VGA16 VGA", "FBDev*" },
+{ "ATY Mach64", "ati" },
+{ "ATI Radeon", "radeon" },
+{ "BWtwo", "sunbw2" },
+{ "CGfourteen", "suncg14" },
+{ "CGsix ", "suncg6" },
+{ "CGthree", "suncg3" },
+{ "CLgen", "cirrus" },
+{ "Creator", "sunffb" },
+{ "DEC 21030 TGA", "tga" },
+{ "Elite 3D", "sunffb" },
+{ "Leo", "sunleo" },
+{ "MATROX", "mga" },
+{ "Permedia2", "glint" },
+{ "TCX", "suntcx" },
+{ "VESA VGA", "fbdev" },
+{ "VGA16 VGA", "fbdev" },
 { NULL, NULL },
 };
 
@@ -143,6 +144,7 @@ struct bus buses[] = {
 char *module_file = NULL;
 float kernel_release;
 char *kernel_ver = NULL;
+struct aliaslist *aliases = NULL;
 
 static void setupKernelVersion() {
 	unsigned int major, sub, minor;
@@ -218,9 +220,13 @@ void writeDevice(FILE *file, struct device *dev) {
 		classes[class].string,buses[bus].string,dev->detached);
 	if (dev->device) 
 	  fprintf(file,"device: %s\n",dev->device);
-	fprintf(file,"driver: %s\ndesc: \"%s\"\n",dev->driver,dev->desc);
+	if (dev->driver)
+	  fprintf(file,"driver: %s\n",dev->driver);
+	fprintf(file,"desc: \"%s\"\n",dev->desc);
 	if (dev->type == CLASS_NETWORK && dev->classprivate)
 		fprintf(file,"network.hwaddr: %s\n", (char *)dev->classprivate);
+	if (dev->type == CLASS_VIDEO && dev->classprivate)
+		fprintf(file,"video.xdriver: %s\n", (char *)dev->classprivate);
 }
 
 int compareDevice(struct device *dev1, struct device *dev2) {
@@ -244,7 +250,7 @@ int compareDevice(struct device *dev1, struct device *dev2) {
 	 * If it's just the driver that changed, we might
 	 * want to act differently on upgrades.
 	 */
-	if (strcmp(dev1->driver,dev2->driver)) return 2;
+	if ((dev1->driver && dev2->driver) && strcmp(dev1->driver,dev2->driver)) return 2;
 	/* If a network device changes hwaddr, flag it! */
 	if (dev1->type == CLASS_NETWORK && dev2->type == CLASS_NETWORK &&
 	    dev1->classprivate && dev2->classprivate &&
@@ -287,7 +293,7 @@ void sortNetDevices(struct device *devs) {
 		if (!next || next->type != CLASS_NETWORK) return;
 		tmp = next->next;
 		while (tmp && tmp->type == CLASS_NETWORK) {
-			if (!strcmp(tmp->driver,modulename)) {
+			if (tmp->driver && modulename && !strcmp(tmp->driver,modulename)) {
 				next->next = tmp->next;
 				tmp->next = cur->next;
 				cur->next = tmp;
@@ -385,6 +391,9 @@ struct device *readDevice(FILE *file) {
 		} else if (retdev->type == CLASS_NETWORK &&
 			   !strncmp(linebuf,"network.hwaddr:",15)) {
 			retdev->classprivate = strdup(linebuf+16);
+		} else if (retdev->type == CLASS_VIDEO &&
+			   !strncmp(linebuf,"video.xdriver:",14)) {
+			retdev->classprivate = strdup(linebuf+15);
 		}
 		switch (retdev->bus) {
 		 case BUS_PCI:
@@ -584,7 +593,7 @@ static int devCmp( const void *a, const void *b )
 	  return zz;
 }
 
-char *bufFromFd(int fd) {
+char *__bufFromFd(int fd) {
 	struct stat sbuf;
 	char *buf = NULL;
 	unsigned long bytes = 0;
@@ -594,7 +603,11 @@ char *bufFromFd(int fd) {
 	if (sbuf.st_size) {
 		buf = malloc(sbuf.st_size + 1);
 		memset(buf,'\0',sbuf.st_size + 1);
-		read(fd, buf, sbuf.st_size);
+		if (read(fd, buf, sbuf.st_size) == -1) {
+			close(fd);
+			free(buf);
+			return NULL;
+		}
 		buf[sbuf.st_size] = '\0';
 	} else {
 		memset(tmpbuf,'\0', sizeof(tmpbuf));
@@ -607,6 +620,74 @@ char *bufFromFd(int fd) {
 	}
 	close(fd);
 	return buf;
+}
+
+
+static inline void trim(char *buffer) {
+	int x = strlen(buffer) - 1;
+	do {
+		x--;
+	} while (x > 0 && isspace(buffer[x]));
+	buffer[x+1] = '\0';
+}
+
+
+char *__readString(char *name) {
+	int fd;
+	char *buf;
+	
+	fd = open(name,O_RDONLY);
+	if (fd == -1)
+		return NULL;
+	buf = __bufFromFd(fd);
+	if (buf)
+		trim(buf);
+	return buf;
+}
+
+int __readHex(char *name) {
+	int fd, ret;
+	char *buf;
+	
+	fd = open(name, O_RDONLY);
+	if (fd == -1)
+		return 0;
+	buf = __bufFromFd(fd);
+	if (!buf)
+		return 0;
+	ret = strtoul(buf,NULL,16);
+	free(buf);
+	return ret;
+}
+
+int __readInt(char *name) {
+	int fd, ret;
+	char *buf;
+	
+	fd = open(name, O_RDONLY);
+	if (fd == -1)
+		return 0;
+	buf = __bufFromFd(fd);
+	if (!buf)
+		return 0;
+	ret = strtoul(buf,NULL,10);
+	free(buf);
+	return ret;
+}
+
+int __getNetworkDevAndAddr(struct device *dev, char *path) {
+	char p[PATH_MAX], *t;
+			
+	memset(p,'\0',PATH_MAX);
+	if (readlink(path, p, PATH_MAX) == -1)
+		return 1;
+	if (dev->device) free(dev->device);
+	dev->device = strdup(basename(p));
+	asprintf(&t, "%s/address",path);
+	if (dev->classprivate) free(dev->classprivate);
+	dev->classprivate = (void *)__readString(t);
+	free(t);
+	return 0;
 }
 
 #ifndef __LOADER__
@@ -689,9 +770,8 @@ static void fbProbe( struct device *devices ) {
 		if (!d->device && d->type == CLASS_VIDEO &&
 		    ((!fnmatch (fbcon_drivers[j].match,
 			       d->desc, FNM_NOESCAPE) ||
-		     !fnmatch (fbcon_drivers[j].match,
-			       d->driver, FNM_NOESCAPE)) ||
-		 	!strcmp(fbcon_drivers[j].match, "FBDev*"))) {
+		     (d->classprivate && !fnmatch (fbcon_drivers[j].match,
+			       (char *)d->classprivate, FNM_NOESCAPE))))) {
 		    sprintf(name, "fb%d", i);
 		    d->device = strdup (name);
 		}
@@ -784,184 +864,13 @@ struct device ** probeDevices ( enum deviceClass probeClass,
 	return devlist;
 }
 
-#define ETHTOOL_GDRVINFO        0x00000003 /* Get driver info. */
-
-struct ethtool_drvinfo {
-	u_int32_t     cmd;
-	char    driver[32];
-	char    version[32];
-	char    fw_version[32];
-	char    bus_info[32];
-	char    reserved1[32];
-	char    reserved2[24];
-	u_int32_t     eedump_len;
-	u_int32_t     regdump_len;
-};
-
 struct netdev {
 	char hwaddr[32];
 	char *dev;
 	char driver[32];
-	enum deviceBus bus;
-	union {
-		struct usb {
-			int bus;
-			int dev;
-		} usb;
-		struct pci {
-			int dom;
-			int bus;
-			int dev;
-			int fn;
-		} pci;
-		struct pcmcia {
-			int port;
-		} pcmcia;
-	} location;
 	struct netdev *next;
 };
 	       
-struct netdev *getNetInfo() {
-	int fd;
-	char *buf, *tmp;
-	struct netdev *devlist = NULL, *tmpdev;
-	
-	fd = open("/proc/net/dev", O_RDONLY);
-	if (fd < 0) return devlist;
-	buf = bufFromFd(fd);
-	buf = strchr(buf,'\n');
-	if (!buf) return devlist;
-	buf++ ; buf = strchr(buf,'\n');
-	if (!buf) return devlist;
-	buf++;
-	fd = socket(AF_INET, SOCK_DGRAM, 0);
-	if (fd < 0) return devlist;
-	while (1) {
-		struct ifreq ifr;
-		struct ethtool_drvinfo drvinfo;
-		char *ptr;
-
-		tmp = strchr(buf,':');
-		if (!tmp) break;
-		*tmp = '\0'; tmp++;
-		while (buf && isspace(*buf)) buf++;
-		if (buf >= tmp) goto next;
-		memset(&ifr, 0, sizeof(ifr));
-		strcpy(ifr.ifr_name, buf);
-		drvinfo.cmd = ETHTOOL_GDRVINFO;
-		ifr.ifr_data = (void *)&drvinfo;
-		if (ioctl(fd, SIOCETHTOOL, &ifr) < 0) goto next;
-		memset(&ifr, 0, sizeof(ifr));
-		strcpy(ifr.ifr_name, buf);
-		if (ioctl(fd, SIOCGIFHWADDR, &ifr) < 0) goto next;
-		tmpdev = malloc(sizeof (struct netdev));
-		memset(tmpdev, '\0', sizeof(struct netdev));
-		tmpdev->dev = strdup(buf);
-		sprintf(tmpdev->hwaddr, "%02X:%02X:%02X:%02X:%02X:%02X",
-			(ifr.ifr_hwaddr.sa_data[0] & 0377),
-			(ifr.ifr_hwaddr.sa_data[1] & 0377),
-			(ifr.ifr_hwaddr.sa_data[2] & 0377),
-			(ifr.ifr_hwaddr.sa_data[3] & 0377),
-			(ifr.ifr_hwaddr.sa_data[4] & 0377),
-			(ifr.ifr_hwaddr.sa_data[5] & 0377));
-		if (isxdigit(drvinfo.bus_info[0])) {
-			tmpdev->bus = BUS_PCI;
-			ptr = strrchr(drvinfo.bus_info,'.');
-			if (ptr) {
-				tmpdev->location.pci.fn = strtol(ptr+1, NULL, 16);
-				*ptr = '\0';
-			}
-			ptr = strrchr(drvinfo.bus_info,':');
-			if (ptr) {
-				tmpdev->location.pci.dev = strtol(ptr+1, NULL, 16);
-				*ptr = '\0';
-			}
-			ptr = strrchr(drvinfo.bus_info,':');
-			if (ptr) {
-				tmpdev->location.pci.bus = strtol(ptr+1, NULL, 16);
-				tmpdev->location.pci.dom = strtol(drvinfo.bus_info, NULL, 16);
-			} else {
-				tmpdev->location.pci.bus = strtol(drvinfo.bus_info, NULL, 16);
-				tmpdev->location.pci.dom = 0;
-			}
-		}
-		if (isxdigit(drvinfo.driver[0])) {
-			strcpy(tmpdev->driver,drvinfo.driver);
-		}
-		if (!strncmp(drvinfo.bus_info,"usb",3)) {
-			tmpdev->bus = BUS_USB;
-			if (drvinfo.bus_info[3] == '-') {
-				/* do 2.5 usb stuff here */
-			} else {
-				tmpdev->location.usb.bus = strtol(drvinfo.bus_info+3, NULL, 10);
-				ptr = strstr(drvinfo.bus_info,":");
-				if (ptr)
-					tmpdev->location.usb.dev = strtol(ptr+1, NULL, 10);
-			}
-		}
-		if (!strncmp(drvinfo.bus_info,"PCMCIA",6)) {
-			tmpdev->bus = BUS_PCMCIA;
-			tmpdev->location.pcmcia.port = strtol(drvinfo.bus_info+7, NULL, 16);
-		}
-		tmpdev->next = NULL;
-		if (devlist)
-			tmpdev->next = devlist;
-		devlist = tmpdev;
-next:
-		buf = strchr(tmp, '\n');
-		if (!buf) break;
-		buf++;
-	}
-	close(fd);
-	return devlist;
-}
-
-
-#ifdef __LOADER__
-
-void twiddleHotplug(int enable) {
-}
-
-#else
-
-void twiddleHotplug(int enable) {
-	int name[] = { CTL_KERN, KERN_HOTPLUG }, len;
-	char *val;
-	static size_t oldlen = 256;
-	static char oldval[256] = "";
-
-	if (!strcmp(oldval,"")) {
-		int fd;
-	
-		memset(oldval,'\0',256);
-		fd = open("/proc/sys/kernel/hotplug", O_RDONLY);
-		if (fd >= 0) {
-			oldlen = read(fd,oldval,255);
-			if (oldlen >0) {
-				oldlen--;
-				oldval[oldlen] = '\0';
-			}
-			close(fd);
-		}
-	}
-	
-	if (enable) {
-		if (strcmp(oldval,"")) {
-			val = oldval;
-			len = oldlen;
-		} else {
-			val = "/sbin/hotplug";
-			len = strlen("/sbin/hotplug");
-		}
-	} else {
-		val = "/bin/true";
-		len = strlen("/bin/true");
-	}
-	sysctl(name, 2, NULL, NULL, val, len);
-}
-
-#endif
-
 int isCfg(const struct dirent *dent) {
 	int len = strlen(dent->d_name);
 	
@@ -1001,23 +910,43 @@ static inline int inList(char **list, char *entry) {
 	return 0;
 }
 
+static inline void removeMatchingDevices(struct device *list, struct device *current) {
+	struct device *dev;
+	
+	for (dev = list; dev; dev = dev->next) {
+		if (dev->type != CLASS_NETWORK) continue;
+		if (dev == current) continue;
+		if (strcmp(dev->device, current->device)) continue;
+		if (!strncmp(dev->device, "eth",3)) {
+			free(dev->device);
+			dev->device = strdup("eth");
+		} else if (!strncmp(dev->device, "tr",2)) {
+			free(dev->device);
+			dev->device = strdup("tr");
+		} else if (!strncmp(dev->device,"fddi",4)) {
+			free(dev->device);
+			dev->device = strdup("fddi");
+		} else {
+			free(dev->device);
+			dev->device = strdup("eth");
+		}
+	}
+}
+
 void matchNetDevices(struct device *devlist) {
 	struct device *dev;
-	char **modules = NULL;
 	char *b = NULL;
-	int nmodules = 0, ndevs = 0, x, ncfgs = 0;
-	struct netdev *confdevs, *currentdevs, *tmpdev;
+	int ndevs = 0, x, ncfgs = 0;
+	struct netdev *confdevs, *tmpdev;
 	struct dirent **cfgs;
 	int lasteth = 0, lasttr = 0, lastfddi = 0;
 	struct confModules *cf;
 	char **devicelist = NULL;
 	
-	twiddleHotplug(0);
 	confdevs = NULL;
  #ifndef __LOADER__
 	if ((ncfgs = scandir("/etc/sysconfig/network-scripts",&cfgs,
 			     isCfg, alphasort)) < 0) {
-		twiddleHotplug(1);
 		return;
 	}
 	cf = readConfModules(module_file);
@@ -1032,7 +961,7 @@ void matchNetDevices(struct device *devlist) {
 			 cfgs[x]->d_name);
 		if ((fd = open(path,O_RDONLY)) < 0)
 			continue;
-		b = buf = bufFromFd(fd);
+		b = buf = __bufFromFd(fd);
 	        while (buf) {
 			tmp = strchr(buf,'\n');
 			if (tmp) {
@@ -1043,9 +972,6 @@ void matchNetDevices(struct device *devlist) {
 				devname=buf+7;
 				if (cf) {
 					mod = getAlias(cf,buf+7);
-					if (mod && !loadModule(mod)) {
-						nmodules = addToList(&modules, mod, nmodules);
-					}
 				}
 			}
 			if (!strncmp(buf,"HWADDR=",7))
@@ -1072,70 +998,6 @@ void matchNetDevices(struct device *devlist) {
 	free(cfgs);
 	if (cf) freeConfModules(cf);
 #endif
-	for (dev = devlist; dev ; dev = dev->next) {
-		if (dev->type == CLASS_NETWORK &&
-		    strcmp(dev->driver,"unknown") &&
-		    strcmp(dev->driver,"disabled") &&
-		    strcmp(dev->driver,"ignore"))
-			if (!loadModule(dev->driver)) {
-				nmodules = addToList(&modules, dev->driver, nmodules);
-			}
-	}
-	currentdevs = getNetInfo();
-	if (!currentdevs) goto out;
-	/* Attach hwaddrs to devices */
-	for (dev = devlist; dev; dev = dev->next) {
-
-		if (dev->type != CLASS_NETWORK) continue;
-		for (tmpdev = currentdevs ; tmpdev ; tmpdev = tmpdev->next) {
-			if (tmpdev->bus != dev->bus) continue;
-			switch (tmpdev->bus) {
-			case BUS_PCI:
-				{
-					struct pciDevice *pdev = (struct pciDevice*)dev;
-					if (pdev->pcibus == tmpdev->location.pci.bus &&
-					    pdev->pcidev == tmpdev->location.pci.dev &&
-					    pdev->pcifn == tmpdev->location.pci.fn &&
-					    pdev->pcidom == tmpdev->location.pci.dom) {
-						if (pdev->classprivate) free(pdev->classprivate);
-						pdev->classprivate = strdup(tmpdev->hwaddr);
-					}
-					break;
-				}
-			case BUS_USB:
-				{
-					struct usbDevice *udev = (struct usbDevice*)dev;
-					if (udev->usbbus == tmpdev->location.usb.bus &&
-					    udev->usbdev == tmpdev->location.usb.dev) {
-						if (udev->classprivate) free(udev->classprivate);
-						udev->classprivate = strdup(tmpdev->hwaddr);
-					}
-					break;
-				}
-		        case BUS_PCMCIA:
-				{
-					struct pcmciaDevice *pdev = (struct pcmciaDevice*)dev;
-					if (pdev->port == tmpdev->location.pcmcia.port) {
-						if (pdev->classprivate) free(pdev->classprivate);
-						pdev->classprivate = strdup(tmpdev->hwaddr);
-					}
-					break;
-				}
-			default:
-				break;
-			}
-		}
-	}
-out:
-	if (modules) {
-		for (x = 0 ; modules[x] ; x++) {
-			removeModule(modules[x]);
-			free(modules[x]);
-		}
-		free(modules);
-	}
-	twiddleHotplug(1);
-	
 	/* Pass 1; fix any device names that are configured */
 	for (dev = devlist; dev; dev = dev->next) {
 		if (dev->type != CLASS_NETWORK) continue;
@@ -1147,39 +1009,20 @@ out:
 				free(dev->device);
 				dev->device = strdup(tmpdev->dev);
 				ndevs = addToList(&devicelist, dev->device, ndevs);
+				removeMatchingDevices(devlist, dev);
 			}
 		}
 	}
-	/* Pass 2: use ethtool bus information to map to specific hardware device */
-	for (dev = devlist; dev; dev = dev->next) {
-
-		if (dev->type != CLASS_NETWORK) continue;
-		for (tmpdev = currentdevs ; tmpdev ; tmpdev = tmpdev->next) {
-			if (dev->classprivate &&
-			    !strcmp(dev->classprivate, tmpdev->hwaddr) &&
-			    !inList(devicelist,tmpdev->dev) &&
-			    !inList(devicelist,dev->device)) {
-				free(dev->device);
-				dev->device = strdup(tmpdev->dev);
-				ndevs = addToList(&devicelist, dev->device, ndevs);
-			}
-		}
-	}
-	while (currentdevs) {
-		if (currentdevs->dev) free(currentdevs->dev);
-		tmpdev = currentdevs->next;
-		free(currentdevs);
-		currentdevs = tmpdev;
-	}
-	/* Pass 3; guess by driver */
+	/* Pass 2; guess by driver */
 	for (dev = devlist; dev; dev = dev->next) {
 		if (dev->type != CLASS_NETWORK) continue;
 		for (tmpdev = confdevs; tmpdev; tmpdev = tmpdev->next) {
-			if (tmpdev->driver && !strcmp(tmpdev->driver, dev->driver)) {
+			if ((tmpdev->driver && dev->driver) && !strcmp(tmpdev->driver, dev->driver)) {
 				if (!inList(devicelist, tmpdev->dev)) {
 					free(dev->device);
 					dev->device = strdup(tmpdev->dev);
 					ndevs = addToList(&devicelist, dev->device, ndevs);
+					removeMatchingDevices(devlist, dev);
 					break;
 				}
 			}
@@ -1201,6 +1044,7 @@ out:
 				snprintf(dev->device,9,"eth%d",lasteth);
 			}
 			ndevs = addToList(&devicelist, dev->device, ndevs);
+			removeMatchingDevices(devlist, dev);
 			lasteth++;
 			continue;
 		}
@@ -1215,6 +1059,7 @@ out:
 				snprintf(dev->device,9,"tr%d",lasttr);
 			}
 			ndevs = addToList(&devicelist, dev->device, ndevs);
+			removeMatchingDevices(devlist, dev);
 			lasttr++;
 			continue;
 		}
@@ -1229,6 +1074,7 @@ out:
 				snprintf(dev->device,9,"fddi%d",lastfddi);
 			}
 			ndevs = addToList(&devicelist, dev->device, ndevs);
+			removeMatchingDevices(devlist, dev);
 			lastfddi++;
 			continue;
 		}
@@ -1251,12 +1097,6 @@ out:
 
 /* Stub these here; assume failure. */
 #ifdef __LOADER__
-int loadModule(char *module) {
-	return 1;
-}
-int removeModule(char *module) {
-	return 1;
-}
 
 struct confModules *readConfModules(char *filename)
 {

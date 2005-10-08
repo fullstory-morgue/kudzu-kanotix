@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kudzu 1.48\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-03-07 09:19+0100\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <i18n-nb@lister.ping.uio.no>\n"
@@ -12,165 +12,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "lenket %s til %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "fjernet lenke %s (var lenket til %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "fjernet lenke %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "kjørte loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "laget alias %s til %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "kjørte mouseconfig for %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "Slo på bcm5820-tjenesten"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "slo på aep1000-tjenesten"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "nettverkskort"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "SCSI-kontroller"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "skjermkort"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "lydkort"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "mus"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "CDROM-spiller"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "båndstasjon"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "diskettstasjon"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "scanner"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "harddisk"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "RAID-kontroller"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "IDE-kontroller"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "skriver"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "videoredigeringskort"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "tastatur"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "skjerm"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "USB-kontroller"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "IEEE1394-kontroller"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus-kontroller"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "%s enhet"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "kjør kun 'trygge' søk som ikke forstyrrer maskinvaren"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "sett tidsavbrudd i sekunder"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "kun søk, skriv ut informasjon til stdout"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "søk kun på spesifisert 'buss'"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "søk kun etter spesifisert 'klasse'"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "les testet maskinvare fra en fil"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "fil som maskinvareinformasjon skal leses fra"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "søk etter moduler for en bestemt versjon av kjernen"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "kjerneversjoner"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "les testet maskinvare fra en fil"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "kjør konfigurasjon som ikke behøver input fra bruker"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -178,6 +73,87 @@ msgid ""
 msgstr ""
 "\n"
 "FEIL - Du må være root for å kjøre kudzu.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "lenket %s til %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "fjernet lenke %s (var lenket til %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "fjernet lenke %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "kjørte mouseconfig for %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "Slo på bcm5820-tjenesten"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "slo på aep1000-tjenesten"
+
+#~ msgid "network card"
+#~ msgstr "nettverkskort"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI-kontroller"
+
+#~ msgid "video adapter"
+#~ msgstr "skjermkort"
+
+#~ msgid "sound card"
+#~ msgstr "lydkort"
+
+#~ msgid "mouse"
+#~ msgstr "mus"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CDROM-spiller"
+
+#~ msgid "tape drive"
+#~ msgstr "båndstasjon"
+
+#~ msgid "floppy drive"
+#~ msgstr "diskettstasjon"
+
+#~ msgid "scanner"
+#~ msgstr "scanner"
+
+#~ msgid "hard disk"
+#~ msgstr "harddisk"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID-kontroller"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE-kontroller"
+
+#~ msgid "printer"
+#~ msgstr "skriver"
+
+#~ msgid "video capture card"
+#~ msgstr "videoredigeringskort"
+
+#~ msgid "keyboard"
+#~ msgstr "tastatur"
+
+#~ msgid "monitor"
+#~ msgstr "skjerm"
+
+#~ msgid "USB controller"
+#~ msgstr "USB-kontroller"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394-kontroller"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus-kontroller"
+
+#~ msgid "%s device"
+#~ msgstr "%s enhet"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -374,9 +350,6 @@ msgstr ""
 #~ "ikke bli spurt hvis enheten blir funnet ved senere omstart.\n"
 #~ "3) La stå. Ingen konfigurasjon vil bli lagt til, og enheten vil vises på "
 #~ "nytt hvis den blir funnet ved senere omstart."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "kjør konfigurasjon som ikke behøver input fra bruker"
 
 #~ msgid "Existing Configuration Detected"
 #~ msgstr "Eksisterende konfigurasjon funnet"

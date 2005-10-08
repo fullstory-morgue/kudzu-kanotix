@@ -11,181 +11,71 @@
 msgid ""
 msgstr ""
 "Project-Id-Version: it\n"
-"POT-Creation-Date: 2005-01-03 16:33-0500\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2005-02-20 22:26+0100\n"
 "Last-Translator: Lorenzo Stobbione <lorenzo.stobbione@clsengineering.it>\n"
 "Language-Team:  <fedora-trans-it@redhat.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Report-Msgid-Bugs-To: \n"
 "X-Generator: KBabel 1.3.1\n"
 
-#: ../hwconf.c:128
-#, c-format
-msgid "linked %s to %s"
-msgstr "collegato %s a %s"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "scollegato %s (era collegato a %s)"
-
-#: ../hwconf.c:151
-#, c-format
-msgid "unlinked %s"
-msgstr "scollegato %s"
-
-#: ../hwconf.c:191
+#: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "eseguito loadkey %s"
 
-#: ../hwconf.c:721 ../hwconf.c:737 ../hwconf.c:776 ../hwconf.c:795
-#: ../hwconf.c:821 ../hwconf.c:847 ../hwconf.c:874
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "alias %s come %s"
 
-#: ../hwconf.c:885
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "eseguito mouseconfig per %s"
-
-#: ../hwconf.c:908
-msgid "turned on bcm5820 service"
-msgstr "servizio bcm5820 attivato"
-
-#: ../hwconf.c:919
-msgid "turned on aep1000 service"
-msgstr "servizio aep1000 attivo"
-
-#: ../hwconf.c:1184
-msgid "network card"
-msgstr "scheda di rete"
-
-#: ../hwconf.c:1186
-msgid "SCSI controller"
-msgstr "controller SCSI"
-
-#: ../hwconf.c:1188
-msgid "video adapter"
-msgstr "scheda video"
-
-#: ../hwconf.c:1190
-msgid "sound card"
-msgstr "scheda audio"
-
-#: ../hwconf.c:1192
-msgid "mouse"
-msgstr "mouse"
-
-#: ../hwconf.c:1194
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1196
-msgid "CD-ROM drive"
-msgstr "lettore CD-ROM"
-
-#: ../hwconf.c:1198
-msgid "tape drive"
-msgstr "unità a nastro"
-
-#: ../hwconf.c:1200
-msgid "floppy drive"
-msgstr "unità floppy"
-
-#: ../hwconf.c:1202
-msgid "scanner"
-msgstr "scanner"
-
-#: ../hwconf.c:1204
-msgid "hard disk"
-msgstr "disco fisso"
-
-#: ../hwconf.c:1206
-msgid "RAID controller"
-msgstr "controller RAID"
-
-#: ../hwconf.c:1208
-msgid "IDE controller"
-msgstr "controller IDE"
-
-#: ../hwconf.c:1210
-msgid "printer"
-msgstr "stampante"
-
-#: ../hwconf.c:1212
-msgid "video capture card"
-msgstr "scheda di acquisizione video"
-
-#: ../hwconf.c:1214
-msgid "keyboard"
-msgstr "tastiera"
-
-#: ../hwconf.c:1216
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1218
-msgid "USB controller"
-msgstr "controller USB"
-
-#: ../hwconf.c:1220
-msgid "IEEE1394 controller"
-msgstr "Controller IEEE1394"
-
-#: ../hwconf.c:1222
-msgid "PCMCIA/Cardbus controller"
-msgstr "controller PCMCIA/Cardbus"
-
-#: ../hwconf.c:1226
-#, c-format
-msgid "%s device"
-msgstr "dispositivo %s"
-
-#: ../hwconf.c:1417
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "Eseguire solo rilevamenti che non compromettono l'hardware"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "impostare il timeout in secondi"
 
-#: ../hwconf.c:1424
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "solo rilevamento, visualizzare le informazioni sullo standard output"
 
-#: ../hwconf.c:1428
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "rilevare solo il 'bus' specificato"
 
-#: ../hwconf.c:1432
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "rilevare solo la 'classe' specificata"
 
-#: ../hwconf.c:1436
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "leggere l'hardware rilevato da un file"
 
-#: ../hwconf.c:1437
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "file in cui trovare le informazioni sull'hardware"
 
-#: ../hwconf.c:1440
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "cerca i moduli per una particolare versione della kernel"
 
-#: ../hwconf.c:1441
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "versione della kernel"
 
-#: ../hwconf.c:1444
+#: ../hwconf.c:925
 msgid "read probed hardware from a socket"
 msgstr "leggere l'hardware rilevato da un socket"
 
-#: ../hwconf.c:1466
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr ""
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -194,3 +84,83 @@ msgstr ""
 "\n"
 "ERRORE - Sono necessari i diritti di root per eseguire kudzu.\n"
 
+#~ msgid "linked %s to %s"
+#~ msgstr "collegato %s a %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "scollegato %s (era collegato a %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "scollegato %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "eseguito mouseconfig per %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "servizio bcm5820 attivato"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "servizio aep1000 attivo"
+
+#~ msgid "network card"
+#~ msgstr "scheda di rete"
+
+#~ msgid "SCSI controller"
+#~ msgstr "controller SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "scheda video"
+
+#~ msgid "sound card"
+#~ msgstr "scheda audio"
+
+#~ msgid "mouse"
+#~ msgstr "mouse"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "lettore CD-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "unità a nastro"
+
+#~ msgid "floppy drive"
+#~ msgstr "unità floppy"
+
+#~ msgid "scanner"
+#~ msgstr "scanner"
+
+#~ msgid "hard disk"
+#~ msgstr "disco fisso"
+
+#~ msgid "RAID controller"
+#~ msgstr "controller RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "controller IDE"
+
+#~ msgid "printer"
+#~ msgstr "stampante"
+
+#~ msgid "video capture card"
+#~ msgstr "scheda di acquisizione video"
+
+#~ msgid "keyboard"
+#~ msgstr "tastiera"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "controller USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "Controller IEEE1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "controller PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "dispositivo %s"

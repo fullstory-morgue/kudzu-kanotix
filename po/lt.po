@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lt\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-05-17 10:48+0300\n"
 "Last-Translator: Robertas Dereškevičius <roberto@mikrovisata.net>\n"
 "Language-Team: \n"
@@ -19,165 +19,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "susieta %s su %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "išsieta %s (buvo susieta su %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "išsieta %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "paleido loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "susiejo %s kaip %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "paleido mouseconfig %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "įjungė bcm5820 servisą"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "įjungė aep1000 servisą"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "tinklo plokštė"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "SCSI kontroleris"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "video adapteris"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "garso korta"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "pelė"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modemas"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "CD-ROM įrenginys"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "juostinis įrenginys"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "floppy įrenginys"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "skaneris"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "kietas diskas"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "RAID kontroleris"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "IDE kontroleris"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "spausdintuvas"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "video įrašymo korta"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "klaviatūra"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitorius"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "USB kontroleris"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "IEEE1394 kontroleris"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "PCMCIA/Cardbus kontroleris"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "%s įrenginys"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "atlikti tik 'saugius' bandymus, nesugadinant įrangos"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "įveskite laiko išsekimą sekundėmis."
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "bandyti tiktai, spausdinti info į stdout"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "bandyti tiktai pasirinktą 'bus'"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "bandyti tiktai pasirinktą 'class'"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "nuskaitytį išbandytą įrangą iš bylos"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "byla nuskaityti įrangos info iš"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "ieškoti modulių atskiroms kernel versijoms"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "kernel versija"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "nuskaitytį išbandytą įrangą iš bylos"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "ši konfiguracija reikalauja rankinio įvedimo"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -186,6 +81,87 @@ msgstr ""
 "\n"
 "KLAIDA: Tu turi turėti supervartotojo(root) teises, norint paleisti "
 "programą.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "susieta %s su %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "išsieta %s (buvo susieta su %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "išsieta %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "paleido mouseconfig %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "įjungė bcm5820 servisą"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "įjungė aep1000 servisą"
+
+#~ msgid "network card"
+#~ msgstr "tinklo plokštė"
+
+#~ msgid "SCSI controller"
+#~ msgstr "SCSI kontroleris"
+
+#~ msgid "video adapter"
+#~ msgstr "video adapteris"
+
+#~ msgid "sound card"
+#~ msgstr "garso korta"
+
+#~ msgid "mouse"
+#~ msgstr "pelė"
+
+#~ msgid "modem"
+#~ msgstr "modemas"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "CD-ROM įrenginys"
+
+#~ msgid "tape drive"
+#~ msgstr "juostinis įrenginys"
+
+#~ msgid "floppy drive"
+#~ msgstr "floppy įrenginys"
+
+#~ msgid "scanner"
+#~ msgstr "skaneris"
+
+#~ msgid "hard disk"
+#~ msgstr "kietas diskas"
+
+#~ msgid "RAID controller"
+#~ msgstr "RAID kontroleris"
+
+#~ msgid "IDE controller"
+#~ msgstr "IDE kontroleris"
+
+#~ msgid "printer"
+#~ msgstr "spausdintuvas"
+
+#~ msgid "video capture card"
+#~ msgstr "video įrašymo korta"
+
+#~ msgid "keyboard"
+#~ msgstr "klaviatūra"
+
+#~ msgid "monitor"
+#~ msgstr "monitorius"
+
+#~ msgid "USB controller"
+#~ msgstr "USB kontroleris"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "IEEE1394 kontroleris"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "PCMCIA/Cardbus kontroleris"
+
+#~ msgid "%s device"
+#~ msgstr "%s įrenginys"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -382,6 +358,3 @@ msgstr ""
 #~ "2) Ignoruoti įrenginį. Jums nebus pranešta vėl, kad rastas įrenginis.\n"
 #~ "3) Nieko nedaryti. Nebus sukonfiguruota, bet jei įrenginys  bus rastas "
 #~ "per kitą krovimąsi Jums vėl bus pranešta."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "ši konfiguracija reikalauja rankinio įvedimo"

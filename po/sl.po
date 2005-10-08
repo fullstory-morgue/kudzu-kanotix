@@ -1,14 +1,14 @@
 # SLOVENIAN TRANSLATION OF KUDZU.
 # Copyright (C) 2003 Free Software Foundation, Inc.
 # Roman Maurer <roman@lugos.si>, 2001.
-# $Id: sl.po,v 1.27 2004/12/17 21:48:33 notting Exp $
+# $Id: sl.po,v 1.28 2005/09/22 20:05:40 notting Exp $
 # $Source: /usr/local/CVS/kudzu/po/sl.po,v $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kudzu 9.1\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2004-12-17 16:52-0500\n"
+"POT-Creation-Date: 2005-09-22 16:06-0400\n"
 "PO-Revision-Date: 2004-03-31 22:20+0200\n"
 "Last-Translator: Roman Maurer <roman@lugos.si>\n"
 "Language-Team: Slovenian <translation-team-sl@lists.sourceforge.net>\n"
@@ -18,165 +18,60 @@ msgstr ""
 
 #: ../hwconf.c:126
 #, c-format
-msgid "linked %s to %s"
-msgstr "povezana %s v %s"
-
-#: ../hwconf.c:147
-#, c-format
-msgid "unlinked %s (was linked to %s)"
-msgstr "odvezana %s (bila povezana v %s)"
-
-#: ../hwconf.c:149
-#, c-format
-msgid "unlinked %s"
-msgstr "odvezana %s"
-
-#: ../hwconf.c:189
-#, c-format
 msgid "ran loadkeys %s"
 msgstr "poženi loadkeys %s"
 
-#: ../hwconf.c:719 ../hwconf.c:735 ../hwconf.c:774 ../hwconf.c:793
-#: ../hwconf.c:819 ../hwconf.c:845 ../hwconf.c:872
+#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s ima vzdevek %s"
 
-#: ../hwconf.c:883
-#, c-format
-msgid "ran mouseconfig for %s"
-msgstr "zagnal se je mouseconfig za %s"
-
-#: ../hwconf.c:906
-msgid "turned on bcm5820 service"
-msgstr "vključena storitev bcm5820"
-
-#: ../hwconf.c:917
-msgid "turned on aep1000 service"
-msgstr "vključena storitev aep1000"
-
-#: ../hwconf.c:1182
-msgid "network card"
-msgstr "omrežna kartica"
-
-#: ../hwconf.c:1184
-msgid "SCSI controller"
-msgstr "krmilnik SCSI"
-
-#: ../hwconf.c:1186
-msgid "video adapter"
-msgstr "grafična kartica"
-
-#: ../hwconf.c:1188
-msgid "sound card"
-msgstr "zvočna kartica"
-
-#: ../hwconf.c:1190
-msgid "mouse"
-msgstr "miška"
-
-#: ../hwconf.c:1192
-msgid "modem"
-msgstr "modem"
-
-#: ../hwconf.c:1194
-msgid "CD-ROM drive"
-msgstr "pogon CD-ROM"
-
-#: ../hwconf.c:1196
-msgid "tape drive"
-msgstr "tračna enota"
-
-#: ../hwconf.c:1198
-msgid "floppy drive"
-msgstr "disketnik"
-
-#: ../hwconf.c:1200
-msgid "scanner"
-msgstr "skener"
-
-#: ../hwconf.c:1202
-msgid "hard disk"
-msgstr "disk"
-
-#: ../hwconf.c:1204
-msgid "RAID controller"
-msgstr "krmilnik RAID"
-
-#: ../hwconf.c:1206
-msgid "IDE controller"
-msgstr "krmilnik IDE"
-
-#: ../hwconf.c:1208
-msgid "printer"
-msgstr "tiskalnik"
-
-#: ../hwconf.c:1210
-msgid "video capture card"
-msgstr "zajemalnik videa"
-
-#: ../hwconf.c:1212
-msgid "keyboard"
-msgstr "tipkovnica"
-
-#: ../hwconf.c:1214
-msgid "monitor"
-msgstr "monitor"
-
-#: ../hwconf.c:1216
-msgid "USB controller"
-msgstr "krmilnik USB"
-
-#: ../hwconf.c:1218
-msgid "IEEE1394 controller"
-msgstr "krmilnik IEEE1394"
-
-#: ../hwconf.c:1220
-msgid "PCMCIA/Cardbus controller"
-msgstr "krmilnik PCMCIA/Cardbus"
-
-#: ../hwconf.c:1224
-#, c-format
-msgid "%s device"
-msgstr "naprava: %s"
-
-#: ../hwconf.c:1397
+#: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "izvajaj le ,varne` poskuse, ki ne bodo motile strojne opreme"
 
-#: ../hwconf.c:1401
+#: ../hwconf.c:902
 msgid "set timeout in seconds"
 msgstr "nastavi zakasnitev v sekundah"
 
-#: ../hwconf.c:1404
+#: ../hwconf.c:905
 msgid "probe only, print information to stdout"
 msgstr "le zaznavanje, izpiši podatke na stdout"
 
-#: ../hwconf.c:1408
+#: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
 msgstr "zaznavaj le določeno ,vodilo`"
 
-#: ../hwconf.c:1412
+#: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
 msgstr "zaznavaj le določeni ,razred`"
 
-#: ../hwconf.c:1416
+#: ../hwconf.c:917
 msgid "read probed hardware from a file"
 msgstr "preberi preskušano opremo iz datoteke"
 
-#: ../hwconf.c:1417
+#: ../hwconf.c:918
 msgid "file to read hardware info from"
 msgstr "datoteka, s katere naj se preberejo podatki o opremi"
 
-#: ../hwconf.c:1420
+#: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
 msgstr "poišči module za določeno različico jedra"
 
-#: ../hwconf.c:1421
+#: ../hwconf.c:922
 msgid "kernel version"
 msgstr "različica jedra"
 
-#: ../hwconf.c:1442
+#: ../hwconf.c:925
+#, fuzzy
+msgid "read probed hardware from a socket"
+msgstr "preberi preskušano opremo iz datoteke"
+
+#: ../hwconf.c:929
+msgid "do configuration that doesn't require user input"
+msgstr "izvedi nastavitev, ki ne zahteva uporabniškega vnosa"
+
+#: ../hwconf.c:951
 #, c-format
 msgid ""
 "\n"
@@ -184,6 +79,87 @@ msgid ""
 msgstr ""
 "\n"
 "NAPAKA - Za poganjanje orodja kudzu morate biti root.\n"
+
+#~ msgid "linked %s to %s"
+#~ msgstr "povezana %s v %s"
+
+#~ msgid "unlinked %s (was linked to %s)"
+#~ msgstr "odvezana %s (bila povezana v %s)"
+
+#~ msgid "unlinked %s"
+#~ msgstr "odvezana %s"
+
+#~ msgid "ran mouseconfig for %s"
+#~ msgstr "zagnal se je mouseconfig za %s"
+
+#~ msgid "turned on bcm5820 service"
+#~ msgstr "vključena storitev bcm5820"
+
+#~ msgid "turned on aep1000 service"
+#~ msgstr "vključena storitev aep1000"
+
+#~ msgid "network card"
+#~ msgstr "omrežna kartica"
+
+#~ msgid "SCSI controller"
+#~ msgstr "krmilnik SCSI"
+
+#~ msgid "video adapter"
+#~ msgstr "grafična kartica"
+
+#~ msgid "sound card"
+#~ msgstr "zvočna kartica"
+
+#~ msgid "mouse"
+#~ msgstr "miška"
+
+#~ msgid "modem"
+#~ msgstr "modem"
+
+#~ msgid "CD-ROM drive"
+#~ msgstr "pogon CD-ROM"
+
+#~ msgid "tape drive"
+#~ msgstr "tračna enota"
+
+#~ msgid "floppy drive"
+#~ msgstr "disketnik"
+
+#~ msgid "scanner"
+#~ msgstr "skener"
+
+#~ msgid "hard disk"
+#~ msgstr "disk"
+
+#~ msgid "RAID controller"
+#~ msgstr "krmilnik RAID"
+
+#~ msgid "IDE controller"
+#~ msgstr "krmilnik IDE"
+
+#~ msgid "printer"
+#~ msgstr "tiskalnik"
+
+#~ msgid "video capture card"
+#~ msgstr "zajemalnik videa"
+
+#~ msgid "keyboard"
+#~ msgstr "tipkovnica"
+
+#~ msgid "monitor"
+#~ msgstr "monitor"
+
+#~ msgid "USB controller"
+#~ msgstr "krmilnik USB"
+
+#~ msgid "IEEE1394 controller"
+#~ msgstr "krmilnik IEEE1394"
+
+#~ msgid "PCMCIA/Cardbus controller"
+#~ msgstr "krmilnik PCMCIA/Cardbus"
+
+#~ msgid "%s device"
+#~ msgstr "naprava: %s"
 
 #~ msgid ""
 #~ " <Tab>/<Alt-Tab> between elements   |   <Space> selects  |   <F12> next "
@@ -380,6 +356,3 @@ msgstr ""
 #~ "povprašani ob naslednjem zagonu.\n"
 #~ "3) Ne naredite ničesar. Nastavitev ne bo dodana in naprava se bo ob "
 #~ "naslednjem zagonu prikazala kot zaznana."
-
-#~ msgid "do configuration that doesn't require user input"
-#~ msgstr "izvedi nastavitev, ki ne zahteva uporabniškega vnosa"

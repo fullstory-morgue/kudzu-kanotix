@@ -1,4 +1,4 @@
-# translation of it.po to 
+# translation of it.po to
 # translation of it.po to
 # translation of it.po to Italian
 # Copyright (C) 2001 Red Hat, Inc.
@@ -73,7 +73,7 @@ msgstr "leggere l'hardware rilevato da un socket"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "fa una configurazione che non richieda input utente"
 
 #: ../hwconf.c:951
 #, c-format
@@ -84,83 +84,3 @@ msgstr ""
 "\n"
 "ERRORE - Sono necessari i diritti di root per eseguire kudzu.\n"
 
-#~ msgid "linked %s to %s"
-#~ msgstr "collegato %s a %s"
-
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "scollegato %s (era collegato a %s)"
-
-#~ msgid "unlinked %s"
-#~ msgstr "scollegato %s"
-
-#~ msgid "ran mouseconfig for %s"
-#~ msgstr "eseguito mouseconfig per %s"
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "servizio bcm5820 attivato"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "servizio aep1000 attivo"
-
-#~ msgid "network card"
-#~ msgstr "scheda di rete"
-
-#~ msgid "SCSI controller"
-#~ msgstr "controller SCSI"
-
-#~ msgid "video adapter"
-#~ msgstr "scheda video"
-
-#~ msgid "sound card"
-#~ msgstr "scheda audio"
-
-#~ msgid "mouse"
-#~ msgstr "mouse"
-
-#~ msgid "modem"
-#~ msgstr "modem"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "lettore CD-ROM"
-
-#~ msgid "tape drive"
-#~ msgstr "unità a nastro"
-
-#~ msgid "floppy drive"
-#~ msgstr "unità floppy"
-
-#~ msgid "scanner"
-#~ msgstr "scanner"
-
-#~ msgid "hard disk"
-#~ msgstr "disco fisso"
-
-#~ msgid "RAID controller"
-#~ msgstr "controller RAID"
-
-#~ msgid "IDE controller"
-#~ msgstr "controller IDE"
-
-#~ msgid "printer"
-#~ msgstr "stampante"
-
-#~ msgid "video capture card"
-#~ msgstr "scheda di acquisizione video"
-
-#~ msgid "keyboard"
-#~ msgstr "tastiera"
-
-#~ msgid "monitor"
-#~ msgstr "monitor"
-
-#~ msgid "USB controller"
-#~ msgstr "controller USB"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "Controller IEEE1394"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "controller PCMCIA/Cardbus"
-
-#~ msgid "%s device"
-#~ msgstr "dispositivo %s"

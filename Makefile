@@ -41,8 +41,8 @@ RANLIB = ranlib
 HEADERS = device.h alias.h adb.h ddc.h firewire.h ide.h isapnp.h keyboard.h kudzu.h macio.h misc.h modules.h \
 	    	parallel.h pci.h pcmcia.h psaux.h usb.h sbus.h scsi.h serial.h
 OBJS = kudzu.o modules.o pci.o pcmcia.o serial.o ide.o misc.o scsi.o parallel.o psaux.o usb.o sbus.o keyboard.o \
-		ddc.o pciserial.o isapnp.o firewire.o adb.o macio.o vio.o s390.o alias.o
-LOADEROBJ = kudzu_loader.o misc.o pci.o pcmcia.o scsi.o ide.o usb.o firewire.o alias.o
+		ddc.o pciserial.o isapnp.o firewire.o adb.o macio.o vio.o s390.o alias.o xen.o
+LOADEROBJ = kudzu_loader.o misc.o pci.o pcmcia.o scsi.o ide.o usb.o firewire.o alias.o xen.o
 
 ifeq (sparc,$(ARCH))
 LOADEROBJ += sbus.o

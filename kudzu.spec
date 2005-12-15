@@ -1,5 +1,5 @@
 Name: kudzu
-Version: 1.2.9
+Version: 1.2.16
 Release: 1
 License: GPL
 Summary: The Red Hat Linux hardware probing tool.
@@ -79,6 +79,30 @@ fi
 %{_includedir}/kudzu
 
 %changelog
+* Wed Dec 14 2005 Bill Nottingham <notting@redhat.com> - 1.2.16-1
+- revert LRMI changes (#175677)
+
+* Tue Dec 13 2005 Bill Nottingham <notting@redhat.com> - 1.2.15-1
+- use ACPI EDID info if available
+
+* Fri Dec  9 2005 Bill Nottingham <notting@redhat.com> - 1.2.14-1
+- add support for mambo virtual devices (#173307, <dwmw2@redhat.com>)
+
+* Wed Nov 16 2005 Bill Nottingham <notting@redhat.com> - 1.2.13-1
+- integrate patch, bump version
+
+* Wed Nov 16 2005 Dave Jones <davej@redhat.com> - 1.2.12-2
+- Hopefully fix ddcprobe to work with > 2.6.14 kernels.
+
+* Tue Nov 15 2005 Bill Nottingham <notting@redhat.com> - 1.2.12-1
+- allow multiple files for video aliases under /usr/share/hwdata/videoaliases
+
+* Wed Nov  9 2005 Jeremy Katz <katzj@redhat.com> - 1.2.11-1
+- fix xen driver names
+
+* Fri Oct 28 2005 Jeremy Katz <katzj@redhat.com> - 1.2.10-1
+- add some basic xen device probing
+
 * Fri Sep 23 2005 Bill Nottingham <notting@redhat.com> 1.2.9-1
 - move kudzu to /sbin (since we no longer use newt (#74736))
 - don't congfigure usb/firewire controllers, modems, scanners

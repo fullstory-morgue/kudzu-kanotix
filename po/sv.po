@@ -1,14 +1,14 @@
 # Swedish messages for kudzu.
-# Copyright 2000, 2001, 2002, 2003, 2004 Christian Rose <menthos@menthos.com>.
+# Copyright 2000, 2001, 2002, 2003, 2004, 2005 Christian Rose <menthos@menthos.com>.
 #
-# $Id: sv.po,v 1.32 2005/09/22 20:05:40 notting Exp $
+# $Id: sv.po,v 1.33 2005/10/19 20:57:53 menthos Exp $
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2004-03-07 16:52+0100\n"
+"PO-Revision-Date: 2005-10-19 09:14+0200\n"
 "Last-Translator: Christian Rose <menthos@menthos.com>\n"
 "Language-Team: Swedish <sv@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -62,9 +62,8 @@ msgid "kernel version"
 msgstr "kärnversion"
 
 #: ../hwconf.c:925
-#, fuzzy
 msgid "read probed hardware from a socket"
-msgstr "läs testad hårdvara från fil"
+msgstr "läs testad hårdvara från ett uttag"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"

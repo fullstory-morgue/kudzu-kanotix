@@ -1,75 +1,73 @@
-# translation of pl.po to Polish
-# Andrzej Olszewski <andrzej.olszewski@ifj.edu.pl>, 2004.
-# Tom Berner <tom@lodz.pl>, 2005.
+# Armenian translations for PACKAGE package.
+# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2005.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: pl\n"
+"Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-09-23 19:18+0200\n"
-"Last-Translator: Tom Berner <tom@lodz.pl>\n"
-"Language-Team: Polish <pl@li.org>\n"
+"POT-Creation-Date: 2005-09-22 16:08-0400\n"
+"PO-Revision-Date: 2005-09-22 16:08-0400\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: KBabel 1.9.1\n"
 
 #: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
-msgstr "uruchomiono loadkeys %s"
+msgstr ""
 
 #: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
-msgstr "utworzono alias %s do %s"
+msgstr ""
 
 #: ../hwconf.c:898
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
-"wykonaj jedynie \"bezpieczne\" testy, które nie spowodują zaburzeń w pracy "
-"sprzętu"
 
 #: ../hwconf.c:902
 msgid "set timeout in seconds"
-msgstr "ustaw czas oczekiwania w sekundach"
+msgstr ""
 
 #: ../hwconf.c:905
 msgid "probe only, print information to stdout"
-msgstr "tylko szukaj, wyświetl informację na standardowe wyjście"
+msgstr ""
 
 #: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
-msgstr "szukaj tylko na określonej \"magistrali\""
+msgstr ""
 
 #: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
-msgstr "szukaj tylko w określonej \"klasie\""
+msgstr ""
 
 #: ../hwconf.c:917
 msgid "read probed hardware from a file"
-msgstr "odczytaj listę wyszukiwanego sprzętu z pliku"
+msgstr ""
 
 #: ../hwconf.c:918
 msgid "file to read hardware info from"
-msgstr "plik z informacją o sprzęcie do odczytania"
+msgstr ""
 
 #: ../hwconf.c:921
 msgid "search for modules for a particular kernel version"
-msgstr "szukaj modułów dla podanej wersji jądra"
+msgstr ""
 
 #: ../hwconf.c:922
 msgid "kernel version"
-msgstr "wersja jądra"
+msgstr ""
 
 #: ../hwconf.c:925
 msgid "read probed hardware from a socket"
-msgstr "listę wyszukiwanego sprzętu odczytaj z pliku"
+msgstr ""
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr "utwórz konfigurację, która nie wymaga udziału użytkownika"
+msgstr ""
 
 #: ../hwconf.c:951
 #, c-format
@@ -77,5 +75,3 @@ msgid ""
 "\n"
 "ERROR - You must be root to run kudzu.\n"
 msgstr ""
-"\n"
-"BŁĄD - musisz być rootem, aby uruchomić kudzu.\n"

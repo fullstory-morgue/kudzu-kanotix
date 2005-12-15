@@ -11,10 +11,12 @@
 
 #include <ctype.h>
 #include <fcntl.h>
+#include <glob.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <arpa/inet.h>
 #include <sys/stat.h>
 #include <sys/types.h>
 
@@ -260,25 +262,129 @@ void ddcFreeDrivers()
 	}
 }
 
+static struct ddcDevice *parseEDID(struct edid1_info *edid_info)
+{
+	struct ddcDevice *ret;
+	struct monitor mon, *searched;
+	int x;
+	int pos = 0;
+	
+	if ((edid_info == NULL) || (edid_info->version ==0))
+		return NULL;
+	
+	ret = ddcNewDevice(NULL);
+	ret->id = malloc(10);
+	snprintf(ret->id,8,"%c%c%c%04x",
+		 edid_info->manufacturer_name.char1 + 'A' - 1,
+		 edid_info->manufacturer_name.char2 + 'A' - 1,
+		 edid_info->manufacturer_name.char3 + 'A' - 1,
+		 edid_info->product_code);
+	mon.id = ret->id;
+	searched = bsearch(&mon,ddcDeviceList,numDdcDevices,
+		      sizeof(struct monitor),devCmp);
+	if (searched) {
+		ret->desc = strdup(searched->model);
+	}
+	ret->physicalWidth = edid_info->max_size_horizontal * 10;
+	ret->physicalHeight = edid_info->max_size_vertical * 10;
+	for (x=0;x<4;x++) {
+		struct edid_monitor_descriptor *monitor = NULL;
+		monitor = &edid_info->monitor_details.monitor_descriptor[x];
+
+		switch (monitor->type) {
+		case edid_monitor_descriptor_name:
+			if (!ret->desc)
+				ret->desc = strdup(snip(monitor->data.string));
+			break;
+		case edid_monitor_descriptor_range:
+			ret->horizSyncMin = monitor->data.range_data.horizontal_min;
+			ret->horizSyncMax = monitor->data.range_data.horizontal_max;
+			ret->vertRefreshMin = monitor->data.range_data.vertical_min;
+			ret->vertRefreshMax = monitor->data.range_data.vertical_max;
+			break;
+		default:
+			break;
+		}
+	}
+	if ((ret->horizSyncMin * ret->horizSyncMax == 0) && (searched)) {
+		ret->horizSyncMin = searched->horiz[0];
+		ret->horizSyncMax = searched->horiz[1];
+		ret->vertRefreshMin = searched->vert[0];
+		ret->vertRefreshMax = searched->vert[1];
+	}
+	for (x=0;x<8;x++) {
+		double aspect = 1;
+		unsigned char xres, vfreq;
+		
+		xres = edid_info->standard_timing[x].xresolution;
+		vfreq = edid_info->standard_timing[x].vfreq;
+		if ((xres != vfreq) ||  
+		    ((xres != 0) && (xres != 1)) ||
+		    ((vfreq != 0) && (vfreq != 1))) {
+			switch(edid_info->standard_timing[x].aspect) {
+			case 0: aspect = 1; break; /*undefined*/
+			case 1: aspect = 0.750; break;
+			case 2: aspect = 0.800; break;
+			case 3: aspect = 0.625; break;
+			}
+			ret->modes = realloc(ret->modes,(pos+3)*sizeof(int));
+			ret->modes[pos] = (xres+31) * 8;
+			ret->modes[pos+1] = ret->modes[pos] * aspect;
+			ret->modes[pos+2] = 0;
+			pos += 2;
+		}
+	}
+	ret->type = CLASS_MONITOR;
+	return ret;
+}
+
+static struct edid1_info *readEDIDFromACPI()
+{
+	static glob_t globres;
+	static int index = -1;
+	int f;
+	struct edid1_info *ret;
+	u_int16_t man;
+	
+	if (index == -1) {
+		if (glob("/proc/acpi/video/*/*/EDID",0,NULL, &globres) != 0)
+			return NULL;
+		index = 0;
+	}
+	
+	if (!globres.gl_pathv[index])
+		goto out;
+	f = open(globres.gl_pathv[index], O_RDONLY);
+	if (f == -1) 
+		goto out;
+	index++;
+	ret = (struct edid1_info *)__bufFromFd(f);
+	if (!ret)
+		goto out;
+        memcpy(&man, &ret->manufacturer_name, 2);
+	man = ntohs(man);
+        memcpy(&ret->manufacturer_name, &man, 2);
+	return ret;
+out:
+	globfree(&globres);
+	return NULL;
+}
+
 struct device *ddcProbe(enum deviceClass probeClass, int probeFlags,
 			struct device *devlist)
 {
 	struct ddcDevice *newdev;
 	struct vbe_info *vbe_info = NULL;
 	struct edid1_info *edid_info = NULL;
-	struct monitor mon, *ret;
-	int pos=0, init_list = 0;
+	int init_list = 0;
 	
 	if (probeFlags & PROBE_SAFE) return devlist;	
 
 	if (
-	    geteuid() == 0 &&
-	    (
 	    (probeClass & CLASS_OTHER) ||
 	    (probeClass & CLASS_VIDEO) ||
-	    (probeClass & CLASS_MONITOR))
+	    (probeClass & CLASS_MONITOR)
 	    ) {
-		int x;
 		
 		if (!ddcDeviceList) {
 			ddcReadDrivers(NULL);
@@ -314,76 +420,24 @@ struct device *ddcProbe(enum deviceClass probeClass, int probeFlags,
 		}
 		if (probeClass & CLASS_MONITOR) {
 			if (!get_edid_supported())
-				goto out;
+				goto acpi;
 			edid_info = get_edid_info();
-			if ((edid_info == NULL) || (edid_info->version ==0))
+			newdev = parseEDID(edid_info);
+			if (newdev) {
+				if (devlist)
+					newdev->next = devlist;
+				devlist = (struct device *)newdev;
 				goto out;
-			newdev = ddcNewDevice(NULL);
-			newdev->id = malloc(10);
-			snprintf(newdev->id,8,"%c%c%c%04x",
-				 edid_info->manufacturer_name.char1 + 'A' - 1,
-				 edid_info->manufacturer_name.char2 + 'A' - 1,
-				 edid_info->manufacturer_name.char3 + 'A' - 1,
-				 edid_info->product_code);
-			mon.id = newdev->id;
-			ret = bsearch(&mon,ddcDeviceList,numDdcDevices,
-				      sizeof(struct monitor),devCmp);
-			if (ret) {
-				newdev->desc = strdup(ret->model);
 			}
-			newdev->physicalWidth = edid_info->max_size_horizontal * 10;
-			newdev->physicalHeight = edid_info->max_size_vertical * 10;
-			for (x=0;x<4;x++) {
-				struct edid_monitor_descriptor *monitor = NULL;
-				monitor = &edid_info->monitor_details.monitor_descriptor[x];
-
-				switch (monitor->type) {
-				case edid_monitor_descriptor_name:
-					if (!newdev->desc)
-						newdev->desc = strdup(snip(monitor->data.string));
-					break;
-				case edid_monitor_descriptor_range:
-					newdev->horizSyncMin = monitor->data.range_data.horizontal_min;
-					newdev->horizSyncMax = monitor->data.range_data.horizontal_max;
-					newdev->vertRefreshMin = monitor->data.range_data.vertical_min;
-					newdev->vertRefreshMax = monitor->data.range_data.vertical_max;
-					break;
-				default:
-					break;
+acpi:
+			while ((edid_info = readEDIDFromACPI())) {
+				newdev = parseEDID(edid_info);
+				if (newdev) {
+					if (devlist)
+						newdev->next = devlist;
+					devlist = (struct device *)newdev;
 				}
 			}
-                       if ((newdev->horizSyncMin * newdev->horizSyncMax == 0) && (ret)) {
-				newdev->horizSyncMin = ret->horiz[0];
-				newdev->horizSyncMax = ret->horiz[1];
-				newdev->vertRefreshMin = ret->vert[0];
-				newdev->vertRefreshMax = ret->vert[1];
-			}
-			for (x=0;x<8;x++) {
-				double aspect = 1;
-				unsigned char xres, vfreq;
-				xres = edid_info->standard_timing[x].xresolution;
-				vfreq = edid_info->standard_timing[x].vfreq;
-				if ((xres != vfreq) ||  
-				    ((xres != 0) && (xres != 1)) ||
-				    ((vfreq != 0) && (vfreq != 1))) {
-					switch(edid_info->standard_timing[x].aspect) {
-					case 0: aspect = 1; break; /*undefined*/
-					case 1: aspect = 0.750; break;
-					case 2: aspect = 0.800; break;
-					case 3: aspect = 0.625; break;
-					}
-					newdev->modes = realloc(newdev->modes,(pos+3)*
-								sizeof(int));
-					newdev->modes[pos] = (xres+31) * 8;
-					newdev->modes[pos+1] = newdev->modes[pos] * aspect;
-					newdev->modes[pos+2] = 0;
-					pos += 2;
-				}
-			}
-			newdev->type = CLASS_MONITOR;
-			if (devlist)
-				newdev->next = devlist;
-			devlist = (struct device *)newdev;
 		}
 	}
 out:

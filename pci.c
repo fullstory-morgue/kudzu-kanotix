@@ -205,16 +205,41 @@ static enum deviceClass pciToKudzu(unsigned int class) {
     }
 }
 
+static void readVideoAliasesDir(char *dirname) {
+	DIR *d;
+	struct dirent *entry;
+	
+	d = opendir(dirname);
+	if (!d) return;
+	
+	while ((entry = readdir(d))) {
+		char *path;
+		
+		if (entry->d_name[0] == '.') continue;
+		
+		asprintf(&path,"%s/%s",dirname,entry->d_name);
+		aliases = readAliases(aliases, path, "pcivideo");
+		free(path);
+	}
+	closedir(d);
+}
 
 int pciReadDrivers(char *filename) {
 	char *p;
+	struct stat sbuf;
 	
 	aliases = readAliases(aliases, filename, "pci");
 
 	if (filename) {
 		pcifiledir = dirname(strdup(filename));
 		asprintf(&p,"%s/videoaliases",pcifiledir);
-		aliases = readAliases(aliases, p, "pcivideo");
+	        if (!stat(p,&sbuf)) {
+			return 0;
+		}
+		if (S_ISDIR(sbuf.st_mode)) {
+			readVideoAliasesDir(p);
+		} else
+			aliases = readAliases(aliases, p, "pcivideo");
 		free(p);
 		return 0;
 	} else {
@@ -231,7 +256,10 @@ int pciReadDrivers(char *filename) {
 		}
 		if (!paths[x])
 			return 0;
-		aliases = readAliases(aliases, p, "pcivideo");
+		if (S_ISDIR(sbuf.st_mode)) {
+			readVideoAliasesDir(p);
+		} else 
+			aliases = readAliases(aliases, p, "pcivideo");
 	}
 	return 0;
 }

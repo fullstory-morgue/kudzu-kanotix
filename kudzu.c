@@ -30,6 +30,7 @@
 #include "sbus.h"
 #include "scsi.h"
 #include "vio.h"
+#include "xen.h"
 
 #include <ctype.h>
 #include <dirent.h>
@@ -138,6 +139,7 @@ struct bus buses[] = {
 #if !defined(__LOADER__) || defined(__s390__) || defined(__s390x__)
 	{ BUS_S390, "S390", (newFunc *)s390NewDevice, NULL, NULL, s390Probe },
 #endif
+	{ BUS_XEN, "XEN", (newFunc *)xenNewDevice, NULL, NULL, xenProbe },
 	{ 0, NULL, NULL, NULL, NULL, NULL }
 };
 

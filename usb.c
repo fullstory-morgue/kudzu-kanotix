@@ -54,10 +54,7 @@ static int usbCompareDevice(struct usbDevice *dev1, struct usbDevice *dev2)
 
 	if (!dev1 || !dev2)
 		return 1;
-	x = compareDevice((struct device *) dev1, (struct device *) dev2);
-	if (x && x != 2)
-		return x;
-	return x;
+	return compareDevice((struct device *) dev1, (struct device *) dev2);
 }
 
 
@@ -240,6 +237,7 @@ struct usbDevice *getUsbDevice(char *name, struct usbDevice *ret, enum deviceCla
 			}
 			closedir(interface);
 			fchdir(wd);
+			close(wd);
 			
 			t->type = usbToKudzu(t->usbclass, t->usbsubclass, t->usbprotocol);
 			t->usbbus = strtol(tname,NULL,10);

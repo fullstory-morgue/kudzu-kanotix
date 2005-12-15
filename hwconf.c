@@ -132,6 +132,7 @@ int checkKeyboardConfig(struct device *dev)
 {
 	char buf[256], *p;
 	FILE *f = fopen("/etc/sysconfig/keyboard", "r");
+	if (!f) return 0;
 
 	if (!f) {
 		if (errno == ENOENT && dev->device && 
@@ -180,6 +181,7 @@ int checkInittab(struct device *dev)
 	char buf[1024], *p;
 	int ret = 0, comment, hasVideo = 0, x, foundgetty=0, isSerial = isSerialish(dev);
 	FILE *f = fopen("/etc/inittab", "r");
+	if (!f) return 0;
 
 	for (x=0; currentDevs[x]; x++) {
 		if (currentDevs[x]->type == CLASS_VIDEO) {

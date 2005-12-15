@@ -2,7 +2,7 @@ Source: kudzu-kanotix
 Section: utils
 Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: debhelper (>> 4.0.0), pciutils-dev, python2.4-dev, libpopt-dev, gettext, perl, dietlibc-dev
+Build-Depends: debhelper (>> 4.0.0), pciutils-dev, python2.4-dev, libpopt-dev, gettext, perl, dietlibc-dev, dpatch
 Standards-Version: 3.6.2
 
 Package: kudzu-kanotix

@@ -22,7 +22,7 @@ RETVAL=$?
 
 case "$1" in
  start)
-	echo -n $"Checking for new hardware"
+	echo -n $"Checking for hardware changes"
 	rm -f /var/run/Xconfig
 	rm -f /var/run/Xconfig-failed
 

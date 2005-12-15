@@ -8,11 +8,11 @@ msgstr ""
 "Project-Id-Version: id\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2004-07-13 03:13+0700\n"
-"Last-Translator: Alexander Agung <redtux@sby.dnet.net.id>\n"
+"PO-Revision-Date: 2005-10-29 00:12+0700\n"
+"Last-Translator: Teguh DC <dheche@bradjamoesti.or.id>\n"
 "Language-Team: Bahasa Indonesia <viribus@traderweb.net>\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=ISO-8859-1\n"
+"Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.0.2\n"
 
@@ -63,9 +63,8 @@ msgid "kernel version"
 msgstr "versi kernel"
 
 #: ../hwconf.c:925
-#, fuzzy
 msgid "read probed hardware from a socket"
-msgstr "baca piranti keras yang dicoba dari berkas"
+msgstr "membaca perangkat keras hasil probe dari soket"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"

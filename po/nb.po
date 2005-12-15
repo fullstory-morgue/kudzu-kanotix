@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: kudzu 1.48\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2004-03-07 09:19+0100\n"
+"PO-Revision-Date: 2005-10-18 22:46+0200\n"
 "Last-Translator: Kjartan Maraas <kmaraas@gnome.org>\n"
 "Language-Team: Norwegian <i18n-nb@lister.ping.uio.no>\n"
 "MIME-Version: 1.0\n"
@@ -57,9 +57,8 @@ msgid "kernel version"
 msgstr "kjerneversjoner"
 
 #: ../hwconf.c:925
-#, fuzzy
 msgid "read probed hardware from a socket"
-msgstr "les testet maskinvare fra en fil"
+msgstr "les gjenkjent maskinvare fra en plugg"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
@@ -73,9 +72,6 @@ msgid ""
 msgstr ""
 "\n"
 "FEIL - Du må være root for å kjøre kudzu.\n"
-
-#~ msgid "linked %s to %s"
-#~ msgstr "lenket %s til %s"
 
 #~ msgid "unlinked %s (was linked to %s)"
 #~ msgstr "fjernet lenke %s (var lenket til %s)"

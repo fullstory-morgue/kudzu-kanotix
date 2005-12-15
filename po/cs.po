@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: kudzu VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-02-19 01:46+0100\n"
+"PO-Revision-Date: 2005-09-25 22:32+0200\n"
 "Last-Translator: Miloslav Trmac <mitr@volny.cz>\n"
 "Language-Team: Czech <cs@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -66,7 +66,7 @@ msgstr "číst detekovaný hardware ze socketu"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "provést nastavení, která nevyžadují vstup od uživatele"
 
 #: ../hwconf.c:951
 #, c-format
@@ -109,9 +109,6 @@ msgstr ""
 
 #~ msgid "mouse"
 #~ msgstr "myš"
-
-#~ msgid "modem"
-#~ msgstr "modem"
 
 #~ msgid "CD-ROM drive"
 #~ msgstr "mechanika CD-ROM"

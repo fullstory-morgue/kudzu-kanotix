@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: de\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-08-29 20:32+0200\n"
+"PO-Revision-Date: 2005-10-03 19:58+0200\n"
 "Last-Translator: Severin Heiniger <severinheiniger@gmail.com>\n"
 "Language-Team: German / Deutsch <fedora-i18n-list@redhat.com>\n"
 "MIME-Version: 1.0\n"
@@ -47,7 +47,7 @@ msgstr "Zeitüberschreitung in Sekunden festlegen"
 
 #: ../hwconf.c:905
 msgid "probe only, print information to stdout"
-msgstr "nur suchen, gebe Informationen auf die Standardausgabe aus"
+msgstr "nur suchen, Informationen auf die Standardausgabe ausgeben"
 
 #: ../hwconf.c:909
 msgid "probe only the specified 'bus'"
@@ -55,7 +55,7 @@ msgstr "nur angegebenen Bus durchsuchen"
 
 #: ../hwconf.c:913
 msgid "probe only for the specified 'class'"
-msgstr "nur nach der angegebene 'Klasse' suchen"
+msgstr "nur nach der angegebene Klasse suchen"
 
 # ../hwconf.c:1357
 #: ../hwconf.c:917
@@ -92,89 +92,5 @@ msgid ""
 "ERROR - You must be root to run kudzu.\n"
 msgstr ""
 "\n"
-"Fehler - Sie müssen als Root angemeldet sein, um Kudzu zu starten.\n"
+"Fehler - Sie müssen als Root angemeldet sein, um Kudzu ausführen zu können.\n"
 
-# ../hwconf.c:283
-#~ msgid "linked %s to %s"
-#~ msgstr "%s mit %s verknüpft"
-
-# ../hwconf.c:304
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "%s gelöst (war mit %s verknüpft)"
-
-# ../hwconf.c:306
-#~ msgid "unlinked %s"
-#~ msgstr "%s ist nicht verknüpft"
-
-# ../hwconf.c:953
-#~ msgid "ran mouseconfig for %s"
-#~ msgstr "mouseconfig wurde für %s ausgeführt"
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "bcm5820-Dienst eingeschaltet"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "aep1000-Dienst eingeschaltet"
-
-#~ msgid "network card"
-#~ msgstr "Netzwerkkarte"
-
-#~ msgid "SCSI controller"
-#~ msgstr "SCSI-Controller"
-
-#~ msgid "video adapter"
-#~ msgstr "Grafikadapter"
-
-#~ msgid "sound card"
-#~ msgstr "Soundkarte"
-
-#~ msgid "mouse"
-#~ msgstr "Maus"
-
-#~ msgid "modem"
-#~ msgstr "Modem"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "CD-ROM-Laufwerk"
-
-#~ msgid "tape drive"
-#~ msgstr "Band-Laufwerk"
-
-#~ msgid "floppy drive"
-#~ msgstr "Disketten-Laufwerk"
-
-#~ msgid "scanner"
-#~ msgstr "Scanner"
-
-#~ msgid "hard disk"
-#~ msgstr "Festplatte"
-
-#~ msgid "RAID controller"
-#~ msgstr "RAID-Controller"
-
-#~ msgid "IDE controller"
-#~ msgstr "IDE-Controller"
-
-#~ msgid "printer"
-#~ msgstr "Drucker"
-
-#~ msgid "video capture card"
-#~ msgstr "Videokarte"
-
-#~ msgid "keyboard"
-#~ msgstr "Tastatur"
-
-#~ msgid "monitor"
-#~ msgstr "Monitor"
-
-#~ msgid "USB controller"
-#~ msgstr "USB-Controller"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "IEEE1394-Controller"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "PCMCIA/Cardbus-Controller"
-
-#~ msgid "%s device"
-#~ msgstr "%s Gerät"

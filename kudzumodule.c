@@ -29,6 +29,7 @@
 #include "serial.h"
 #include "usb.h"
 #include "vio.h"
+#include "xen.h"
 
 typedef struct {
     char * name;
@@ -84,6 +85,7 @@ static TableEntry busTable[] = {
     { "BUS_MACIO",	BUS_MACIO},
     { "BUS_VIO",        BUS_VIO},
     { "BUS_S390",       BUS_S390},
+    { "BUS_XEN",        BUS_XEN},
     { NULL }
 };
 
@@ -349,6 +351,11 @@ void addS390Info(PyObject *dict,struct s390Device * device)
     return;
 }
 
+void addXenInfo(PyObject *dict,struct xenDevice * device)
+{
+    return;
+}
+
 PyObject * createDict(struct device * probedDevice)
 {
     PyObject *dict;
@@ -433,6 +440,9 @@ PyObject * createDict(struct device * probedDevice)
         break;
     case BUS_S390:
         addS390Info(dict,(struct s390Device*)probedDevice);
+        break;
+    case BUS_XEN:
+        addXenInfo(dict,(struct xenDevice*)probedDevice);
         break;
     default:
         break;

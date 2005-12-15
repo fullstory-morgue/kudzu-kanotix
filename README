@@ -9,6 +9,10 @@ hardware configuration, and gives the option of configuring
 added or removed devices. It's set up by default to run at
 each boot.
 
+Use of kudzu as a detection library is deprecated except
+in specific circumstances. Programs looking for specific devices
+should be using HAL to get their device information.
+
 2) What type of devices does kudzu detect?
 
 Currently, kudzu detects:
@@ -29,24 +33,14 @@ More devices and types will be added in the future.
 Configuration:
 - Network:
 	- adds an 'ethX' alias, if necessary
-	- migrates old device config, or creates a new one.
 - SCSI:
 	- adds a 'scsi_hostadapter' alias
 - Video card:
-	- runs Xconfigurator
+	- runs system-config-display
 - Sound card:
-	- runs sndconfig
-- Mouse
-	- makes /dev/mouse link
-	- runs mouseconfig
-- Modem
-	- makes /dev/modem link
-- CD-ROM
-        - makes /dev/cdrom link
-- Scanner
-	- makes /dev/scanner link
+	- adds an option to modprobe.conf to specify an index
+	  for ALSA
 - Keyboard
-	- runs kbdconfig
 	- for serial console makes sure /etc/inittab and /etc/securetty
 	  are ready for serial console operation
 
@@ -55,14 +49,6 @@ Un-configuration:
 	- removes ethX alias
 - SCSI:
 	- removes scsi_hostadapterX alias
-- Mouse:
-	- removes /dev/mouse link
-- Modem:
-	- removes /dev/modem link
-- CD-ROM:
-	- removes /dev/cdrom link
-- Scanner:
-	- removes /dev/scanner link
 
 4) Where do I submit bug reports about kudzu?
 
@@ -71,8 +57,7 @@ http://developer.redhat.com/bugzilla/
 5) Are there any known bugs in kudzu?
 
 The serial probe can confuse devices if they are
-currently in use. (modems, mice) The PS/2 probe
-also will cause the mouse to act strangely under X.
+currently in use. (modems, mice)
 
 Running the serial probe on a machine that is acting
 as a serial console can produce odd results.

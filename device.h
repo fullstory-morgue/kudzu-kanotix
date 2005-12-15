@@ -68,7 +68,8 @@ enum deviceBus {
     BUS_ADB = (1 << 15),
     BUS_MACIO = (1 << 16),
     BUS_VIO = (1 << 17),
-    BUS_S390 = (1 << 18)
+    BUS_S390 = (1 << 18),
+    BUS_XEN = (1 << 19)
 };
 
 struct device {

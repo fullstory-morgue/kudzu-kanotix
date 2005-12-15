@@ -79,7 +79,7 @@ struct aliaslist *readAliases(struct aliaslist *alist, char *filename, char *bus
 					free(path);
 					return alist;
 				}
-			}
+			} 
 		}
 		free(path);
 	}

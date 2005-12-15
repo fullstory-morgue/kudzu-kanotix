@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: kudzu 1.10\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2004-12-18 14:09+0000\n"
+"PO-Revision-Date: 2005-10-01 14:09+0000\n"
 "Last-Translator: Richard Allen <ra@ra.is>\n"
 "Language-Team: is <kde-isl@molar.is>\n"
 "MIME-Version: 1.0\n"
@@ -62,13 +62,12 @@ msgid "kernel version"
 msgstr "útgáfa kjarna"
 
 #: ../hwconf.c:925
-#, fuzzy
 msgid "read probed hardware from a socket"
-msgstr "lesa niðurstöður vélbúnaðarleitar úr skrá"
+msgstr "lesa niðurstöður vélbúnaðarleitar úr sökkli"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "framkvæma stillingar sem ekki krefjast upplýsinga frá notandanum"
 
 #: ../hwconf.c:951
 #, c-format
@@ -78,84 +77,3 @@ msgid ""
 msgstr ""
 "\n"
 "VILLA - Þú verður að vera rótarnotandi til að keyra kudzu.\n"
-
-#~ msgid "linked %s to %s"
-#~ msgstr "tengdi %s við %s"
-
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "aftengdi %s (var tengt %s)"
-
-#~ msgid "unlinked %s"
-#~ msgstr "aftengdi %s"
-
-#~ msgid "ran mouseconfig for %s"
-#~ msgstr "keyrði mouseconfig fyrir %s"
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "set bcm5820 þjónustuna í gang"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "set aep1000 þjónustuna í gang"
-
-#~ msgid "network card"
-#~ msgstr "netspjald"
-
-#~ msgid "SCSI controller"
-#~ msgstr "SCSI stýring"
-
-#~ msgid "video adapter"
-#~ msgstr "skjákort"
-
-#~ msgid "sound card"
-#~ msgstr "hljóðkort"
-
-#~ msgid "mouse"
-#~ msgstr "mús"
-
-#~ msgid "modem"
-#~ msgstr "módald"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "geisladrif"
-
-#~ msgid "tape drive"
-#~ msgstr "segulbandsstöð"
-
-#~ msgid "floppy drive"
-#~ msgstr "disklingadrif"
-
-#~ msgid "scanner"
-#~ msgstr "skanni"
-
-#~ msgid "hard disk"
-#~ msgstr "harður diskur"
-
-#~ msgid "RAID controller"
-#~ msgstr "RAID stýring"
-
-#~ msgid "IDE controller"
-#~ msgstr "IDE stýring"
-
-#~ msgid "printer"
-#~ msgstr "prentari"
-
-#~ msgid "video capture card"
-#~ msgstr "myndskanni"
-
-#~ msgid "keyboard"
-#~ msgstr "lyklaborð"
-
-#~ msgid "monitor"
-#~ msgstr "skjár"
-
-#~ msgid "USB controller"
-#~ msgstr "USB stýring"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "IEEE1394 stýring"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "PCMCIA/Cardbus stýring"
-
-#~ msgid "%s device"
-#~ msgstr "%s tæki"

@@ -9,14 +9,14 @@ msgstr ""
 "Project-Id-Version: gu\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-02-17 09:42+0530\n"
+"PO-Revision-Date: 2005-09-23 09:49+0530\n"
 "Last-Translator: Ankit Patel <ankit@redhat.com>\n"
-"Language-Team: Gujarati <gu@li.org>\n"
+"Language-Team: Gujarati <fedora-trans-gu@redhat.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
-"Plural-Forms: Plural-Forms: Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n\n"
 "\n"
 "\n"
 
@@ -72,7 +72,7 @@ msgstr "સોકેટમાંથી ચકાસાયેલ હાર્ડ�
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "રૂપરેખાંકન કરો કે જેને વપરાશકર્તા ઈનપુટની જરૂર નથી"
 
 #: ../hwconf.c:951
 #, c-format
@@ -83,83 +83,3 @@ msgstr ""
 "\n"
 "ભૂલ - kudzu ચલાવવા માટે તમે રુટ હોવા જ જોઈએ.\n"
 
-#~ msgid "linked %s to %s"
-#~ msgstr "%s ને %s કડી થયેલ છે"
-
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "%s કડી દૂર થયેલ (કે જે %s ની કડી હતી)"
-
-#~ msgid "unlinked %s"
-#~ msgstr "%s કડી થયેલ છે"
-
-#~ msgid "ran mouseconfig for %s"
-#~ msgstr "%s માટે mouseconfig ચલાવાયેલ હતું"
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "bcm5820 સેવા ચાલુ કરાયેલ હતી"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "aep1000 સેવા ચાલુ કરાયેલ હતી"
-
-#~ msgid "network card"
-#~ msgstr "નેટવર્ક કાર્ડ"
-
-#~ msgid "SCSI controller"
-#~ msgstr "SCSI નિયંત્રક"
-
-#~ msgid "video adapter"
-#~ msgstr "વિડીયો એડેપ્ટર"
-
-#~ msgid "sound card"
-#~ msgstr "ધ્વનિ કાર્ડ"
-
-#~ msgid "mouse"
-#~ msgstr "માઉસ"
-
-#~ msgid "modem"
-#~ msgstr "મોડેમ"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "CD-ROM ડ્રાઈવ"
-
-#~ msgid "tape drive"
-#~ msgstr "ટેપ ડ્રાઈવ"
-
-#~ msgid "floppy drive"
-#~ msgstr "ફ્લોપી ડ્રાઈવ"
-
-#~ msgid "scanner"
-#~ msgstr "સ્કેનર"
-
-#~ msgid "hard disk"
-#~ msgstr "હાર્ડ ડિસ્ક"
-
-#~ msgid "RAID controller"
-#~ msgstr "RAID નિયંત્રક"
-
-#~ msgid "IDE controller"
-#~ msgstr "IDE નિયંત્રક"
-
-#~ msgid "printer"
-#~ msgstr "પ્રિન્ટર"
-
-#~ msgid "video capture card"
-#~ msgstr "વિડીયો કેપ્ચર કાર્ડ"
-
-#~ msgid "keyboard"
-#~ msgstr "કીબોર્ડ"
-
-#~ msgid "monitor"
-#~ msgstr "મોનિટર"
-
-#~ msgid "USB controller"
-#~ msgstr "USB નિયંત્રક"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "IEEE1394 નિયંત્રક"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "PCMCIA/કાર્ડબસ નિયંત્રક"
-
-#~ msgid "%s device"
-#~ msgstr "%s ઉપકરણ"

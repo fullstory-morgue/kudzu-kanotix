@@ -2,13 +2,14 @@
 # Copyright (C) 2005 Red Hat, Inc.
 # This file is distributed under the same license as the kudzu package.
 # Filip Maličević <filip@lakinetwork.com>, 2005.
+# Miloš Komarčević <kmilos@gmail.com>, 2005.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-09-20 14:38-0000\n"
+"POT-Creation-Date: 2005-11-16 11:34-0500\n"
+"PO-Revision-Date: 2005-11-19 19:20-0000\n"
 "Last-Translator: Miloš Komarčević <kmilos@gmail.com>\n"
 "Language-Team: Serbian (sr) <fedora@prevod.org>\n"
 "MIME-Version: 1.0\n"
@@ -18,58 +19,58 @@ msgstr ""
 #: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
-msgstr "покренути loadkeys %s"
+msgstr "покренут loadkeys %s"
 
-#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
+#: ../hwconf.c:535 ../hwconf.c:551 ../hwconf.c:581 ../hwconf.c:613
 #, c-format
 msgid "aliased %s as %s"
-msgstr "%s се представља као %s"
+msgstr "%s представљен као %s"
 
-#: ../hwconf.c:898
+#: ../hwconf.c:900
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "извршавај само „сигурне“ тестове који неће узнемиравати хардвер"
 
-#: ../hwconf.c:902
+#: ../hwconf.c:904
 msgid "set timeout in seconds"
 msgstr "постави време истека у секундама"
 
-#: ../hwconf.c:905
+#: ../hwconf.c:907
 msgid "probe only, print information to stdout"
 msgstr "само тестираj, штампај информације на stdout"
 
-#: ../hwconf.c:909
+#: ../hwconf.c:911
 msgid "probe only the specified 'bus'"
 msgstr "тестирај само наведену „магистралу“"
 
-#: ../hwconf.c:913
+#: ../hwconf.c:915
 msgid "probe only for the specified 'class'"
 msgstr "тестирај само наведену „класу“"
 
-#: ../hwconf.c:917
+#: ../hwconf.c:919
 msgid "read probed hardware from a file"
 msgstr "учитај тестиран хардвер из датотеке"
 
-#: ../hwconf.c:918
+#: ../hwconf.c:920
 msgid "file to read hardware info from"
 msgstr "датотека из које се учитавају информације о хардверу"
 
-#: ../hwconf.c:921
+#: ../hwconf.c:923
 msgid "search for modules for a particular kernel version"
-msgstr "претрага модула за одређену верзију језгра"
+msgstr "потражи модуле за одређену верзију језгра"
 
-#: ../hwconf.c:922
+#: ../hwconf.c:924
 msgid "kernel version"
 msgstr "верзија језгра"
 
-#: ../hwconf.c:925
+#: ../hwconf.c:927
 msgid "read probed hardware from a socket"
-msgstr "учитај тестиран хардвер са сокета"
+msgstr "учитај тестиран хардвер са прикључка"
 
-#: ../hwconf.c:929
+#: ../hwconf.c:931
 msgid "do configuration that doesn't require user input"
 msgstr "извршавај подешавања која не захтевају кориснички унос"
 
-#: ../hwconf.c:951
+#: ../hwconf.c:953
 #, c-format
 msgid ""
 "\n"
@@ -77,82 +78,3 @@ msgid ""
 msgstr ""
 "\n"
 "ГРЕШКА - Морате бити root да би покренули kudzu.\n"
-
-#~ msgid "linked %s to %s"
-#~ msgstr "повезано %s са %s"
-
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "раскинута веза %s (билa је повезанa са %s)"
-
-#~ msgid "unlinked %s"
-#~ msgstr "раскинута веза %s"
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "укључен сервис bcm5820"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "укључен сервис aep1000"
-
-#~ msgid "network card"
-#~ msgstr "мрежна картица"
-
-#~ msgid "SCSI controller"
-#~ msgstr "SCSI контролер"
-
-#~ msgid "video adapter"
-#~ msgstr "видео картица"
-
-#~ msgid "sound card"
-#~ msgstr "звучна картица"
-
-#~ msgid "mouse"
-#~ msgstr "миш"
-
-#~ msgid "modem"
-#~ msgstr "модем"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "CD-ROM уређај"
-
-#~ msgid "tape drive"
-#~ msgstr "читач магнетних трака"
-
-#~ msgid "floppy drive"
-#~ msgstr "дискетна јединица"
-
-#~ msgid "scanner"
-#~ msgstr "скенер"
-
-#~ msgid "hard disk"
-#~ msgstr "тврди диск"
-
-#~ msgid "RAID controller"
-#~ msgstr "RAID контролер"
-
-#~ msgid "IDE controller"
-#~ msgstr "IDE контролер"
-
-#~ msgid "printer"
-#~ msgstr "штампач"
-
-#, fuzzy
-#~ msgid "video capture card"
-#~ msgstr "картица за снимање видео записа"
-
-#~ msgid "keyboard"
-#~ msgstr "тастатура"
-
-#~ msgid "monitor"
-#~ msgstr "монитор"
-
-#~ msgid "USB controller"
-#~ msgstr "USB контролер"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "IEEE1394 контролер"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "PCMCIA/Cardbus контролер"
-
-#~ msgid "%s device"
-#~ msgstr "%s уређај"

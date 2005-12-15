@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: ko\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-04-05 11:22+1000\n"
+"PO-Revision-Date: 2005-09-27 10:01+1000\n"
 "Last-Translator: Michelle Ji Yeen Kim <mkim@redhat.com>\n"
 "Language-Team: Korean\n"
 "MIME-Version: 1.0\n"
@@ -67,7 +67,7 @@ msgstr "소켓에서 검색된 하드웨어 정보를 읽어들입니다"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "사용자 입력이 필요없는 설정"
 
 #: ../hwconf.c:951
 #, c-format
@@ -78,83 +78,3 @@ msgstr ""
 "\n"
 "오류 - kudzu는 root 계정으로 실행해야 합니다.\n"
 
-#~ msgid "linked %s to %s"
-#~ msgstr "%s (이)가 %s (으)로 연결되었습니다"
-
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "%s (와)과의 연결이 해제되었습니다 (%s 에 연결되어 있었음)"
-
-#~ msgid "unlinked %s"
-#~ msgstr "%s (와)과의 연결이 해제되었습니다"
-
-#~ msgid "ran mouseconfig for %s"
-#~ msgstr "%s (을)를 위해 'mouseconfig' 를 실행하였습니다"
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "bcm5820 서비스 시작함"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "aep1000 서비스 시작함"
-
-#~ msgid "network card"
-#~ msgstr "네트웍 카드"
-
-#~ msgid "SCSI controller"
-#~ msgstr "SCSI 컨트롤러"
-
-#~ msgid "video adapter"
-#~ msgstr "비디오 카드"
-
-#~ msgid "sound card"
-#~ msgstr "사운드 카드"
-
-#~ msgid "mouse"
-#~ msgstr "마우스"
-
-#~ msgid "modem"
-#~ msgstr "모뎀"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "CD-ROM 드라이브"
-
-#~ msgid "tape drive"
-#~ msgstr "테잎 드라이브"
-
-#~ msgid "floppy drive"
-#~ msgstr "플로피 드라이브"
-
-#~ msgid "scanner"
-#~ msgstr "스캐너"
-
-#~ msgid "hard disk"
-#~ msgstr "하드 드라이브"
-
-#~ msgid "RAID controller"
-#~ msgstr "RAID 컨트롤러"
-
-#~ msgid "IDE controller"
-#~ msgstr "IDE 컨트롤러"
-
-#~ msgid "printer"
-#~ msgstr "프린터"
-
-#~ msgid "video capture card"
-#~ msgstr "비디오 캡처 카드"
-
-#~ msgid "keyboard"
-#~ msgstr "키보드"
-
-#~ msgid "monitor"
-#~ msgstr "모니터"
-
-#~ msgid "USB controller"
-#~ msgstr "USB 컨트롤러"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "IEEE1394 컨트롤러"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "PCMCIA/Cardbus 컨트롤러"
-
-#~ msgid "%s device"
-#~ msgstr "%s 장치"

@@ -1,3 +1,4 @@
+# translation of bn_IN.po to Bangla (INDIA)
 # translation of bn_IN.po to Bangla
 # Bangla Translation of Kudzu.pot
 # Copyright (C) 2004 Red Hat Inc.
@@ -9,14 +10,14 @@ msgstr ""
 "Project-Id-Version: bn_IN\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-03-23 16:34+0530\n"
+"PO-Revision-Date: 2005-10-24 09:50+0530\n"
 "Last-Translator: Runa Bhattacharjee <runab@redhat.com>\n"
-"Language-Team: Bangla <redhat-translation@bengalinux.org>\n"
+"Language-Team: Bangla (INDIA) <redhat-translation@bengalinux.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
-"Plural-Forms: Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "\n"
 
 #: ../hwconf.c:126
@@ -71,7 +72,7 @@ msgstr "সনাক্ত করা হার্ডওয়্যার একট
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "ব্যবহারকারীর থেকে কোনো ধরনের ইনপুট বিনা কনফিগারেশন করা হবে"
 
 #: ../hwconf.c:951
 #, c-format
@@ -82,83 +83,3 @@ msgstr ""
 "\n"
 "ত্রুটি - Kudzu চালাতে হলে আপনাকে root পরিচয় ব্যবহার করতে হবে।\n"
 
-#~ msgid "linked %s to %s"
-#~ msgstr "%s কে %s-র সাথে সংযোগ করা হয়েছে"
-
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "%s-র সংযোগ বিচ্ছিন্ন করা হয়েছে (%s-র সাথে সংযোগ করা হয়েছিল)"
-
-#~ msgid "unlinked %s"
-#~ msgstr "%s-র সংযোগ বিচ্ছিন্ন করা হয়েছে"
-
-#~ msgid "ran mouseconfig for %s"
-#~ msgstr "%s-র জন্য mouseconfig চালানো হয়েছে"
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "bcm5820 পরিসেবা সক্রিয় করা হয়েছে"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "aep1000 পরিসেবাটি সক্রিয় করা হয়েছে"
-
-#~ msgid "network card"
-#~ msgstr "নেটওয়ার্ক কার্ড"
-
-#~ msgid "SCSI controller"
-#~ msgstr "SCSI নিয়ন্ত্রক"
-
-#~ msgid "video adapter"
-#~ msgstr "ভিডিও অ্যাডাপ্টার"
-
-#~ msgid "sound card"
-#~ msgstr "সাউন্ড কার্ড"
-
-#~ msgid "mouse"
-#~ msgstr "মাউস"
-
-#~ msgid "modem"
-#~ msgstr "মোডেম"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "CD-ROM ড্রাইভ"
-
-#~ msgid "tape drive"
-#~ msgstr "টেপ ড্রাইভ"
-
-#~ msgid "floppy drive"
-#~ msgstr "ফ্লপি ড্রাইভ"
-
-#~ msgid "scanner"
-#~ msgstr "স্ক্যানার"
-
-#~ msgid "hard disk"
-#~ msgstr "হার্ড ডিস্ক"
-
-#~ msgid "RAID controller"
-#~ msgstr "RAID নিয়ন্ত্রক"
-
-#~ msgid "IDE controller"
-#~ msgstr "IDE নিয়ন্ত্রক"
-
-#~ msgid "printer"
-#~ msgstr "প্রিন্টার"
-
-#~ msgid "video capture card"
-#~ msgstr "ভিডিও ক্যাপচার কার্ড"
-
-#~ msgid "keyboard"
-#~ msgstr "কীবোর্ড"
-
-#~ msgid "monitor"
-#~ msgstr "মনিটার"
-
-#~ msgid "USB controller"
-#~ msgstr "USB নিয়ন্ত্রক"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "IEEE 1394 নিয়ন্ত্রক"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "PCMCIA/Cardbus নিয়ন্ত্রক"
-
-#~ msgid "%s device"
-#~ msgstr "%s ডিভাইস"

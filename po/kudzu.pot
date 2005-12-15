@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-22 16:08-0400\n"
+"POT-Creation-Date: 2005-11-16 11:34-0500\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -21,56 +21,56 @@ msgstr ""
 msgid "ran loadkeys %s"
 msgstr ""
 
-#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
+#: ../hwconf.c:535 ../hwconf.c:551 ../hwconf.c:581 ../hwconf.c:613
 #, c-format
 msgid "aliased %s as %s"
 msgstr ""
 
-#: ../hwconf.c:898
+#: ../hwconf.c:900
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
 
-#: ../hwconf.c:902
+#: ../hwconf.c:904
 msgid "set timeout in seconds"
 msgstr ""
 
-#: ../hwconf.c:905
+#: ../hwconf.c:907
 msgid "probe only, print information to stdout"
 msgstr ""
 
-#: ../hwconf.c:909
+#: ../hwconf.c:911
 msgid "probe only the specified 'bus'"
 msgstr ""
 
-#: ../hwconf.c:913
+#: ../hwconf.c:915
 msgid "probe only for the specified 'class'"
 msgstr ""
 
-#: ../hwconf.c:917
+#: ../hwconf.c:919
 msgid "read probed hardware from a file"
 msgstr ""
 
-#: ../hwconf.c:918
+#: ../hwconf.c:920
 msgid "file to read hardware info from"
 msgstr ""
 
-#: ../hwconf.c:921
+#: ../hwconf.c:923
 msgid "search for modules for a particular kernel version"
 msgstr ""
 
-#: ../hwconf.c:922
+#: ../hwconf.c:924
 msgid "kernel version"
 msgstr ""
 
-#: ../hwconf.c:925
+#: ../hwconf.c:927
 msgid "read probed hardware from a socket"
 msgstr ""
 
-#: ../hwconf.c:929
+#: ../hwconf.c:931
 msgid "do configuration that doesn't require user input"
 msgstr ""
 
-#: ../hwconf.c:951
+#: ../hwconf.c:953
 #, c-format
 msgid ""
 "\n"

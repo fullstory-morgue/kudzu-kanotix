@@ -61,6 +61,27 @@ struct device *vioProbe(enum deviceClass probeClass, int probeFlags,
     int fd;
 
     if (probeClass & CLASS_HD) {
+      if (!access("/proc/device-tree/mambo", R_OK)) {
+	DIR * dir;
+	struct dirent * ent;
+	int ctlNum;
+
+	dir = opendir("/proc/device-tree/mambo");
+	while ((ent = readdir(dir))) {
+	    if (strncmp("bogus-disc@", ent->d_name, 11))
+		continue;
+	    ctlNum = atoi(ent->d_name + 11);
+	    viodev = vioNewDevice(NULL);
+	    viodev->device = malloc(20);
+	    snprintf(viodev->device, 19, "mambobd%d", ctlNum);
+	    viodev->desc = strdup("IBM Mambo virtual disk");
+	    viodev->type = CLASS_HD;
+	    viodev->driver = strdup("mambo_bd");
+	    if (devlist)
+	      viodev->next = devlist;
+	    devlist = (struct device *) viodev;
+	}
+      }
       if (!access("/sys/bus/vio/drivers/viodasd", R_OK)) {
 	DIR * dir;
 	struct dirent * ent;
@@ -187,6 +208,17 @@ dasddone:
 	      viodev->next = devlist;
 	    devlist = (struct device *) viodev;
 	}
+      }
+      if (!access("/proc/device-tree/mambo/bogus-net@0", R_OK)) {
+
+	viodev = vioNewDevice(NULL);
+	viodev->device = strdup("eth");
+	viodev->desc = strdup("Mambo Virtual Ethernet");
+	viodev->type = CLASS_NETWORK;
+	viodev->driver = strdup("mambonet");
+	if (devlist)
+	  viodev->next = devlist;
+	devlist = (struct device *) viodev;
       }
     } 
 

@@ -10,8 +10,8 @@ msgstr ""
 "Project-Id-Version: et\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-02-05 17:07+0200\n"
-"Last-Translator: Allan Sims <allsi@eau.ee>\n"
+"PO-Revision-Date: 2005-09-28 15:13+0200\n"
+"Last-Translator: Allan Sims <allan.sims@eau.ee>\n"
 "Language-Team: Estonian <Eesti>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,7 +23,10 @@ msgstr ""
 msgid "ran loadkeys %s"
 msgstr "käivitus laadevõtmed %s"
 
-#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
+#: ../hwconf.c:533
+#: ../hwconf.c:549
+#: ../hwconf.c:579
+#: ../hwconf.c:611
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s samastatud kui %s"
@@ -65,13 +68,12 @@ msgid "kernel version"
 msgstr "tuuma versioon"
 
 #: ../hwconf.c:925
-#, fuzzy
 msgid "read probed hardware from a socket"
-msgstr "loe järele proovitud riistvara failist"
+msgstr "järele proovitud riistvara loe pesast"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "seadista selliselt, et poleks vaja kasutaja määranguid"
 
 #: ../hwconf.c:951
 #, c-format
@@ -84,81 +86,56 @@ msgstr ""
 
 #~ msgid "linked %s to %s"
 #~ msgstr "%s ühendatud %s-i"
-
 #~ msgid "unlinked %s (was linked to %s)"
 #~ msgstr "%s ühendamata (oli ühendatud %s-i)"
-
 #~ msgid "unlinked %s"
 #~ msgstr "ühendamata %s"
-
 #~ msgid "ran mouseconfig for %s"
 #~ msgstr "mouseconfig käivitatakse %s jaoks"
-
 #~ msgid "turned on bcm5820 service"
 #~ msgstr "teenus bcm5820 käivitatud"
-
 #~ msgid "turned on aep1000 service"
 #~ msgstr "teenus aep1000 käivitatud"
-
 #~ msgid "network card"
 #~ msgstr "võrgukaart"
-
 #~ msgid "SCSI controller"
 #~ msgstr "SCSI regulaator"
-
 #~ msgid "video adapter"
 #~ msgstr "videoadapter"
-
 #~ msgid "sound card"
 #~ msgstr "helikaart"
-
 #~ msgid "mouse"
 #~ msgstr "hiir"
-
 #~ msgid "modem"
 #~ msgstr "modem"
-
 #~ msgid "CD-ROM drive"
 #~ msgstr "CD-ROM seade"
-
 #~ msgid "tape drive"
 #~ msgstr "lintseade"
-
 #~ msgid "floppy drive"
 #~ msgstr "flopiseade"
-
 #~ msgid "scanner"
 #~ msgstr "skanner"
-
 #~ msgid "hard disk"
 #~ msgstr "kõvaketas"
-
 #~ msgid "RAID controller"
 #~ msgstr "RAID regulaator"
-
 #~ msgid "IDE controller"
 #~ msgstr "IDE regulaator"
-
 #~ msgid "printer"
 #~ msgstr "printer"
-
 #~ msgid "video capture card"
 #~ msgstr "videohõivekaart"
-
 #~ msgid "keyboard"
 #~ msgstr "klaviatuur"
-
 #~ msgid "monitor"
 #~ msgstr "monitor"
-
 #~ msgid "USB controller"
 #~ msgstr "USB regulaator"
-
 #~ msgid "IEEE1394 controller"
 #~ msgstr "IEEE1394 regulaator"
-
 #~ msgid "PCMCIA/Cardbus controller"
 #~ msgstr "PCMCIA/kaardisiin regulaator"
-
 #~ msgid "%s device"
 #~ msgstr "%s seade"
+

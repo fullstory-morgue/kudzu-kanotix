@@ -6,11 +6,11 @@ Build-Depends: debhelper (>> 4.0.0), pciutils-dev, python2.4-dev, libpopt-dev, g
 Standards-Version: 3.6.2
 
 Package: kudzu-kanotix
-Provides: kudzu, kudzu-knoppix
+Provides: kudzu
 Architecture: any
 Depends: ${shlibs:Depends}, hwdata, python
-Replaces: kudzu, kudzu-knoppix
-Conflicts: kudzu, kudzu-knoppix
+Replaces: kudzu
+Conflicts: kudzu
 Description: The Red Hat Linux hardware probing tool
  This is a hardware probing tool run at system boot time to determine
  what hardware has been added or removed from the system.
@@ -18,11 +18,11 @@ Description: The Red Hat Linux hardware probing tool
  http://rhlinux.redhat.com/kudzu/
 
 Package: kudzu-kanotix-vesa
-Provides: kudzu-vesa, kudzu-knoppix-vesa
+Provides: kudzu-vesa
 Architecture: any
 Depends: ${shlibs:Depends}, hwdata-kanotix, python
-Replaces: kudzu-vesa, kudzu-knoppix-vesa
-Conflicts: kudzu-vesa, kudzu-knoppix-vesa
+Replaces: kudzu-vesa
+Conflicts: kudzu-vesa
 Description: Hardware detecting library
  This is the hardware autodetection & configuration tool, originally
  introduced in Red Hat Linux 6.1. It detects changes in the system's
@@ -32,12 +32,12 @@ Description: Hardware detecting library
  This package contains VBE/DDC stuff.
 
 Package: kudzu-kanotix-dev
-Provides: kudzu-dev, kudzu-knoppix-dev
+Provides: kudzu-dev
 Section: devel
 Architecture: any
 Depends: ${shlibs:Depends}, hwdata-kanotix, kudzu
-Replaces: kudzu-dev, kudzu-knoppix-dev
-Conflicts: kudzu-dev, kudzu-knoppix-dev
+Replaces: kudzu-dev
+Conflicts: kudzu-dev
 Description: Hardware detecting library
  This is the hardware autodetection & configuration tool, originally
  introduced in Red Hat Linux 6.1. It detects changes in the system's

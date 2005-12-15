@@ -1,12 +1,45 @@
-kudzu-kanotix (1.2.9-2) UNRELEASED; urgency=low
+kudzu-kanotix (1.2.16-1) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * new upstream release:
+    - revert LRMI changes (#175677)
+    - use ACPI EDID info if available
+    - add support for mambo virtual devices (#173307, <dwmw2@redhat.com>)
+    - integrate patch, bump version
+    - Hopefully fix ddcprobe to work with > 2.6.14 kernels.
+    - allow multiple files for video aliases under /usr/share/hwdata/videoaliases
+    - fix xen driver names
+    - add some basic xen device probing
+  * remove virtual knoppix packages.
+  * bump compat level to 5.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat,  8 Oct 2005 17:37:16 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Thu, 15 Dec 2005 11:52:37 +0100
 
 kudzu-kanotix (1.2.9-1) unstable; urgency=low
 
-  * new upstream version.
+  * new upstream version:
+    - move kudzu to /sbin (since we no longer use newt (#74736))
+    - don't congfigure usb/firewire controllers, modems, scanners
+       in kudzu program (as such configurations aren't used)
+    - fix crash in sortNetDevices (#169003)
+    - fix fbProbe to work with X drivers, not card entries
+    - fix crash in matchNetDevices (#168689)
+    - fix module_upgrade
+    - remove obsolete updfstab code
+    - ABI change: drivers are no longer set to unknown/ignore/disabled;
+      they are just left as NULL
+    - remove support for loading modules; it's not used by any library
+      consumers
+    - remove support for system-config-mouse, as it's no longer shipped
+    - read hwaddrs for network devices from sysfs, not ethtool (and
+      conflict with older kernels that don't support that)
+    - port pcmcia probe to new model
+    - fix usb device list double-free
+    - fix passing of filenames to (pci|usb)ReadDrivers()
+    - switch pci, usb probing to use modules.alias
+    - switch usb probe to use sysfs
+    - remove pcitable support
+    - X drivers are now the video.xdriver field of CLASS_VIDEO
+      (framebuffer drivers will be returned if they match)
 
  -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sun,  2 Oct 2005 16:26:09 +0200
 

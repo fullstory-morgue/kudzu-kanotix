@@ -1,8 +1,9 @@
-kudzu-kanotix (1.2.30-3) UNRELEASED; urgency=low
+kudzu-kanotix (1.2.30-3) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * fix dependencies.
+  * ensure that kudzu-vesa is removed.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Feb 2006 23:55:13 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 18 Feb 2006 00:05:55 +0100
 
 kudzu-kanotix (1.2.30-2) unstable; urgency=low
 

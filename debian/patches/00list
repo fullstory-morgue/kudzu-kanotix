@@ -1,4 +1,3 @@
 build_fix.dpatch
 fix_freeze.dpatch
 make_man.dpatch
-makefile.dpatch

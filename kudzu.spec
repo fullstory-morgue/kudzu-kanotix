@@ -1,5 +1,5 @@
 Name: kudzu
-Version: 1.2.16
+Version: 1.2.30
 Release: 1
 License: GPL
 Summary: The Red Hat Linux hardware probing tool.
@@ -79,6 +79,57 @@ fi
 %{_includedir}/kudzu
 
 %changelog
+* Wed Feb 15 2006 Bill Nottingham <notting@redhat.com> - 1.2.30-1
+- revert changes for video probing classes - some correct devices are
+  0380
+
+* Tue Feb 14 2006 Bill Nottingham <notting@redhat.com> - 1.2.29-1
+- silence!
+
+* Mon Feb 13 2006 Bill Nottingham <notting@redhat.com> - 1.2.28-1
+- vbe/edid probing on x86_64 via x86emu - thanks to Matthew Garrett
+  & Tollef Fog Heen
+
+* Mon Feb 13 2006 Bill Nottingham <notting@redhat.com> - 1.2.27-1
+- restrict video devices to PCI class 0300, correctly (should solve #176978)
+
+* Mon Feb 13 2006 Bill Nottingham <notting@redhat.com> - 1.2.26-1
+- restrict video devices to PCI class 0300 (should solve #176978)
+- translation updates
+
+* Tue Feb  7 2006 Bill Nottingham <notting@redhat.com> - 1.2.25-1
+- in installer environment, sg isn't loaded, so there are deviceless
+  scsi devs (#180378)
+
+* Mon Jan 30 2006 Bill Nottingham <notting@redhat.com> - 1.2.24-1
+- fix xenblk/i2o sysfs probing
+
+* Wed Jan 25 2006 Jeremy Katz <katzj@redhat.com> - 1.2.23-1
+- fix nvidia segfault
+
+* Wed Jan 25 2006 Jeremy Katz <katzj@redhat.com> - 1.2.22-1
+- fix xen device probing when modules aren't loaded
+
+* Tue Jan 24 2006 Bill Nottingham <notting@redhat.com> - 1.2.21-1
+- more forcedeth shenaningans (#178557)
+
+* Mon Jan 23 2006 Bill Nottingham <notting@redhat.com> - 1.2.20-1
+- switch scsi probe over to sysfs
+
+* Fri Jan 20 2006 Bill Nottingham <notting@redhat.com>
+- fix potential segfault in DDC probing code
+
+* Mon Jan 16 2006 Bill Nottingham <notting@redhat.com> - 1.2.19-1
+- don't configure (or unconfigure) storage adapters (#177740)
+
+* Tue Jan 10 2006 Bill Nottingham <notting@redhat.com> - 1.2.18-1
+- add missing fchdir in pcmcia code
+- fix segfault if pcmcia network devices are found before their drivers
+  are loaded (#174341)
+
+* Sun Jan  1 2006 Bill Nottingham <notting@redhat.com> - 1.2.17-1
+- handle pcilib string returns (#176490, #176724)
+
 * Wed Dec 14 2005 Bill Nottingham <notting@redhat.com> - 1.2.16-1
 - revert LRMI changes (#175677)
 

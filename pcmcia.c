@@ -146,7 +146,7 @@ struct device * pcmciaProbe(enum deviceClass probeClass, int probeFlags, struct 
 	    (probeClass & CLASS_MODEM)) {
 		
 		if (!getAliases(aliases, "pcmcia")) {
-			pciReadDrivers(NULL);
+			pcmciaReadDrivers(NULL);
 			init_list = 1;
 		}
 		
@@ -179,10 +179,13 @@ struct device * pcmciaProbe(enum deviceClass probeClass, int probeFlags, struct 
 			dev->desc = readId();
 			tmp = __readString("modalias");
 			d = opendir(path);
+			if (dev->type == CLASS_NETWORK)
+				dev->device = strdup("eth");
 			while ((ent = readdir(d))) {
 				if (!strncmp(ent->d_name,"net:",4)) {
 					char *t;
 
+					dev->type = CLASS_NETWORK;
 					asprintf(&t,"./%s",ent->d_name);
 					__getNetworkDevAndAddr((struct device *)dev,t);
 					free(t);
@@ -199,7 +202,8 @@ struct device * pcmciaProbe(enum deviceClass probeClass, int probeFlags, struct 
 				devlist = (struct device *)dev;
 			}
 		}
-		
+		fchdir(cwd);
+		close(cwd);
 	}
 out:
 	if (init_list)

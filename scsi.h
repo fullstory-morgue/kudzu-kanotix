@@ -35,7 +35,6 @@ struct scsiDevice {
     unsigned int channel;
     unsigned int id;
     unsigned int lun;
-    char * generic;		/* SCSI generic device */
 };
 
 struct scsiDevice *scsiNewDevice(struct scsiDevice *dev);

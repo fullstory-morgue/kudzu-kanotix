@@ -467,8 +467,6 @@ struct device *readDevice(FILE *file) {
 			  ((struct scsiDevice *)retdev)->id = atoi(linebuf+4);
 			if (!strncmp(linebuf,"lun:",3))
 			  ((struct scsiDevice *)retdev)->lun = atoi(linebuf+4);
-		        if (!strncmp(linebuf,"generic:",8))
-			  ((struct scsiDevice *)retdev)->generic = strdup(linebuf+9);
 			break;
 		 case BUS_IDE:
 			if (!strncmp(linebuf,"physical:",9))

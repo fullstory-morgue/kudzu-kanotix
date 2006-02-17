@@ -96,7 +96,7 @@ struct ddcDevice *ddcNewDevice(struct ddcDevice *old)
 	return ret;
 }
 
-#if defined(__i386__) || defined(__powerpc__)
+#if defined(__i386__) || defined(__powerpc__) || defined(__x86_64__)
 
 #include "ddcprobe/vbe.h"
 
@@ -322,10 +322,10 @@ static struct ddcDevice *parseEDID(struct edid1_info *edid_info)
 		    ((xres != 0) && (xres != 1)) ||
 		    ((vfreq != 0) && (vfreq != 1))) {
 			switch(edid_info->standard_timing[x].aspect) {
-			case 0: aspect = 1; break; /*undefined*/
+			case 0: aspect = 0.625; break;
 			case 1: aspect = 0.750; break;
 			case 2: aspect = 0.800; break;
-			case 3: aspect = 0.625; break;
+			case 3: aspect = 0.5625; break;
 			}
 			ret->modes = realloc(ret->modes,(pos+3)*sizeof(int));
 			ret->modes[pos] = (xres+31) * 8;
@@ -334,6 +334,7 @@ static struct ddcDevice *parseEDID(struct edid1_info *edid_info)
 			pos += 2;
 		}
 	}
+	if (!ret->desc) ret->desc = strdup(ret->id);
 	ret->type = CLASS_MONITOR;
 	return ret;
 }

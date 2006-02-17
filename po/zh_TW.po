@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: zh_TW\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-11-16 11:34-0500\n"
+"POT-Creation-Date: 2006-01-22 18:34-0500\n"
 "PO-Revision-Date: 2005-03-03 09:38-0800\n"
 "Last-Translator: Ben Wu <hpwu@redhat.com>\n"
 "Language-Team: Traditional Chinese <fedora-trans-zh_tw@redhat.com>\n"
@@ -21,56 +21,56 @@ msgstr ""
 msgid "ran loadkeys %s"
 msgstr "執行載入鍵 %s"
 
-#: ../hwconf.c:535 ../hwconf.c:551 ../hwconf.c:581 ../hwconf.c:613
+#: ../hwconf.c:532 ../hwconf.c:548 ../hwconf.c:581
 #, c-format
 msgid "aliased %s as %s"
 msgstr "設 %s 的別名為 %s"
 
-#: ../hwconf.c:900
+#: ../hwconf.c:828
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "只做 '安全的' 偵測，不會擾亂硬體"
 
-#: ../hwconf.c:904
+#: ../hwconf.c:832
 msgid "set timeout in seconds"
 msgstr "以秒設定逾時時間"
 
-#: ../hwconf.c:907
+#: ../hwconf.c:835
 msgid "probe only, print information to stdout"
 msgstr "只做偵測，印出相關訊息到 stdout"
 
-#: ../hwconf.c:911
+#: ../hwconf.c:839
 msgid "probe only the specified 'bus'"
 msgstr "只偵測指定的 '匯流排'"
 
-#: ../hwconf.c:915
+#: ../hwconf.c:843
 msgid "probe only for the specified 'class'"
 msgstr "只偵測指定的 '類別'"
 
-#: ../hwconf.c:919
+#: ../hwconf.c:847
 msgid "read probed hardware from a file"
 msgstr "從檔案讀取偵測到的硬體"
 
-#: ../hwconf.c:920
+#: ../hwconf.c:848
 msgid "file to read hardware info from"
 msgstr "用來讀取硬體資料的檔案"
 
-#: ../hwconf.c:923
+#: ../hwconf.c:851
 msgid "search for modules for a particular kernel version"
 msgstr "搜尋用於特定核心版本的模組"
 
-#: ../hwconf.c:924
+#: ../hwconf.c:852
 msgid "kernel version"
 msgstr "核心版本"
 
-#: ../hwconf.c:927
+#: ../hwconf.c:855
 msgid "read probed hardware from a socket"
 msgstr "從某個 socket 讀取偵測到的硬體"
 
-#: ../hwconf.c:931
+#: ../hwconf.c:859
 msgid "do configuration that doesn't require user input"
 msgstr "執行不需要使用者輸入的組態設定"
 
-#: ../hwconf.c:953
+#: ../hwconf.c:881
 #, c-format
 msgid ""
 "\n"

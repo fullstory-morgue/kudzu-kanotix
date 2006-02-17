@@ -3,60 +3,38 @@ ARCH := $(patsubst sparc%,sparc,$(ARCH))
 ARCH := $(patsubst ppc%,ppc,$(ARCH))
 
 CC = gcc
-CFLAGS = -Wall -O2 -g# -DDEBUG
-TARGETS = ddcprobe ddcxinfo 
-DDC_OBJS = vesamode.o common.o
-DDC_LIBS =
+AR = ar
+RANLIB = ranlib
+CFLAGS = -Wall -O2 -g -fpic# -DDEBUG
+DDC_OBJS = 
+X86EMU =
 
 ifeq ($(ARCH),i386)
-TARGETS += svgamodes modetest libvbe.a
-DDC_OBJS += lrmi.o vbe.o
+DDC_OBJS = vesamode.o common.o lrmi.o vbe.o x86-common.o
+endif
+
+ifeq ($(ARCH),x86_64)
+CFLAGS += -Ix86emu -Ix86emu/x86emu
+DDC_OBJS = vesamode.o common.o thunk.o vbe.o x86-common.o x86emu/debug.o x86emu/decode.o x86emu/fpu.o x86emu/ops2.o x86emu/ops.o x86emu/prim_ops.o x86emu/sys.o
+X86EMU=x86emu/libx86emu.a
 endif
 
 ifeq ($(ARCH),ppc)
-DDC_OBJS += of.o ../minifind.o
+DDC_OBJS = vesamode.o common.o of.o ../minifind.o
 endif
 
-ifeq (.depend,$(wildcard .depend))
-TARGET=all
-else
-TARGET=depend all
-endif
+all: libvbe.a $(X86EMU)
 
-everything: $(TARGET)
+%.o: %.c %.h
+	$(CC) -c $(CFLAGS) -fpic -o $@ $<
 
-all: $(TARGETS)
+libvbe.a: $(X86EMU) $(DDC_OBJS)
+	$(AR) cru $@ $(DDC_OBJS)
+	$(RANLIB) $@
 
-install: $(TARGETS)
-	cp -a ddcprobe $(DESTDIR)/usr/sbin/ddcprobe
-
- 
-# i386 and ppc targets
-ddcprobe: $(DDC_OBJS) ddcprobe.o
-	$(CC) $(CFLAGS) -o ddcprobe $(DDC_OBJS) ddcprobe.o $(DDC_LIBS)
-ddcxinfo: $(DDC_OBJS) ddcxinfo.o
-	$(CC) $(CFLAGS) -o ddcxinfo $(DDC_OBJS) ddcxinfo.o $(DDC_LIBS)
-
-# i386 only targets
-svgamodes: lrmi.o vesamode.o vbe.o svgamodes.o
-modetest: lrmi.o vesamode.o vbe.o modetest.o
-libvbe.a: lrmi.o vesamode.o vbe.o
-	$(AR) cru $@ $^
-
-install-lib: $(prefix)/include/vbe.h $(prefix)/lib/libvbe.a
-
-$(prefix)/include/vbe.h:
-	install -m 644 vbe.h $(prefix)/include/vbe.h
-
-$(prefix)/lib/libvbe.a:
-	install -m 644 libvbe.a $(prefix)/lib/libvbe.a
+x86emu/libx86emu.a:
+	( cd x86emu ; make CFLAGS="-fpic $(RPM_OPT_FLAGS)" )
 
 clean:
-	$(RM) $(TARGETS) *.o .depend core
-
-depend:
-	$(CPP) -M $(CFLAGS) *.c > .depend
-
-ifeq (.depend,$(wildcard .depend))
-include .depend
-endif                                           
+	$(RM) *.o *.a .depend core
+	( cd x86emu ; make clean )

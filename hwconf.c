@@ -422,9 +422,6 @@ int isConfigurable(struct device *dev) {
 		return 1;
 	switch (dev->type) {
 	 case CLASS_NETWORK:
-	 case CLASS_SCSI:
-	 case CLASS_IDE:
-	 case CLASS_RAID:
 	 case CLASS_KEYBOARD:
 	 case CLASS_AUDIO:
 		return 1;
@@ -554,35 +551,6 @@ int configure(struct device *dev)
 		}
 		freeConfModules(cf);
 		break;
-	 case CLASS_RAID:
-	 case CLASS_IDE:
-	 case CLASS_SCSI:
-		if (!dev->driver) break;
-		cf = readConfModules(_module_file);
-		if (!cf)
-		  cf = newConfModules();
-		cf->madebackup = madebak;
-		if (isAliased(cf,"scsi_hostadapter",dev->driver)==-1) {
-			index=0;
-			while (1) {
-				if (index)
-				  snprintf(path,256,"scsi_hostadapter%d",index);
-				else
-				  snprintf(path,256,"scsi_hostadapter");
-				if (getAlias(cf,path)) 
-				  index++;
-				else
-				  break;
-			}
-			addAlias(cf,path,dev->driver,CM_REPLACE);
-			writeConfModules(cf,_module_file);
-			madebak = cf->madebackup;
-			openlog("kudzu",0,LOG_USER);
-			syslog(LOG_NOTICE,_("aliased %s as %s"),path,dev->driver);
-			closelog();
-		}
-		freeConfModules(cf);
-		break;
 	 case CLASS_VIDEO:
 		if (!dev->driver) break;
 		configuredX = Xconfig(dev);
@@ -665,43 +633,6 @@ int unconfigure(struct device *dev)
 		needed = 0;
 		if (!isAliased(cf, dev->device, dev->driver)) {
 			removeAlias(cf,dev->device,CM_REPLACE);
-		}
-		writeConfModules(cf,_module_file);
-		madebak = cf->madebackup;
-		freeConfModules(cf);
-		break;
-	 case CLASS_RAID:
-	 case CLASS_IDE:
-	 case CLASS_SCSI:
-		if (!dev->driver) break;
-		cf = readConfModules(_module_file);
-		if (!cf)
-		  cf = newConfModules();
-		cf->madebackup = madebak;
-		index = 0;
-		while (1) {
-			if (index) 
-			  snprintf(path,256,"scsi_hostadapter%d",index);
-			else
-			  snprintf(path,256,"scsi_hostadapter");
-			tmpalias=getAlias(cf,path);
-			if (tmpalias && !strcmp(tmpalias,dev->driver)) {
-				int x;
-				
-				needed = 0;
-				
-				for (x=0;currentDevs[x];x++) { 
-					if (currentDevs[x]->driver &&
-					    !strcmp(currentDevs[x]->driver,dev->driver)) {
-						needed = 1;
-						break;
-					}
-				}
-				if (!needed)
-				  removeAlias(cf,path,CM_REPLACE);
-			} else if (!tmpalias)
-			  break;
-			index++;
 		}
 		writeConfModules(cf,_module_file);
 		madebak = cf->madebackup;
@@ -811,9 +742,6 @@ void configMenu(struct device *oldDevs, struct device *newDevs, int runFirst)
 		  if (!runFirst || !isConfigured(dev)) {
 			  switch (dev->type) {
 			   case CLASS_NETWORK:
-			   case CLASS_SCSI:
-			   case CLASS_IDE:
-			   case CLASS_RAID:
 			   case CLASS_AUDIO:
 				  if (isAvailable(dev->driver))
 				    continue;

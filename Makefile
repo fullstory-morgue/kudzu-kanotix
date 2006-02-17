@@ -23,15 +23,8 @@ CFLAGS += -I. -DVERSION=\"$(VERSION)\"
 
 ARCH := $(patsubst ppc64,ppc,$(patsubst sparc64,sparc,$(patsubst i%86,i386,$(shell uname -m))))
 
-VBELIBS=
 VBEOBJS=
-ifeq (i386,$(ARCH))
 VBELIBS=vbe
-VBEOBJS=./ddcprobe/lrmi.o ./ddcprobe/vesamode.o ./ddcprobe/vbe.o ./ddcprobe/common.o
-endif
-ifeq (ppc,$(ARCH))
-VBEOBJS=./ddcprobe/vesamode.o ./ddcprobe/vbe.o ./ddcprobe/of.o ./ddcprobe/common.o minifind.o
-endif
 
 all: $(VBELIBS) libkudzu.a libkudzu_loader.a _kudzumodule.so kudzu module_upgrade
 
@@ -61,7 +54,7 @@ LOADEROBJS = $(LOADEROBJ)
 	$(CC) -c $(CFLAGS) -fpic -o $@ $<
 
 vbe:
-	( cd ddcprobe ; make libvbe.a CFLAGS="-fpic $(RPM_OPT_FLAGS)" )
+	( cd ddcprobe ; make libvbe.a CC="gcc -fpic $(RPM_OPT_FLAGS)" )
 
 kudzu_loader.o: kudzu.c
 	$(CC) -c $(CFLAGS) -D__LOADER__ -o $@ $<
@@ -70,9 +63,14 @@ libkudzu_loader.a: $(LOADEROBJS)
 	$(AR) cr libkudzu_loader.a $(LOADEROBJS)
 	$(RANLIB) libkudzu_loader.a
 
-libkudzu.a: $(OBJS) $(VBEOBJS)
+
+VBEOBJS=$(shell $(AR) t ddcprobe/libvbe.a) 
+
+libkudzu.a: $(OBJS) $(VBELIBS)
+	[ -n "$(VBEOBJS)" ] && $(AR) x ddcprobe/libvbe.a
 	$(AR) cr libkudzu.a $(OBJS) $(VBEOBJS)
-	$(RANLIB) libkudzu.a
+	$(RANLIB) libkudzu.a ;\
+	[ -n "$(VBEOBJS)" ] && rm -f $(VBEOBJS)
 
 kudzu: libkudzu.a $(KUDOBJS) po
 	$(CC) $(CFLAGS) $(LDFLAGS) $(KUDOBJS) -o kudzu -L. -lkudzu -L. -lpci -Wl,-Bstatic -lpopt -Wl,-Bdynamic

@@ -7,70 +7,72 @@ msgid ""
 msgstr ""
 "Project-Id-Version: hi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-03-28 19:04+0530\n"
+"POT-Creation-Date: 2006-01-22 18:34-0500\n"
+"PO-Revision-Date: 2005-12-26 12:00+0530\n"
 "Last-Translator: Rajesh Ranjan <rranjan@redhat.com>\n"
 "Language-Team: Hindi <fedora-trans-hi@redhat.com>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: KBabel 1.9.1\n"
+"Plural-Forms: nplurals=2; plural=(n!=1);\n"
+"\n"
 
 #: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
 msgstr "%s भारणकुंजियों को चलाया"
 
-#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
+#: ../hwconf.c:532 ../hwconf.c:548 ../hwconf.c:581
 #, c-format
 msgid "aliased %s as %s"
 msgstr "%s को %s के रूप में उपनामित किया गया "
 
-#: ../hwconf.c:898
+#: ../hwconf.c:828
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr "सिर्फ वो 'सुरक्षित' खोज करें जो हार्डवेयर को न छेड़े"
 
-#: ../hwconf.c:902
+#: ../hwconf.c:832
 msgid "set timeout in seconds"
 msgstr "समय-समाप्ति को सेकण्ड में जमाएँ"
 
-#: ../hwconf.c:905
+#: ../hwconf.c:835
 msgid "probe only, print information to stdout"
 msgstr "सिर्फ खोजें, stdout को जानकारी मुद्रित करें"
 
-#: ../hwconf.c:909
+#: ../hwconf.c:839
 msgid "probe only the specified 'bus'"
 msgstr "सिर्फ विशिष्ट 'बस' खोजें"
 
-#: ../hwconf.c:913
+#: ../hwconf.c:843
 msgid "probe only for the specified 'class'"
 msgstr "सिर्फ विशिष्ट 'क्लास' के लिए खोजें"
 
-#: ../hwconf.c:917
+#: ../hwconf.c:847
 msgid "read probed hardware from a file"
 msgstr "फाइल से खोजी हुई हार्डवेयर जांचें"
 
-#: ../hwconf.c:918
+#: ../hwconf.c:848
 msgid "file to read hardware info from"
 msgstr "हार्डवेयर की जानकारी पढने के लिए फाइल"
 
-#: ../hwconf.c:921
+#: ../hwconf.c:851
 msgid "search for modules for a particular kernel version"
 msgstr "एक प्रत्येक कर्नल संस्करण के लिए मोड्यूल को जाँचें"
 
-#: ../hwconf.c:922
+#: ../hwconf.c:852
 msgid "kernel version"
 msgstr "कर्नल संस्करण"
 
-#: ../hwconf.c:925
+#: ../hwconf.c:855
 msgid "read probed hardware from a socket"
 msgstr "सॉकेट से जांचा गया हार्डवेयर पढ़ा"
 
-#: ../hwconf.c:929
+#: ../hwconf.c:859
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "वैसा विन्यास करें जिसके लिये उपयोक्ता इनपुट की जरूरत नहीं है"
 
-#: ../hwconf.c:951
+#: ../hwconf.c:881
 #, c-format
 msgid ""
 "\n"
@@ -78,84 +80,3 @@ msgid ""
 msgstr ""
 "\n"
 "दोष - कुडज़ू को सिर्फ रूट होकर ही आप चला सकते हैं. \n"
-
-#~ msgid "linked %s to %s"
-#~ msgstr "%s को %s से लिंक किया गया"
-
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "%s विश्रृंखलित किया गया(%s से श्रृंखलित था)"
-
-#~ msgid "unlinked %s"
-#~ msgstr "%s विश्रृंखलित किया गया"
-
-#~ msgid "ran mouseconfig for %s"
-#~ msgstr " %s के लिए mouseconfig चलाया"
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "bcm5820 सेवा चालू की"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "aep1000 सेवा चालू की"
-
-#~ msgid "network card"
-#~ msgstr "संजाल कार्ड"
-
-#~ msgid "SCSI controller"
-#~ msgstr "SCSI नियंत्रक"
-
-#~ msgid "video adapter"
-#~ msgstr "विडियो एडाप्टर"
-
-#~ msgid "sound card"
-#~ msgstr "ध्वनी कार्ड"
-
-#~ msgid "mouse"
-#~ msgstr "माउस"
-
-#~ msgid "modem"
-#~ msgstr "मोडेम"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "CD-ROM चालक"
-
-#~ msgid "tape drive"
-#~ msgstr "टेप चालक"
-
-#~ msgid "floppy drive"
-#~ msgstr "फ्लोपी चालक"
-
-#~ msgid "scanner"
-#~ msgstr "स्कैनर"
-
-#~ msgid "hard disk"
-#~ msgstr "हार्ड डिस्क"
-
-#~ msgid "RAID controller"
-#~ msgstr "RAID नियंत्रक"
-
-#~ msgid "IDE controller"
-#~ msgstr "IDE नियंत्रक"
-
-#~ msgid "printer"
-#~ msgstr "मुद्रक"
-
-#~ msgid "video capture card"
-#~ msgstr "विडियो कैप्चर कार्ड"
-
-#~ msgid "keyboard"
-#~ msgstr "कुंजीपटल"
-
-#~ msgid "monitor"
-#~ msgstr "मॉनिटर"
-
-#~ msgid "USB controller"
-#~ msgstr "USB नियंत्रक"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "IEEE1394 नियंत्रक"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "PCMCIA/Cardbus नियंत्रक"
-
-#~ msgid "%s device"
-#~ msgstr "%s युक्ति"

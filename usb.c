@@ -50,8 +50,6 @@ static void usbWriteDevice(FILE * file, struct usbDevice *dev)
 
 static int usbCompareDevice(struct usbDevice *dev1, struct usbDevice *dev2)
 {
-	int x;
-
 	if (!dev1 || !dev2)
 		return 1;
 	return compareDevice((struct device *) dev1, (struct device *) dev2);

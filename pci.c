@@ -472,18 +472,30 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 		}
 		/* nForce4 boards show up with their ethernet controller
 		 * as a bridge; hack it */
-		if (dev->vendorId == 0x10de && dev->deviceId == 0x0057)
+		if (dev->vendorId == 0x10de && (dev->driver != NULL) 
+                    && !strcmp(dev->driver,"forcedeth")
+		    && devtype == PCI_CLASS_BRIDGE_OTHER)
 			    devtype = PCI_CLASS_NETWORK_ETHERNET;
 		dev->pcidom = p->domain;
 		dev->pcibus = p->bus;
 		dev->pcidev = p->dev;
 		dev->pcifn = p->func;
-		if (dev->desc) free(dev->desc);
-		dev->desc = malloc(128);
-		dev->desc = pci_lookup_name(pacc, dev->desc, 128,
+		while (1) {
+			static int size = 128;
+			
+			if (dev->desc) free(dev->desc);
+			dev->desc = malloc(size);
+			dev->desc = pci_lookup_name(pacc, dev->desc, size,
 					    PCI_LOOKUP_VENDOR | PCI_LOOKUP_DEVICE,
 					    p->vendor_id, p->device_id, 0, 0);
-			
+			if (!strncmp(dev->desc,"<pci_lookup_name:",17)) {
+				size *= 2;
+				dev->desc = NULL;
+			} else {
+				break;
+			}
+		}
+		    
 		if ( (probeFlags & PROBE_ALL) || (dev->driver)) {
 		    if (!type || (type<0xff && (type==devtype>>8))
 			|| (type== kudzuToPci (pciToKudzu (devtype)))) {

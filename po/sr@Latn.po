@@ -1,4 +1,4 @@
-# Serbian translations for kudzu
+# Serbian(Latin) translations for kudzu
 # Copyright (C) 2005 Red Hat, Inc.
 # This file is distributed under the same license as the kudzu package.
 # Filip Maličević <filip@lakinetwork.com>, 2005.
@@ -19,56 +19,56 @@ msgstr ""
 #: ../hwconf.c:126
 #, c-format
 msgid "ran loadkeys %s"
-msgstr "покренут loadkeys %s"
+msgstr "pokrenut loadkeys %s"
 
 #: ../hwconf.c:532 ../hwconf.c:548 ../hwconf.c:581
 #, c-format
 msgid "aliased %s as %s"
-msgstr "%s представљен као %s"
+msgstr "%s predstavljen kao %s"
 
 #: ../hwconf.c:828
 msgid "do only 'safe' probes that won't disturb hardware"
-msgstr "извршавај само „сигурне“ тестове који неће узнемиравати хардвер"
+msgstr "izvršavaj samo „sigurne“ testove koji neće uznemiravati hardver"
 
 #: ../hwconf.c:832
 msgid "set timeout in seconds"
-msgstr "постави време истека у секундама"
+msgstr "postavi vreme isteka u sekundama"
 
 #: ../hwconf.c:835
 msgid "probe only, print information to stdout"
-msgstr "само тестирај, штампај информације на stdout"
+msgstr "samo testiraj, štampaj informacije na stdout"
 
 #: ../hwconf.c:839
 msgid "probe only the specified 'bus'"
-msgstr "тестирај само наведену „магистралу“"
+msgstr "testiraj samo navedenu „magistralu“"
 
 #: ../hwconf.c:843
 msgid "probe only for the specified 'class'"
-msgstr "тестирај само наведену „класу“"
+msgstr "testiraj samo navedenu „klasu“"
 
 #: ../hwconf.c:847
 msgid "read probed hardware from a file"
-msgstr "учитај тестиран хардвер из датотеке"
+msgstr "učitaj testiran hardver iz datoteke"
 
 #: ../hwconf.c:848
 msgid "file to read hardware info from"
-msgstr "датотека из које се учитавају информације о хардверу"
+msgstr "datoteka iz koje se učitavaju informacije o hardveru"
 
 #: ../hwconf.c:851
 msgid "search for modules for a particular kernel version"
-msgstr "потражи модуле за одређену верзију језгра"
+msgstr "potraži module za određenu verziju jezgra"
 
 #: ../hwconf.c:852
 msgid "kernel version"
-msgstr "верзија језгра"
+msgstr "verzija jezgra"
 
 #: ../hwconf.c:855
 msgid "read probed hardware from a socket"
-msgstr "учитај тестиран хардвер са прикључка"
+msgstr "učitaj testiran hardver sa priključka"
 
 #: ../hwconf.c:859
 msgid "do configuration that doesn't require user input"
-msgstr "извршавај подешавања која не захтевају кориснички унос"
+msgstr "izvršavaj podešavanja koja ne zahtevaju korisnički unos"
 
 #: ../hwconf.c:881
 #, c-format
@@ -77,4 +77,4 @@ msgid ""
 "ERROR - You must be root to run kudzu.\n"
 msgstr ""
 "\n"
-"ГРЕШКА - Морате бити root да би покренули kudzu.\n"
+"GREŠKA - Morate biti root da bi pokrenuli kudzu.\n"

@@ -1,3 +1,9 @@
+kudzu-kanotix (1.2.30-3) UNRELEASED; urgency=low
+
+  * NOT RELEASED YET
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Feb 2006 23:55:13 +0100
+
 kudzu-kanotix (1.2.30-2) unstable; urgency=low
 
   * ddcprobe, ddcxinfo, modetest and svgamodes are gone, remove

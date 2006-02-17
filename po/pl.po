@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: pl\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-09-23 19:18+0200\n"
+"POT-Creation-Date: 2006-01-22 18:34-0500\n"
+"PO-Revision-Date: 2006-02-05 19:53+0200\n"
 "Last-Translator: Tom Berner <tom@lodz.pl>\n"
 "Language-Team: Polish <pl@li.org>\n"
 "MIME-Version: 1.0\n"
@@ -20,58 +20,58 @@ msgstr ""
 msgid "ran loadkeys %s"
 msgstr "uruchomiono loadkeys %s"
 
-#: ../hwconf.c:533 ../hwconf.c:549 ../hwconf.c:579 ../hwconf.c:611
+#: ../hwconf.c:532 ../hwconf.c:548 ../hwconf.c:581
 #, c-format
 msgid "aliased %s as %s"
 msgstr "utworzono alias %s do %s"
 
-#: ../hwconf.c:898
+#: ../hwconf.c:828
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
 "wykonaj jedynie \"bezpieczne\" testy, które nie spowodują zaburzeń w pracy "
 "sprzętu"
 
-#: ../hwconf.c:902
+#: ../hwconf.c:832
 msgid "set timeout in seconds"
 msgstr "ustaw czas oczekiwania w sekundach"
 
-#: ../hwconf.c:905
+#: ../hwconf.c:835
 msgid "probe only, print information to stdout"
 msgstr "tylko szukaj, wyświetl informację na standardowe wyjście"
 
-#: ../hwconf.c:909
+#: ../hwconf.c:839
 msgid "probe only the specified 'bus'"
-msgstr "szukaj tylko na określonej \"magistrali\""
+msgstr "szukaj tylko określonej \"magistrali\""
 
-#: ../hwconf.c:913
+#: ../hwconf.c:843
 msgid "probe only for the specified 'class'"
-msgstr "szukaj tylko w określonej \"klasie\""
+msgstr "szukaj tylko określonej \"klasie\""
 
-#: ../hwconf.c:917
+#: ../hwconf.c:847
 msgid "read probed hardware from a file"
-msgstr "odczytaj listę wyszukiwanego sprzętu z pliku"
+msgstr "odczytaj wyszukiwany sprzęt z pliku"
 
-#: ../hwconf.c:918
+#: ../hwconf.c:848
 msgid "file to read hardware info from"
 msgstr "plik z informacją o sprzęcie do odczytania"
 
-#: ../hwconf.c:921
+#: ../hwconf.c:851
 msgid "search for modules for a particular kernel version"
 msgstr "szukaj modułów dla podanej wersji jądra"
 
-#: ../hwconf.c:922
+#: ../hwconf.c:852
 msgid "kernel version"
 msgstr "wersja jądra"
 
-#: ../hwconf.c:925
+#: ../hwconf.c:855
 msgid "read probed hardware from a socket"
-msgstr "listę wyszukiwanego sprzętu odczytaj z pliku"
+msgstr "odczytaj wyszukiwany sprzęt z gniazda"
 
-#: ../hwconf.c:929
+#: ../hwconf.c:859
 msgid "do configuration that doesn't require user input"
 msgstr "utwórz konfigurację, która nie wymaga udziału użytkownika"
 
-#: ../hwconf.c:951
+#: ../hwconf.c:881
 #, c-format
 msgid ""
 "\n"

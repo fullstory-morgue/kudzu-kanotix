@@ -1,4 +1,3 @@
-#ifdef __i386__
 #include <sys/types.h>
 #include <sys/io.h>
 #include <sys/mman.h>
@@ -12,9 +11,71 @@
 #include "common.h"
 #include "lrmi.h"
 #include "vbe.h"
-#ident "$Id: vbe.c,v 1.10 2003/02/11 14:47:38 notting Exp $"
+#ident "$Id: vbe.c,v 1.11 2006/02/14 03:59:46 notting Exp $"
 
-/* Return information about a particular video mode. */
+/* The *actual* vbe_info as pulled from the BIOS.
+ * union {
+ * 	struct {
+ * 		u_int16_t x;
+ * 		u_int16_t y;
+ * 	} addr;
+ * 	const char *z;
+ * } __attribute__((packed))
+ * 
+ * does *not* do what you want on x86_64.
+ */
+struct __vbe_info {
+        unsigned char signature[4];
+        unsigned char version[2];
+	struct {
+		u_int16_t ofs;
+		u_int16_t seg;
+	} oem_name;
+        u_int32_t capabilities;
+	struct {
+		u_int16_t ofs;
+		u_int16_t seg;
+	} mode_list;
+        u_int16_t memory_size;
+        /* VESA 3.0+ */
+        u_int16_t vbe_revision;
+	struct {
+		u_int16_t ofs;
+		u_int16_t seg;
+	} vendor_name;
+	struct {
+		u_int16_t ofs;
+		u_int16_t seg;
+	} product_name;
+	struct {
+		u_int16_t ofs;
+		u_int16_t seg;
+	} product_revision;
+        char reserved1[222];
+        char reserved2[256];
+} __attribute__ ((packed));
+
+void vbecopy(struct vbe_info *dst, struct __vbe_info *src)
+{
+	memcpy(dst->signature,src->signature,4);
+	memcpy(dst->version,src->version,2);
+	dst->capabilities = src->capabilities;
+	dst->mode_list.addr.ofs = src->mode_list.ofs;
+	dst->mode_list.addr.seg = src->mode_list.seg;
+	dst->vendor_name.addr.ofs = src->vendor_name.ofs;
+	dst->vendor_name.addr.seg = src->vendor_name.seg;
+	dst->product_name.addr.ofs = src->product_name.ofs;
+	dst->product_name.addr.seg = src->product_name.seg;
+	dst->product_revision.addr.ofs = src->product_revision.ofs;
+	dst->product_revision.addr.seg = src->product_revision.seg;
+	dst->memory_size = src->memory_size;
+	dst->vbe_revision = src->vbe_revision;
+	memcpy(dst->reserved1, src->reserved1, 222);
+	memcpy(dst->reserved2, src->reserved2, 256);
+}
+
+
+/* srcurn information about a particular video mode. */
 struct vbe_mode_info *vbe_get_mode_info(u_int16_t mode)
 {
 	struct LRMI_regs regs;
@@ -75,6 +136,8 @@ struct vbe_info *vbe_get_vbe_info()
 	struct LRMI_regs regs;
 	unsigned char *mem;
 	struct vbe_info *ret = NULL;
+	struct __vbe_info *biosdata;
+	char *tmp;
 	int i;
 
 	/* Initialize LRMI. */
@@ -117,56 +180,57 @@ struct vbe_info *vbe_get_vbe_info()
 		LRMI_free_real(mem);
 		return NULL;
 	}
-	memcpy(ret, mem, sizeof(struct vbe_info));
+	biosdata = (struct __vbe_info *)mem;
+	vbecopy(ret, biosdata);
 
 	/* Set up pointers to usable memory. */
-	ret->mode_list.list = (u_int16_t*) ((ret->mode_list.addr.seg << 4) +
-					    (ret->mode_list.addr.ofs));
-	ret->oem_name.string = (char*) ((ret->oem_name.addr.seg << 4) +
-					(ret->oem_name.addr.ofs));
+	ret->mode_list.list = (u_int16_t*) ((biosdata->mode_list.seg << 4) +
+					    (biosdata->mode_list.ofs));
+	ret->oem_name.string = (char*) ((biosdata->oem_name.seg << 4) +
+					(biosdata->oem_name.ofs));
 
 	/* Snip, snip. */
-	mem = strdup(ret->oem_name.string); /* leak */
-	while(((i = strlen(mem)) > 0) && isspace(mem[i - 1])) {
-		mem[i - 1] = '\0';
+	tmp = strdup(ret->oem_name.string); /* leak */
+	while(((i = strlen(tmp)) > 0) && isspace(tmp[i - 1])) {
+		tmp[i - 1] = '\0';
 	}
-	ret->oem_name.string = mem;
+	ret->oem_name.string = tmp;
 
 	/* Set up pointers for VESA 2.0+ strings. */
 	if(ret->version[1] >= 2) {
 
 		/* Vendor name. */
 		ret->vendor_name.string = (char*)
-			 ((ret->vendor_name.addr.seg << 4)
-			+ (ret->vendor_name.addr.ofs));
+			 ((biosdata->vendor_name.seg << 4)
+			+ (biosdata->vendor_name.ofs));
 
-		mem = strdup(ret->vendor_name.string); /* leak */
-		while(((i = strlen(mem)) > 0) && isspace(mem[i - 1])) {
-			mem[i - 1] = '\0';
+		tmp = strdup(ret->vendor_name.string); /* leak */
+		while(((i = strlen(tmp)) > 0) && isspace(tmp[i - 1])) {
+			tmp[i - 1] = '\0';
 		}
-		ret->vendor_name.string = mem;
+		ret->vendor_name.string = tmp;
 
 		/* Product name. */
 		ret->product_name.string = (char*)
-			 ((ret->product_name.addr.seg << 4)
-			+ (ret->product_name.addr.ofs));
+			 ((biosdata->product_name.seg << 4)
+			+ (biosdata->product_name.ofs));
 
-		mem = strdup(ret->product_name.string); /* leak */
-		while(((i = strlen(mem)) > 0) && isspace(mem[i - 1])) {
-			mem[i - 1] = '\0';
+		tmp = strdup(ret->product_name.string); /* leak */
+		while(((i = strlen(tmp)) > 0) && isspace(tmp[i - 1])) {
+			tmp[i - 1] = '\0';
 		}
-		ret->product_name.string = mem;
+		ret->product_name.string = tmp;
 
 		/* Product revision. */
 		ret->product_revision.string = (char*)
-			 ((ret->product_revision.addr.seg << 4)
-			+ (ret->product_revision.addr.ofs));
+			 ((biosdata->product_revision.seg << 4)
+			+ (biosdata->product_revision.ofs));
 
-		mem = strdup(ret->product_revision.string); /* leak */
-		while(((i = strlen(mem)) > 0) && isspace(mem[i - 1])) {
-			mem[i - 1] = '\0';
+		tmp = strdup(ret->product_revision.string); /* leak */
+		while(((i = strlen(tmp)) > 0) && isspace(tmp[i - 1])) {
+			tmp[i - 1] = '\0';
 		}
-		ret->product_revision.string = mem;
+		ret->product_revision.string = tmp;
 	}
 
 	/* Cleanup. */
@@ -195,7 +259,7 @@ int get_edid_supported()
 	iopl(3);
 	ioperm(0, 0x400, 1);
 
-	if(LRMI_int(0x10, &regs) == 0) {
+	if (LRMI_int(0x10, &regs) == 0) {
 		return 0;
 	}
 
@@ -279,200 +343,3 @@ struct edid1_info *get_edid_info()
 	return ret;
 }
 
-/* Figure out what the current video mode is. */
-int32_t vbe_get_mode()
-{
-	struct LRMI_regs regs;
-	int32_t ret = -1;
-
-	/* Initialize LRMI. */
-	if(LRMI_init() == 0) {
-		return -1;
-	}
-
-	memset(&regs, 0, sizeof(regs));
-	regs.eax = 0x4f03;
-
-	/* Do it. */
-	iopl(3);
-	ioperm(0, 0x400, 1);
-
-	if(LRMI_int(0x10, &regs) == 0) {
-		return -1;
-	}
-
-	/* Save the returned value. */
-	if((regs.eax & 0xffff) == 0x004f) {
-		ret = regs.ebx & 0xffff;
-	} else {
-		ret = -1;
-	}
-
-	/* Clean up and return. */
-	return ret;
-}
-
-/* Set the video mode. */
-void vbe_set_mode(u_int16_t mode)
-{
-	struct LRMI_regs regs;
-
-	/* Initialize LRMI. */
-	if(LRMI_init() == 0) {
-		return;
-	}
-
-	memset(&regs, 0, sizeof(regs));
-	regs.eax = 0x4f02;
-	regs.ebx = mode;
-
-	/* Do it. */
-	iopl(3);
-	ioperm(0, 0x400, 1);
-	LRMI_int(0x10, &regs);
-
-	/* Return. */
-	return;
-}
-
-const void *vbe_save_svga_state()
-{
-	struct LRMI_regs regs;
-	unsigned char *mem;
-	u_int16_t block_size;
-	void *data;
-
-	/* Initialize LRMI. */
-	if(LRMI_init() == 0) {
-		return NULL;
-	}
-
-	memset(&regs, 0, sizeof(regs));
-	regs.eax = 0x4f04;
-	regs.ecx = 0xffff;
-	regs.edx = 0;
-
-	iopl(3);
-	ioperm(0, 0x400, 1);
-
-	if(LRMI_int(0x10, &regs) == 0) {
-		return NULL;
-	}
-
-	if((regs.eax & 0xff) != 0x4f) {
-		fprintf(stderr, "Get SuperVGA Video State not supported.\n");
-		return NULL;
-	}
-
-	if((regs.eax & 0xffff) != 0x004f) {
-		fprintf(stderr, "Get SuperVGA Video State Info failed.\n");
-		return NULL;
-	}
-
-	block_size = 64 * (regs.ebx & 0xffff);
-
-	/* Allocate a chunk of memory. */
-	mem = LRMI_alloc_real(block_size);
-	if(mem == NULL) {
-		return NULL;
-	}
-	memset(mem, 0, sizeof(block_size));
-	
-	memset(&regs, 0, sizeof(regs));
-	regs.eax = 0x4f04;
-	regs.ecx = 0x000f;
-	regs.edx = 0x0001;
-	regs.es  = ((u_int32_t)mem) >> 4;
-	regs.ebx = ((u_int32_t)mem) & 0x0f;
-	memset(mem, 0, block_size);
-	iopl(3);
-	ioperm(0, 0x400, 1);
-
-	if(LRMI_int(0x10, &regs) == 0) {
-		LRMI_free_real(mem);
-		return NULL;
-	}
-
-	if((regs.eax & 0xffff) != 0x004f) {
-		fprintf(stderr, "Get SuperVGA Video State Save failed.\n");
-		return NULL;
-	}
-
-	data = malloc(block_size);
-	if(data == NULL) {
-		LRMI_free_real(mem);
-		return NULL;
-	}
-
-	/* Clean up and return. */
-	memcpy(data, mem, block_size);
-	LRMI_free_real(mem);
-	return data;
-}
-
-void vbe_restore_svga_state(const void *state)
-{
-	struct LRMI_regs regs;
-	unsigned char *mem;
-	u_int16_t block_size;
-
-	/* Initialize LRMI. */
-	if(LRMI_init() == 0) {
-		return;
-	}
-
-	memset(&regs, 0, sizeof(regs));
-	regs.eax = 0x4f04;
-	regs.ecx = 0x000f;
-	regs.edx = 0;
-
-	/* Find out how much memory we need. */
-	iopl(3);
-	ioperm(0, 0x400, 1);
-
-	if(LRMI_int(0x10, &regs) == 0) {
-		return;
-	}
-
-	if((regs.eax & 0xff) != 0x4f) {
-		fprintf(stderr, "Get SuperVGA Video State not supported.\n");
-		return;
-	}
-
-	if((regs.eax & 0xffff) != 0x004f) {
-		fprintf(stderr, "Get SuperVGA Video State Info failed.\n");
-		return;
-	}
-
-	block_size = 64 * (regs.ebx & 0xffff);
-
-	/* Allocate a chunk of memory. */
-	mem = LRMI_alloc_real(block_size);
-	if(mem == NULL) {
-		return;
-	}
-	memset(mem, 0, sizeof(block_size));
-
-	memset(&regs, 0, sizeof(regs));
-	regs.eax = 0x4f04;
-	regs.ecx = 0x000f;
-	regs.edx = 0x0002;
-	regs.es  = 0x2000;
-	regs.ebx = 0x0000;
-	memcpy(mem, state, block_size);
-
-	iopl(3);
-	ioperm(0, 0x400, 1);
-
-	if(LRMI_int(0x10, &regs) == 0) {
-		LRMI_free_real(mem);
-		return;
-	}
-
-	if((regs.eax & 0xffff) != 0x004f) {
-		fprintf(stderr, "Get SuperVGA Video State Restore failed.\n");
-		return;
-	}
-}
-
-#endif /* __i386__ */

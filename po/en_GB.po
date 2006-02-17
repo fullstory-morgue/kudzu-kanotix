@@ -62,13 +62,12 @@ msgid "kernel version"
 msgstr "kernel version"
 
 #: ../hwconf.c:925
-#, fuzzy
 msgid "read probed hardware from a socket"
-msgstr "read probed hardware from a file"
+msgstr "read probed hardware from a socket"
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "perform configuration that doesn't require user input"
 
 #: ../hwconf.c:951
 #, c-format

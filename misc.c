@@ -207,26 +207,31 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
             if (!access("/sys/bus/i2o/devices", R_OK)) {
                 DIR * dir;
                 struct dirent * ent;
-                int devnum = 0;
                 char path[128];
-                char devname[8];
+		char *c;
 
                 dir = opendir("/sys/bus/i2o/devices");
                 while ((ent = readdir(dir))) {
+		    DIR *devdir;
+		    struct dirent * devent;
                     if (ent->d_name[0] == '.') continue;
-                    snprintf(path, 128, "/sys/bus/i2o/devices/%s/block", 
-                             ent->d_name);
-                    if (!access(path, R_OK)) {
-                        miscdev = miscNewDevice(NULL);
-                        miscdev->type = CLASS_HD;
-                        miscdev->desc = strdup("I2O block device");
-                        sprintf(devname, "i2o/hd%c", 'a' + (devnum++));
-                        miscdev->device = strdup(devname);
-                        if (devlist)
-                            miscdev->next = devlist;
-                        devlist = (struct device *) miscdev;
-                    }
-                }
+		    snprintf(path, 128, "/sys/bus/i2o/devices/%s", ent->d_name);
+		    devdir = opendir(path);
+		    while ((devent = readdir(devdir))) {
+		      if (!strncmp(devent->d_name,"block:",6)) {
+			      miscdev = miscNewDevice(NULL);
+			      miscdev->type = CLASS_HD;
+			      miscdev->desc = strdup("I2O block device");
+			      miscdev->device = strdup(ent->d_name+6);
+			      for (c = miscdev->device; *c; c++)
+				      if (*c == '!') *c = '/';
+			      if (devlist)
+				      miscdev->next = devlist;
+			      devlist = (struct device *) miscdev;
+		      }
+		    }
+		    closedir(devdir);
+		}
 		closedir(dir);
             } else { /* fall back to i2o_proc stuff */
                 ctlNum = 0;

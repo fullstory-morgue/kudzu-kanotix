@@ -1,19 +1,18 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# Burmese translations for PACKAGE package.
+# Copyright (C) 2005 THE PACKAGE'S COPYRIGHT HOLDER
 # This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+# Automatically generated, 2005.
 #
-#, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
+"Project-Id-Version: kudzu\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2006-01-22 18:34-0500\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
-"Language-Team: LANGUAGE <LL@li.org>\n"
+"POT-Creation-Date: 2005-11-16 11:34-0500\n"
+"PO-Revision-Date: 2005-11-16 11:34-0500\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
 #: ../hwconf.c:126
@@ -21,56 +20,56 @@ msgstr ""
 msgid "ran loadkeys %s"
 msgstr ""
 
-#: ../hwconf.c:532 ../hwconf.c:548 ../hwconf.c:581
+#: ../hwconf.c:535 ../hwconf.c:551 ../hwconf.c:581 ../hwconf.c:613
 #, c-format
 msgid "aliased %s as %s"
 msgstr ""
 
-#: ../hwconf.c:828
+#: ../hwconf.c:900
 msgid "do only 'safe' probes that won't disturb hardware"
 msgstr ""
 
-#: ../hwconf.c:832
+#: ../hwconf.c:904
 msgid "set timeout in seconds"
 msgstr ""
 
-#: ../hwconf.c:835
+#: ../hwconf.c:907
 msgid "probe only, print information to stdout"
 msgstr ""
 
-#: ../hwconf.c:839
+#: ../hwconf.c:911
 msgid "probe only the specified 'bus'"
 msgstr ""
 
-#: ../hwconf.c:843
+#: ../hwconf.c:915
 msgid "probe only for the specified 'class'"
 msgstr ""
 
-#: ../hwconf.c:847
+#: ../hwconf.c:919
 msgid "read probed hardware from a file"
 msgstr ""
 
-#: ../hwconf.c:848
+#: ../hwconf.c:920
 msgid "file to read hardware info from"
 msgstr ""
 
-#: ../hwconf.c:851
+#: ../hwconf.c:923
 msgid "search for modules for a particular kernel version"
 msgstr ""
 
-#: ../hwconf.c:852
+#: ../hwconf.c:924
 msgid "kernel version"
 msgstr ""
 
-#: ../hwconf.c:855
+#: ../hwconf.c:927
 msgid "read probed hardware from a socket"
 msgstr ""
 
-#: ../hwconf.c:859
+#: ../hwconf.c:931
 msgid "do configuration that doesn't require user input"
 msgstr ""
 
-#: ../hwconf.c:881
+#: ../hwconf.c:953
 #, c-format
 msgid ""
 "\n"

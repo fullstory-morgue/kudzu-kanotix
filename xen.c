@@ -63,30 +63,33 @@ struct device *xenProbe(enum deviceClass probeClass, int probeFlags,
       char path[64], dev[64];
       struct stat sb;
       
-      if (access("/sys/bus/xen/drivers/vbd", R_OK)) 
+      if (access("/sys/bus/xen/devices", R_OK)) 
         goto vbdout;
 
-      dir = opendir("/sys/bus/xen/drivers/vbd");
+      dir = opendir("/sys/bus/xen/devices");
       while ((ent = readdir(dir))) {
+	DIR *devdir;
+	struct dirent *devent;
         if (strncmp("vbd-", ent->d_name, 4))
           continue;
-        snprintf(path, 64, "/sys/bus/xen/drivers/vbd/%s/block", ent->d_name);
-        stat(path, &sb);
-        if (S_ISLNK(sb.st_mode))
-          continue;
-        memset(dev, 0, 63);
-        if (readlink(path, dev, 63) == -1)
-          continue;
-
-        xendev = xenNewDevice(NULL);
-        xendev->device = strdup(basename(dev));
-        xendev->desc = strdup("Xen Virtual Block Device");
-        xendev->type = CLASS_HD;
-        xendev->driver = strdup("xenblk");
-        if (devlist)
-          xendev->next = devlist;
-        devlist = (struct device *) xendev;
+        snprintf(path, 64, "/sys/bus/xen/devices/%s", ent->d_name);
+	devdir = opendir(path);
+	if (!devdir) continue;
+	while ((devent = readdir(devdir))) {
+		if (!strncmp(devent->d_name,"block:",6)) {
+			xendev = xenNewDevice(NULL);
+			xendev->device = strdup(devent->d_name+6);
+			xendev->desc = strdup("Xen Virtual Block Device");
+			xendev->type = CLASS_HD;
+			xendev->driver = strdup("xenblk");
+			if (devlist)
+				xendev->next = devlist;
+			devlist = (struct device *) xendev;
+		}
+	}
+	closedir(devdir);
       }
+      closedir(dir);
     }
 
  vbdout:
@@ -95,10 +98,10 @@ struct device *xenProbe(enum deviceClass probeClass, int probeFlags,
       DIR * dir;
       struct dirent * ent;
 
-      if (access("/sys/bus/xen/drivers/vif", R_OK))
+      if (access("/sys/bus/xen/devices", R_OK))
         goto xvifout;
 
-      dir = opendir("/sys/bus/xen/drivers/vif");
+      dir = opendir("/sys/bus/xen/devices");
       while ((ent = readdir(dir))) {
         if (strncmp("vif-", ent->d_name, 4))
           continue;
@@ -111,6 +114,7 @@ struct device *xenProbe(enum deviceClass probeClass, int probeFlags,
           xendev->next = devlist;
         devlist = (struct device *) xendev;
       }
+      closedir(dir);
     }
 
  xvifout:

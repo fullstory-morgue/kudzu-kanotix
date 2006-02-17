@@ -1,6 +1,6 @@
-kudzu-kanotix (1.2.30-1) UNRELEASED; urgency=low
+kudzu-kanotix (1.2.30-1) unstable; urgency=low
 
-  * (NOT RELEASED YET) New upstream release:
+  * New upstream release:
     - revert changes for video probing classes - some correct devices are
       0380
     - silence!
@@ -25,7 +25,7 @@ kudzu-kanotix (1.2.30-1) UNRELEASED; urgency=low
   * drop makefile.dpatch, it is no longer necessary.
   * bump compat level to 5.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Feb 2006 20:21:27 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Feb 2006 20:22:42 +0100
 
 kudzu-kanotix (1.2.16-1) unstable; urgency=low
 

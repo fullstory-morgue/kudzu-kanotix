@@ -2,7 +2,7 @@ Source: kudzu-kanotix
 Section: utils
 Priority: optional
 Maintainer: Stefan Lippers-Hollmann <s.l-h@gmx.de>
-Build-Depends: debhelper (>> 5.0.0), pciutils-dev, python2.4-dev, libpopt-dev, gettext, perl, dietlibc-dev, dpatch
+Build-Depends: cdbs, debhelper (>> 5.0.0), pciutils-dev, python, python2.4-dev, libpopt-dev, gettext, perl, dpatch
 Standards-Version: 3.6.2
 
 Package: kudzu-kanotix
@@ -10,26 +10,12 @@ Provides: kudzu
 Architecture: any
 Depends: ${shlibs:Depends}, hwdata, python
 Replaces: kudzu
-Conflicts: kudzu
+Conflicts: kudzu, kudzu-vesa, kudzu-kanotix-vesa
 Description: The Red Hat Linux hardware probing tool
  This is a hardware probing tool run at system boot time to determine
  what hardware has been added or removed from the system.
  .
  http://rhlinux.redhat.com/kudzu/
-
-Package: kudzu-kanotix-vesa
-Provides: kudzu-vesa
-Architecture: any
-Depends: ${shlibs:Depends}, hwdata-kanotix, python
-Replaces: kudzu-vesa
-Conflicts: kudzu-vesa
-Description: Hardware detecting library
- This is the hardware autodetection & configuration tool, originally
- introduced in Red Hat Linux 6.1. It detects changes in the system's
- hardware configuration, and gives the option of configuring
- added or removed devices.
- .
- This package contains VBE/DDC stuff.
 
 Package: kudzu-kanotix-dev
 Provides: kudzu-dev

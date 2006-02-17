@@ -1,0 +1,8 @@
+debian/tmp/usr/lib/python2.4/site-packages/*.py		usr/lib/python2.4/site-packages/
+debian/tmp/usr/lib/python2.4/site-packages/*.so		usr/lib/python2.4/site-packages/
+debian/tmp/usr/sbin/*					usr/sbin/
+debian/tmp/sbin/*					usr/sbin/
+fix-mouse-psaux						usr/sbin/
+debian/tmp/usr/share/locale/*				usr/share/locale/
+debian/tmp/usr/share/man/*				usr/share/man/
+

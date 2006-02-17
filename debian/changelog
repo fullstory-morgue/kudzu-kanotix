@@ -1,8 +1,12 @@
-kudzu-kanotix (1.2.30-2) UNRELEASED; urgency=low
+kudzu-kanotix (1.2.30-2) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * ddcprobe, ddcxinfo, modetest and svgamodes are gone, remove
+    kudzu-kanotix-vesa as it is no longer used.
+  * re- create packaging from scratch.
+  * remove dietlibc-dev from build-depends, as it is no longer used by
+    upstream.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Feb 2006 20:23:45 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Fri, 17 Feb 2006 23:42:41 +0100
 
 kudzu-kanotix (1.2.30-1) unstable; urgency=low
 

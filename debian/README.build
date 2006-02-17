@@ -1,7 +1,0 @@
-correct module path from /etc/modules.conf -> /etc/modutils/kudzu
-perl -pi -e 's/\/etc\/modules.conf/\/etc\/modutils\/kudzu/g' * ddcprobe/* pcmcia/* po/*
-
-correct module path from /etc/modprobe.conf -> /etc/modprobe.d/kudzu
-perl -pi -e 's/\/etc\/modprobe.conf/\/etc\/modprobe.d\/kudzu/g' * ddcprobe/* pcmcia/* po/*
-
-copy changes from changelog .spec to CHANGELOG

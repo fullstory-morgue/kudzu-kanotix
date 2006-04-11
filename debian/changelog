@@ -1,3 +1,10 @@
+kudzu-kanotix (1.2.34.3-2) unstable; urgency=low
+
+  * kudzu-kanotix-dev is arch=all.
+  * only use python-2.4.
+
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Apr 2006 20:20:31 +0200
+
 kudzu-kanotix (1.2.34.3-1) unstable; urgency=low
 
   * New upstream release:

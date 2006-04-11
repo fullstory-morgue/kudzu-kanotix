@@ -1,0 +1,16 @@
+#! /bin/sh /usr/share/dpatch/dpatch-run
+## use_python-2.4.patch by Stefan Lippers-Hollmann <s.l-h@gmx.de>
+##
+## All lines beginning with `## DP:' are a description of the patch.
+## DP: No description
+
+@DPATCH@
+diff -Nrup a/fix-mouse-psaux b/fix-mouse-psaux
+--- a/fix-mouse-psaux	2006-04-11 20:17:00.687008000 +0200
++++ b/fix-mouse-psaux	2006-04-11 20:19:02.598627000 +0200
+@@ -1,4 +1,4 @@
+-#!/usr/bin/python
++#!/usr/bin/python-2.4
+ 
+ import xf86config
+ import os

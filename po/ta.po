@@ -1,17 +1,18 @@
+# translation of ta.po to 
 # translation of ta.po to Tamil
 # This file is distributed under the same license as the PACKAGE package.
 # Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER.
 # Jayaradha N <jaya@pune.redhat.com>, 2004.
-# Jayaradha <njaya@redhat.com>, 2005.
+# Jayaradha <njaya@redhat.com>, 2005, 2006.
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: ta\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2005-09-22 16:06-0400\n"
-"PO-Revision-Date: 2005-03-22 12:19+0530\n"
-"Last-Translator: Jayaradha <njaya@redhat.com>\n"
-"Language-Team: Tamil <zhakanini@yahoogroups.com>\n"
+"PO-Revision-Date: 2006-03-01 17:43+0530\n"
+"Last-Translator: \n"
+"Language-Team:  <ta@li.org>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -71,7 +72,7 @@ msgstr "சாக்கெட்டிலிருந்து தேடிய �
 
 #: ../hwconf.c:929
 msgid "do configuration that doesn't require user input"
-msgstr ""
+msgstr "பயனர் உள்ளீட்டுக்கு தேவையில்லாத கட்டமைப்பினை செய்யவும்"
 
 #: ../hwconf.c:951
 #, c-format
@@ -82,83 +83,3 @@ msgstr ""
 "\n"
 "ERROR - குடுவிற்கு அனுப்பு.\n"
 
-#~ msgid "linked %s to %s"
-#~ msgstr "%s உடன் %s இணைக்கப்பட்டது"
-
-#~ msgid "unlinked %s (was linked to %s)"
-#~ msgstr "இணைக்கப்படாத %s (%s உடன் இணைக்கப்பட்டுள்ளது)"
-
-#~ msgid "unlinked %s"
-#~ msgstr "%s உடன் இணைக்கப்பட்டுள்ளது "
-
-#~ msgid "ran mouseconfig for %s"
-#~ msgstr "mouseconfig %s க்காக இயக்கியது "
-
-#~ msgid "turned on bcm5820 service"
-#~ msgstr "bcm5820  சேவை துவக்கப்பட்டது"
-
-#~ msgid "turned on aep1000 service"
-#~ msgstr "aep1000  சேவை துவக்கப்பட்டது"
-
-#~ msgid "network card"
-#~ msgstr "வலைப்பின்னல் அட்டை"
-
-#~ msgid "SCSI controller"
-#~ msgstr "SCSI கட்டுப்படுத்தி"
-
-#~ msgid "video adapter"
-#~ msgstr "படக்காட்சி ஏற்பி"
-
-#~ msgid "sound card"
-#~ msgstr "ஒலி அட்டை"
-
-#~ msgid "mouse"
-#~ msgstr "சுட்டி"
-
-#~ msgid "modem"
-#~ msgstr "மோடம்"
-
-#~ msgid "CD-ROM drive"
-#~ msgstr "குறுந்தகடு சாதனம்"
-
-#~ msgid "tape drive"
-#~ msgstr "நாடா சாதனம்"
-
-#~ msgid "floppy drive"
-#~ msgstr "நெகிழ்வட்டு சாதனம்"
-
-#~ msgid "scanner"
-#~ msgstr "வருடி"
-
-#~ msgid "hard disk"
-#~ msgstr "வன் தகடு"
-
-#~ msgid "RAID controller"
-#~ msgstr "RAID கட்டுப்படுத்தி"
-
-#~ msgid "IDE controller"
-#~ msgstr "IDE கட்டுப்படுத்தி"
-
-#~ msgid "printer"
-#~ msgstr "அச்சியந்திரம்"
-
-#~ msgid "video capture card"
-#~ msgstr "படம் பிடிக்கும் அட்டை"
-
-#~ msgid "keyboard"
-#~ msgstr "விசைப்பலகை"
-
-#~ msgid "monitor"
-#~ msgstr "திரை"
-
-#~ msgid "USB controller"
-#~ msgstr "USB சாதனம்"
-
-#~ msgid "IEEE1394 controller"
-#~ msgstr "IEEE1394 கட்டுப்படுத்தி"
-
-#~ msgid "PCMCIA/Cardbus controller"
-#~ msgstr "PCMCIA/Cardbus கட்டுப்படுத்தி"
-
-#~ msgid "%s device"
-#~ msgstr "%s சாதனம்"

@@ -56,7 +56,6 @@ InitSerials ()
   serials = malloc (sizeof (struct SerialPort) * num_serials);
   if (!serials)
     {
-      perror ("malloc");
       num_serials = 0;
       fclose (fp);
       return;

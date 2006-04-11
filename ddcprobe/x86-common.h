@@ -36,7 +36,9 @@ OTHER DEALINGS IN THE SOFTWARE.
 
 #define REAL_MEM_BASE 	((void *)0x10000)
 #define REAL_MEM_SIZE 	0x40000
-#define REAL_MEM_BLOCKS 	0x100
+#define REAL_MEM_BLOCKS 	(REAL_MEM_SIZE/1024)
+
+void LRMI_find_implementation(void);
 
 void *LRMI_alloc_real(int size);
 void LRMI_free_real(void *m);

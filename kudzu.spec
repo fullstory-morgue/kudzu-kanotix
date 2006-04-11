@@ -1,5 +1,5 @@
 Name: kudzu
-Version: 1.2.30
+Version: 1.2.34.3
 Release: 1
 License: GPL
 Summary: The Red Hat Linux hardware probing tool.
@@ -79,6 +79,28 @@ fi
 %{_includedir}/kudzu
 
 %changelog
+* Tue Mar 14 2006 Bill Nottingham <notting@redhat.com> - 1.2.34.3-1
+- fix scsi probe to not return devices of the wrong class
+
+* Thu Mar  9 2006 Bill Nottingham <notting@redhat.com> - 1.2.34.2-1
+- special-case xen to not use vm86 (works around #179013)
+
+* Tue Mar  7 2006 Bill Nottingham <notting@redhat.com> - 1.2.34.1-1
+- switch at runtime between vm86 and x86emu on i386. Fixes vbe/ddc on
+  Xen and i386-on-x86_64
+
+* Mon Mar  6 2006 Bill Nottingham <notting@redhat.com> - 1.2.34-1
+- silence some error messages
+
+* Tue Feb 28 2006 Jeremy Katz <katzj@redhat.com> - 1.2.33-1
+- fix i2o again (#182522)
+
+* Wed Feb 22 2006 Bill Nottingham <notting@redhat.com> - 1.2.32-1
+- fix potential segfault with USB network devices (#182006)
+
+* Tue Feb 21 2006 Bill Nottingham <notting@redhat.com> - 1.2.31-1
+- further x86emu-related fixes (#181467)
+
 * Wed Feb 15 2006 Bill Nottingham <notting@redhat.com> - 1.2.30-1
 - revert changes for video probing classes - some correct devices are
   0380

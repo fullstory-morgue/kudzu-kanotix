@@ -280,6 +280,9 @@ struct usbDevice *getUsbDevice(char *name, struct usbDevice *ret, enum deviceCla
 				free(t->driver);
 				t->driver = strdup("wacom");
 			}
+			if (t->type == CLASS_NETWORK && !t->device) {
+				t->device = strdup("eth");
+			}
 		
 			if ((probeClass & t->type) && !alt) {
 				if (ret)

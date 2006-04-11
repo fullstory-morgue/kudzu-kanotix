@@ -206,7 +206,7 @@ struct device *scsiProbe( enum deviceClass probeClass, int probeFlags,
 				free(buf);
 			}
 			free(hostdriver);
-			if (sdev->type && probeClass) {
+			if (sdev->type & probeClass) {
 				if (devlist)
 					sdev->next = devlist;
 				devlist = (struct device *)sdev; 

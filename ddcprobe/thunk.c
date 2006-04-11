@@ -43,9 +43,11 @@ __BUILDIO(b,b,char)
 __BUILDIO(w,w,short)
 __BUILDIO(l,,int)
 
-
+			
 char *mmap_addr = SHMERRORPTR;
+void *stack = NULL;
 struct LRMI_regs *regs;
+
 
 void
 printk(const char *fmt, ...)
@@ -122,10 +124,9 @@ static void x86emu_do_int(int num)
 	X86_IP = (read_b((num << 2) + 1) << 8) + read_b((num << 2));
 }
 
-int LRMI_init() {
+int x86emu_LRMI_init() {
 	int i;
 	X86EMU_intrFuncs intFuncs[256];
-	void *stack;
 	static int inited = 0;
 	
 	if (inited == 1)
@@ -159,7 +160,7 @@ int LRMI_init() {
 	 * Allocate a 64k stack.
 	 */
 	stack = LRMI_alloc_real(64 * 1024);
-	X86_SS = (unsigned int) stack >> 4;
+	X86_SS = (unsigned int) (stack) >> 4;
 	X86_ESP = 0xFFFE;
 
 	//X86_EIP = 0x0600; X86_CS = 0x0;     /* address of 'hlt' */
@@ -211,11 +212,13 @@ int real_call(struct LRMI_regs *registers) {
 	return 1;
 }
 
-int LRMI_int(int num, struct LRMI_regs *registers) {
+int x86emu_LRMI_int(int num, struct LRMI_regs *registers) {
 	u32 eflags;
 	eflags = X86_EFLAGS;
 	eflags = eflags | X86_IF_MASK;
 	X86_EFLAGS = X86_EFLAGS  & ~(X86_VIF_MASK | X86_TF_MASK | X86_IF_MASK | X86_NT_MASK);
+	X86_SS = (unsigned int) (stack) >> 4;
+	X86_ESP = 0xFFFE;
 
 	registers->cs = (read_b((num << 2) + 3) << 8) + read_b((num << 2) + 2);
 	registers->ip = (read_b((num << 2) + 1) << 8) + read_b((num << 2));
@@ -223,14 +226,16 @@ int LRMI_int(int num, struct LRMI_regs *registers) {
 	return real_call(registers);
 }
 
-int LRMI_call(struct LRMI_regs *registers) {
-//	pushw(X86_CS);
-//	pushw(X86_IP);
-	return real_call(registers);
-}
-
 size_t
-LRMI_base_addr(void)
+x86emu_LRMI_base_addr(void)
 {
 	return (size_t)mmap_addr;
 }
+
+struct LRMIfuncs x86emu_LRMIfuncs =  {
+	.init = x86emu_LRMI_init,
+	.interrupt = x86emu_LRMI_int,
+	.alloc_real = LRMI_alloc_real,
+	.free_real = LRMI_free_real,
+	.base_addr = x86emu_LRMI_base_addr,
+};

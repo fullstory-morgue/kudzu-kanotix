@@ -20,7 +20,7 @@ Description: The Red Hat Linux hardware probing tool
 Package: kudzu-kanotix-dev
 Provides: kudzu-dev
 Section: devel
-Architecture: all
+Architecture: any
 Depends: ${shlibs:Depends}, hwdata-kanotix, kudzu
 Replaces: kudzu-dev
 Conflicts: kudzu-dev

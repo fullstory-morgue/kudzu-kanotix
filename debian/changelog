@@ -11,8 +11,9 @@ kudzu-kanotix (1.2.34.3-1) unstable; urgency=low
     - further x86emu-related fixes (#181467)
   * don't conflict with kudzu-vesa anymore, as X.org 7 depends on xresprobe
     which in turn provides kudzu-vesa.
+  * add plain python to dependencies.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Apr 2006 19:40:41 +0200
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Apr 2006 19:46:04 +0200
 
 kudzu-kanotix (1.2.30-3) unstable; urgency=low
 

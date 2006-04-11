@@ -8,7 +8,7 @@ Standards-Version: 3.6.2
 Package: kudzu-kanotix
 Provides: kudzu
 Architecture: any
-Depends: ${shlibs:Depends}, hwdata, python2.4
+Depends: ${shlibs:Depends}, hwdata, python2.4, python
 Replaces: kudzu
 Conflicts: kudzu
 Description: The Red Hat Linux hardware probing tool

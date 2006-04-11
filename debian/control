@@ -9,8 +9,8 @@ Package: kudzu-kanotix
 Provides: kudzu
 Architecture: any
 Depends: ${shlibs:Depends}, hwdata, python2.4
-Replaces: kudzu, kudzu-vesa, kudzu-kanotix-vesa
-Conflicts: kudzu, kudzu-vesa, kudzu-kanotix-vesa
+Replaces: kudzu
+Conflicts: kudzu
 Description: The Red Hat Linux hardware probing tool
  This is a hardware probing tool run at system boot time to determine
  what hardware has been added or removed from the system.

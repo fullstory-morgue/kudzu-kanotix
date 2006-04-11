@@ -47,57 +47,20 @@ struct LRMI_regs {
 };
 
 
-#ifndef LRMI_PREFIX
-#define LRMI_PREFIX LRMI_
-#endif
+struct LRMIfuncs {
+	/* Initialize: returns 1 if successful, 0 for failure */
+	int (*init)(void);
+	/* Simulate a 16 bit interrupt: returns 1 if sucessful, 0 for failure */
+	int (*interrupt)(int, struct LRMI_regs *);
+	/* Allocate real mode memory; The returned block is paragraph (16 byte) aligned */
+	void *(*alloc_real)(int);
+	/* Free real mode memory */
+	void (*free_real)(void *);
+	/* Get the base address of the real memory address space block. */
+	size_t (*base_addr)(void);
+};
 
-#define LRMI_CONCAT2(a, b) 	a ## b
-#define LRMI_CONCAT(a, b) 	LRMI_CONCAT2(a, b)
-#define LRMI_MAKENAME(a) 	LRMI_CONCAT(LRMI_PREFIX, a)
 
-/*
- Initialize
- returns 1 if sucessful, 0 for failure
-*/
-#define LRMI_init LRMI_MAKENAME(init)
-int
-LRMI_init(void);
-
-/*
- Simulate a 16 bit far call
- returns 1 if sucessful, 0 for failure
-*/
-#define LRMI_call LRMI_MAKENAME(call)
-int
-LRMI_call(struct LRMI_regs *r);
-
-/*
- Simulate a 16 bit interrupt
- returns 1 if sucessful, 0 for failure
-*/
-#define LRMI_int LRMI_MAKENAME(int)
-int
-LRMI_int(int interrupt, struct LRMI_regs *r);
-
-/*
- Allocate real mode memory
- The returned block is paragraph (16 byte) aligned
-*/
-#define LRMI_alloc_real LRMI_MAKENAME(alloc_real)
-void *
-LRMI_alloc_real(int size);
-
-/*
- Free real mode memory
-*/
-#define LRMI_free_real LRMI_MAKENAME(free_real)
-void
-LRMI_free_real(void *m);
-
-/*
- * Get the base address of the real memory address space block.
- */
-size_t
-LRMI_base_addr(void);
+struct LRMIfuncs *LRMI_get_implementation(void);
 
 #endif

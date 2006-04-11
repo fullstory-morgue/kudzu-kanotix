@@ -443,8 +443,7 @@ struct device * pciProbe(enum deviceClass probeClass, int probeFlags, struct dev
 		 * also need i2o_scsi module. Dunno how to delineate that
 		 * here. */
 		if (devtype == 0x0e00) {
-			if ((config[PCI_CLASS_PROG] == 0 || config[PCI_CLASS_PROG] == 1) &&
-				!dev->driver) {
+                    if ((config[PCI_CLASS_PROG] == 0 || config[PCI_CLASS_PROG] == 1)) { 
 				if (dev->driver) free(dev->driver);
 				dev->driver = strdup("i2o_block");
 			}

@@ -131,7 +131,7 @@ pushw(unsigned short i)
 
 
 int
-LRMI_init(void)
+vm86_LRMI_init(void)
 {
 	void *m;
 
@@ -805,7 +805,7 @@ LRMI_call(struct LRMI_regs *r)
 
 
 int
-LRMI_int(int i, struct LRMI_regs *r)
+vm86_LRMI_int(int i, struct LRMI_regs *r)
 {
 	unsigned int vret;
 	unsigned int seg, off;
@@ -851,7 +851,16 @@ LRMI_int(int i, struct LRMI_regs *r)
 }
 
 size_t
-LRMI_base_addr(void)
+vm86_LRMI_base_addr(void)
 {
 	return 0;
 }
+
+struct LRMIfuncs vm86_LRMIfuncs = {
+	.init = vm86_LRMI_init,
+	.interrupt = vm86_LRMI_int,
+	.alloc_real = LRMI_alloc_real,
+	.free_real = LRMI_free_real,
+	.base_addr = vm86_LRMI_base_addr,
+};
+

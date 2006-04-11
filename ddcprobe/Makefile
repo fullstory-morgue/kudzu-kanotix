@@ -10,7 +10,9 @@ DDC_OBJS =
 X86EMU =
 
 ifeq ($(ARCH),i386)
-DDC_OBJS = vesamode.o common.o lrmi.o vbe.o x86-common.o
+CFLAGS += -Ix86emu -Ix86emu/x86emu
+DDC_OBJS = vesamode.o common.o lrmi.o thunk.o vbe.o x86-common.o x86emu/debug.o x86emu/decode.o x86emu/fpu.o x86emu/ops2.o x86emu/ops.o x86emu/prim_ops.o x86emu/sys.o
+X86EMU=x86emu/libx86emu.a
 endif
 
 ifeq ($(ARCH),x86_64)

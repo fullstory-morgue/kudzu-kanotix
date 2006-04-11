@@ -11,7 +11,7 @@
 #include "common.h"
 #include "lrmi.h"
 #include "vbe.h"
-#ident "$Id: vbe.c,v 1.11 2006/02/14 03:59:46 notting Exp $"
+#ident "$Id: vbe.c,v 1.12.2.1 2006/03/07 19:18:21 notting Exp $"
 
 /* The *actual* vbe_info as pulled from the BIOS.
  * union {
@@ -74,21 +74,25 @@ void vbecopy(struct vbe_info *dst, struct __vbe_info *src)
 	memcpy(dst->reserved2, src->reserved2, 256);
 }
 
+static struct LRMIfuncs *f = NULL;
 
-/* srcurn information about a particular video mode. */
+
+/* Return information about a particular video mode. */
 struct vbe_mode_info *vbe_get_mode_info(u_int16_t mode)
 {
 	struct LRMI_regs regs;
 	char *mem;
 	struct vbe_mode_info *ret = NULL;
+	
+	if (!f) f = LRMI_get_implementation();
 
 	/* Initialize LRMI. */
-	if(LRMI_init() == 0) {
+	if(f->init() == 0) {
 		return NULL;
 	}
 
 	/* Allocate a chunk of memory. */
-	mem = LRMI_alloc_real(sizeof(struct vbe_mode_info));
+	mem = f->alloc_real(sizeof(struct vbe_mode_info));
 	if(mem == NULL) {
 		return NULL;
 	}
@@ -97,28 +101,28 @@ struct vbe_mode_info *vbe_get_mode_info(u_int16_t mode)
 	memset(&regs, 0, sizeof(regs));
 	regs.eax = 0x4f01;
 	regs.ecx = mode;
-	regs.es = ((u_int32_t)mem) >> 4;
-	regs.edi = ((u_int32_t)mem) & 0x0f;
+	regs.es = (u_int32_t)(mem - f->base_addr()) >> 4;
+	regs.edi = (u_int32_t)(mem - f->base_addr()) & 0x0f;
 
 	/* Do it. */
 	iopl(3);
 	ioperm(0, 0x400, 1);
 
-	if(LRMI_int(0x10, &regs) == 0) {
-		LRMI_free_real(mem);
+	if(f->interrupt(0x10, &regs) == 0) {
+		f->free_real(mem);
 		return NULL;
 	}
 
 	/* Check for successful return. */
 	if((regs.eax & 0xffff) != 0x004f) {
-		LRMI_free_real(mem);
+		f->free_real(mem);
 		return NULL;
 	}
 
 	/* Get memory for return. */
 	ret = malloc(sizeof(struct vbe_mode_info));
 	if(ret == NULL) {
-		LRMI_free_real(mem);
+		f->free_real(mem);
 		return NULL;
 	}
 
@@ -126,7 +130,7 @@ struct vbe_mode_info *vbe_get_mode_info(u_int16_t mode)
 	memcpy(ret, mem, sizeof(struct vbe_mode_info));
 
 	/* Clean up and return. */
-	LRMI_free_real(mem);
+	f->free_real(mem);
 	return ret;
 }
 
@@ -140,13 +144,14 @@ struct vbe_info *vbe_get_vbe_info()
 	char *tmp;
 	int i;
 
+	if (!f) f = LRMI_get_implementation();
 	/* Initialize LRMI. */
-	if(LRMI_init() == 0) {
+	if(f->init() == 0) {
 		return NULL;
 	}
 
 	/* Allocate a chunk of memory. */
-	mem = LRMI_alloc_real(sizeof(struct vbe_mode_info));
+	mem = f->alloc_real(sizeof(struct vbe_mode_info));
 	if(mem == NULL) {
 		return NULL;
 	}
@@ -155,38 +160,38 @@ struct vbe_info *vbe_get_vbe_info()
 	/* Set up registers for the interrupt call. */
 	memset(&regs, 0, sizeof(regs));
 	regs.eax = 0x4f00;
-	regs.es = ((u_int32_t)mem) >> 4;
-	regs.edi = ((u_int32_t)mem) & 0x0f;
+	regs.es = (u_int32_t)(mem - f->base_addr()) >> 4;
+	regs.edi = (u_int32_t)(mem - f->base_addr()) & 0x0f;
 	memcpy(mem, "VBE2", 4);
 
 	/* Do it. */
 	iopl(3);
 	ioperm(0, 0x400, 1);
 
-	if(LRMI_int(0x10, &regs) == 0) {
-		LRMI_free_real(mem);
+	if(f->interrupt(0x10, &regs) == 0) {
+		f->free_real(mem);
 		return NULL;
 	}
 
 	/* Check for successful return code. */
 	if((regs.eax & 0xffff) != 0x004f) {
-		LRMI_free_real(mem);
+		f->free_real(mem);
 		return NULL;
 	}
 
 	/* Get memory to return the information. */
 	ret = malloc(sizeof(struct vbe_info));
 	if(ret == NULL) {
-		LRMI_free_real(mem);
+		f->free_real(mem);
 		return NULL;
 	}
 	biosdata = (struct __vbe_info *)mem;
 	vbecopy(ret, biosdata);
 
 	/* Set up pointers to usable memory. */
-	ret->mode_list.list = (u_int16_t*) ((biosdata->mode_list.seg << 4) +
+	ret->mode_list.list = (u_int16_t*) (f->base_addr() + (biosdata->mode_list.seg << 4) +
 					    (biosdata->mode_list.ofs));
-	ret->oem_name.string = (char*) ((biosdata->oem_name.seg << 4) +
+	ret->oem_name.string = (char*) (f->base_addr() +  (biosdata->oem_name.seg << 4) +
 					(biosdata->oem_name.ofs));
 
 	/* Snip, snip. */
@@ -201,7 +206,7 @@ struct vbe_info *vbe_get_vbe_info()
 
 		/* Vendor name. */
 		ret->vendor_name.string = (char*)
-			 ((biosdata->vendor_name.seg << 4)
+			 (f->base_addr() + (biosdata->vendor_name.seg << 4)
 			+ (biosdata->vendor_name.ofs));
 
 		tmp = strdup(ret->vendor_name.string); /* leak */
@@ -212,7 +217,7 @@ struct vbe_info *vbe_get_vbe_info()
 
 		/* Product name. */
 		ret->product_name.string = (char*)
-			 ((biosdata->product_name.seg << 4)
+			 (f->base_addr() + (biosdata->product_name.seg << 4)
 			+ (biosdata->product_name.ofs));
 
 		tmp = strdup(ret->product_name.string); /* leak */
@@ -223,7 +228,7 @@ struct vbe_info *vbe_get_vbe_info()
 
 		/* Product revision. */
 		ret->product_revision.string = (char*)
-			 ((biosdata->product_revision.seg << 4)
+			 (f->base_addr() + (biosdata->product_revision.seg << 4)
 			+ (biosdata->product_revision.ofs));
 
 		tmp = strdup(ret->product_revision.string); /* leak */
@@ -234,7 +239,7 @@ struct vbe_info *vbe_get_vbe_info()
 	}
 
 	/* Cleanup. */
-	LRMI_free_real(mem);
+	f->free_real(mem);
 	return ret;
 }
 
@@ -244,8 +249,10 @@ int get_edid_supported()
 	struct LRMI_regs regs;
 	int ret = 0;
 
+	if (!f) f = LRMI_get_implementation();
+	
 	/* Initialize LRMI. */
-	if(LRMI_init() == 0) {
+	if(f->init() == 0) {
 		return 0;
 	}
 
@@ -259,7 +266,7 @@ int get_edid_supported()
 	iopl(3);
 	ioperm(0, 0x400, 1);
 
-	if (LRMI_int(0x10, &regs) == 0) {
+	if (f->interrupt(0x10, &regs) == 0) {
 		return 0;
 	}
 
@@ -284,13 +291,16 @@ struct edid1_info *get_edid_info()
 	struct edid1_info *ret = NULL;
 	u_int16_t man;
 
+	
+	if (!f) f = LRMI_get_implementation();
+	
 	/* Initialize LRMI. */
-	if(LRMI_init() == 0) {
+	if(f->init() == 0) {
 		return NULL;
 	}
 
 	/* Allocate a chunk of memory. */
-	mem = LRMI_alloc_real(sizeof(struct edid1_info));
+	mem = f->alloc_real(sizeof(struct edid1_info));
 	if(mem == NULL) {
 		return NULL;
 	}
@@ -299,28 +309,28 @@ struct edid1_info *get_edid_info()
 	memset(&regs, 0, sizeof(regs));
 	regs.eax = 0x4f15;
 	regs.ebx = 0x0001;
-	regs.es = ((u_int32_t)mem) >> 4;
-	regs.edi = ((u_int32_t)mem) & 0x0f;
+	regs.es = (u_int32_t)(mem) >> 4;
+	regs.edi = (u_int32_t)(mem) & 0x0f;
 
 	/* Do it. */
 	iopl(3);
 	ioperm(0, 0x400, 1);
 
-	if(LRMI_int(0x10, &regs) == 0) {
-		LRMI_free_real(mem);
+	if(f->interrupt(0x10, &regs) == 0) {
+		f->free_real(mem);
 		return NULL;
 	}
 
 #if 0
 	/* Check for successful return. */
 	if((regs.eax & 0xffff) != 0x004f) {
-		LRMI_free_real(mem);
+		f->free_real(mem);
 		return NULL;
 	}
 #elseif
 	/* Check for successful return. */
 	if((regs.eax & 0xff) != 0x4f) {
-		LRMI_free_real(mem);
+		f->free_real(mem);
 		return NULL;
 	}
 #endif
@@ -328,7 +338,7 @@ struct edid1_info *get_edid_info()
 	/* Get memory for return. */
 	ret = malloc(sizeof(struct edid1_info));
 	if(ret == NULL) {
-		LRMI_free_real(mem);
+		f->free_real(mem);
 		return NULL;
 	}
 
@@ -339,7 +349,7 @@ struct edid1_info *get_edid_info()
 	man = ntohs(man);
 	memcpy(&ret->manufacturer_name, &man, 2);
 
-	LRMI_free_real(mem);
+	f->free_real(mem);
 	return ret;
 }
 

@@ -1,8 +1,18 @@
-kudzu-kanotix (1.2.30-4) UNRELEASED; urgency=low
+kudzu-kanotix (1.2.34.3-1) unstable; urgency=low
 
-  * NOT RELEASED YET
+  * New upstream release:
+    - fix scsi probe to not return devices of the wrong class
+    - special-case xen to not use vm86 (works around #179013)
+    - switch at runtime between vm86 and x86emu on i386. Fixes vbe/ddc on
+      Xen and i386-on-x86_64
+    - silence some error messages
+    - fix i2o again (#182522)
+    - fix potential segfault with USB network devices (#182006)
+    - further x86emu-related fixes (#181467)
+  * don't conflict with kudzu-vesa anymore, as X.org 7 depends on xresprobe
+    which in turn provides kudzu-vesa.
 
- -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Sat, 18 Feb 2006 00:07:18 +0100
+ -- Stefan Lippers-Hollmann <s.l-h@gmx.de>  Tue, 11 Apr 2006 19:40:41 +0200
 
 kudzu-kanotix (1.2.30-3) unstable; urgency=low
 

@@ -34,7 +34,7 @@ OTHER DEALINGS IN THE SOFTWARE.
 #include "lrmi.h"
 
 #define REAL_MEM_BASE 	((void *)0x10000)
-#define REAL_MEM_SIZE 	0x40000
+#define REAL_MEM_SIZE 	0x80000
 #define REAL_MEM_BLOCKS 	(REAL_MEM_SIZE/1024)
 
 struct mem_block {
@@ -59,7 +59,6 @@ real_mem_init(void)
 
 	fd_zero = open("/dev/zero", O_RDWR);
 	if (fd_zero == -1) {
-		perror("open /dev/zero");
 		return 0;
 	}
 
@@ -68,7 +67,6 @@ real_mem_init(void)
 	 MAP_FIXED | MAP_SHARED, fd_zero, 0);
 
 	if (m == (void *)-1) {
-		perror("mmap /dev/zero");
 		close(fd_zero);
 		return 0;
 	}
@@ -216,7 +214,6 @@ int LRMI_common_init(void)
 
 	if (fd_mem == -1) {
 		real_mem_deinit();
-		perror("open /dev/mem");
 		return 0;
 	}
 
@@ -227,7 +224,6 @@ int LRMI_common_init(void)
 	if (m == (void *)-1) {
 		close(fd_mem);
 		real_mem_deinit();
-		perror("mmap /dev/mem");
 		return 0;
 	}
 
@@ -239,11 +235,42 @@ int LRMI_common_init(void)
 		munmap((void *)0, 0x502);
 		close(fd_mem);
 		real_mem_deinit();
-		perror("mmap /dev/mem");
 		return 0;
 	}
 
 	close(fd_mem);
 
 	return 1;
+}
+
+#ifdef __i386__
+struct LRMIfuncs vm86_LRMIfuncs;
+#endif
+struct LRMIfuncs x86emu_LRMIfuncs;
+
+#include <errno.h>
+
+struct LRMIfuncs *LRMI_get_implementation() {
+
+	static struct LRMIfuncs *ret = NULL;
+
+	if (ret) return ret;
+	
+	ret = malloc(sizeof (struct LRMIfuncs));
+#ifdef __i386__
+	int r;
+	
+	asm volatile (
+		      "pushl %%ebx\n\t"
+		      "movl %2, %%ebx\n\t"
+		      "int $0x80\n\t"
+		      "popl %%ebx"
+		      : "=a" (r)
+		      : "0" (113), "r" (NULL));
+	if (access("/proc/xen",X_OK) == -1 && r != -ENOSYS)
+		memcpy(ret,&vm86_LRMIfuncs,sizeof(struct LRMIfuncs));
+	else
+#endif
+		memcpy(ret,&x86emu_LRMIfuncs,sizeof(struct LRMIfuncs));
+	return ret;
 }

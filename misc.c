@@ -222,7 +222,7 @@ struct device *miscProbe(enum deviceClass probeClass, int probeFlags,
 			      miscdev = miscNewDevice(NULL);
 			      miscdev->type = CLASS_HD;
 			      miscdev->desc = strdup("I2O block device");
-			      miscdev->device = strdup(ent->d_name+6);
+			      miscdev->device = strdup(devent->d_name+6);
 			      for (c = miscdev->device; *c; c++)
 				      if (*c == '!') *c = '/';
 			      if (devlist)
